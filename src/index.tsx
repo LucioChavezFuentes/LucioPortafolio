@@ -20,7 +20,7 @@ const theme = createMuiTheme({
 })
 
 
-var hist = createBrowserHistory();
+const hist = createBrowserHistory();
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>

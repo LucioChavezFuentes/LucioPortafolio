@@ -71,7 +71,7 @@ const navPillsStyle = theme => ({
     }
   },
   contentWrapper: {
-    marginTop: "20px"
+    marginTop: "20px",
   },
   primary: {
     "&,&:hover": {
@@ -135,6 +135,9 @@ const navPillsStyle = theme => ({
     "&,& *": {
       letterSpacing: "normal"
     }
+  },
+  tabContent: {
+    overflow: "hidden",
   }
 });
 

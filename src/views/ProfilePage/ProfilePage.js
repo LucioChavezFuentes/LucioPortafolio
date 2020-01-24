@@ -7,6 +7,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
+//Material IU imports
+import Paper from '@material-ui/core/Paper';
+//Queue Animation
+import QueueAnim from 'rc-queue-anim';
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -57,9 +61,10 @@ export default function ProfilePage(props) {
         {...rest}
       />
       <Parallax small />
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div>
-          <div className={classes.container}>
+      <QueueAnim type="alpha">
+      <div key="1" className={classNames(classes.main, classes.mainRaised)}>
+        <div key="2">
+          <div key="3" className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>
                 <div className={classes.profile}>
@@ -82,14 +87,44 @@ export default function ProfilePage(props) {
                 </div>
               </GridItem>
             </GridContainer>
+            <Paper key="4" elevation={0} >
             <div className={classes.description}>
+              <h6 className='miniTitle'>Front End</h6>
+              <p>The scope of my skills cover front end technologies such as:
+                
+                  <span className='bold'> HTML, </span>
+                  <span className='bold'> CSS/SCSS, </span>
+                  <span className='bold'> Flexbox, </span>
+                  <span className='bold'> CSS Grids, </span>
+                  <span className='bold'> Material IU, </span>
+                  <span className='bold'> TypeScript/JavaScript, </span>
+                  <span className='bold'> React </span> 
+                    and
+                  <span className='bold'> Redux.</span>
+                </p>
+                <h6 className='miniTitle'>Testing</h6>
+                <p>
+                  I also write unit and/or integration tests with:
+                  <span className='bold'> Jest </span> 
+                    and
+                  <span className='bold'> React Testing Library. </span>
+                </p>
+                <h6 className='miniTitle'>Back End</h6>
+                <p>
+                  And I have some experience in:
+                  <span className='bold'> SQL, </span>
+                  <span className='bold'> Node.js</span>,
+                  <span className='bold'> Firebase </span>
+                  for back end solutions.
+                </p>
+
               <p>
-                A web developer skillfull in HTML, CSS/SCSS, TypeScript/JavaScript, 
-                React and Redux as FrontEnd technologies; Node.js and Firebase as
-                BackEnd solutions.
+                I believe in always keep learning new things, code with the best pratices known and looking forward for those yet to discovered.
               </p>
             </div>
-            <GridContainer justify="center">
+            </Paper>
+            
+            <GridContainer key="5" justify="center">
               <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
                 <NavPills
                   alignCenter
@@ -208,6 +243,7 @@ export default function ProfilePage(props) {
           </div>
         </div>
       </div>
+      </QueueAnim>
       <Footer />
     </div>
   );

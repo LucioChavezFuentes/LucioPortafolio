@@ -69,6 +69,7 @@ export default function NavPills(props) {
       })}
     </Tabs>
   );
+  /*
   const tabContent = (
     <div className={classes.contentWrapper}>
       <SwipeableViews
@@ -85,7 +86,8 @@ export default function NavPills(props) {
         })}
       </SwipeableViews>
     </div>
-  );
+  );*/
+  const tabContent = null;
   return horizontal !== undefined ? (
     <GridContainer>
       <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
