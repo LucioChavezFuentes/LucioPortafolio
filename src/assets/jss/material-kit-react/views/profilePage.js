@@ -13,6 +13,9 @@ const profilePageStyle = {
       transform: "translate3d(0, -50%, 0)"
     }
   },
+  descriptionContainer: {
+    height: '310px'
+  },
   description: {
     margin: "1.071rem auto 0",
     maxWidth: "600px",

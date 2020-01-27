@@ -14,6 +14,11 @@ import Tab from "@material-ui/core/Tab";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
+//On Scroll Animation
+import ScrollAnimation from 'react-animate-on-scroll';
+//On Scroll Animations
+import "animate.css/animate.min.css";
+
 import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -33,6 +38,7 @@ export default function NavPills(props) {
     [classes.horizontalDisplay]: horizontal !== undefined
   });
   const tabButtons = (
+    <ScrollAnimation animateIn="fadeIn">
     <Tabs
       classes={{
         root: classes.root,
@@ -40,6 +46,7 @@ export default function NavPills(props) {
         flexContainer: flexContainerClasses,
         indicator: classes.displayNone
       }}
+      variant="fullWidth"
       value={active}
       onChange={handleChange}
       centered={alignCenter}
@@ -68,9 +75,11 @@ export default function NavPills(props) {
         );
       })}
     </Tabs>
+    </ScrollAnimation>
   );
-  /*
+  
   const tabContent = (
+    
     <div className={classes.contentWrapper}>
       <SwipeableViews
         axis={direction === "rtl" ? "x-reverse" : "x"}
@@ -78,16 +87,16 @@ export default function NavPills(props) {
         onChangeIndex={handleChangeIndex}
       >
         {tabs.map((prop, key) => {
-          return (
-            <div className={classes.tabContent} key={key}>
-              {prop.tabContent}
-            </div>
-          );
-        })}
+    return (
+      <div className={classes.tabContent} key={key}>
+        {prop.tabContent}
+      </div>
+    )}
+    )}
       </SwipeableViews>
     </div>
-  );*/
-  const tabContent = null;
+  );
+  
   return horizontal !== undefined ? (
     <GridContainer>
       <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
@@ -96,7 +105,8 @@ export default function NavPills(props) {
   ) : (
     <div>
       {tabButtons}
-      {tabContent}
+      <ScrollAnimation animateIn="fadeIn">{tabContent}</ScrollAnimation>
+      
     </div>
   );
 }
