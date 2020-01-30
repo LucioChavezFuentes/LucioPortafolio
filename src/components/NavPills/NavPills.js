@@ -19,12 +19,23 @@ import ScrollAnimation from 'react-animate-on-scroll';
 //On Scroll Animations
 import "animate.css/animate.min.css";
 
+// React Carusel
+
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+
+import CarouselOfProjects from "components/CarouselOfProjects/CarouselOfProjects";
+
+// useWindowSize
+import useWindowSize from 'helper/useWindowSize'
+
 import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
 
 const useStyles = makeStyles(styles);
 
 export default function NavPills(props) {
   const [active, setActive] = React.useState(props.active);
+  const {width, height} = useWindowSize();
   const handleChange = (event, active) => {
     setActive(active);
   };
@@ -37,8 +48,32 @@ export default function NavPills(props) {
     [classes.flexContainer]: true,
     [classes.horizontalDisplay]: horizontal !== undefined
   });
+
+const arrayOfButtons = tabs.map((prop, key) => {
+  var icon = {};
+  if (prop.tabIcon !== undefined) {
+    icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
+  }
+  const pillsClasses = classNames({
+    [classes.pills]: true,
+    [classes.horizontalPills]: horizontal !== undefined,
+    [classes.pillsWithIcons]: prop.tabIcon !== undefined
+  });
+  return (
+    <Tab
+      label={prop.tabButton}
+      key={key}
+      {...icon}
+      classes={{
+        root: pillsClasses,
+        selected: classes[color],
+        wrapper: classes.tabWrapper,
+      }}
+    />
+  );
+})
+
   const tabButtons = (
-    <ScrollAnimation animateIn="fadeIn">
     <Tabs
       classes={{
         root: classes.root,
@@ -51,35 +86,11 @@ export default function NavPills(props) {
       onChange={handleChange}
       centered={alignCenter}
     >
-      {tabs.map((prop, key) => {
-        var icon = {};
-        if (prop.tabIcon !== undefined) {
-          icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
-        }
-        const pillsClasses = classNames({
-          [classes.pills]: true,
-          [classes.horizontalPills]: horizontal !== undefined,
-          [classes.pillsWithIcons]: prop.tabIcon !== undefined
-        });
-        return (
-          <Tab
-            label={prop.tabButton}
-            key={key}
-            {...icon}
-            classes={{
-              root: pillsClasses,
-              selected: classes[color],
-              wrapper: classes.tabWrapper
-            }}
-          />
-        );
-      })}
+      {arrayOfButtons}
     </Tabs>
-    </ScrollAnimation>
   );
   
   const tabContent = (
-    
     <div className={classes.contentWrapper}>
       <SwipeableViews
         axis={direction === "rtl" ? "x-reverse" : "x"}
@@ -102,13 +113,31 @@ export default function NavPills(props) {
       <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
       <GridItem {...horizontal.contentGrid}>{tabContent}</GridItem>
     </GridContainer>
+  ) : (width <= 600 ? (
+
+    <CarouselOfProjects tabs={tabs}>
+    {/*<CarouselProvider
+        naturalSlideWidth={125}
+        naturalSlideHeight={125}
+        totalSlides={3}
+      >
+        <Slider>
+          <Slide index={0}>{arrayOfButtons[0]} <iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe></Slide>
+          <Slide index={1}><iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe></Slide>
+          <Slide index={2}><iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe></Slide>
+        </Slider>
+        <ButtonBack>Back</ButtonBack>
+        <ButtonNext>Next</ButtonNext>
+    </CarouselProvider>*/}
+    </ CarouselOfProjects >
+    
   ) : (
     <div>
       {tabButtons}
       <ScrollAnimation animateIn="fadeIn">{tabContent}</ScrollAnimation>
       
     </div>
-  );
+  ));
 }
 
 NavPills.defaultProps = {

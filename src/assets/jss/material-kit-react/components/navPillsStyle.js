@@ -49,7 +49,10 @@ const navPillsStyle = theme => ({
     height: "auto",
     opacity: "1",
     maxWidth: "100%",
-    margin: "0 5px"
+    margin: "0 5px",
+    "&:hover": {
+      backgroundColor: "#ffebee"
+    }
   },
   pillsWithIcons: {
     borderRadius: "4px"
@@ -135,11 +138,26 @@ const navPillsStyle = theme => ({
     textTransform: "uppercase",
     "&,& *": {
       letterSpacing: "normal"
-    }
+    },
+    
   },
   tabContent: {
     overflow: "hidden",
-  }
+  },
+  tabButton: {
+    position: "flex",
+    textAlign: "center",
+    backgroundColor: "red"
+  },
+  nonSelectedElements:{
+    "&:hover": {
+      backgroundColor: "gray"
+    }
+  },
+  carouselStyle: {
+    width: "90%"
+  },
+  
 });
 
 export default navPillsStyle;
