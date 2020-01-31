@@ -15,9 +15,13 @@ import red from '@material-ui/core/colors/red';
 
 const theme = createMuiTheme({
   palette: {
-    primary: red,
-    secondary: green,
-  }
+    primary: {
+      main: '#43a047',
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
 })
 
 

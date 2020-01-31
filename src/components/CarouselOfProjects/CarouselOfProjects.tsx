@@ -3,12 +3,17 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
+import "./carouselOfPro.css";
+
 // @material-ui/core components
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Button from '@material-ui/core/Button';
-import ButtonBase from '@material-ui/core/ButtonBase';
+import Fab from '@material-ui/core/Fab';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 // React Carusel
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
@@ -66,10 +71,18 @@ function CarouselOfProjects({tabs, horizontal, color, alignCenter, direction} : 
         <Slider>
           {arrayOfSlides}
         </Slider>
-        <ButtonBack className={`${classes.navButton} ${classes.backButton}`}>Back</ButtonBack>
+
+        <Fab
+
+          classes={{root:classes.backButton,}}
+          component={ButtonBack as any}
+          >
+            <ArrowBackIcon/>
+        </Fab>
+        
         <ButtonNext className={`${classes.navButton} ${classes.nextButton}`}>Next</ButtonNext>
       </CarouselProvider>
     )
-    }
+  }
 
 export default CarouselOfProjects;

@@ -5,20 +5,16 @@ import { createStyles, Theme } from '@material-ui/core/styles';
 const carouselOfProjectsStyle = (theme : Theme) => createStyles({
 
   navButton: {
-    border: "none",
-    margin: "15px",
-    color:" white",
-    padding: "15px 32px",
-    borderRadius: "20px",
+    margin: "15px 10px 20px 10px",
+    padding: "5px 10px",
     cursor: "pointer",
     transition: "opacity 0.4s",
-    transitionDuration: "0.4s",
-    overflow: "hidden",
     "&:disabled": {
       opacity: 0.2,
     },
+    /*
     "&:after": {
-      content: "",
+      content: "''",
       background: "#f1f1f1",
       display:"block",
       position: "absolute",
@@ -34,13 +30,33 @@ const carouselOfProjectsStyle = (theme : Theme) => createStyles({
       margin: 0,
       opacity: 1,
       transition: "0s",
-    }
+    },
+    /*"&:active": {
+      "&:after": {
+        padding: 0,
+        margin: 0,
+        opacity: 1,
+        transition: "0s",
+      }
+    }*/
   },
   backButton: {
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: '#007bff',
+    '&:hover': {
+      backgroundColor: '#0069d9'
+    },
+    '&:active': {
+      backgroundColor: '#0062cc'
+    }
   },
   nextButton: {
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.main,
+  },
+
+  muiButton: {
+    borderRadius: "5px",
+    color: "white",
+    backgroundColor: theme.palette.secondary.dark,
   }
 
 })
