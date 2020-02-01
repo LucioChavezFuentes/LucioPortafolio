@@ -8,7 +8,14 @@ const carouselOfProjectsStyle = (theme : Theme) => createStyles({
     margin: "15px 10px 20px 10px",
     padding: "5px 10px",
     cursor: "pointer",
-    transition: "opacity 0.4s",
+    transition: "all 0.4s",
+    backgroundColor: '#007bff',
+    '&:hover': {
+      backgroundColor: '#007bff'
+    },
+    '&:active': {
+      backgroundColor: '#0069d9'
+    },
     "&:disabled": {
       opacity: 0.2,
     },
@@ -43,21 +50,15 @@ const carouselOfProjectsStyle = (theme : Theme) => createStyles({
   backButton: {
     backgroundColor: '#007bff',
     '&:hover': {
-      backgroundColor: '#0069d9'
+      backgroundColor: '#007bff'
     },
     '&:active': {
-      backgroundColor: '#0062cc'
+      backgroundColor: '#0069d9'
     }
   },
   nextButton: {
     backgroundColor: theme.palette.primary.main,
   },
-
-  muiButton: {
-    borderRadius: "5px",
-    color: "white",
-    backgroundColor: theme.palette.secondary.dark,
-  }
 
 })
 

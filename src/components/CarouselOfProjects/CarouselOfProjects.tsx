@@ -3,7 +3,6 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
-import "./carouselOfPro.css";
 
 // @material-ui/core components
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
@@ -40,6 +39,7 @@ function CarouselOfProjects({tabs, horizontal, color, alignCenter, direction} : 
     if (prop.tabIcon !== undefined) {
       icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
     }
+
     const pillsClasses = classNames({
       [classes.pills]: true,
       [classes.horizontalPills]: horizontal !== undefined,
@@ -48,6 +48,7 @@ function CarouselOfProjects({tabs, horizontal, color, alignCenter, direction} : 
     return (
       <Slide index={index}>
         <Tab
+        color="primary"
         label={prop.tabButton}
         key={index}
         {...icon}
@@ -73,14 +74,19 @@ function CarouselOfProjects({tabs, horizontal, color, alignCenter, direction} : 
         </Slider>
 
         <Fab
-
-          classes={{root:classes.backButton,}}
+          classes={{root: classes.navButton}}
           component={ButtonBack as any}
           >
-            <ArrowBackIcon/>
+            <ArrowBackIcon style={{ color: 'white' }} />
         </Fab>
-        
-        <ButtonNext className={`${classes.navButton} ${classes.nextButton}`}>Next</ButtonNext>
+
+        <Fab
+          classes={{root: classes.navButton}}
+          component={ButtonNext as any}
+          >
+            <ArrowForwardIcon style={{ color: 'white' }} />
+        </Fab>
+
       </CarouselProvider>
     )
   }

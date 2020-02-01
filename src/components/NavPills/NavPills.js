@@ -61,7 +61,9 @@ const arrayOfButtons = tabs.map((prop, key) => {
   });
   return (
     <Tab
-      label={prop.tabButton}
+      style={{borderTopLeftRadius: key === 0 ? "10px" : undefined}}
+      aria-label={prop.tabButton}
+      label={width <= 600 ? undefined : prop.tabButton}
       key={key}
       {...icon}
       classes={{
@@ -113,31 +115,13 @@ const arrayOfButtons = tabs.map((prop, key) => {
       <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
       <GridItem {...horizontal.contentGrid}>{tabContent}</GridItem>
     </GridContainer>
-  ) : (width <= 600 ? (
-
-    <CarouselOfProjects tabs={tabs}>
-    {/*<CarouselProvider
-        naturalSlideWidth={125}
-        naturalSlideHeight={125}
-        totalSlides={3}
-      >
-        <Slider>
-          <Slide index={0}>{arrayOfButtons[0]} <iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe></Slide>
-          <Slide index={1}><iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe></Slide>
-          <Slide index={2}><iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe></Slide>
-        </Slider>
-        <ButtonBack>Back</ButtonBack>
-        <ButtonNext>Next</ButtonNext>
-    </CarouselProvider>*/}
-    </ CarouselOfProjects >
-    
-  ) : (
+  )  : (
     <div>
       {tabButtons}
       <ScrollAnimation animateIn="fadeIn">{tabContent}</ScrollAnimation>
       
     </div>
-  ));
+  );
 }
 
 NavPills.defaultProps = {
