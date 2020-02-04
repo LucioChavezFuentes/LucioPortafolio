@@ -7,7 +7,10 @@ import {
   dangerColor
 } from "assets/jss/material-kit-react.js";
 
-const navPillsStyle = theme => ({
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import { createStyles } from '@material-ui/core/styles';
+
+const navPillsStyle = theme => createStyles({
   root: {
     marginTop: "20px",
     paddingLeft: "0",
@@ -20,14 +23,11 @@ const navPillsStyle = theme => ({
     position: "relative",
     display: "block",
     color: "inherit",
-    [theme.breakpoints.down("xs")]: {
-      
-    }
   },
   flexContainer: {
     [theme.breakpoints.down("xs")]: {
       display: "flex",
-      flexWrap: "nowrap"
+      flexWrap: "nowrap",
     }
   },
   displayNone: {
@@ -53,14 +53,17 @@ const navPillsStyle = theme => ({
     opacity: "1",
     maxWidth: "100%",
     margin: "0 5px",
+    zIndex: "1",
     "&:hover": {
       backgroundColor: "#e8f5e9"
     },
     [theme.breakpoints.down("xs")]: {
+      //border: `3px solid ${fade(theme.palette.text.secondary, 0.3)}`,
       margin: 0,
       padding: 0,
       minWidth: 0,
-      transition: "all .6s"
+      transition: "all .6s",
+      height: "75px"
     },
   },
 
@@ -96,8 +99,12 @@ const navPillsStyle = theme => ({
       color: "#FFFFFF",
       backgroundColor: theme.palette.primary.main,
       boxShadow:
-        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4)"
-    }
+        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4)",
+      //border: `5px solid ${theme.palette.primary.dark} !important`,
+      //zIndex: "2 !important",
+    },
+    
+    
   },
   info: {
     "&,&:hover": {

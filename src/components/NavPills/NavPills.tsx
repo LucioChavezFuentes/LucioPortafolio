@@ -6,17 +6,18 @@ import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
-//On Scroll Animation
+// On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
-//On Scroll Animations
+// On Scroll Animations
 import "animate.css/animate.min.css";
 
 // React Carusel
@@ -31,15 +32,19 @@ import useWindowSize from 'helper/useWindowSize'
 
 import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles : any = makeStyles(styles);
 
-export default function NavPills(props) {
+export default function NavPills(props : any) {
   const [active, setActive] = React.useState(props.active);
   const {width, height} = useWindowSize();
-  const handleChange = (event, active) => {
+  const theme = useTheme();
+
+  const primaryColorFade = fade(theme.palette.text.secondary, 0.3);
+
+  const handleChange = (event: any, active: number) => {
     setActive(active);
   };
-  const handleChangeIndex = index => {
+  const handleChangeIndex = (index: any) => {
     setActive(index);
   };
   const classes = useStyles();
@@ -49,8 +54,21 @@ export default function NavPills(props) {
     [classes.horizontalDisplay]: horizontal !== undefined
   });
 
-const arrayOfButtons = tabs.map((prop, key) => {
-  var icon = {};
+  function TabsBorder(key: number) {
+    return {
+      borderTopLeftRadius: key === 0 ? "20px" : undefined,
+      borderBottomLeftRadius: key === 0 ? "20px" : undefined,
+      borderTopRightRadius: key === (tabs.length-1) ? "20px" : undefined,
+      borderBottomRightRadius: key === (tabs.length-1) ? "20px" : undefined,
+      borderTop: active === key ? `5px solid ${theme.palette.primary.dark}` : `1px solid ${primaryColorFade}`,
+      borderLeft: active === key || key === (active + 1) ? `5px solid ${theme.palette.primary.dark}` : `1px solid ${primaryColorFade}`,
+      borderBottom: active === key ? `5px solid ${theme.palette.primary.dark}` : `1px solid ${primaryColorFade}`,
+      borderRight: key === (tabs.length-1) ? `1px solid ${primaryColorFade}` : undefined,
+    }
+  }
+
+const arrayOfButtons = tabs.map((prop: any, key: number) => {
+  const icon : {icon?: any} = {};
   if (prop.tabIcon !== undefined) {
     icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
   }
@@ -61,7 +79,7 @@ const arrayOfButtons = tabs.map((prop, key) => {
   });
   return (
     <Tab
-      style={{borderTopLeftRadius: key === 0 ? "10px" : undefined}}
+      style={width <= 600 ? TabsBorder(key) : undefined}
       aria-label={prop.tabButton}
       label={width <= 600 ? undefined : prop.tabButton}
       key={key}
@@ -91,7 +109,7 @@ const arrayOfButtons = tabs.map((prop, key) => {
       {arrayOfButtons}
     </Tabs>
   );
-  
+
   const tabContent = (
     <div className={classes.contentWrapper}>
       <SwipeableViews
@@ -99,7 +117,7 @@ const arrayOfButtons = tabs.map((prop, key) => {
         index={active}
         onChangeIndex={handleChangeIndex}
       >
-        {tabs.map((prop, key) => {
+        {tabs.map((prop: any, key: number) => {
     return (
       <div className={classes.tabContent} key={key}>
         {prop.tabContent}
@@ -109,7 +127,7 @@ const arrayOfButtons = tabs.map((prop, key) => {
       </SwipeableViews>
     </div>
   );
-  
+
   return horizontal !== undefined ? (
     <GridContainer>
       <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
@@ -119,7 +137,6 @@ const arrayOfButtons = tabs.map((prop, key) => {
     <div>
       {tabButtons}
       <ScrollAnimation animateIn="fadeIn">{tabContent}</ScrollAnimation>
-      
     </div>
   );
 }

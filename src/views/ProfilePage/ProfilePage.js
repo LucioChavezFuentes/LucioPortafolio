@@ -19,7 +19,7 @@ import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import NavPills from "components/NavPills/NavPills.js";
+import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
 
 import profile from "assets/img/faces/aguantaa.png";
