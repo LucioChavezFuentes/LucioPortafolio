@@ -9,6 +9,8 @@ import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
 //Material IU imports
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
 
 //On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -23,18 +25,6 @@ import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
 
 import profile from "assets/img/faces/aguantaa.png";
-import projectOne from "assets/img/projects/Social-Conejito2.jpg"
-
-import studio1 from "assets/img/examples/studio-1.jpg";
-import studio2 from "assets/img/examples/studio-2.jpg";
-import studio3 from "assets/img/examples/studio-3.jpg";
-import studio4 from "assets/img/examples/studio-4.jpg";
-import studio5 from "assets/img/examples/studio-5.jpg";
-import work1 from "assets/img/examples/olu-eletu.jpg";
-import work2 from "assets/img/examples/clem-onojeghuo.jpg";
-import work3 from "assets/img/examples/cynthia-del-rio.jpg";
-import work4 from "assets/img/examples/mariya-georgieva.jpg";
-import work5 from "assets/img/examples/clem-onojegaw.jpg";
 
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
@@ -89,11 +79,12 @@ export default function ProfilePage(props) {
                 </div>
               </GridItem>
             </GridContainer>
-            <Paper elevation={0} className={classes.descriptionContainer} >
-            <div className={classes.description}>
+            
+            <div className={classes.descriptionContainer}>
+            <div  className={classes.description} >
             <ScrollAnimation animateIn="fadeIn">
               <h6 key="1" className='miniTitle'>Front End</h6>
-              <p key="2" >The scope of my skills cover front end technologies such as:
+              <p key="2" >The scope of my skills cover front-end technologies such as:
                 
                   <span  className='bold'> HTML, </span>
                   <span className='bold'> CSS/SCSS, </span>
@@ -118,7 +109,7 @@ export default function ProfilePage(props) {
                   <span className='bold'> SQL, </span>
                   <span className='bold'> Node.js</span>,
                   <span className='bold'> Firebase </span>
-                  for back end solutions.
+                  for back-end solutions.
                 </p>
 
               <p key="7">
@@ -126,11 +117,14 @@ export default function ProfilePage(props) {
               </p>
               </ScrollAnimation>
             </div>
-            </Paper>
+            </div>
 
-            <Paper>
-              <h6>Latest Projects</h6>
-            </Paper>
+            <div className={classes.latestProjectsTitleContainer}>
+              <Paper elevation={5} className="paperLatestProjects">
+                <Typography color='textPrimary' className="latestProjectsTitle">Latest Projects</Typography>
+              </Paper>
+            </div>
+            
 
             <GridContainer  justify="center">
               <GridItem xs={12} sm={12} md={12} className={classes.navWrapper}>

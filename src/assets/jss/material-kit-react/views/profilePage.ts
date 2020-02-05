@@ -18,23 +18,43 @@ const profilePageStyle = (theme : Theme) => createStyles({
     }
   },
   descriptionContainer: {
-    height: '310px',
+    height: '350px',
+    margin: "0 auto 20px auto",
     [theme.breakpoints.down("xs")]: {
       height: '527px'
     }
   },
   // @ts-ignore
   description: {
-    margin: "1.071rem auto 0",
-    maxWidth: "600px",
-    padding: '1rem 0',
+    margin: "1.071rem auto",
+    width: '70%',
+    padding: '1rem auto',
     color: "#999",
-    textAlign: "left !important",
+    textAlign: "left",
+    [theme.breakpoints.down("xs")]: {
+      width: '90%',
+    },
+
     '& .miniTitle': {
-      textAlign: "center"
+      textAlign: "center",
+      fontSize: "0.9rem",
+      borderBottom: `3px solid ${theme.palette.primary.main}`,
+      margin: "0 auto 19px auto",
+      width: "20%",
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "0.8rem",
+        width: "50%",
+        margin: "0 auto 9px auto",
+      }
+    },
+    '& p': {
+      fontSize: "0.9rem",
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "0.87rem",
+      }
     },
     '& .bold': {
-      fontWeight: 'bold'
+      fontWeight: 'bold',
     }
 
   },
@@ -44,7 +64,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
   ...imagesStyle,
   // @ts-ignore
   main: {
-    background: "#FFFFFF",
+    background: "#ffffff",
     position: "relative",
     zIndex: "3"
   },
@@ -79,7 +99,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
     textAlign: "center",
     overflow: "hidden",
     [theme.breakpoints.down("xs")]: {
-      margin: "100px auto 100px auto"
+      margin: "20px auto 100px auto"
     }
   },
 
@@ -91,6 +111,21 @@ const profilePageStyle = (theme : Theme) => createStyles({
     backgroundRepeat: "no-repeat",
     [theme.breakpoints.down("xs")]: {
       height: "220px",
+    }
+  },
+
+  latestProjectsTitleContainer: {
+    textAlign: "center",
+    // borderTop: `3px solid ${theme.palette.secondary.light}`,
+    margin: "0 auto",
+    width: "60%",
+    paddingTop: "15px",
+    "& .paperLatestProjects": {
+      width: "50%",
+      margin: "0 auto",
+      [theme.breakpoints.down("xs")]: {
+        width: "100%",
+      }
     }
   }
 });
