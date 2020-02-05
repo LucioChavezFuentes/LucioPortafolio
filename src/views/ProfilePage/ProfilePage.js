@@ -82,9 +82,10 @@ export default function ProfilePage(props) {
             
             <div className={classes.descriptionContainer}>
             <div  className={classes.description} >
-            <ScrollAnimation animateIn="fadeIn">
+            
               <h6 key="1" className='miniTitle'>Front End</h6>
-              <p key="2" >The scope of my skills cover front-end technologies such as:
+              <ScrollAnimation animateIn="fadeIn">
+                <p key="2" >The scope of my skills cover front-end technologies such as:
                 
                   <span  className='bold'> HTML, </span>
                   <span className='bold'> CSS/SCSS, </span>
@@ -96,14 +97,18 @@ export default function ProfilePage(props) {
                     and
                   <span  className='bold'> Redux.</span>
                 </p>
+              </ScrollAnimation>
                 <h6 key="3"  className='miniTitle'>Testing</h6>
+              <ScrollAnimation animateIn="fadeIn">
                 <p key="4" >
                   I also write unit and/or integration tests with:
                   <span className='bold'> Jest </span> 
                     and
                   <span className='bold'> React Testing Library. </span>
                 </p>
+              </ScrollAnimation>
                 <h6 key="5" className='miniTitle'>Back End</h6>
+              <ScrollAnimation animateIn="fadeIn">
                 <p key="6" >
                   And I have some experience in:
                   <span className='bold'> SQL, </span>
@@ -111,13 +116,14 @@ export default function ProfilePage(props) {
                   <span className='bold'> Firebase </span>
                   for back-end solutions.
                 </p>
+              
 
               <p key="7">
                 I believe in always keep learning new things, code with the best pratices known and looking forward for those yet to discovered.
               </p>
               </ScrollAnimation>
             </div>
-            </div>
+          </div>
 
             <div className={classes.latestProjectsTitleContainer}>
               <Paper elevation={5} className="paperLatestProjects">
