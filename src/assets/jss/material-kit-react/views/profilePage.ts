@@ -18,7 +18,10 @@ const profilePageStyle = (theme : Theme) => createStyles({
     }
   },
   descriptionContainer: {
-    height: '310px'
+    height: '310px',
+    [theme.breakpoints.down("xs")]: {
+      height: '527px'
+    }
   },
   // @ts-ignore
   description: {

@@ -60,10 +60,11 @@ export default function NavPills(props : any) {
       borderBottomLeftRadius: key === 0 ? "20px" : undefined,
       borderTopRightRadius: key === (tabs.length-1) ? "20px" : undefined,
       borderBottomRightRadius: key === (tabs.length-1) ? "20px" : undefined,
-      borderTop: active === key ? `5px solid ${theme.palette.primary.dark}` : `1px solid ${primaryColorFade}`,
-      borderLeft: active === key || key === (active + 1) ? `5px solid ${theme.palette.primary.dark}` : `1px solid ${primaryColorFade}`,
-      borderBottom: active === key ? `5px solid ${theme.palette.primary.dark}` : `1px solid ${primaryColorFade}`,
-      borderRight: key === (tabs.length-1) ? `1px solid ${primaryColorFade}` : undefined,
+      borderTop: active === key ? `1px solid ${theme.palette.primary.dark}` : `1px solid ${theme.palette.text.secondary}`,
+      borderRight: key === (tabs.length-1) ? `1px solid ${theme.palette.text.secondary}` : undefined,
+      borderBottom: active === key ? `1px solid ${theme.palette.primary.dark}` : `5px solid ${theme.palette.text.secondary}` ,
+      borderLeft: active === key ? `1px solid ${theme.palette.primary.dark}` : `1px solid ${theme.palette.text.secondary}`,
+
     }
   }
 

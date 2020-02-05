@@ -128,6 +128,10 @@ export default function ProfilePage(props) {
             </div>
             </Paper>
 
+            <Paper>
+              <h6>Latest Projects</h6>
+            </Paper>
+
             <GridContainer  justify="center">
               <GridItem xs={12} sm={12} md={12} className={classes.navWrapper}>
               
