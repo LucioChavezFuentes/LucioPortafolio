@@ -10,7 +10,7 @@ import Favorite from "@material-ui/icons/Favorite";
 //Material IU imports
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 //On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -82,8 +82,12 @@ export default function ProfilePage(props) {
             
             <div className={classes.descriptionContainer}>
             <div  className={classes.description} >
-            
-              <h6 key="1" className='miniTitle'>Front End</h6>
+            <GridContainer >
+              <GridItem xs={12} sm={12} md={12}>
+                <h6 key="1" className='miniTitle'>Front End</h6>
+              </GridItem>
+              
+              <GridItem xs={12} sm={6} md={6}>
               <ScrollAnimation animateIn="fadeIn">
                 <p key="2" >The scope of my skills cover front-end technologies such as:
                 
@@ -98,6 +102,12 @@ export default function ProfilePage(props) {
                   <span  className='bold'> Redux.</span>
                 </p>
               </ScrollAnimation>
+              </GridItem>
+              <GridItem xs={12} sm={6} md={6}>
+                <h5>Buenas</h5>
+              </GridItem>
+              
+              </GridContainer>
                 <h6 key="3"  className='miniTitle'>Testing</h6>
               <ScrollAnimation animateIn="fadeIn">
                 <p key="4" >
