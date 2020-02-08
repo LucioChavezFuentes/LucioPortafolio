@@ -8,6 +8,23 @@ import { createStyles, Theme } from '@material-ui/core/styles';
 
 const profilePageStyle = (theme : Theme) => createStyles({
   container,
+
+  subContainer: {
+    paddingTop: "10px",
+    backgroundColor: "#e3e3e3",
+    "@media (min-width: 576px)": {
+      maxWidth: "560px"
+    },
+    "@media (min-width: 768px)": {
+      maxWidth: "720px"
+    },
+    "@media (min-width: 992px)": {
+      maxWidth: "960px"
+    },
+    "@media (min-width: 1200px)": {
+      maxWidth: "1140px"
+    }
+  },
   profile: {
     textAlign: "center",
     "& img": {
@@ -18,10 +35,11 @@ const profilePageStyle = (theme : Theme) => createStyles({
     }
   },
   descriptionContainer: {
-    height: '350px',
-    margin: "0 auto 20px auto",
+    minHeight: '350px',
+    margin: "0 auto",
     [theme.breakpoints.down("xs")]: {
-      height: '527px'
+      minHeight: '567px',
+      width: "90%",
     }
   },
   // @ts-ignore
@@ -30,7 +48,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
     width: '70%',
     padding: '1rem auto',
     color: "#999",
-    textAlign: "left",
+    textAlign: "center",
     [theme.breakpoints.down("xs")]: {
       width: '90%',
     },
@@ -39,7 +57,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
       textAlign: "center",
       fontSize: "0.9rem",
       borderBottom: `3px solid ${theme.palette.primary.main}`,
-      margin: "0 auto 19px auto",
+      margin: "0 auto",
       width: "20%",
       [theme.breakpoints.down("xs")]: {
         fontSize: "0.8rem",
@@ -49,13 +67,34 @@ const profilePageStyle = (theme : Theme) => createStyles({
     },
     '& p': {
       fontSize: "0.9rem",
+      margin: "0",
+      color: theme.palette.text.primary,
+
       [theme.breakpoints.down("xs")]: {
         fontSize: "0.87rem",
       }
     },
     '& .bold': {
       fontWeight: 'bold',
-    }
+    },
+
+    '& .gridContainerDescription' : {
+      backgroundColor: 'blanchedalmond',
+      borderRadius: "20px"
+    },
+
+    '& .gridItemDescription': {
+      backgroundColor: 'blanchedalmond',
+      borderRadius: "20px",
+      '& img': {
+        maxWidth:'90%',
+        maxHeight:'90%'
+      }
+    },
+
+    '& .paperDescription': {
+      padding:"10px"
+    },
 
   },
   name: {
@@ -123,10 +162,29 @@ const profilePageStyle = (theme : Theme) => createStyles({
     "& .paperLatestProjects": {
       width: "50%",
       margin: "0 auto",
+      padding: "10px",
       [theme.breakpoints.down("xs")]: {
         width: "100%",
       }
+    },
+    "& .latestProjectsTitle": {
+      fontWeight: "bold",
     }
+  },
+
+  philosophy: {
+    position: 'relative',
+    top: '10px',
+
+    '& .paperPhilosophy': {
+      padding: "15px",
+      textAlign: "center",
+    }
+  },
+
+  lineSeparator: {
+    margin: "50px auto 20px auto",
+    width: '50%',
   }
 });
 

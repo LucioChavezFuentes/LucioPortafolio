@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
+
 //On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
 // core components
@@ -23,10 +24,18 @@ import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
+import CircularDeterminate from "components/CircularDeterminate/circularDeterminate";
+
+// images
+import ReactIcon from "assets/img/logos/React-icon.svg";
+import hTMLCSSIcon from "assets/img/logos/HTML-CSS.svg";
+import tsIcon from "assets/img/logos/ts.svg";
+import nodeIcon from "assets/img/logos/node.png";
 
 import profile from "assets/img/faces/aguantaa.png";
 
 import styles from "assets/jss/material-kit-react/views/profilePage";
+import { FullscreenExit } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
@@ -79,60 +88,139 @@ export default function ProfilePage(props) {
                 </div>
               </GridItem>
             </GridContainer>
-            
-            <div className={classes.descriptionContainer}>
-            <div  className={classes.description} >
-            <GridContainer >
-              <GridItem xs={12} sm={12} md={12}>
-                <h6 key="1" className='miniTitle'>Front End</h6>
-              </GridItem>
-              
-              <GridItem xs={12} sm={6} md={6}>
-              <ScrollAnimation animateIn="fadeIn">
-                <p key="2" >The scope of my skills cover front-end technologies such as:
-                
-                  <span  className='bold'> HTML, </span>
-                  <span className='bold'> CSS/SCSS, </span>
-                  <span  className='bold'> Flexbox, </span>
-                  <span  className='bold'> CSS Grids, </span>
-                  <span  className='bold'> Material IU, </span>
-                  <span  className='bold'> TypeScript/JavaScript, </span>
-                  <span  className='bold'> React </span> 
-                    and
-                  <span  className='bold'> Redux.</span>
-                </p>
-              </ScrollAnimation>
-              </GridItem>
-              <GridItem xs={12} sm={6} md={6}>
-                <h5>Buenas</h5>
-              </GridItem>
-              
-              </GridContainer>
-                <h6 key="3"  className='miniTitle'>Testing</h6>
-              <ScrollAnimation animateIn="fadeIn">
-                <p key="4" >
-                  I also write unit and/or integration tests with:
-                  <span className='bold'> Jest </span> 
-                    and
-                  <span className='bold'> React Testing Library. </span>
-                </p>
-              </ScrollAnimation>
-                <h6 key="5" className='miniTitle'>Back End</h6>
-              <ScrollAnimation animateIn="fadeIn">
-                <p key="6" >
-                  And I have some experience in:
-                  <span className='bold'> SQL, </span>
-                  <span className='bold'> Node.js</span>,
-                  <span className='bold'> Firebase </span>
-                  for back-end solutions.
-                </p>
-              
 
-              <p key="7">
-                I believe in always keep learning new things, code with the best pratices known and looking forward for those yet to discovered.
-              </p>
+
+            <div className={classes.descriptionContainer}>
+            <div  className={classes.description}>
+            <GridContainer justify="center" spacing={6}>
+
+              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+                <GridItem >
+                  <h6 key="1" className='miniTitle'>Front End</h6>
+                </GridItem>
+              </GridContainer>
+            
+
+            <GridContainer justify='center' alignItems="center" item spacing={4}>
+              
+              <GridItem className='gridItemDescription'  xs={12} sm={6} md={6}>
+              <Paper className='paperDescription'>
+                <ScrollAnimation animateIn="fadeIn">
+                
+                  <p key="2" >The scope of my skills cover front-end technologies such as:
+                    <span  className='bold'> HTML, </span>
+                    <span className='bold'> CSS/SCSS, </span>
+                    <span  className='bold'> Flexbox, </span>
+                    <span  className='bold'> CSS Grids, </span>
+                    <span  className='bold'> Material IU, </span>
+                    <span  className='bold'> TypeScript/JavaScript, </span>
+                    <span  className='bold'> React </span> 
+                      and
+                    <span  className='bold'> Redux.</span>
+                  </p>
+                </ScrollAnimation>
+              </Paper>
+              </GridItem>
+
+              <GridItem container justify='center' className='gridItemDescription'  xs={12} sm={6} md={6}>
+
+                <GridContainer item alignItems="center"  xs={12} sm={12} md={12} spacing={2}>
+
+                  <GridItem xs={12} sm={4} md={4}>
+                    <img src={hTMLCSSIcon} /> 
+                  </GridItem>
+
+                  <GridItem xs={12} sm={4} md={4}>
+                    <img src={tsIcon} /> 
+                  </GridItem>
+
+                  <GridItem xs={12} sm={4} md={4}>
+                    <img src={ReactIcon} /> 
+                  </GridItem>
+
+                </GridContainer>
+
+              </GridItem>
+
+                
+              </GridContainer>
+
+              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+                <GridItem>
+                  <h6 key="3"  className='miniTitle'>Testing</h6>
+                </GridItem>
+              </GridContainer>
+
+              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+              <GridItem className='gridItemDescription' >
+                <ScrollAnimation animateIn="fadeIn">
+                <Paper className='paperDescription'>
+                  <p key="4" >
+                    I also write unit and/or integration tests with:
+                    <span className='bold'> Jest </span> 
+                      and
+                    <span className='bold'> React Testing Library. </span>
+                  </p>
+                </Paper>
               </ScrollAnimation>
+              </GridItem>
+              </GridContainer>
+               
+              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+                <GridItem>
+                  <h6 key="5" className='miniTitle'>Back End</h6>
+                </GridItem>
+
+              </GridContainer>
+
+              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+                <GridItem className='gridItemDescription' xs={12} sm={6} md={6} >
+                  <Paper className='paperDescription'>
+                    <ScrollAnimation animateIn="fadeIn">
+                      <p key="6" >
+                        And I have some experience in:
+                        <span className='bold'> SQL, </span>
+                        <span className='bold'> Node.js</span>,
+                        <span className='bold'> Firebase </span>
+                        for back-end solutions.
+                      </p>
+                    </ScrollAnimation>
+                  </Paper>
+                </GridItem>
+
+                <GridItem className='gridItemDescription' xs={12} sm={6} md={6} >
+                <Paper className='paperDescription'>
+                    <ScrollAnimation animateIn="fadeIn">
+                      <div style={{display: 'flex', flexWrap: "wrap", justifyContent:"center", alignContent: "center" }}>
+                        <div>
+                          <img src={nodeIcon} style={{flexGrow:1}} />
+                        </div>
+                        
+                        <div>
+                          <img src={ReactIcon} style={{flexGrow:1}} />
+                        </div>
+                        
+                      </div>
+                    </ScrollAnimation>
+                  </Paper>
+
+                </GridItem>
+              </GridContainer>
+    
+              </GridContainer>
             </div>
+          </div>
+
+          <div className={classes.philosophy}>
+            <ScrollAnimation animateIn="fadeIn">
+              <Paper elevation={1} className="paperPhilosophy">
+                I believe in always keep learning new things, code with the best pratices known and looking forward for those yet to discovered.
+              </Paper>
+            </ScrollAnimation>
+          </div>
+
+          <div className={classes.lineSeparator}>
+            <LinearProgress variant="determinate" value={100} />
           </div>
 
             <div className={classes.latestProjectsTitleContainer}>
@@ -188,8 +276,8 @@ export default function ProfilePage(props) {
                 />
               </GridItem>
             </GridContainer>
+            </div>
             
-          </div>
         </div>
       </div>
       

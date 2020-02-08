@@ -124,7 +124,7 @@ const arrayOfButtons = tabs.map((prop: any, key: number) => {
         {prop.tabContent}
       </div>
     )}
-    )}
+      )}
       </SwipeableViews>
     </div>
   );
