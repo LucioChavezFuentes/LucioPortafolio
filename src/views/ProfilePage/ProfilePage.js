@@ -30,12 +30,13 @@ import CircularDeterminate from "components/CircularDeterminate/circularDetermin
 import ReactIcon from "assets/img/logos/React-icon.svg";
 import hTMLCSSIcon from "assets/img/logos/HTML-CSS.svg";
 import tsIcon from "assets/img/logos/ts.svg";
-import nodeIcon from "assets/img/logos/node.png";
+
+import nodeIcon from "assets/img/logos/node.svg";
+
 
 import profile from "assets/img/faces/aguantaa.png";
 
 import styles from "assets/jss/material-kit-react/views/profilePage";
-import { FullscreenExit } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
@@ -192,11 +193,11 @@ export default function ProfilePage(props) {
                 <Paper className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn">
                       <div style={{display: 'flex', flexWrap: "wrap", justifyContent:"center", alignContent: "center" }}>
-                        <div>
+                        <div style={{width: '40%'}}>
                           <img src={nodeIcon} style={{flexGrow:1}} />
                         </div>
                         
-                        <div>
+                        <div style={{width: '40%'}}>
                           <img src={ReactIcon} style={{flexGrow:1}} />
                         </div>
                         
