@@ -7,11 +7,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
-//Material IU imports
+// Material IU imports
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from '@material-ui/core/LinearProgress';
-
 
 //On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -25,6 +24,8 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
 import CircularDeterminate from "components/CircularDeterminate/circularDeterminate";
+import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
+import BackEndIcons from "components/TechnologyIcons/backEndIcons";
 
 // images
 import ReactIcon from "assets/img/logos/React-icon.svg";
@@ -32,10 +33,9 @@ import hTMLCSSIcon from "assets/img/logos/HTML-CSS.svg";
 import tsIcon from "assets/img/logos/ts.svg";
 
 import nodeIcon from "assets/img/logos/node.svg";
-
-
 import profile from "assets/img/faces/aguantaa.png";
 
+// styles
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
 const useStyles = makeStyles(styles);
@@ -48,7 +48,9 @@ export default function ProfilePage(props) {
     classes.imgRoundedCircle,
     classes.imgFluid
   );
-  const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+
+const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+
   return (
     <div>
       <Header
@@ -123,36 +125,21 @@ export default function ProfilePage(props) {
               </Paper>
               </GridItem>
 
-              <GridItem container justify='center' className='gridItemDescription'  xs={12} sm={6} md={6}>
-
-                <GridContainer item alignItems="center"  xs={12} sm={12} md={12} spacing={2}>
-
-                  <GridItem xs={12} sm={4} md={4}>
-                    <img src={hTMLCSSIcon} /> 
-                  </GridItem>
-
-                  <GridItem xs={12} sm={4} md={4}>
-                    <img src={tsIcon} /> 
-                  </GridItem>
-
-                  <GridItem xs={12} sm={4} md={4}>
-                    <img src={ReactIcon} /> 
-                  </GridItem>
-
-                </GridContainer>
-
+              <GridItem justify='center' className='gridItemDescription'  xs={12} sm={6} md={6}>
+                <Paper className='paperDescription'>
+                  <FrontEndIcons />
+                </Paper>
               </GridItem>
 
-                
               </GridContainer>
 
-              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+              <GridContainer id="Test-Title" item xs={12} sm={12} md={12} spacing={2}>
                 <GridItem>
                   <h6 key="3"  className='miniTitle'>Testing</h6>
                 </GridItem>
               </GridContainer>
 
-              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+              <GridContainer id="Test-Description" item xs={12} sm={12} md={12} spacing={2}>
               <GridItem className='gridItemDescription' >
                 <ScrollAnimation animateIn="fadeIn">
                 <Paper className='paperDescription'>
@@ -167,14 +154,14 @@ export default function ProfilePage(props) {
               </GridItem>
               </GridContainer>
                
-              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+              <GridContainer id="Back-End-Model-Title" item xs={12} sm={12} md={12} spacing={2}>
                 <GridItem>
-                  <h6 key="5" className='miniTitle'>Back End</h6>
+                  <h6 key="5" className='miniTitle'>Back End and Model</h6>
                 </GridItem>
 
               </GridContainer>
 
-              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+              <GridContainer id="Back-End-Model-Description" justify='center' alignItems="center" item xs={12} sm={12} md={12} spacing={2}>
                 <GridItem className='gridItemDescription' xs={12} sm={6} md={6} >
                   <Paper className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn">
@@ -183,28 +170,16 @@ export default function ProfilePage(props) {
                         <span className='bold'> SQL, </span>
                         <span className='bold'> Node.js</span>,
                         <span className='bold'> Firebase </span>
-                        for back-end solutions.
+                        for back-end and model solutions.
                       </p>
                     </ScrollAnimation>
                   </Paper>
                 </GridItem>
 
-                <GridItem className='gridItemDescription' xs={12} sm={6} md={6} >
-                <Paper className='paperDescription'>
-                    <ScrollAnimation animateIn="fadeIn">
-                      <div style={{display: 'flex', flexWrap: "wrap", justifyContent:"center", alignContent: "center" }}>
-                        <div style={{width: '40%'}}>
-                          <img src={nodeIcon} style={{flexGrow:1}} />
-                        </div>
-                        
-                        <div style={{width: '40%'}}>
-                          <img src={ReactIcon} style={{flexGrow:1}} />
-                        </div>
-                        
-                      </div>
-                    </ScrollAnimation>
+                <GridItem className='gridItemDescription' xs={12} sm={6} md={6}>
+                  <Paper className='paperDescription'>
+                    <BackEndIcons />
                   </Paper>
-
                 </GridItem>
               </GridContainer>
     
