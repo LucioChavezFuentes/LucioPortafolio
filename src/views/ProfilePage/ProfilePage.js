@@ -65,10 +65,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
         brand="Material Kit React"
         rightLinks={<HeaderLinks />}
         fixed
-        changeColorOnScroll={{
-          height: 200,
-          color: "white"
-        }}
+        
         {...rest}
       />
       <Parallax small />
