@@ -26,17 +26,24 @@ import Parallax from "components/Parallax/Parallax.js";
 import CircularDeterminate from "components/CircularDeterminate/circularDeterminate";
 import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
 import BackEndIcons from "components/TechnologyIcons/backEndIcons";
+import TechTestingIcons from "components/TechnologyIcons/techTestingIcons";
 
 // images
-import ReactIcon from "assets/img/logos/React-icon.svg";
-import hTMLCSSIcon from "assets/img/logos/HTML-CSS.svg";
-import tsIcon from "assets/img/logos/ts.svg";
-
-import nodeIcon from "assets/img/logos/node.svg";
 import profile from "assets/img/faces/aguantaa.png";
 
 // styles
 import styles from "assets/jss/material-kit-react/views/profilePage";
+
+//Grid Variables
+const none = 0;
+const low = 2;
+const medium = 4;
+const large = 6;
+
+const quarterWidth = 3;
+const thirdWidth = 4;
+const halfWidth = 6;
+const fullWidth = 12;
 
 const useStyles = makeStyles(styles);
 
@@ -70,7 +77,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
         <div>
           <div  className={classes.container}>
             <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={6}>
+              <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth}>
                 <div className={classes.profile}>
                   <div>
                     <img src={profile} alt="..." className={imageClasses} />
@@ -95,18 +102,18 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
             <div className={classes.descriptionContainer}>
             <div  className={classes.description}>
-            <GridContainer justify="center" spacing={6}>
+            <GridContainer justify="center" spacing={large}>
 
-              <GridContainer item xs={12} sm={12} md={12} spacing={2}>
+              <GridContainer item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
                 <GridItem >
                   <h6 key="1" className='miniTitle'>Front End</h6>
                 </GridItem>
               </GridContainer>
             
 
-            <GridContainer justify='center' alignItems="center" item spacing={4}>
+            <GridContainer justify='center' alignItems="center" item spacing={medium}>
               
-              <GridItem className='gridItemDescription'  xs={12} sm={6} md={6}>
+              <GridItem className='gridItemDescription'  xs={fullWidth} sm={halfWidth} md={halfWidth}>
               <Paper className='paperDescription'>
                 <ScrollAnimation animateIn="fadeIn">
                 
@@ -125,7 +132,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               </Paper>
               </GridItem>
 
-              <GridItem justify='center' className='gridItemDescription'  xs={12} sm={6} md={6}>
+              <GridItem justify='center' className='gridItemDescription'  xs={fullWidth} sm={halfWidth} md={halfWidth}>
                 <Paper className='paperDescription'>
                   <FrontEndIcons />
                 </Paper>
@@ -133,36 +140,43 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
               </GridContainer>
 
-              <GridContainer id="Test-Title" item xs={12} sm={12} md={12} spacing={2}>
+              <GridContainer id="Test-Title" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
                 <GridItem>
                   <h6 key="3"  className='miniTitle'>Testing</h6>
                 </GridItem>
               </GridContainer>
 
-              <GridContainer id="Test-Description" item xs={12} sm={12} md={12} spacing={2}>
-              <GridItem className='gridItemDescription' >
-                <ScrollAnimation animateIn="fadeIn">
-                <Paper className='paperDescription'>
-                  <p key="4" >
-                    I also write unit and/or integration tests with:
-                    <span className='bold'> Jest </span> 
-                      and
-                    <span className='bold'> React Testing Library. </span>
-                  </p>
-                </Paper>
-              </ScrollAnimation>
-              </GridItem>
+              <GridContainer id="Test-Description" justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
+                <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth} >
+                  <ScrollAnimation animateIn="fadeIn">
+                    <Paper className='paperDescription'>
+                      <p key="4" >
+                        I also write unit and/or integration tests with:
+                        <span className='bold'> Jest </span> 
+                          and
+                        <span className='bold'> React Testing Library. </span>
+                      </p>
+                    </Paper>
+                  </ScrollAnimation>
+                </GridItem>
+
+                <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth}>
+                  <Paper className='paperDescription'>
+                    <TechTestingIcons />
+                  </Paper>
+                </GridItem>
               </GridContainer>
                
-              <GridContainer id="Back-End-Model-Title" item xs={12} sm={12} md={12} spacing={2}>
+              <GridContainer id="Back-End-Model-Title" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
                 <GridItem>
                   <h6 key="5" className='miniTitle'>Back End and Model</h6>
                 </GridItem>
 
               </GridContainer>
 
-              <GridContainer id="Back-End-Model-Description" justify='center' alignItems="center" item xs={12} sm={12} md={12} spacing={2}>
-                <GridItem className='gridItemDescription' xs={12} sm={6} md={6} >
+              <GridContainer id="Back-End-Model-Description" 
+                justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
+                <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth} >
                   <Paper className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn">
                       <p key="6" >
@@ -176,7 +190,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   </Paper>
                 </GridItem>
 
-                <GridItem className='gridItemDescription' xs={12} sm={6} md={6}>
+                <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth}>
                   <Paper className='paperDescription'>
                     <BackEndIcons />
                   </Paper>
@@ -207,7 +221,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             
 
             <GridContainer  justify="center">
-              <GridItem xs={12} sm={12} md={12} className={classes.navWrapper}>
+              <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} className={classes.navWrapper}>
               
                 <NavPills
                   alignCenter
@@ -218,7 +232,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabIcon: Camera,
                       tabContent: (
                         <GridContainer justify="center">
-                          <GridItem xs={12} sm={12} md={12}>
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
 
                           <iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           
@@ -231,7 +245,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabIcon: Palette,
                       tabContent: (
                         <GridContainer justify="center">
-                          <GridItem xs={12} sm={12} md={4}>
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
                           <iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           </GridItem>
                         </GridContainer>
@@ -242,7 +256,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabIcon: Favorite,
                       tabContent: (
                         <GridContainer justify="center">
-                          <GridItem xs={12} sm={12} md={4}>
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
                           <iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           </GridItem>
                         </GridContainer>

@@ -1,13 +1,11 @@
-
 import React from 'react'
 
 // On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
 
 // Images
-
-import nodeIcon from "assets/img/logos/Node.js_logo.svg";
-import firebaseIcon from "assets/img/logos/Firebase_Logo_Standard_Lockup.svg";
+import jestIcon from "assets/img/logos/jest.svg";
+import testingLibraryIcon from "assets/img/logos/testingLibraryLogo.png";
 
 // @material-ui/core components
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
@@ -17,15 +15,15 @@ const useStyles = makeStyles((theme : Theme) => createStyles({
     flexContainer : {
         display: 'flex',
         flexWrap: "wrap",
-        justifyContent:"center",
+        justifyContent:"space-evenly",
         alignItems: "center",
 
-        '& .itemNode':{
-            width: '40%'
+        '& .itemJest':{
+            width: '20%'
         },
 
-        '& .itemFirebase':{
-            width: '45%',
+        '& .itemTestingLibrary': {
+            width: '25%'
         }
     },
 })
@@ -39,12 +37,12 @@ function BackEndIcons() {
     return (
         <ScrollAnimation animateIn="fadeIn">
             <div className={classes.flexContainer}>
-                <div className='itemNode'>
-                    <img src={nodeIcon} />
+                <div className='itemJest'>
+                    <img src={jestIcon} />
                 </div>
 
-                <div className='itemFirebase'>
-                    <img src={firebaseIcon} />
+                <div className='itemTestingLibrary'>
+                    <img src={testingLibraryIcon} />
                 </div>
             </div>
         </ScrollAnimation>

@@ -9,6 +9,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import ReactIcon from "assets/img/logos/React-icon.svg";
 import hTMLCSSIcon from "assets/img/logos/HTML-CSS.svg";
 import tsIcon from "assets/img/logos/ts.svg";
+import reduxIcon from "assets/img/logos/redux.svg";
 
 // @material-ui/core components
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
@@ -22,21 +23,19 @@ const useStyles = makeStyles((theme : Theme) => createStyles({
         alignItems: "center",
 
         '& .itemHTMLCSS':{
-            width: '35%'
+            width: '30%'
         },
 
         '& .itemTS':{
-            width: '25%',
-            [theme.breakpoints.down("xs")]: {
-                width: '30%'
-            }
+            width: '20%',
         },
 
         '& .itemReact': {
-            width: '30%',
-            [theme.breakpoints.down("xs")]: {
-                width: '30%'
-            }
+            width: '25%',
+        },
+
+        '& .itemRedux': {
+            width: '25%',
         }
     },
 })
@@ -60,6 +59,10 @@ function FrontEndIcons() {
 
                 <div className='itemReact'>
                     <img src={ReactIcon} />
+                </div>
+
+                <div className='itemRedux'>
+                    <img src={reduxIcon} />
                 </div>
             </div>
         </ScrollAnimation>
