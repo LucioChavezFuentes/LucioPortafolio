@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -49,6 +49,7 @@ const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
   const classes = useStyles();
+  const [activeProject, setActiveProject] = useState(0);
   const { ...rest } = props;
   const imageClasses = classNames(
     classes.imgRaised,
@@ -56,15 +57,20 @@ export default function ProfilePage(props) {
     classes.imgFluid
   );
 
+  const handleHeaderClick = (active) => {
+    setActiveProject(active)
+  }
+
 const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
   return (
     <div>
       <Header
         color="transparent"
-        brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
+        brand="Lucio Chávez"
+        rightLinks={<HeaderLinks onClickProject={handleHeaderClick} />}
         fixed
+        
         
         {...rest}
       />
@@ -223,6 +229,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 <NavPills
                   alignCenter
                   color="primary"
+                  active={activeProject}
                   tabs={[
                     {
                       tabButton: "The Social Conejito",

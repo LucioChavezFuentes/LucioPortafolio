@@ -9,9 +9,6 @@ import ProfilePage from "views/ProfilePage/ProfilePage.js";
 
 // MUI Imports
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
-import pink from '@material-ui/core/colors/pink';
-import green from '@material-ui/core/colors/green';
-import red from '@material-ui/core/colors/red';
 
 const theme = createMuiTheme({
   palette: {

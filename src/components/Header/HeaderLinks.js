@@ -24,28 +24,40 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+  const {onClickProject} = props;
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
-          buttonText="Components"
+          buttonText="All my work"
           buttonProps={{
             className: classes.navLink,
             color: "transparent"
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              All components
-            </Link>,
-            <a
-              href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
-              target="_blank"
-              className={classes.dropdownLink}
+            <a 
+            href={'projectsSection'} 
+            className={classes.dropdownLink}
+            onClick={onClickProject(0)}
             >
-              Documentation
-            </a>
+              The Social Conejito
+            </a>,
+            <a
+              href={'projectsSection'}
+              className={classes.dropdownLink}
+              onClick={onClickProject(1)}
+            >
+              Adventure Code
+            </a>,
+            <a
+            href={'projectsSection'}
+            className={classes.dropdownLink}
+            onClick={onClickProject(2)}
+          >
+            Ravenous
+          </a>
           ]}
         />
       </ListItem>
