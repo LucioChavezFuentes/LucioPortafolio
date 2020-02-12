@@ -18,6 +18,8 @@ import { Apps, CloudDownload } from "@material-ui/icons";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 
+import { Link as LinkScroll} from 'react-scroll'
+
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
 
@@ -44,7 +46,7 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
-          buttonText="All my work"
+          buttonText="All Projects"
           buttonProps={{
             className: classes.navLink,
             color: "transparent"
@@ -52,7 +54,6 @@ export default function HeaderLinks(props) {
           buttonIcon={Apps}
           dropdownList={[
             <a
-            href='#projectsSection'
             className={classes.dropdownLink}
             onClick={handleClick}
             data-key={0}
@@ -60,7 +61,6 @@ export default function HeaderLinks(props) {
               The Social Conejito
             </a>,
             <a
-              href='#projectsSection'
               className={classes.dropdownLink}
               onClick={handleClick}
               data-key={1}
@@ -68,13 +68,18 @@ export default function HeaderLinks(props) {
               Adventure Code
             </a>,
             <a
-            href='#projectsSection'
             className={classes.dropdownLink}
             onClick={handleClick}
             data-key={2}
-          >
+            >
             Ravenous
-          </a>
+            </a>,
+            <a
+            className={classes.dropdownLink}
+            data-key={3}
+            >
+            Tea Cozy
+            </a>
           ]}
         />
       </ListItem>

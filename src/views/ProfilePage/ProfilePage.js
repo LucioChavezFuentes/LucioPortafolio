@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -16,7 +16,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 // Scrollable Anchor
-import ScrollableAnchor from 'react-scrollable-anchor';
+import { Link as linkScroll, Element} from 'react-scroll'
 
 // core components
 import Header from "components/Header/Header.js";
@@ -53,7 +53,8 @@ const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
   const classes = useStyles();
-  const [activeProject, setActiveProject] = useState();
+  const myRef = useRef();
+  const [activeProject, setActiveProject] = useState(0);
   const { ...rest } = props;
   const imageClasses = classNames(
     classes.imgRaised,
@@ -61,7 +62,10 @@ export default function ProfilePage(props) {
     classes.imgFluid
   );
 
+   
+
   const handleHeaderClick = (active) => {
+    window.scrollTo(0, myRef.current.offsetTop)
     setActiveProject(active)
   }
 
@@ -224,8 +228,8 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               </Paper>
             </div>
             
-            
-            <GridContainer id='projectsSection'  justify="center">
+            <div ref={myRef} id='projectsSection'>
+            <GridContainer justify="center">
               <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} className={classes.navWrapper}>
               
                 <NavPills
@@ -272,6 +276,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 />
               </GridItem>
             </GridContainer>
+            </div>
             </div>
             
         </div>
