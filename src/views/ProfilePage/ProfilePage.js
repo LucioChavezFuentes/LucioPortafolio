@@ -16,7 +16,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 // Scrollable Anchor
-import { Link as linkScroll, Element} from 'react-scroll'
+import {Element} from 'react-scroll'
 
 // core components
 import Header from "components/Header/Header.js";
@@ -53,7 +53,7 @@ const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
   const classes = useStyles();
-  const myRef = useRef();
+  //const myRef = useRef();
   const [activeProject, setActiveProject] = useState(0);
   const { ...rest } = props;
   const imageClasses = classNames(
@@ -62,10 +62,10 @@ export default function ProfilePage(props) {
     classes.imgFluid
   );
 
-   
+  const projectsSectionRef = 'projectsSection';
 
   const handleHeaderClick = (active) => {
-    window.scrollTo(0, myRef.current.offsetTop)
+    //window.scrollTo(0, myRef.current.offsetTop)
     setActiveProject(active)
   }
 
@@ -76,7 +76,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
       <Header
         color="transparent"
         brand="Lucio Chávez"
-        rightLinks={<HeaderLinks onClickProject={handleHeaderClick} />}
+        rightLinks={<HeaderLinks onClickProject={handleHeaderClick} projectsSectionRef={projectsSectionRef} />}
         absolute
         {...rest}
       />
@@ -124,7 +124,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               
               <GridItem className='gridItemDescription'  xs={fullWidth} sm={halfWidth} md={halfWidth}>
               <Paper className='paperDescription'>
-                <ScrollAnimation animateIn="fadeIn">
+                <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                 
                   <p key="2" >The scope of my skills cover front-end technologies such as:
                     <span  className='bold'> HTML, </span>
@@ -157,16 +157,16 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
               <GridContainer id="Test-Description" justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
                 <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth} >
-                  <ScrollAnimation animateIn="fadeIn">
-                    <Paper className='paperDescription'>
+                  <Paper className='paperDescription'>
+                    <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="4" >
                         I also write unit and/or integration tests with:
                         <span className='bold'> Jest </span> 
                           and
                         <span className='bold'> React Testing Library. </span>
                       </p>
-                    </Paper>
-                  </ScrollAnimation>
+                    </ScrollAnimation>
+                  </Paper>
                 </GridItem>
 
                 <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth}>
@@ -187,7 +187,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
                 <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth} >
                   <Paper className='paperDescription'>
-                    <ScrollAnimation animateIn="fadeIn">
+                    <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="6" >
                         And I have some experience in:
                         <span className='bold'> SQL, </span>
@@ -211,7 +211,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
           </div>
 
           <div className={classes.philosophy}>
-            <ScrollAnimation animateIn="fadeIn">
+            <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
               <Paper elevation={1} className="paperPhilosophy">
                 I believe in always keep learning new things, code with the best pratices known and looking forward for those yet to discovered.
               </Paper>
@@ -228,7 +228,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               </Paper>
             </div>
             
-            <div ref={myRef} id='projectsSection'>
+            <Element name={projectsSectionRef}>
             <GridContainer justify="center">
               <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} className={classes.navWrapper}>
               
@@ -276,7 +276,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 />
               </GridItem>
             </GridContainer>
-            </div>
+            </Element>
             </div>
             
         </div>

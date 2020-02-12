@@ -27,7 +27,7 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
-  const {onClickProject} = props;
+  const {onClickProject, projectsSectionRef} = props;
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
 
@@ -53,33 +53,39 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <a
+            <LinkScroll
+            to={projectsSectionRef}
+            spy={true} smooth={true} duration={500}
             className={classes.dropdownLink}
             onClick={handleClick}
             data-key={0}
             >
               The Social Conejito
-            </a>,
-            <a
+            </LinkScroll>,
+            <LinkScroll
+              to={projectsSectionRef}
+              spy={true} smooth={true} duration={500}
               className={classes.dropdownLink}
               onClick={handleClick}
               data-key={1}
             >
               Adventure Code
-            </a>,
-            <a
-            className={classes.dropdownLink}
-            onClick={handleClick}
-            data-key={2}
+            </LinkScroll>,
+            <LinkScroll
+              to={projectsSectionRef}
+              spy={true} smooth={true} duration={500}
+              className={classes.dropdownLink}
+              onClick={handleClick}
+              data-key={2}
             >
-            Ravenous
-            </a>,
-            <a
-            className={classes.dropdownLink}
-            data-key={3}
+              Ravenous
+            </LinkScroll>,
+            <LinkScroll
+              className={classes.dropdownLink}
+              data-key={3}
             >
             Tea Cozy
-            </a>
+            </LinkScroll>
           ]}
         />
       </ListItem>
