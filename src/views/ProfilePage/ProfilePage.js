@@ -14,13 +14,17 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 //On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
+
+// Scrollable Anchor
+import ScrollableAnchor from 'react-scrollable-anchor';
+
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
+import HeaderLinks from "components/Header/HeaderLinks";
 import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
 import CircularDeterminate from "components/CircularDeterminate/circularDeterminate";
@@ -49,7 +53,7 @@ const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
   const classes = useStyles();
-  const [activeProject, setActiveProject] = useState(0);
+  const [activeProject, setActiveProject] = useState();
   const { ...rest } = props;
   const imageClasses = classNames(
     classes.imgRaised,
@@ -69,9 +73,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
         color="transparent"
         brand="Lucio Chávez"
         rightLinks={<HeaderLinks onClickProject={handleHeaderClick} />}
-        fixed
-        
-        
+        absolute
         {...rest}
       />
       <Parallax small />
@@ -222,8 +224,8 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               </Paper>
             </div>
             
-
-            <GridContainer  justify="center">
+            
+            <GridContainer id='projectsSection'  justify="center">
               <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} className={classes.navWrapper}>
               
                 <NavPills

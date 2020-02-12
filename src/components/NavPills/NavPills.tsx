@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -39,7 +39,9 @@ export default function NavPills(props : any) {
   const {width, height} = useWindowSize();
   const theme = useTheme();
 
-  const primaryColorFade = fade(theme.palette.text.secondary, 0.3);
+  useEffect(() => {
+    setActive(props.active)
+  }, [props.active])
 
   const handleChange = (event: any, active: number) => {
     setActive(active);
@@ -143,7 +145,7 @@ const arrayOfButtons = tabs.map((prop: any, key: number) => {
 }
 
 NavPills.defaultProps = {
-  active: 0,
+  //active: 0,
   color: "primary"
 };
 

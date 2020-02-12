@@ -1,4 +1,4 @@
-/*eslint-disable*/
+// @ts-nocheck
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
@@ -20,11 +20,25 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
+
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
   const {onClickProject} = props;
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+
+    const key = event.currentTarget.getAttribute('data-key')
+
+    if( typeof key === 'string') {
+      const intKey = parseInt(key, 10)
+      onClickProject(intKey)
+    }
+
+  }
+
+
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -37,24 +51,27 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <a 
-            href={'projectsSection'} 
+            <a
+            href='#projectsSection'
             className={classes.dropdownLink}
-            onClick={onClickProject(0)}
+            onClick={handleClick}
+            data-key={0}
             >
               The Social Conejito
             </a>,
             <a
-              href={'projectsSection'}
+              href='#projectsSection'
               className={classes.dropdownLink}
-              onClick={onClickProject(1)}
+              onClick={handleClick}
+              data-key={1}
             >
               Adventure Code
             </a>,
             <a
-            href={'projectsSection'}
+            href='#projectsSection'
             className={classes.dropdownLink}
-            onClick={onClickProject(2)}
+            onClick={handleClick}
+            data-key={2}
           >
             Ravenous
           </a>
@@ -62,6 +79,8 @@ export default function HeaderLinks(props) {
         />
       </ListItem>
       <ListItem className={classes.listItem}>
+        {/*
+         //@ts-ignore */}
         <Button
           href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
           color="transparent"
@@ -83,7 +102,7 @@ export default function HeaderLinks(props) {
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
-          <Button
+        <Button
             href="https://twitter.com/CreativeTim?ref=creativetim"
             target="_blank"
             color="transparent"
