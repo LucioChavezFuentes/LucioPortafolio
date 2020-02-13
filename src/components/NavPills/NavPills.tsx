@@ -139,7 +139,7 @@ const arrayOfButtons = tabs.map((prop: any, key: number) => {
   )  : (
     <div>
       {tabButtons}
-      <ScrollAnimation animateIn="fadeIn">{tabContent}</ScrollAnimation>
+      <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>{tabContent}</ScrollAnimation>
     </div>
   );
 }
