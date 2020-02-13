@@ -9,7 +9,6 @@ import SwipeableViews from "react-swipeable-views";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import { fade } from '@material-ui/core/styles/colorManipulator';
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -20,13 +19,6 @@ import ScrollAnimation from 'react-animate-on-scroll';
 // On Scroll Animations
 import "animate.css/animate.min.css";
 
-// React Carusel
-
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
-
-import CarouselOfProjects from "components/CarouselOfProjects/CarouselOfProjects";
-
 // useWindowSize
 import useWindowSize from 'helper/useWindowSize'
 
@@ -36,7 +28,7 @@ const useStyles : any = makeStyles(styles);
 
 export default function NavPills(props : any) {
   const [active, setActive] = React.useState(props.active);
-  const {width, height} = useWindowSize();
+  const {width} = useWindowSize();
   const theme = useTheme();
 
   useEffect(() => {

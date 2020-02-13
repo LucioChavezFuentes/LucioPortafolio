@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -27,7 +27,6 @@ import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks";
 import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
-import CircularDeterminate from "components/CircularDeterminate/circularDeterminate";
 import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
 import BackEndIcons from "components/TechnologyIcons/backEndIcons";
 import TechTestingIcons from "components/TechnologyIcons/techTestingIcons";
@@ -39,13 +38,11 @@ import profile from "assets/img/faces/aguantaa.png";
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
 //Grid Variables
-const none = 0;
 const low = 2;
 const medium = 4;
 const large = 6;
 
-const quarterWidth = 3;
-const thirdWidth = 4;
+
 const halfWidth = 6;
 const fullWidth = 12;
 
@@ -75,7 +72,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     <div>
       <Header
         color="transparent"
-        brand="Lucio Chávez"
+        brand="Lucio Bertin Chávez Fuentes"
         rightLinks={<HeaderLinks onClickProject={handleHeaderClick} projectsSectionRef={projectsSectionRef} />}
         absolute
         {...rest}
@@ -244,7 +241,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
 
-                          <iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
+                          <iframe title='The-Social-Conejito' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           
                           </GridItem>
                         </GridContainer>
@@ -256,7 +253,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                          <iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
+                          <iframe title='Adventure-Code' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           </GridItem>
                         </GridContainer>
                       )
@@ -267,7 +264,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                          <iframe style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
+                          <iframe title='Ravenous' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           </GridItem>
                         </GridContainer>
                       )
