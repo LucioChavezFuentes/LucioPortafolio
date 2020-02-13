@@ -47,7 +47,7 @@ function FrontEndIcons() {
     const classes = useStyles();
 
     return (
-        <ScrollAnimation animateIn="fadeIn">
+        <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>
             <div className={classes.flexContainer}>
                 <div className='itemHTMLCSS'>
                     <img src={hTMLCSSIcon} />

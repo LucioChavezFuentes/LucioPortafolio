@@ -37,7 +37,7 @@ function BackEndIcons() {
     const classes = useStyles();
 
     return (
-        <ScrollAnimation animateIn="fadeIn">
+        <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>
             <div className={classes.flexContainer}>
                 <div className='itemNode'>
                     <img src={nodeIcon} />
