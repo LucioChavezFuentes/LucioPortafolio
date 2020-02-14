@@ -137,7 +137,7 @@ const arrayOfButtons = tabs.map((prop: any, key: number) => {
 }
 
 NavPills.defaultProps = {
-  //active: 0,
+  active: 0,
   color: "primary"
 };
 

@@ -10,6 +10,10 @@ import {
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { createStyles } from '@material-ui/core/styles';
 
+function fadePrimaryColor(theme){
+  return fade(theme.palette.primary.main, 0.3)
+}
+
 const navPillsStyle = theme => createStyles({
   root: {
     marginTop: "20px",
@@ -55,7 +59,9 @@ const navPillsStyle = theme => createStyles({
     margin: "0 5px",
     zIndex: "1",
     "&:hover": {
-      backgroundColor: "#e8f5e9"
+      //Make sure the color is more visible than the background
+      color: "#303030",
+      backgroundColor: fadePrimaryColor(theme),
     },
     [theme.breakpoints.down("xs")]: {
       //border: `3px solid ${fade(theme.palette.text.secondary, 0.3)}`,

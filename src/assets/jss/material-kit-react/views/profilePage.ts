@@ -59,6 +59,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
       borderBottom: `3px solid ${theme.palette.primary.main}`,
       margin: "0 auto",
       width: "20%",
+      color: theme.palette.text.primary,
       [theme.breakpoints.down("xs")]: {
         fontSize: "0.8rem",
         width: "50%",
@@ -79,12 +80,12 @@ const profilePageStyle = (theme : Theme) => createStyles({
     },
 
     '& .gridContainerDescription' : {
-      backgroundColor: 'blanchedalmond',
+      backgroundColor: 'bisque',
       borderRadius: "20px"
     },
 
     '& .gridItemDescription': {
-      backgroundColor: 'blanchedalmond',
+      backgroundColor: 'bisque',
       borderRadius: "20px",
       '& img': {
         maxWidth:'90%',
@@ -103,7 +104,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
   ...imagesStyle,
   // @ts-ignore
   main: {
-    background: "#ffffff",
+    background: "linen",
     position: "relative",
     zIndex: "3"
   },
