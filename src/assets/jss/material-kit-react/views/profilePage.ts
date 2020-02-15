@@ -87,6 +87,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
     '& .gridItemDescription': {
       backgroundColor: 'bisque',
       borderRadius: "20px",
+      display: 'flex',
       '& img': {
         maxWidth:'90%',
         maxHeight:'90%'
@@ -94,7 +95,12 @@ const profilePageStyle = (theme : Theme) => createStyles({
     },
 
     '& .paperDescription': {
-      padding:"10px"
+      padding:"10px",
+      margin: '5%',
+      [theme.breakpoints.down("xs")]: {
+        margin: '10%',
+        padding:"5px"
+      }
     },
 
   },

@@ -108,7 +108,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
             <div className={classes.descriptionContainer}>
             <div  className={classes.description}>
-            <GridContainer justify="center" spacing={large}>
+            <GridContainer justify="center" spacing={medium}>
 
               <GridContainer item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
                 <GridItem >
@@ -118,8 +118,9 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             
 
             <GridContainer justify='center' alignItems="center" item spacing={medium}>
-              
-              <GridItem className='gridItemDescription'  xs={fullWidth} sm={halfWidth} md={halfWidth}>
+            
+              <GridItem   xs={fullWidth} sm={halfWidth} md={halfWidth}>
+              <div className='gridItemDescription'>
               <Paper className='paperDescription'>
                 <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                 
@@ -136,12 +137,16 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   </p>
                 </ScrollAnimation>
               </Paper>
+              </div>
               </GridItem>
+              
 
-              <GridItem justify='center' className='gridItemDescription'  xs={fullWidth} sm={halfWidth} md={halfWidth}>
+              <GridItem justify='center' xs={fullWidth} sm={halfWidth} md={halfWidth}>
+              <div className='gridItemDescription'>
                 <Paper className='paperDescription'>
                   <FrontEndIcons />
                 </Paper>
+              </div>
               </GridItem>
 
               </GridContainer>
@@ -153,7 +158,8 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               </GridContainer>
 
               <GridContainer id="Test-Description" justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
-                <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth} >
+                <GridItem  xs={fullWidth} sm={halfWidth} md={halfWidth} >
+                  <div className='gridItemDescription'>
                   <Paper className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="4" >
@@ -164,25 +170,29 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       </p>
                     </ScrollAnimation>
                   </Paper>
+                  </div>
                 </GridItem>
 
-                <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth}>
+                <GridItem xs={fullWidth} sm={halfWidth} md={halfWidth}>
+                <div className='gridItemDescription'>
                   <Paper className='paperDescription'>
                     <TechTestingIcons />
                   </Paper>
+                  </div>
                 </GridItem>
+                
               </GridContainer>
                
               <GridContainer id="Back-End-Model-Title" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
                 <GridItem>
                   <h6 key="5" className='miniTitle'>Back End and Model</h6>
                 </GridItem>
-
               </GridContainer>
 
               <GridContainer id="Back-End-Model-Description" 
                 justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
-                <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth} >
+                <GridItem  xs={fullWidth} sm={halfWidth} md={halfWidth} >
+                <div className='gridItemDescription'>
                   <Paper className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="6" >
@@ -194,12 +204,15 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       </p>
                     </ScrollAnimation>
                   </Paper>
+                  </div>
                 </GridItem>
 
-                <GridItem className='gridItemDescription' xs={fullWidth} sm={halfWidth} md={halfWidth}>
+                <GridItem xs={fullWidth} sm={halfWidth} md={halfWidth}>
+                  <div className='gridItemDescription'>
                   <Paper className='paperDescription'>
                     <BackEndIcons />
                   </Paper>
+                  </div>
                 </GridItem>
               </GridContainer>
     
