@@ -53,6 +53,19 @@ const profilePageStyle = (theme : Theme) => createStyles({
       width: '90%',
     },
 
+    '& .philosophyContainer': {
+      position: 'relative',
+      display: 'flex',
+      top: '10px',
+      backgroundColor: 'bisque',
+
+      '& .paperPhilosophy': {
+        padding: "15px",
+        textAlign: "center",
+        margin: "5% 5%"
+    }
+    },
+
     '& .miniTitle': {
       textAlign: "center",
       fontSize: "0.9rem",
@@ -105,7 +118,6 @@ const profilePageStyle = (theme : Theme) => createStyles({
 
   },
   name: {
-    marginTop: "-80px"
   },
   ...imagesStyle,
   // @ts-ignore
@@ -115,7 +127,8 @@ const profilePageStyle = (theme : Theme) => createStyles({
     zIndex: "3"
   },
   mainRaised: {
-    margin: "-90px 30px 0px",
+    // Edit here how close you want the page to the header
+    margin: "-200px 30px 0px",
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
@@ -165,10 +178,14 @@ const profilePageStyle = (theme : Theme) => createStyles({
     // borderTop: `3px solid ${theme.palette.secondary.light}`,
     margin: "0 auto",
     width: "60%",
-    paddingTop: "15px",
+    backgroundColor: 'bisque',
+    borderRadius: "20px",
+    display: 'flex',
+    justifyContent: 'center',
+
     "& .paperLatestProjects": {
       width: "50%",
-      margin: "0 auto",
+      margin: "5% 5%",
       padding: "10px",
       [theme.breakpoints.down("xs")]: {
         width: "100%",
@@ -182,10 +199,14 @@ const profilePageStyle = (theme : Theme) => createStyles({
   philosophy: {
     position: 'relative',
     top: '10px',
+    backgroundColor: 'bisque',
+    display: 'flex',
+    borderRadius: '20px',
 
     '& .paperPhilosophy': {
       padding: "15px",
       textAlign: "center",
+      margin: "2.5% 2.5%"
     }
   },
 

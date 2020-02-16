@@ -107,6 +107,7 @@ export default function HeaderLinks(props) {
             color="transparent"
             className={classes.navLink}
           >
+            { /*fab and fa-twitter appear to be global classNames*/ }
             <i className={classes.socialIcons + " fab fa-twitter"} />
           </Button>
         </Tooltip>
@@ -114,7 +115,7 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
-          title="Lucio's Facebook"
+          title="Lucio's Instagram"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
@@ -124,7 +125,7 @@ export default function HeaderLinks(props) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
+            <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
         </Tooltip>
       </ListItem>

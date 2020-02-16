@@ -59,6 +59,8 @@ export default function ProfilePage(props) {
     classes.imgFluid
   );
 
+  const paperPhilosophy = classNames
+
   const projectsSectionRef = 'projectsSection';
 
   const handleHeaderClick = (active) => {
@@ -72,7 +74,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     <div>
       <Header
         color="transparent"
-        brand="Lucio Bertin Chávez Fuentes"
+        brand=""
         rightLinks={<HeaderLinks onClickProject={handleHeaderClick} projectsSectionRef={projectsSectionRef} />}
         absolute
         {...rest}
@@ -85,20 +87,20 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             <GridContainer justify="center">
               <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth}>
                 <div className={classes.profile}>
+                {/* 
                   <div>
                     <img src={profile} alt="..." className={imageClasses} />
-                  </div>
+                  </div> 
+                */}
                   <div className={classes.name}>
                     <h3 className={classes.title}>Lucio Chávez</h3>
                     <h6>Web Developer</h6>
-                    <Button justIcon link className={classes.margin5}>
+                    <Button justIcon link target="_blank" href={"https://twitter.com/LucioBbrtiChvez"} className={classes.margin5}>
+                    { /*fab and fa-twitter appear to be global classNames*/ }
                       <i className={"fab fa-twitter"} />
                     </Button>
                     <Button justIcon link className={classes.margin5}>
                       <i className={"fab fa-instagram"} />
-                    </Button>
-                    <Button justIcon link className={classes.margin5}>
-                      <i className={"fab fa-facebook"} />
                     </Button>
                   </div>
                 </div>
@@ -107,8 +109,29 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
 
             <div className={classes.descriptionContainer}>
+
+
             <div  className={classes.description}>
+            
+        
             <GridContainer justify="center" spacing={medium}>
+
+              <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} >
+                <GridItem >
+                  <div className={classes.philosophy}>
+                  <Paper elevation={1} className="paperPhilosophy paperDescription" >
+                    <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+                      <p>
+                        I am a web developer specialized in front end development, 
+                        with knowledge in back end, 
+                        currently learning the best known practices from a senior web developer mentorship and Steve McConnell's book: Code Complete 
+                        and looking forward for the best coding practices yet to discover. 
+                      </p>   
+                    </ScrollAnimation>
+                    </Paper>
+                  </div>
+                </GridItem>
+              </GridContainer>
 
               <GridContainer item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
                 <GridItem >
@@ -220,20 +243,14 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             </div>
           </div>
 
-          <div className={classes.philosophy}>
-            <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-              <Paper elevation={1} className="paperPhilosophy">
-                I believe in always keep learning new things, code with the best pratices known and looking forward for those yet to discovered.
-              </Paper>
-            </ScrollAnimation>
-          </div>
+          
 
           <div className={classes.lineSeparator}>
             <LinearProgress variant="determinate" value={100} />
           </div>
 
             <div className={classes.latestProjectsTitleContainer}>
-              <Paper elevation={5} className="paperLatestProjects">
+              <Paper elevation={0} className="paperLatestProjects">
                 <Typography color='textPrimary' className="latestProjectsTitle">Latest Projects</Typography>
               </Paper>
             </div>
