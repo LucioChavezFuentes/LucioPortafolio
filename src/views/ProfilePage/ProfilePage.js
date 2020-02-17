@@ -38,6 +38,7 @@ import profile from "assets/img/faces/aguantaa.png";
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
 //Grid Variables
+const none = 0;
 const low = 2;
 const medium = 4;
 const large = 6;
@@ -116,8 +117,8 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
         
             <GridContainer justify="center" spacing={medium}>
 
-              <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} >
-                <GridItem >
+              <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={1} >
+                <GridItem zeroMinWidth >
                   <div className={classes.philosophy}>
                   <Paper elevation={1} className="paperPhilosophy paperDescription" >
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
@@ -140,7 +141,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               </GridContainer>
             
 
-            <GridContainer justify='center' alignItems="center" item spacing={medium}>
+            <GridContainer justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
             
               <GridItem   xs={fullWidth} sm={halfWidth} md={halfWidth}>
               <div className='gridItemDescription'>
@@ -197,10 +198,10 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 </GridItem>
 
                 <GridItem xs={fullWidth} sm={halfWidth} md={halfWidth}>
-                <div className='gridItemDescription'>
-                  <Paper className='paperDescription'>
-                    <TechTestingIcons />
-                  </Paper>
+                  <div className='gridItemDescription'>
+                    <Paper className='paperDescription'>
+                      <TechTestingIcons />
+                    </Paper>
                   </div>
                 </GridItem>
                 

@@ -39,18 +39,17 @@ const profilePageStyle = (theme : Theme) => createStyles({
     margin: "0 auto",
     [theme.breakpoints.down("xs")]: {
       minHeight: '567px',
-      width: "90%",
     }
   },
   // @ts-ignore
   description: {
     margin: "1.071rem auto",
-    width: '70%',
+    width: '80%',
     padding: '1rem auto',
     color: "#999",
     textAlign: "center",
     [theme.breakpoints.down("xs")]: {
-      width: '90%',
+      width: '100%',
     },
 
     '& .philosophyContainer': {
@@ -111,7 +110,6 @@ const profilePageStyle = (theme : Theme) => createStyles({
       padding:"10px",
       margin: '5%',
       [theme.breakpoints.down("xs")]: {
-        margin: '10%',
         padding:"5px"
       }
     },
@@ -206,7 +204,10 @@ const profilePageStyle = (theme : Theme) => createStyles({
     '& .paperPhilosophy': {
       padding: "15px",
       textAlign: "center",
-      margin: "2.5% 2.5%"
+      margin: "2.5% 2.5%",
+      [theme.breakpoints.down("xs")]: {
+        margin: "5% 5%",
+      }
     }
   },
 
