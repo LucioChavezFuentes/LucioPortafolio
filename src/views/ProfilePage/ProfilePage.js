@@ -39,6 +39,7 @@ import styles from "assets/jss/material-kit-react/views/profilePage";
 
 //Grid Variables
 const none = 0;
+const veryLow = 1;
 const low = 2;
 const medium = 4;
 const large = 6;
@@ -122,7 +123,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 {/*If you change the spacing in the parent grid dont forget to change the spacing in projectsPaddingTop */}
             <GridContainer justify="center" spacing={medium}>
 
-              <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={1} >
+              <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={veryLow} >
                 <GridItem zeroMinWidth >
                   <div className={classes.philosophy}>
                   <Paper elevation={1} className="paperPhilosophy paperDescription" >
@@ -255,8 +256,6 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             <LinearProgress variant="determinate" value={100} />
           </div>
 
-            
-            
             <Element name={projectsSectionRef} style={{paddingTop: projectsPaddingTop(medium)}}>
               <div className={classes.latestProjectsTitleContainer}>
                 <Paper elevation={0} className="paperLatestProjects">
