@@ -43,9 +43,14 @@ const low = 2;
 const medium = 4;
 const large = 6;
 
-
 const halfWidth = 6;
 const fullWidth = 12;
+
+//Projects Padding
+
+function projectsPaddingTop(gridVariable) {
+  return `${gridVariable*gridVariable}px`
+}
 
 const useStyles = makeStyles(styles);
 
@@ -114,7 +119,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
             <div  className={classes.description}>
             
-        
+                {/*If you change the spacing in the parent grid dont forget to change the spacing in projectsPaddingTop */}
             <GridContainer justify="center" spacing={medium}>
 
               <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={1} >
@@ -250,13 +255,15 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             <LinearProgress variant="determinate" value={100} />
           </div>
 
-            <div className={classes.latestProjectsTitleContainer}>
-              <Paper elevation={0} className="paperLatestProjects">
-                <Typography color='textPrimary' className="latestProjectsTitle">Latest Projects</Typography>
-              </Paper>
-            </div>
             
-            <Element name={projectsSectionRef}>
+            
+            <Element name={projectsSectionRef} style={{paddingTop: projectsPaddingTop(medium)}}>
+              <div className={classes.latestProjectsTitleContainer}>
+                <Paper elevation={0} className="paperLatestProjects">
+                  <Typography color='textPrimary' className="latestProjectsTitle">Latest Projects</Typography>
+                </Paper>
+              </div>
+
             <GridContainer justify="center">
               <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} className={classes.navWrapper}>
               

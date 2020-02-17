@@ -175,19 +175,19 @@ const profilePageStyle = (theme : Theme) => createStyles({
     textAlign: "center",
     // borderTop: `3px solid ${theme.palette.secondary.light}`,
     margin: "0 auto",
-    width: "60%",
+    width: "50%",
     backgroundColor: 'bisque',
     borderRadius: "20px",
     display: 'flex',
     justifyContent: 'center',
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
 
     "& .paperLatestProjects": {
-      width: "50%",
-      margin: "5% 5%",
+      width: "100%",
+      margin: "5%",
       padding: "10px",
-      [theme.breakpoints.down("xs")]: {
-        width: "100%",
-      }
     },
     "& .latestProjectsTitle": {
       fontWeight: "bold",
@@ -212,7 +212,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
   },
 
   lineSeparator: {
-    margin: "50px auto 20px auto",
+    margin: "auto",
     width: '50%',
   }
 });
