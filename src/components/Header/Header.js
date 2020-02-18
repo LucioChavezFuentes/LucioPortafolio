@@ -77,7 +77,7 @@ export default function Header(props) {
           )}
         </div>
         <Hidden smDown implementation="css">
-          <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} />
+          <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} isMobile={false} />
         </Hidden>
         <Hidden mdUp>
           <IconButton
@@ -101,7 +101,7 @@ export default function Header(props) {
         >
           <div className={classes.appResponsive}>
             {leftLinks}
-            <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} handleDrawerToggle={handleDrawerToggle} />
+            <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} handleDrawerToggle={handleDrawerToggle} isMobile={true} />
           </div>
         </Drawer>
       </Hidden>

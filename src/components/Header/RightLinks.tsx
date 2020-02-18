@@ -32,8 +32,7 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
-  const {isMobile} = useWindowSize();
-  const {onClickProject, projectsSectionRef, handleDrawerToggle} = props;
+  const {onClickProject, projectsSectionRef, handleDrawerToggle, isMobile} = props;
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
 
