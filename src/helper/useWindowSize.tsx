@@ -12,12 +12,14 @@ const useWindowSize = (options: Options = {}) => {
   const [size, setSize] = React.useState({
     width: process.browser && window.innerWidth,
     height: process.browser && window.innerHeight,
+    isMobile: window.innerWidth <= 600,
   });
 
   const handle = _.throttle(() => {
     setSize({
       width: process.browser && window.innerWidth,
       height: process.browser && window.innerHeight,
+      isMobile: window.innerWidth <= 600,
     });
   }, throttleMs);
 

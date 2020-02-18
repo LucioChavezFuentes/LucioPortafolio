@@ -24,7 +24,7 @@ import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import HeaderLinks from "components/Header/HeaderLinks";
+import RightLinks from "components/Header/RightLinks";
 import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
 import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
@@ -81,8 +81,9 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     <div>
       <Header
         color="transparent"
-        brand=""
-        rightLinks={<HeaderLinks onClickProject={handleHeaderClick} projectsSectionRef={projectsSectionRef} />}
+        onClickProject={handleHeaderClick} 
+        projectsSectionRef={projectsSectionRef}
+        rightLinks={<RightLinks onClickProject={handleHeaderClick} projectsSectionRef={projectsSectionRef} />}
         absolute
         {...rest}
       />
@@ -129,10 +130,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   <Paper elevation={1} className="paperPhilosophy paperDescription" >
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p>
-                        I am a web developer specialized in front end development, 
-                        with knowledge in back end, 
-                        currently learning the best known practices from a senior web developer mentorship and Steve McConnell's book: Code Complete 
-                        and looking forward for the best coding practices yet to discover. 
+                        I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development.
                       </p>   
                     </ScrollAnimation>
                     </Paper>

@@ -14,6 +14,7 @@ import Drawer from "@material-ui/core/Drawer";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
+import RightLinks from "./RightLinks";
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -53,7 +54,8 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+  const { color, rightLinks, leftLinks, brand, fixed, absolute, onClickProject, projectsSectionRef } = props;
+  
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
@@ -75,7 +77,7 @@ export default function Header(props) {
           )}
         </div>
         <Hidden smDown implementation="css">
-          {rightLinks}
+          <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} />
         </Hidden>
         <Hidden mdUp>
           <IconButton
@@ -99,7 +101,7 @@ export default function Header(props) {
         >
           <div className={classes.appResponsive}>
             {leftLinks}
-            {rightLinks}
+            <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} handleDrawerToggle={handleDrawerToggle} />
           </div>
         </Drawer>
       </Hidden>
