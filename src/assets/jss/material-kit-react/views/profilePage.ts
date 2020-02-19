@@ -36,7 +36,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
   },
   descriptionContainer: {
     minHeight: '350px',
-    margin: "0 auto",
+    margin: "-30px auto 0 auto",
     [theme.breakpoints.down("xs")]: {
       minHeight: '567px',
     }
@@ -69,13 +69,12 @@ const profilePageStyle = (theme : Theme) => createStyles({
       textAlign: "center",
       fontSize: "0.9rem",
       borderBottom: `3px solid ${theme.palette.primary.main}`,
-      margin: "0 auto",
-      width: "20%",
+      margin: "20px auto -10px auto",
+      width: "35%",
       color: theme.palette.text.primary,
       [theme.breakpoints.down("xs")]: {
         fontSize: "0.8rem",
-        width: "50%",
-        margin: "0 auto 9px auto",
+        width: "85%",
       }
     },
     '& p': {

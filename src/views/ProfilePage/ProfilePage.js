@@ -35,28 +35,13 @@ import useWindowSize from "helper/useWindowSize";
 // styles
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
-//Grid Variables
-const none = 0;
-const veryLow = 1;
-const low = 2;
-const medium = 4;
-const large = 6;
 
-const halfWidth = 6;
-const threeQuarterWidth = 9;
-const fullWidth = 12;
-
-//Projects Padding
-function projectsPaddingTop(gridVariable) {
-  return `${gridVariable*gridVariable}px`
-}
 
 const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
   const classes = useStyles();
   const {isMobile} = useWindowSize();
-  //const myRef = useRef();
   const [activeProject, setActiveProject] = useState(0);
   const { ...rest } = props;
   const imageClasses = classNames(
@@ -65,14 +50,41 @@ export default function ProfilePage(props) {
     classes.imgFluid
   );
 
-  const paperPhilosophy = classNames
+  //Grid Variables
+  const none = 0;
+  const veryLow = 1;
+  const low = 2;
+  const medium = 4;
+  const large = 6;
 
+  const halfWidth = 6;
+  const threeQuarterWidth = 9;
+  const fullWidth = 12;
+
+  let currentGridSpacing;
+  let currentPixelsSpacing;
+
+  //Projects Padding
+  function projectsPaddingTop(gridVariable) {
+    currentPixelsSpacing = (gridVariable*gridVariable)
+  }
+
+  function setGridSpacing(gridVariable) {
+    projectsPaddingTop(gridVariable)
+    currentGridSpacing = gridVariable
+  }
+
+  //const myRef = useRef();
+  
   const projectsSectionRef = 'projectsSection';
 
   const handleHeaderClick = (active) => {
     //window.scrollTo(0, myRef.current.offsetTop)
     setActiveProject(active)
   }
+
+  //use this function to set the Grids using the variable 'currentGridSpacing '
+  setGridSpacing(medium)
 
 const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
@@ -121,15 +133,17 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             <div  className={classes.description}>
             
                 {/*If you change the spacing in the parent grid dont forget to change the spacing in projectsPaddingTop */}
-            <GridContainer id='Skills-Description' justify="center" spacing={medium}>
+            <GridContainer id='Skills-Description' justify="center" spacing={currentGridSpacing}>
 
               <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={veryLow} >
-                <GridItem zeroMinWidth >
+                <GridItem >
                   <div className={classes.philosophy}>
                   <Paper elevation={1} className="paperPhilosophy paperDescription" >
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p>
-                        I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development.
+                        I am a web developer specialized in front end, 
+                        with knowledge in back end, 
+                        who is constantly learning the best practices of software development.
                       </p>   
                     </ScrollAnimation>
                     </Paper>
@@ -137,14 +151,18 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 </GridItem>
               </GridContainer>
 
-              <GridContainer item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
+              <GridContainer item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={none}>
                 <GridItem >
-                  <h6 key="1" className='miniTitle'>Front End</h6>
+                  <h6 className='miniTitle'>Front End</h6>
                 </GridItem>
               </GridContainer>
             
 
-            <GridContainer id="Front-End-Description" justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
+            <GridContainer 
+              id="Front-End-Description" 
+              justify='center' 
+              alignItems="center" 
+              item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={isMobile ? veryLow : medium}>
             
               <GridItem   xs={fullWidth} sm={fullWidth} md={halfWidth}>
               <div className='gridItemDescription'>
@@ -178,13 +196,19 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
               </GridContainer>
 
-              <GridContainer id="Test-Title" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
+              <GridContainer id="Test-Title" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={none}>
                 <GridItem>
                   <h6 key="3"  className='miniTitle'>Testing</h6>
                 </GridItem>
               </GridContainer>
 
-              <GridContainer id="Test-Description" justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
+              <GridContainer 
+                id="Test-Description" 
+                justify='center' 
+                alignItems="center" 
+                item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={isMobile ? veryLow : medium}
+              >
+
                 <GridItem  xs={fullWidth} sm={halfWidth} md={halfWidth} >
                   <div className='gridItemDescription'>
                   <Paper className='paperDescription'>
@@ -210,14 +234,18 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 
               </GridContainer>
                
-              <GridContainer id="Back-End-Model-Title" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={low}>
+              <GridContainer id="Back-End-Model-Title" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={none}>
                 <GridItem>
                   <h6 key="5" className='miniTitle'>Back End and Model</h6>
                 </GridItem>
               </GridContainer>
 
-              <GridContainer id="Back-End-Model-Description" 
-                justify='center' alignItems="center" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={medium}>
+              <GridContainer 
+                id="Back-End-Model-Description" 
+                justify='center' 
+                alignItems="center" 
+                item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={isMobile ? veryLow : medium}
+              >
                 <GridItem  xs={fullWidth} sm={halfWidth} md={halfWidth} >
                 <div className='gridItemDescription'>
                   <Paper className='paperDescription'>
@@ -244,7 +272,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               </GridContainer>
 
               <GridContainer id='lineSeparator' item justify='center' xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                <GridItem xs={threeQuarterWidth} sm={threeQuarterWidth} md={threeQuarterWidth}>
+                <GridItem xs={fullWidth} sm={fullWidth} md={threeQuarterWidth}>
                   <LinearProgress variant="determinate" value={100} />
                 </GridItem>
               </GridContainer>
@@ -253,7 +281,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             </div>
           </div>
 
-            <Element name={projectsSectionRef} style={{paddingTop: projectsPaddingTop(medium)}}>
+            <Element name={projectsSectionRef} style={{paddingTop: currentPixelsSpacing}}>
               <div className={classes.latestProjectsTitleContainer}>
                 <Paper elevation={0} className="paperLatestProjects">
                   <Typography color='textPrimary' className="latestProjectsTitle">Latest Projects</Typography>
