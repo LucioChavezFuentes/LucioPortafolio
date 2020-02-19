@@ -108,9 +108,10 @@ const profilePageStyle = (theme : Theme) => createStyles({
 
     '& .paperDescription': {
       padding:"10px",
-      margin: '5%',
-      [theme.breakpoints.down("xs")]: {
-        padding:"5px"
+      margin: '15px',
+      [theme.breakpoints.down("sm")]: {
+        padding:"5px",
+        margin: '10px'
       }
     },
 
@@ -126,7 +127,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
   },
   mainRaised: {
     // Edit here how close you want the page to the header
-    margin: "-200px 30px 0px",
+    margin: "-290px 30px 0px",
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
