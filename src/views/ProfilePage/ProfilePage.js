@@ -30,9 +30,7 @@ import Parallax from "components/Parallax/Parallax.js";
 import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
 import BackEndIcons from "components/TechnologyIcons/backEndIcons";
 import TechTestingIcons from "components/TechnologyIcons/techTestingIcons";
-
-// images
-import profile from "assets/img/faces/aguantaa.png";
+import useWindowSize from "helper/useWindowSize";
 
 // styles
 import styles from "assets/jss/material-kit-react/views/profilePage";
@@ -45,10 +43,10 @@ const medium = 4;
 const large = 6;
 
 const halfWidth = 6;
+const threeQuarterWidth = 9;
 const fullWidth = 12;
 
 //Projects Padding
-
 function projectsPaddingTop(gridVariable) {
   return `${gridVariable*gridVariable}px`
 }
@@ -57,6 +55,7 @@ const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
   const classes = useStyles();
+  const {isMobile} = useWindowSize();
   //const myRef = useRef();
   const [activeProject, setActiveProject] = useState(0);
   const { ...rest } = props;
@@ -122,7 +121,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
             <div  className={classes.description}>
             
                 {/*If you change the spacing in the parent grid dont forget to change the spacing in projectsPaddingTop */}
-            <GridContainer justify="center" spacing={medium}>
+            <GridContainer id='Skills-Description' justify="center" spacing={medium}>
 
               <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={veryLow} >
                 <GridItem zeroMinWidth >
@@ -235,7 +234,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   </div>
                 </GridItem>
 
-                <GridItem xs={fullWidth} sm={halfWidth} md={halfWidth}>
+                <GridItem xs={fullWidth} sm={halfWidth} md={halfWidth} >
                   <div className='gridItemDescription'>
                   <Paper className='paperDescription'>
                     <BackEndIcons />
@@ -243,15 +242,15 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   </div>
                 </GridItem>
               </GridContainer>
+
+              <GridContainer id='lineSeparator' item justify='center' xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                <GridItem xs={threeQuarterWidth} sm={threeQuarterWidth} md={threeQuarterWidth}>
+                  <LinearProgress variant="determinate" value={100} />
+                </GridItem>
+              </GridContainer>
     
               </GridContainer>
             </div>
-          </div>
-
-          
-
-          <div className={classes.lineSeparator}>
-            <LinearProgress variant="determinate" value={100} />
           </div>
 
             <Element name={projectsSectionRef} style={{paddingTop: projectsPaddingTop(medium)}}>
