@@ -7,6 +7,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
+import GitHubIcon from '@material-ui/icons/GitHub';
+// Custom Icons
+import Conejito from "assets/img/customIcons/Conejito";
 // Material IU imports
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -24,7 +27,6 @@ import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import RightLinks from "components/Header/RightLinks";
 import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
 import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
@@ -94,7 +96,6 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
         color="transparent"
         onClickProject={handleHeaderClick} 
         projectsSectionRef={projectsSectionRef}
-        rightLinks={<RightLinks onClickProject={handleHeaderClick} projectsSectionRef={projectsSectionRef} />}
         absolute
         {...rest}
       />
@@ -114,8 +115,8 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   <div className={classes.name}>
                     <h3 className={classes.title}>Lucio Chávez</h3>
                     <h6>Web Developer</h6>
-                    <Button justIcon link target="_blank" href={"https://twitter.com/LucioBbrtiChvez"} className={classes.margin5}>
                     { /*fab and fa-twitter appear to be global classNames*/ }
+                    <Button justIcon link target="_blank" href={"https://twitter.com/LucioBbrtiChvez"} className={classes.margin5}>
                       <i className={"fab fa-twitter"} />
                     </Button>
                     <Button justIcon link className={classes.margin5}>
@@ -298,20 +299,34 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   tabs={[
                     {
                       tabButton: "The Social Conejito",
-                      tabIcon: Camera,
+                      tabIcon: Conejito,
                       tabContent: (
                         <GridContainer justify="center">
-                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
 
-                          <iframe title='The-Social-Conejito' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
-                          
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                            <iframe title='The-Social-Conejito' style={{width: '100%', height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           </GridItem>
+
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
+
+                            <div className={classes.projectsButtonsContainer} style={{display:'inline-block'}}>
+                              <Button color='info' style={{margin: '10px'}} startIcon={<GitHubIcon />}>
+                                  Source Code
+                                </Button>
+                            
+                              <Button color="primary" style={{margin: '10px'}} startIcon={<Conejito color="action" />}>
+                                App's Page
+                              </Button>
+                            </div>
+                            
+                          </GridItem>
+                          
                         </GridContainer>
                       )
                     },
                     {
                       tabButton: "Adventure Code",
-                      tabIcon: Palette,
+                      tabIcon: Conejito,
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
@@ -326,7 +341,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                          <iframe title='Ravenous' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
+                            <iframe title='Ravenous' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           </GridItem>
                         </GridContainer>
                       )

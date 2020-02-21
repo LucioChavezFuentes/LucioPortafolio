@@ -41,7 +41,7 @@ export default function NavPills(props : any) {
   const handleChangeIndex = (index: any) => {
     setActive(index);
   };
-  const classes = useStyles();
+  const classes = useStyles(active);
   const { tabs, direction, color, horizontal, alignCenter } = props;
   const flexContainerClasses = classNames({
     [classes.flexContainer]: true,
@@ -65,7 +65,7 @@ export default function NavPills(props : any) {
 const arrayOfButtons = tabs.map((prop: any, key: number) => {
   const icon : {icon?: any} = {};
   if (prop.tabIcon !== undefined) {
-    icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
+    icon["icon"] = <prop.tabIcon className={ active === key ? classes.tabIconSelected : classes.tabIcon} />;
   }
   const pillsClasses = classNames({
     [classes.pills]: true,

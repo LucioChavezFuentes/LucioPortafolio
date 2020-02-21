@@ -194,6 +194,10 @@ const profilePageStyle = (theme : Theme) => createStyles({
     }
   },
 
+  projectsButtonsContainer: {
+    display: 'inline-block',
+  },
+
   philosophy: {
     position: 'relative',
     top: '10px',

@@ -84,6 +84,20 @@ const navPillsStyle = theme => createStyles({
     height: "30px",
     display: "block",
     margin: "15px 0 !important",
+    filter: 'grayscale(100%)',
+    color: 'black',
+    "&, & *": {
+      letterSpacing: "normal !important"
+    },
+  },
+
+  tabIconSelected: {
+    width: "30px",
+    height: "30px",
+    display: "block",
+    margin: "15px 0 !important",
+    filter: 'grayscale(0%)',
+    color: 'black',
     "&, & *": {
       letterSpacing: "normal !important"
     },

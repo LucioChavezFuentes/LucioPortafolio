@@ -30,8 +30,11 @@ const RegularButton = React.forwardRef((props, ref) => {
     link,
     justIcon,
     className,
+    startIcon,
     ...rest
   } = props;
+
+  const isPrimarySecondary = color === 'primary' || color === 'secondary';
 
   const classes = makeComponentStyles();
 
@@ -49,7 +52,7 @@ const RegularButton = React.forwardRef((props, ref) => {
     [className]: className
   });
   return (
-    <Button {...rest} ref={ref} className={btnClasses}>
+    <Button {...rest} color={color} startIcon={startIcon} variant={isPrimarySecondary ? 'contained' : undefined} ref={ref} className={isPrimarySecondary ? undefined : btnClasses }>
       {children}
     </Button>
   );

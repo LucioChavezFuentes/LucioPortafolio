@@ -54,7 +54,7 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute, onClickProject, projectsSectionRef } = props;
+  const { color, leftLinks, brand, fixed, absolute, onClickProject, projectsSectionRef } = props;
   
   const appBarClasses = classNames({
     [classes.appBar]: true,
