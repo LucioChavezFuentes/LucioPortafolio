@@ -10,6 +10,8 @@ import Favorite from "@material-ui/icons/Favorite";
 import GitHubIcon from '@material-ui/icons/GitHub';
 // Custom Icons
 import Conejito from "assets/img/customIcons/Conejito";
+import AdventureCode from "assets/img/customIcons/AdventureCode";
+import Ravenous from "assets/img/customIcons/Ravenous";
 // Material IU imports
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -326,7 +328,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                     },
                     {
                       tabButton: "Adventure Code",
-                      tabIcon: Conejito,
+                      tabIcon: AdventureCode,
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
@@ -337,7 +339,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                     },
                     {
                       tabButton: "Ravenous",
-                      tabIcon: Favorite,
+                      tabIcon: Ravenous,
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>

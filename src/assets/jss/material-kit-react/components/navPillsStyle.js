@@ -97,6 +97,7 @@ const navPillsStyle = theme => createStyles({
     display: "block",
     margin: "15px 0 !important",
     filter: 'grayscale(0%)',
+    //filter: 'saturate(1)',
     color: 'black',
     "&, & *": {
       letterSpacing: "normal !important"
