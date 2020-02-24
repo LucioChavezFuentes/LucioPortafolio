@@ -4,9 +4,6 @@ import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
 import GitHubIcon from '@material-ui/icons/GitHub';
 // Custom Icons
 import Conejito from "assets/img/customIcons/Conejito";
@@ -312,7 +309,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
 
                             <div className={classes.projectsButtonsContainer} style={{display:'inline-block'}}>
-                              <Button color='info' style={{margin: '10px'}} startIcon={<GitHubIcon />}>
+                              <Button color='github' style={{margin: '10px'}} startIcon={<GitHubIcon />}>
                                   Source Code
                                 </Button>
                             
