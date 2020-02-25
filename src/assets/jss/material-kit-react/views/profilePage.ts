@@ -243,16 +243,35 @@ const profilePageStyle = (theme : Theme) => createStyles({
     }
   },
 
-  philosophyTitle: {
+  aboutMeContainer: {
     textAlign: 'center',
-    border: `solid 1px ${theme.palette.primary.main}`,
-    borderRadius: '10px',
-    width: '20%',
-    margin: '0 auto',
-    "& .title": {
-      fontWeight: "bold",
-    }
-  }
+
+    '& .miniTitle': {
+      border: `solid 1px ${theme.palette.primary.main}`,
+      borderRadius: '10px',
+      width: '20%',
+      margin: '0 auto',
+      [theme.breakpoints.down("sm")]: {
+        width: '60%',
+      },
+
+      "& .title": {
+        fontWeight: "bold",
+      },
+    },
+
+    '& .paperDescription': {
+        padding:"10px",
+        [theme.breakpoints.down("sm")]: {
+          padding:"5px",
+        }
+    },
+
+    '& .gridItemDescription': {
+      backgroundColor: 'bisque',
+      borderRadius: "20px",
+    },
+  },
 });
 
 export default profilePageStyle;

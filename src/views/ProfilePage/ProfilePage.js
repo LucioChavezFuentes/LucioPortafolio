@@ -362,9 +362,9 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               <LinearProgress variant="determinate" value={100}  />
             </div>
 
-            <div className={classes.aboutMeContainer}>
-              <GridContainer justify="center">
-                <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+            <div className={classes.aboutMeContainer} style={{paddingTop: currentPixelsSpacing, paddingBottom: currentPixelsSpacing}}>
+              <GridContainer justify={isMobile ? "center" : "space-between"} alignItems='flex-start' spacing={currentGridSpacing}>
+                <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth}>
                   <div className={classes.paperTitleContainer}>
                     <Paper elevation={0} className="paper">
                       <Typography color='textPrimary' className="title">About Me</Typography>
@@ -373,12 +373,59 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 </GridItem>
 
                 <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                  <div className={classes.philosophyTitle}>
+                  <div className='miniTitle'>
                     <Typography color='textPrimary' className="title">Philosophy</Typography>
-                    
                   </div>
                 </GridItem>
 
+                <GridItem className='gridItemDescription' xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                <Paper className='paperDescription'>
+                  <p>
+                    I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. 
+                    I also trust in making good and honest work from the beginning in order to avoid unnecessary work, costs and headaches at the end.
+                  </p>
+                </Paper>
+                </GridItem>
+
+                <GridContainer item justify='center' alignItems="center" xs={fullWidth} sm={halfWidth} md={halfWidth} spacing={currentGridSpacing}>
+                  <GridItem>
+                    <div className='miniTitle'>
+                      <Typography color='textPrimary' className="title">Hobbies</Typography>
+                    </div>
+                  </GridItem>
+
+                  <GridItem className='gridItemDescription'>
+                    <Paper className='paperDescription'>
+                      <p className='hobbiesDescription'>
+                        Usually I found myself playing video games and watching YouTube cartoons.
+                      </p>
+                    </Paper>
+                  </GridItem>
+                </GridContainer>
+
+                <GridContainer item justify='center' alignItems="center" xs={fullWidth} sm={halfWidth} md={halfWidth} spacing={currentGridSpacing}>
+                  <GridItem>
+                    <div className='miniTitle'>
+                      <Typography color='textPrimary' className="title">Lecture</Typography>
+                    </div>
+                  </GridItem>
+
+                  <GridItem className='gridItemDescription'>
+                  <Paper className='paperDescription'>
+                    <p>
+                      Apart from hobbies and work, I spend time reading non-fiction books and these in particular are giving me great insight:
+                    </p>
+                    <ul>
+                      <li>
+                        Code Complete of Steve McConell
+                      </li>
+                      <li>
+                      Essentialism: The Disciplined Pursuit of Less of Greg McKeown
+                      </li>
+                    </ul>
+                  </Paper>
+                  </GridItem>
+                </GridContainer>
               </GridContainer>
 
             </div>
