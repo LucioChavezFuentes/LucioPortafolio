@@ -271,22 +271,29 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 </GridItem>
               </GridContainer>
 
-              <GridContainer id='lineSeparator' item justify='center' xs={fullWidth} sm={fullWidth} md={fullWidth}>
+              {/*<GridContainer id='lineSeparator' item justify='center' xs={fullWidth} sm={fullWidth} md={fullWidth}>
                 <GridItem xs={fullWidth} sm={fullWidth} md={threeQuarterWidth}>
                   <LinearProgress variant="determinate" value={100} />
                 </GridItem>
-              </GridContainer>
+              </GridContainer>*/}
     
               </GridContainer>
             </div>
           </div>
 
-            <Element name={projectsSectionRef} style={{paddingTop: currentPixelsSpacing}}>
+          <div className={classes.lineSeparator} style={{paddingTop: currentPixelsSpacing, paddingBottom: currentPixelsSpacing}}>
+            <LinearProgress variant="determinate" value={100}  />
+          </div>
+
+          <div className={classes.projectsContainer} style={{paddingTop: currentPixelsSpacing, paddingBottom: currentPixelsSpacing}}>
+
+            <Element name={projectsSectionRef}>
               <div className={classes.latestProjectsTitleContainer}>
                 <Paper elevation={0} className="paperLatestProjects">
                   <Typography color='textPrimary' className="latestProjectsTitle">Latest Projects</Typography>
                 </Paper>
               </div>
+            </Element>
 
             <GridContainer justify="center">
               <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} className={classes.navWrapper}>
@@ -343,15 +350,39 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                             <iframe title='Ravenous' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           </GridItem>
                         </GridContainer>
-                      )
-                    }
-                  ]}
-                />
-              </GridItem>
-            </GridContainer>
-            </Element>
+                        )
+                      }
+                    ]}
+                  />
+                </GridItem>
+              </GridContainer>
             </div>
-            
+
+            <div className={classes.lineSeparator} style={{paddingTop: currentPixelsSpacing, paddingBottom: currentPixelsSpacing}}>
+              <LinearProgress variant="determinate" value={100}  />
+            </div>
+
+            <div className={classes.aboutMeContainer}>
+              <GridContainer justify="center">
+                <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                  <div className={classes.paperTitleContainer}>
+                    <Paper elevation={0} className="paper">
+                      <Typography color='textPrimary' className="title">About Me</Typography>
+                    </Paper>
+                  </div>
+                </GridItem>
+
+                <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                  <div className={classes.philosophyTitle}>
+                    <Typography color='textPrimary' className="title">Philosophy</Typography>
+                    
+                  </div>
+                </GridItem>
+
+              </GridContainer>
+
+            </div>
+          </div>
         </div>
       </div>
       

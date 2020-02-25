@@ -152,7 +152,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
     color: "#999"
   },
   navWrapper: {
-    margin: "20px auto 50px auto",
+    margin: "10px auto 0px auto",
     textAlign: "center",
     overflow: "hidden",
     [theme.breakpoints.down("xs")]: {
@@ -217,7 +217,41 @@ const profilePageStyle = (theme : Theme) => createStyles({
 
   lineSeparator: {
     margin: "auto",
-    width: '50%',
+    width: '75%',
+  },
+
+  paperTitleContainer: {
+    textAlign: "center",
+    // borderTop: `3px solid ${theme.palette.secondary.light}`,
+    margin: "0 auto",
+    width: "50%",
+    backgroundColor: 'bisque',
+    borderRadius: "20px",
+    display: 'flex',
+    justifyContent: 'center',
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+
+    "& .paper": {
+      width: "100%",
+      margin: "5%",
+      padding: "10px",
+    },
+    "& .title": {
+      fontWeight: "bold",
+    }
+  },
+
+  philosophyTitle: {
+    textAlign: 'center',
+    border: `solid 1px ${theme.palette.primary.main}`,
+    borderRadius: '10px',
+    width: '20%',
+    margin: '0 auto',
+    "& .title": {
+      fontWeight: "bold",
+    }
   }
 });
 
