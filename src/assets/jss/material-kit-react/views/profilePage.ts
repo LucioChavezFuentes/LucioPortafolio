@@ -195,7 +195,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
   },
 
   projectIframe: {
-    width: '100%', 
+    width: '100%',
     height:"500px",
     border: `solid 5px ${theme.palette.primary.dark}`,
     borderRadius: '10px',

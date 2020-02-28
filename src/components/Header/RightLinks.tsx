@@ -14,6 +14,11 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 
 // @material-ui/icons
 import { Apps, CloudDownload } from "@material-ui/icons";
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import Conejito from "assets/img/customIcons/Conejito";
+import AdventureCode from "assets/img/customIcons/AdventureCode";
+import Ravenous from "assets/img/customIcons/Ravenous";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -52,41 +57,53 @@ export default function HeaderLinks(props) {
     <List
       className={classes.list}
     >
-      <ListSubheader  id="All Projects">
-          All Projects
-        </ListSubheader>
+      <ListSubheader  id="All Projects"  className={classes.listSubheader}>
+        All Projects
+      </ListSubheader>
         <ListItem className={classes.listItem}>
-            <LinkScroll
+          <Button component={LinkScroll}
             to={projectsSectionRef}
             spy={true} smooth={true} duration={500}
-            className={classes.dropdownLink}
+            className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={0}
-            >
-              The Social Conejito
-            </LinkScroll>
+            color="transparent"
+            variant='text'
+            simple
+            startIcon={<Conejito />}
+          >
+            The Social Conejito
+          </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
-            <LinkScroll
-              to={projectsSectionRef}
-              spy={true} smooth={true} duration={500}
-              className={classes.dropdownLink}
-              onClick={handleClick}
-              data-key={1}
-            >
-              Adventure Code
-            </LinkScroll>
+        <Button component={LinkScroll}
+            to={projectsSectionRef}
+            spy={true} smooth={true} duration={500}
+            className={classes.dropdownButtonLink}
+            onClick={handleClick}
+            data-key={1}
+            color="transparent"
+            variant='text'
+            simple
+            startIcon={<AdventureCode />}
+          >
+            Adventure Code
+          </Button>
         </ListItem>
           <ListItem className={classes.listItem}>
-            <LinkScroll
-              to={projectsSectionRef}
-              spy={true} smooth={true} duration={500}
-              className={classes.dropdownLink}
-              onClick={handleClick}
-              data-key={2}
-            >
-              Ravenous
-            </LinkScroll>
+          <Button component={LinkScroll}
+            to={projectsSectionRef}
+            spy={true} smooth={true} duration={500}
+            className={classes.dropdownButtonLink}
+            onClick={handleClick}
+            data-key={2}
+            color="transparent"
+            variant='text'
+            simple
+            startIcon={<Ravenous />}
+          >
+            Ravenous
+          </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
             <LinkScroll
@@ -97,29 +114,31 @@ export default function HeaderLinks(props) {
             </LinkScroll>
           </ListItem>
         <ListItem className={classes.listItem}>
-          <ListSubheader id="Social-Media">
+          <ListSubheader id="Social-Media" className={classes.listSubheader}>
             Social Media
           </ListSubheader>
 
         <ListItem className={classes.listItem}>
           <Button
+              className={classes.dropdownButtonLink}
               href="https://twitter.com/CreativeTim?ref=creativetim"
               target="_blank"
               color="transparent"
-              className={classes.navLink}
+              startIcon={<TwitterIcon />}
             >
               { /*fab and fa-twitter appear to be global classNames*/ }
-              <i className={classes.socialIcons + " fab fa-twitter"} />
+              Lucio's Twitter
             </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
             <Button
+              className={classes.dropdownButtonLink}
               color="transparent"
               href="https://www.facebook.com/CreativeTim?ref=creativetim"
               target="_blank"
-              className={classes.navLink}
+              startIcon={<InstagramIcon />}
             >
-              <i className={classes.socialIcons + " fab fa-instagram"} />
+              Lucio's Instagram
             </Button>
         </ListItem>
       </ListItem>
