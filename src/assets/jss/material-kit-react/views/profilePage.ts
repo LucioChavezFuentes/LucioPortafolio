@@ -156,7 +156,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
     textAlign: "center",
     overflow: "hidden",
     [theme.breakpoints.down("xs")]: {
-      margin: "20px auto 100px auto"
+      margin: "20px auto 0px auto"
     }
   },
 
@@ -194,8 +194,23 @@ const profilePageStyle = (theme : Theme) => createStyles({
     }
   },
 
+  projectIframe: {
+    width: '100%', 
+    height:"500px",
+    border: `solid 5px ${theme.palette.primary.dark}`,
+    borderRadius: '10px',
+  },
+
   projectsButtonsContainer: {
     display: 'inline-block',
+
+    '& .gitHubButton': {
+      margin: '10px'
+    },
+
+    '& .appPageButton': {
+      margin: '10px'
+    }
   },
 
   philosophy: {
@@ -246,13 +261,18 @@ const profilePageStyle = (theme : Theme) => createStyles({
   aboutMeContainer: {
     textAlign: 'center',
 
+    '& .aboutMe': {
+      width: '80%',
+      margin: '0 auto 3rem auto',
+    },
+
     '& .miniTitle': {
       border: `solid 1px ${theme.palette.primary.main}`,
       borderRadius: '10px',
       width: '20%',
       margin: '0 auto',
       [theme.breakpoints.down("sm")]: {
-        width: '60%',
+        width: '80%',
       },
 
       "& .title": {
@@ -265,6 +285,10 @@ const profilePageStyle = (theme : Theme) => createStyles({
         [theme.breakpoints.down("sm")]: {
           padding:"5px",
         }
+    },
+
+    '& li': {
+      fontSize: '0.9rem',
     },
 
     '& .gridItemDescription': {

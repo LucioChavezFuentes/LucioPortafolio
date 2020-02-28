@@ -310,23 +310,22 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                         <GridContainer justify="center">
 
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                            <iframe title='The-Social-Conejito' style={{width: '100%', height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
+                            <iframe title='The-Social-Conejito' className={classes.projectIframe} src="https://thesocialmono.firebaseapp.com/"></iframe>
                           </GridItem>
 
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
 
-                            <div className={classes.projectsButtonsContainer} style={{display:'inline-block'}}>
-                              <Button color='github' style={{margin: '10px'}} startIcon={<GitHubIcon />}>
-                                  Source Code
-                                </Button>
+                            <div className={classes.projectsButtonsContainer}>
+                              <Button className='gitHubButton' color='github' startIcon={isMobile ? undefined : <GitHubIcon />}>
+                               {isMobile ? <GitHubIcon /> : 'Source Code'}
+                              </Button>
                             
-                              <Button color="primary" style={{margin: '10px'}} startIcon={<Conejito color="action" />}>
+                              <Button className='appPageButton' color="primary" href="https://thesocialmono.firebaseapp.com/" startIcon={<Conejito color="action" />}>
                                 App's Page
                               </Button>
                             </div>
                             
                           </GridItem>
-                          
                         </GridContainer>
                       )
                     },
@@ -336,7 +335,21 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                          <iframe title='Adventure-Code' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
+                          <iframe title='Adventure-Code' className={classes.projectIframe} src="https://codigoaventura-2c741.firebaseapp.com/home"></iframe>
+                          </GridItem>
+
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
+
+                            <div className={classes.projectsButtonsContainer}>
+                              <Button className='gitHubButton' color='github' startIcon={isMobile ? undefined : <GitHubIcon />}>
+                              {isMobile ? <GitHubIcon /> : 'Source Code'}
+                              </Button>
+
+                              <Button className='appPageButton' color="primary" href="https://codigoaventura-2c741.firebaseapp.com/home"  startIcon={<AdventureCode color="action" />}>
+                                App's Page
+                              </Button>
+                            </div>
+
                           </GridItem>
                         </GridContainer>
                       )
@@ -347,7 +360,21 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                            <iframe title='Ravenous' style={{width: "90%", height:"500px"}} src="https://thesocialmono.firebaseapp.com/"></iframe>
+                            <iframe title='Ravenous' className={classes.projectIframe} src="https://ravenous-8b12b.firebaseapp.com/"></iframe>
+                          </GridItem>
+
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
+
+                            <div className={classes.projectsButtonsContainer}>
+                              <Button className='gitHubButton' color='github' startIcon={isMobile ? undefined : <GitHubIcon />}>
+                              {isMobile ? <GitHubIcon /> : 'Source Code'}
+                              </Button>
+
+                              <Button className='appPageButton' color="primary" href="https://ravenous-8b12b.firebaseapp.com/"  startIcon={<Ravenous color="action" />}>
+                                App's Page
+                              </Button>
+                            </div>
+
                           </GridItem>
                         </GridContainer>
                         )
@@ -362,7 +389,8 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
               <LinearProgress variant="determinate" value={100}  />
             </div>
 
-            <div className={classes.aboutMeContainer} style={{paddingTop: currentPixelsSpacing, paddingBottom: currentPixelsSpacing}}>
+            <div className={classes.aboutMeContainer} style={{padding: currentPixelsSpacing}}>
+              <div className='aboutMe'>
               <GridContainer justify={isMobile ? "center" : "space-between"} alignItems='flex-start' spacing={currentGridSpacing}>
                 <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth}>
                   <div className={classes.paperTitleContainer}>
@@ -387,47 +415,25 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 </Paper>
                 </GridItem>
 
-                <GridContainer item justify='center' alignItems="center" xs={fullWidth} sm={halfWidth} md={halfWidth} spacing={currentGridSpacing}>
-                  <GridItem>
+                
+                  <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
                     <div className='miniTitle'>
-                      <Typography color='textPrimary' className="title">Hobbies</Typography>
+                      <Typography color='textPrimary' className="title">Hobbies and Lecture</Typography>
                     </div>
                   </GridItem>
 
-                  <GridItem className='gridItemDescription'>
+                  <GridItem className='gridItemDescription' xs={fullWidth} sm={fullWidth} md={fullWidth}>
                     <Paper className='paperDescription'>
                       <p className='hobbiesDescription'>
-                        Usually I found myself playing video games and watching YouTube cartoons.
+                        Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books, 
+                        these books in particular are my favorites: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.
                       </p>
                     </Paper>
                   </GridItem>
-                </GridContainer>
 
-                <GridContainer item justify='center' alignItems="center" xs={fullWidth} sm={halfWidth} md={halfWidth} spacing={currentGridSpacing}>
-                  <GridItem>
-                    <div className='miniTitle'>
-                      <Typography color='textPrimary' className="title">Lecture</Typography>
-                    </div>
-                  </GridItem>
 
-                  <GridItem className='gridItemDescription'>
-                  <Paper className='paperDescription'>
-                    <p>
-                      Apart from hobbies and work, I spend time reading non-fiction books and these in particular are giving me great insight:
-                    </p>
-                    <ul>
-                      <li>
-                        Code Complete of Steve McConell
-                      </li>
-                      <li>
-                      Essentialism: The Disciplined Pursuit of Less of Greg McKeown
-                      </li>
-                    </ul>
-                  </Paper>
-                  </GridItem>
-                </GridContainer>
               </GridContainer>
-
+              </div>
             </div>
           </div>
         </div>
