@@ -19,6 +19,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import Conejito from "assets/img/customIcons/Conejito";
 import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
+import TeaCozy from "assets/img/customIcons/TeaCozy";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -31,6 +32,9 @@ import useWindowSize from "helper/useWindowSize";
 import { Link as LinkScroll} from 'react-scroll'
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
+
+
+// TODO: Insert Tea Cozy link when available at line 195.
 
 
 const useStyles = makeStyles(styles);
@@ -106,12 +110,18 @@ export default function HeaderLinks(props) {
           </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
-            <LinkScroll
-              className={classes.dropdownLink}
+            <Button
+              href='https://tea-cozy-37cbf.firebaseapp.com'
+              target="_blank"
+              className={classes.dropdownButtonLink}
               data-key={3}
+              color="transparent"
+              variant='text'
+              simple
+              startIcon={<TeaCozy />}
             >
               Tea Cozy
-            </LinkScroll>
+            </Button>
           </ListItem>
         <ListItem className={classes.listItem}>
           <ListSubheader id="Social-Media" className={classes.listSubheader}>
@@ -182,12 +192,14 @@ export default function HeaderLinks(props) {
             >
               Ravenous
             </LinkScroll>,
-            <LinkScroll
+            <a
+              target="_blank"
+              href='https://tea-cozy-37cbf.firebaseapp.com'
               className={classes.dropdownLink}
               data-key={3}
             >
             Tea Cozy
-            </LinkScroll>
+            </a>
           ]}
         />
       </ListItem>

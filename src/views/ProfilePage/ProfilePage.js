@@ -316,11 +316,23 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
 
                             <div className={classes.projectsButtonsContainer}>
-                              <Button className='gitHubButton' color='github' startIcon={isMobile ? undefined : <GitHubIcon />}>
+                              <Button 
+                                href='https://github.com/LucioChavezFuentes/TheSocialConejitoComplete' 
+                                target='_blank'
+                                className='gitHubButton' 
+                                color='github' 
+                                startIcon={isMobile ? undefined : <GitHubIcon />}
+                              >
                                {isMobile ? <GitHubIcon /> : 'Source Code'}
                               </Button>
                             
-                              <Button className='appPageButton' color="primary" href="https://thesocialmono.firebaseapp.com/" startIcon={<Conejito color="action" />}>
+                              <Button
+                                href="https://thesocialmono.firebaseapp.com/"
+                                target='_blank'
+                                className='appPageButton' 
+                                color="primary"  
+                                startIcon={<Conejito color="action" />}
+                              >
                                 App's Page
                               </Button>
                             </div>
@@ -341,11 +353,20 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
 
                             <div className={classes.projectsButtonsContainer}>
-                              <Button className='gitHubButton' color='github' startIcon={isMobile ? undefined : <GitHubIcon />}>
+                              <Button  
+                                href='https://github.com/LucioChavezFuentes/codigoAventura' 
+                                target="_blank" 
+                                className='gitHubButton' 
+                                color='github' 
+                                startIcon={isMobile ? undefined : <GitHubIcon />}
+                              >
                               {isMobile ? <GitHubIcon /> : 'Source Code'}
                               </Button>
 
-                              <Button className='appPageButton' color="primary" href="https://codigoaventura-2c741.firebaseapp.com/home"  startIcon={<AdventureCode color="action" />}>
+                              <Button
+                                href="https://codigoaventura-2c741.firebaseapp.com"
+                                target='_blank'
+                                className='appPageButton' color="primary" startIcon={<AdventureCode color="action" />}>
                                 App's Page
                               </Button>
                             </div>
@@ -366,11 +387,23 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
 
                             <div className={classes.projectsButtonsContainer}>
-                              <Button className='gitHubButton' color='github' startIcon={isMobile ? undefined : <GitHubIcon />}>
+                              <Button
+                                href='https://github.com/LucioChavezFuentes/Ravenous'
+                                target='_blank' 
+                                className='gitHubButton' 
+                                color='github' 
+                                startIcon={isMobile ? undefined : <GitHubIcon />}
+                              >
                               {isMobile ? <GitHubIcon /> : 'Source Code'}
                               </Button>
 
-                              <Button className='appPageButton' color="primary" href="https://ravenous-8b12b.firebaseapp.com/"  startIcon={<Ravenous color="action" />}>
+                              <Button
+                                href="https://ravenous-8b12b.firebaseapp.com/" 
+                                target='_blank' 
+                                className='appPageButton' 
+                                color="primary"  
+                                startIcon={<Ravenous color="action" />}
+                              >
                                 App's Page
                               </Button>
                             </div>
