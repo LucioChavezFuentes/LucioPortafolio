@@ -31,6 +31,7 @@ const RegularButton = React.forwardRef((props, ref) => {
     justIcon,
     className,
     startIcon,
+    custom,
     ...rest
   } = props;
 
@@ -39,7 +40,7 @@ const RegularButton = React.forwardRef((props, ref) => {
   const classes = makeComponentStyles();
 
   const btnClasses = classNames({
-    [classes.button]: true,
+    [classes.button]: custom,
     [classes[size]]: size,
     [classes[color]]: color,
     [classes.round]: round,

@@ -156,7 +156,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
     textAlign: "center",
     overflow: "hidden",
     [theme.breakpoints.down("xs")]: {
-      margin: "20px auto 0px auto"
+      margin: "0 auto"
     }
   },
 
@@ -191,7 +191,11 @@ const profilePageStyle = (theme : Theme) => createStyles({
     },
     "& .latestProjectsTitle": {
       fontWeight: "bold",
-    }
+    },
+  },
+
+  startIcon: {
+    marginLeft: '0px'
   },
 
   projectIframe: {
@@ -199,6 +203,19 @@ const profilePageStyle = (theme : Theme) => createStyles({
     height:"500px",
     border: `solid 5px ${theme.palette.primary.dark}`,
     borderRadius: '10px',
+  },
+
+  projectDescription: {
+    border: `solid 1px ${theme.palette.primary.main}`,
+    borderRadius: '10px',
+    width: '90%',
+    margin: '0 auto',
+    padding: '10px 5px',
+    textAlign: 'center',
+
+    '& p':{
+      margin: 'auto'
+    }
   },
 
   projectsButtonsContainer: {
@@ -210,8 +227,14 @@ const profilePageStyle = (theme : Theme) => createStyles({
 
     '& .appPageButton': {
       margin: '10px'
-    }
+    },
+
+    '& .startIcon': {
+      marginLeft: '0px'
+    },
   },
+
+  
 
   philosophy: {
     position: 'relative',
@@ -258,14 +281,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
     }
   },
 
-  projectDescription: {
-    border: `solid 1px ${theme.palette.primary.main}`,
-    borderRadius: '10px',
-    width: '90%',
-    margin: '0 auto',
-    padding: '5px',
-    textAlign: 'center',
-  },
+ 
 
   aboutMeContainer: {
     textAlign: 'center',

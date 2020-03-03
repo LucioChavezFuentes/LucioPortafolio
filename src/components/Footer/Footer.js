@@ -79,7 +79,7 @@ export default function Footer(props) {
   for a better web.
   </div>*/}
           <div style={{fontWeight:'bold'}}>
-            Need help?
+            Contact
           </div>
           <div>
             Feel free to contact me via email at luciobertinchavez@gmail.com

@@ -328,11 +328,12 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                               <Button 
                                 href='https://github.com/LucioChavezFuentes/TheSocialConejitoComplete' 
                                 target='_blank'
-                                className='gitHubButton' 
+                                className='gitHubButton'
+                                classes={{startIcon: 'startIcon'}}
                                 color='github' 
-                                startIcon={isMobile ? undefined : <GitHubIcon />}
+                                startIcon={<GitHubIcon />}
                               >
-                               {isMobile ? <GitHubIcon /> : 'Source Code'}
+                               {isMobile ? 'Code' : 'Source Code'}
                               </Button>
                             
                               <Button
@@ -372,12 +373,13 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                             <div className={classes.projectsButtonsContainer}>
                               <Button  
                                 href='https://github.com/LucioChavezFuentes/codigoAventura' 
-                                target="_blank" 
+                                target="_blank"
                                 className='gitHubButton' 
+                                classes={{startIcon: 'startIcon'}}
                                 color='github' 
-                                startIcon={isMobile ? undefined : <GitHubIcon />}
+                                startIcon={<GitHubIcon />}
                               >
-                              {isMobile ? <GitHubIcon /> : 'Source Code'}
+                              {isMobile ? 'Code' : 'Source Code'}
                               </Button>
 
                               <Button
@@ -415,11 +417,12 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                               <Button
                                 href='https://github.com/LucioChavezFuentes/Ravenous'
                                 target='_blank' 
-                                className='gitHubButton' 
+                                className='gitHubButton'
+                                classes={{startIcon: 'startIcon'}}
                                 color='github' 
-                                startIcon={isMobile ? undefined : <GitHubIcon />}
+                                startIcon={<GitHubIcon />}
                               >
-                              {isMobile ? <GitHubIcon /> : 'Source Code'}
+                              {isMobile ? 'Code' : 'Source Code'}
                               </Button>
 
                               <Button

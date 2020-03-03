@@ -114,6 +114,9 @@ const navPillsStyle = theme => createStyles({
   contentWrapper: {
     marginTop: "20px",
     minHeight: "527px",
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "10px",
+    }
   },
   primary: {
     "&,&:hover": {
@@ -184,7 +187,7 @@ const navPillsStyle = theme => createStyles({
     
   },
   tabContent: {
-    overflow: "visible",
+    overflow: "hidden",
   },
   tabButton: {
     position: "flex",
