@@ -258,6 +258,15 @@ const profilePageStyle = (theme : Theme) => createStyles({
     }
   },
 
+  projectDescription: {
+    border: `solid 1px ${theme.palette.primary.main}`,
+    borderRadius: '10px',
+    width: '90%',
+    margin: '0 auto',
+    padding: '5px',
+    textAlign: 'center',
+  },
+
   aboutMeContainer: {
     textAlign: 'center',
 

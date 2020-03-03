@@ -108,6 +108,7 @@ const arrayOfButtons = tabs.map((prop: any, key: number) => {
   const tabContent = (
     <div className={classes.contentWrapper}>
       <SwipeableViews
+        animateHeight
         axis={direction === "rtl" ? "x-reverse" : "x"}
         index={active}
         onChangeIndex={handleChangeIndex}

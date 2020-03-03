@@ -184,7 +184,7 @@ const navPillsStyle = theme => createStyles({
     
   },
   tabContent: {
-    overflow: "hidden",
+    overflow: "visible",
   },
   tabButton: {
     position: "flex",

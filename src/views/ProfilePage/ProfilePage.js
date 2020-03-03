@@ -307,10 +307,19 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabButton: "The Social Conejito",
                       tabIcon: Conejito,
                       tabContent: (
-                        <GridContainer justify="center">
+                        <GridContainer justify="center" >
 
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
                             <iframe title='The-Social-Conejito' className={classes.projectIframe} src="https://thesocialmono.firebaseapp.com/"></iframe>
+                          </GridItem>
+
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
+                            <div className={classes.projectDescription}>
+                              <p>
+                                The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression who everyone can see, 
+                                like and comment. 
+                              </p>
+                            </div>
                           </GridItem>
 
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
@@ -345,9 +354,17 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                       tabButton: "Adventure Code",
                       tabIcon: AdventureCode,
                       tabContent: (
-                        <GridContainer justify="center">
+                        <GridContainer justify="center" >
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
                           <iframe title='Adventure-Code' className={classes.projectIframe} src="https://codigoaventura-2c741.firebaseapp.com/home"></iframe>
+                          </GridItem>
+
+                          <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth} >
+                            <div className={classes.projectDescription}>
+                              <p>
+                                Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output.
+                              </p>
+                            </div>
                           </GridItem>
 
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
@@ -384,7 +401,15 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                             <iframe title='Ravenous' className={classes.projectIframe} src="https://ravenous-8b12b.firebaseapp.com/"></iframe>
                           </GridItem>
 
-                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                            <div className={classes.projectDescription}>
+                              <p>
+                                Ravenous searches for restaurants in a city or country with a given type of food.
+                              </p>
+                            </div>
+                          </GridItem>
+
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
 
                             <div className={classes.projectsButtonsContainer}>
                               <Button
@@ -443,7 +468,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                 <Paper className='paperDescription'>
                   <p>
                     I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. 
-                    I also trust in making good and honest work from the beginning in order to avoid unnecessary work, costs and headaches at the end.
+                    I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.
                   </p>
                 </Paper>
                 </GridItem>
@@ -458,12 +483,11 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   <GridItem className='gridItemDescription' xs={fullWidth} sm={fullWidth} md={fullWidth}>
                     <Paper className='paperDescription'>
                       <p className='hobbiesDescription'>
-                        Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books, 
+                        Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books,
                         these books in particular are my favorites: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.
                       </p>
                     </Paper>
                   </GridItem>
-
 
               </GridContainer>
               </div>
