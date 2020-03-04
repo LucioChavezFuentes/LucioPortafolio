@@ -11,6 +11,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 import ListSubheader from '@material-ui/core/ListSubheader';
+import Badge from '@material-ui/core/Badge';
 
 // @material-ui/icons
 import { Apps, CloudDownload } from "@material-ui/icons";
@@ -20,6 +21,7 @@ import Conejito from "assets/img/customIcons/Conejito";
 import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
 import TeaCozy from "assets/img/customIcons/TeaCozy";
+import ExternalLink from "assets/img/customIcons/ExternalLink";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -110,20 +112,25 @@ export default function HeaderLinks(props) {
           </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
-            <Button
-              href='https://tea-cozy-37cbf.firebaseapp.com'
-              target="_blank"
-              className={classes.dropdownButtonLink}
-              data-key={3}
-              color="transparent"
-              variant='text'
-              simple
-              startIcon={<TeaCozy />}
+            <Badge
+              classes={{anchorOriginTopRightRectangle: 'externalLink'}}
+              badgeContent={<ExternalLink fontSize='10px'/>}
             >
-              Tea Cozy
-            </Button>
+              <Button
+                href='https://tea-cozy-37cbf.firebaseapp.com'
+                target="_blank"
+                className={classes.dropdownButtonLink}
+                data-key={3}
+                color="transparent"
+                variant='text'
+                simple
+                startIcon={<TeaCozy/>}
+              >
+                Tea Cozy
+              </Button>
+            </Badge>
           </ListItem>
-        <ListItem className={classes.listItem}>
+        <ListItem className={classes.subList}>
           <ListSubheader id="Social-Media" className={classes.listSubheader}>
             Social Media
           </ListSubheader>

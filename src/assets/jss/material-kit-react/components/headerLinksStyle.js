@@ -17,7 +17,6 @@ const headerLinksStyle = theme => createStyles({
 
   listSubheader: {
     color: 'black',
-    marginTop: '15px',
 
   },
   listItem: {
@@ -27,6 +26,31 @@ const headerLinksStyle = theme => createStyles({
     display: "block",
     width: "auto",
     margin: "0",
+    padding: "0 0 0 10px",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      "&:after": {
+        width: "calc(100% - 30px)",
+        content: '""',
+        display: "block",
+        height: "1px",
+        marginLeft: "15px",
+        backgroundColor: "#e5e5e5"
+      },
+
+      "& .externalLink": {
+        top: '11px',
+      },
+    }
+  },
+
+  subList: {
+    float: "left",
+    color: "inherit",
+    position: "relative",
+    display: "block",
+    width: "auto",
+    margin: "15px 0 0 0",
     padding: "0",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
@@ -37,12 +61,18 @@ const headerLinksStyle = theme => createStyles({
         height: "1px",
         marginLeft: "15px",
         backgroundColor: "#e5e5e5"
-      }
+      },
+
+      "& .externalLink": {
+        top: '11px',
+      },
     }
   },
+
   listItemText: {
     padding: "0 !important"
   },
+
   navLink: {
     color: "inherit",
     position: "relative",

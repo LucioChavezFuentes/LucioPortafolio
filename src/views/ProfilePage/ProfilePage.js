@@ -486,8 +486,8 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   <GridItem className='gridItemDescription' xs={fullWidth} sm={fullWidth} md={fullWidth}>
                     <Paper className='paperDescription'>
                       <p className='hobbiesDescription'>
-                        Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books,
-                        these books in particular are my favorites: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.
+                        Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books.
+                        My last two favorite are: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.
                       </p>
                     </Paper>
                   </GridItem>
