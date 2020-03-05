@@ -6,20 +6,46 @@ import classNames from "classnames";
 
 // @material-ui/core components
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import createStyles from "@material-ui/core/styles/createStyles";
 import Button from "@material-ui/core/Button";
-
-// @ts-nocheck
 // core components
 
 import buttonStyle from "assets/jss/material-kit-react/components/buttonStyle.js";
 
-const makeComponentStyles = makeStyles(() => ({
-  ...buttonStyle
-}));
+interface RegularButtonProps {
+  customColor?:  "info" |"success" | "warning" |"danger" |"rose" |"white" |"facebook" |"twitter" |"google" |"github" |"transparent";
+  color?: "primary" | 'secondary';
+  simple?: boolean;
+  round?: boolean;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  block?: boolean;
+  link?: boolean;
+  justIcon?: boolean;
+  className?: string;
+  size?: "sm"| "lg";
+  startIcon?: React.ReactNode;
+  customStyle?: boolean;
+  children: React.ReactNode;
+  component?: typeof React.Component;
+  variant?: "text" | "outlined" | "contained";
+  to?: boolean;
+  spy?: boolean;
+  smooth?: boolean;
+  duration?: number;
+  onClick?: any;
+  href?: string;
+  target?: string;
+}
 
-const RegularButton = React.forwardRef((props, ref) => {
+const makeComponentStyles = makeStyles(() => createStyles({
+  ...buttonStyle
+  }
+));
+
+const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((props, ref) => {
   const {
-    color,
+    customColor,
     round,
     children,
     fullWidth,
@@ -31,18 +57,18 @@ const RegularButton = React.forwardRef((props, ref) => {
     justIcon,
     className,
     startIcon,
-    custom,
+    customStyle,
+    color,
+    variant,
     ...rest
   } = props;
-
-  const isPrimarySecondary = color === 'primary' || color === 'secondary';
-
+  
   const classes = makeComponentStyles();
 
   const btnClasses = classNames({
-    [classes.button]: custom,
-    [classes[size]]: size,
-    [classes[color]]: color,
+    [classes.button]: customStyle,
+    [classes[size!]]: size,
+    [classes[customColor!]]: customColor,
     [classes.round]: round,
     [classes.fullWidth]: fullWidth,
     [classes.disabled]: disabled,
@@ -50,15 +76,18 @@ const RegularButton = React.forwardRef((props, ref) => {
     [classes.block]: block,
     [classes.link]: link,
     [classes.justIcon]: justIcon,
-    [className]: className
+    [className!]: className
   });
-  return (
-    <Button {...rest} color={color} startIcon={startIcon} variant={isPrimarySecondary ? 'contained' : undefined} ref={ref} className={isPrimarySecondary ? undefined : btnClasses }>
+
+  
+  return ( 
+    <Button {...rest} color={color} startIcon={startIcon} variant={variant} ref={ref} className={color ? undefined : btnClasses }>
       {children}
     </Button>
-  );
+  )
 });
 
+/*
 RegularButton.propTypes = {
   color: PropTypes.oneOf([
     "primary",
@@ -82,8 +111,8 @@ RegularButton.propTypes = {
   block: PropTypes.bool,
   link: PropTypes.bool,
   justIcon: PropTypes.bool,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string
 };
-
+*/
 export default RegularButton;

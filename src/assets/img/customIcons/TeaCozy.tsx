@@ -3,7 +3,11 @@ import React from 'react'
 // Material IU Icon Warapper
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function TeaCozy(props) {
+interface Props{
+    fontSizePixels?: string
+}
+
+function TeaCozy(props:Props) {
     return (
         <SvgIcon {...props}>
             <svg viewBox="-9 0 512 512.00031" xmlns="http://www.w3.org/2000/svg">

@@ -23,7 +23,7 @@ import {Element} from 'react-scroll'
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
-import Button from "components/CustomButtons/Button.js";
+import Button from "components/CustomButtons/Button";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import NavPills from "components/NavPills/NavPills";
@@ -330,7 +330,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                                 target='_blank'
                                 className='gitHubButton'
                                 classes={{startIcon: 'startIcon'}}
-                                color='github' 
+                                customColor='github' 
                                 startIcon={<GitHubIcon />}
                               >
                                {isMobile ? 'Code' : 'Source Code'}
@@ -340,6 +340,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                                 href="https://thesocialmono.firebaseapp.com/"
                                 target='_blank'
                                 className='appPageButton' 
+                                variant='contained'
                                 color="primary"  
                                 startIcon={<Conejito color="action" />}
                               >

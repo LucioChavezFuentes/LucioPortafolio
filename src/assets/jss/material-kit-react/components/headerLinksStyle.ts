@@ -1,9 +1,9 @@
 import { defaultFont } from "assets/jss/material-kit-react.js";
-import { createStyles } from '@material-ui/core/styles';
+import { createStyles, Theme } from '@material-ui/core/styles';
 
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
-const headerLinksStyle = theme => createStyles({
+const headerLinksStyle = (theme:Theme) => createStyles({
   list: {
     ...defaultFont,
     fontSize: "14px",
@@ -77,7 +77,7 @@ const headerLinksStyle = theme => createStyles({
     color: "inherit",
     position: "relative",
     padding: "0.9375rem",
-    fontWeight: "400",
+    fontWeight: 400,
     fontSize: "12px",
     textTransform: "uppercase",
     borderRadius: "3px",
@@ -103,7 +103,7 @@ const headerLinksStyle = theme => createStyles({
   notificationNavLink: {
     color: "inherit",
     padding: "0.9375rem",
-    fontWeight: "400",
+    fontWeight: 400,
     fontSize: "12px",
     textTransform: "uppercase",
     lineHeight: "20px",
@@ -115,7 +115,7 @@ const headerLinksStyle = theme => createStyles({
   registerNavLink: {
     top: "3px",
     position: "relative",
-    fontWeight: "400",
+    fontWeight: 400,
     fontSize: "12px",
     textTransform: "uppercase",
     lineHeight: "20px",

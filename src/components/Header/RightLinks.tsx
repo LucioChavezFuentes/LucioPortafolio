@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
@@ -25,23 +25,19 @@ import ExternalLink from "assets/img/customIcons/ExternalLink";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
-import Button from "components/CustomButtons/Button.js";
-
-// Get window size hook
-import useWindowSize from "helper/useWindowSize";
+import Button from "components/CustomButtons/Button";
 
 
 import { Link as LinkScroll} from 'react-scroll'
 
-import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
-
-
-// TODO: Insert Tea Cozy link when available at line 195.
-
-
+import styles from "assets/jss/material-kit-react/components/headerLinksStyle";
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+interface HeaderLinksProps {
+
+}
+
+export default function HeaderLinks(props: any) {
   const classes = useStyles();
   const {onClickProject, projectsSectionRef, handleDrawerToggle, isMobile} = props;
 
@@ -73,7 +69,7 @@ export default function HeaderLinks(props) {
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={0}
-            color="transparent"
+            customColor="transparent"
             variant='text'
             simple
             startIcon={<Conejito />}
@@ -88,7 +84,7 @@ export default function HeaderLinks(props) {
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={1}
-            color="transparent"
+            customColor="transparent"
             variant='text'
             simple
             startIcon={<AdventureCode />}
@@ -103,7 +99,7 @@ export default function HeaderLinks(props) {
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={2}
-            color="transparent"
+            customColor="transparent"
             variant='text'
             simple
             startIcon={<Ravenous />}
@@ -121,7 +117,7 @@ export default function HeaderLinks(props) {
                 target="_blank"
                 className={classes.dropdownButtonLink}
                 data-key={3}
-                color="transparent"
+                customColor="transparent"
                 variant='text'
                 simple
                 startIcon={<TeaCozy/>}
@@ -140,7 +136,7 @@ export default function HeaderLinks(props) {
               className={classes.dropdownButtonLink}
               href="https://twitter.com/CreativeTim?ref=creativetim"
               target="_blank"
-              color="transparent"
+              customColor="transparent"
               startIcon={<TwitterIcon />}
             >
               { /*fab and fa-twitter appear to be global classNames*/ }
@@ -150,7 +146,7 @@ export default function HeaderLinks(props) {
         <ListItem className={classes.listItem}>
             <Button
               className={classes.dropdownButtonLink}
-              color="transparent"
+              customColor="transparent"
               href="https://www.facebook.com/CreativeTim?ref=creativetim"
               target="_blank"
               startIcon={<InstagramIcon />}
@@ -168,7 +164,7 @@ export default function HeaderLinks(props) {
           buttonText="All Projects"
           buttonProps={{
             className: classes.navLink,
-            color: "transparent"
+            customColor: "transparent"
           }}
           buttonIcon={Apps}
           dropdownList={[
@@ -176,7 +172,7 @@ export default function HeaderLinks(props) {
             to={projectsSectionRef}
             spy={true} smooth={true} duration={500}
             className={classes.dropdownLink}
-            onClick={handleClick}
+            onClick={handleClick as any}
             data-key={0}
             >
               The Social Conejito
@@ -185,7 +181,7 @@ export default function HeaderLinks(props) {
               to={projectsSectionRef}
               spy={true} smooth={true} duration={500}
               className={classes.dropdownLink}
-              onClick={handleClick}
+              onClick={handleClick as any}
               data-key={1}
             >
               Adventure Code
@@ -194,7 +190,7 @@ export default function HeaderLinks(props) {
               to={projectsSectionRef}
               spy={true} smooth={true} duration={500}
               className={classes.dropdownLink}
-              onClick={handleClick}
+              onClick={handleClick as any}
               data-key={2}
             >
               Ravenous
@@ -225,7 +221,7 @@ export default function HeaderLinks(props) {
         <Button
             href="https://twitter.com/CreativeTim?ref=creativetim"
             target="_blank"
-            color="transparent"
+            customColor="transparent"
             className={classes.navLink}
           >
             { /*fab and fa-twitter appear to be global classNames*/ }
@@ -241,7 +237,7 @@ export default function HeaderLinks(props) {
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
-            color="transparent"
+            customColor="transparent"
             href="https://www.facebook.com/CreativeTim?ref=creativetim"
             target="_blank"
             className={classes.navLink}

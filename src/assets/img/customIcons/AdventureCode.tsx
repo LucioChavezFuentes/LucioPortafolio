@@ -3,7 +3,11 @@ import React from 'react'
 // Material IU Icon Warapper
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function AdventureCode(props) {
+interface Props{
+    fontSizePixels?: string
+}
+
+function AdventureCode(props: Props) {
     return (
         <SvgIcon {...props}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 390.90909091">

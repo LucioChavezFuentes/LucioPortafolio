@@ -3,7 +3,11 @@ import React from 'react'
 // Material IU Icon Warapper
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function Ravenous(props) {
+interface Props{
+  fontSizePixels?: string
+}
+
+function Ravenous(props:Props) {
     return (
         <SvgIcon {...props}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 404">
