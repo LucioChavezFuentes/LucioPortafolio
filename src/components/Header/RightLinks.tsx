@@ -140,18 +140,18 @@ export default function HeaderLinks(props: any) {
               startIcon={<GitHubIcon />}
             >
               { /*fab and fa-twitter appear to be global classNames*/ }
-              Lucio's Twitter
+              Lucio's GitHub
             </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
             <Button
               className={classes.dropdownButtonLink}
               color="transparent"
-              href=""
+              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=luciobertinchavez@gmail.com"
               target="_blank"
               startIcon={<MailOutlineIcon />}
             >
-              Lucio's Instagram
+              !Send an email to Lucio¡
             </Button>
         </ListItem>
       </ListItem>
@@ -239,7 +239,7 @@ export default function HeaderLinks(props: any) {
           classes={{ tooltip: classes.tooltip }}
         >
           <IconButton
-            href="https://www.facebook.com/CreativeTim?ref=creativetim"
+            href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=luciobertinchavez@gmail.com"
             target="_blank"
             className={classes.navLink}
           >

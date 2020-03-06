@@ -82,7 +82,17 @@ export default function Footer(props) {
             Contact
           </div>
           <div>
-            Feel free to contact me via email at luciobertinchavez@gmail.com
+            <p>Feel free to contact me via email at 
+              <a
+              style={{textDecoration:'underline' ,marginLeft:'5px', color:'black'}}
+              target="_blank"
+              rel="noopener noreferrer"
+              href='https://mail.google.com/mail/u/0/?view=cm&fs=1&to=luciobertinchavez@gmail.com'
+            >
+              luciobertinchavez@gmail.com
+            </a> </p>
+            
+            
           </div>
 
         
