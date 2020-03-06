@@ -4,12 +4,12 @@ import Badge from '@material-ui/core/Badge';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 interface BadgeContentProps {
-    fontSizePixels: number
+    sizeInPixels: number
 }
 
 interface Props {
     badgeContent: React.ComponentType<BadgeContentProps>;
-    fontSizePixels: number;
+    sizeInPixels: number;
 }
 
 const styles = (theme : Theme) => createStyles({
@@ -20,12 +20,12 @@ const styles = (theme : Theme) => createStyles({
 const useStyles = makeStyles(styles);
 
 const BadgeIcon:React.FC<Props> = (props) => {
-    const {fontSizePixels, children} = props;
+    const {sizeInPixels, children} = props;
     const classes = useStyles();
     return (
         <Badge
             classes={{anchorOriginTopRightRectangle: classes.iconPosition}}
-            badgeContent={<props.badgeContent fontSizePixels={fontSizePixels} />}>
+            badgeContent={<props.badgeContent sizeInPixels={sizeInPixels} />}>
             {children}
         </Badge>
     )

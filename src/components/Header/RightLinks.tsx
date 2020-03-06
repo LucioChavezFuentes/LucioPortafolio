@@ -1,9 +1,5 @@
 
 import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
-// react components for routing our app without refresh
-import { Link } from "react-router-dom";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,9 +8,10 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
+import Apps from "@material-ui/icons/Apps";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Conejito from "assets/img/customIcons/Conejito";
@@ -22,6 +19,8 @@ import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
 import TeaCozy from "assets/img/customIcons/TeaCozy";
 import ExternalLink from "assets/img/customIcons/ExternalLink";
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -33,6 +32,8 @@ import { Link as LinkScroll} from 'react-scroll'
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle";
 const useStyles = makeStyles(styles);
 
+
+// TODO: Fill the HeaderLinksProps interface
 interface HeaderLinksProps {
 
 }
@@ -110,7 +111,7 @@ export default function HeaderLinks(props: any) {
           <ListItem className={classes.listItem}>
             <Badge
               classes={{anchorOriginTopRightRectangle: 'externalLink'}}
-              badgeContent={<ExternalLink fontSizePixels='10px'/>}
+              badgeContent={<ExternalLink sizeInPixels='10px'/>}
             >
               <Button
                 href='https://tea-cozy-37cbf.firebaseapp.com'
@@ -164,7 +165,7 @@ export default function HeaderLinks(props: any) {
           buttonText="All Projects"
           buttonProps={{
             className: classes.navLink,
-            customColor: "transparent"
+            color: "transparent"
           }}
           buttonIcon={Apps}
           dropdownList={[
@@ -197,6 +198,7 @@ export default function HeaderLinks(props: any) {
             </LinkScroll>,
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href='https://tea-cozy-37cbf.firebaseapp.com'
               className={classes.dropdownLink}
               data-key={3}
@@ -214,36 +216,36 @@ export default function HeaderLinks(props: any) {
         </Tooltip>*/}
         <Tooltip
           id="instagram-twitter"
-          title="Lucio's Twitter"
+          title="Lucio's GitHub"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
-        <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
+        <IconButton
+            href="https://github.com/LucioChavezFuentes"
             target="_blank"
-            color="transparent"
             className={classes.navLink}
           >
-            { /*fab and fa-twitter appear to be global classNames*/ }
-            <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
+            { /*fab and fa-twitter appear to be global classNames, they provide icons for the <i>. 
+            I'm only aware of these: fa-twitter, fa-facebook, fa-instagram and fa-github
+            //TODO: Find the global css class that provides such icons  */ }
+            <GitHubIcon />
+          </IconButton>
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
-          title="Lucio's Instagram"
+          title="!Send an email to Lucio¡"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
-          <Button
-            color="transparent"
+          <IconButton
             href="https://www.facebook.com/CreativeTim?ref=creativetim"
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button>
+            <MailOutlineIcon />
+          </IconButton>
         </Tooltip>
       </ListItem>
     </List>

@@ -115,12 +115,12 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                     <h3 className={classes.title}>Lucio Chávez</h3>
                     <h6>Web Developer</h6>
                     { /*fab and fa-twitter appear to be global classNames*/ }
-                    <Button justIcon link target="_blank" href={"https://twitter.com/LucioBbrtiChvez"} className={classes.margin5}>
-                      <i className={"fab fa-twitter"} />
+                    {/*<Button justIcon link target="_blank" href={"https://twitter.com/LucioBbrtiChvez"} className={classes.margin5}>
+                      <GitHubIcon />
                     </Button>
                     <Button justIcon link className={classes.margin5}>
                       <i className={"fab fa-instagram"} />
-                    </Button>
+                    </Button>*/}
                   </div>
                 </div>
               </GridItem>

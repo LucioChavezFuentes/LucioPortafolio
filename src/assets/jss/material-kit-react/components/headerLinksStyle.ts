@@ -135,7 +135,7 @@ const headerLinksStyle = (theme:Theme) => createStyles({
   socialIcons: {
     position: "relative",
     fontSize: "20px !important",
-    marginRight: "4px"
+    //marginRight: "4px"
   },
   dropdownLink: {
     "&,&:hover,&:focus": {
