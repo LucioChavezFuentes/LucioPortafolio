@@ -13,8 +13,8 @@ import Button from "@material-ui/core/Button";
 import buttonStyle from "assets/jss/material-kit-react/components/buttonStyle.js";
 
 interface RegularButtonProps {
-  customColor?:  "info" |"success" | "warning" |"danger" |"rose" |"white" |"facebook" |"twitter" |"google" |"github" |"transparent";
-  color?: "primary" | 'secondary';
+  color?: 'primary' | 'secondary' | "inherit" | "default" & 
+  "info" |"success" | "warning" | "danger" | "rose" | "white" | "facebook" | "twitter" | "google" | "github" | "transparent" ;
   simple?: boolean;
   round?: boolean;
   fullWidth?: boolean;
@@ -36,6 +36,7 @@ interface RegularButtonProps {
   onClick?: any;
   href?: string;
   target?: string;
+  classes?: any;
 }
 
 const makeComponentStyles = makeStyles(() => createStyles({
@@ -45,7 +46,6 @@ const makeComponentStyles = makeStyles(() => createStyles({
 
 const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((props, ref) => {
   const {
-    customColor,
     round,
     children,
     fullWidth,
@@ -62,13 +62,59 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     variant,
     ...rest
   } = props;
-  
+
+  const mainColorProperties = {
+    inherit: "inherit",
+    primary : "primary",
+    secondary : "secondary", 
+    default : "default",
+  };
+
+  const mainColorPropertiesArray = ["inherit", "primary", "secondary", "default",]
+
+  const customColorPropertiesArray = ["info", "success", "warning", "danger", "rose", "white", "facebook", "twitter", "google", "github", "transparent",]
+
+  const customColorProperties = {
+    info: "info",
+    success: "success",
+    warning : "warning",
+    danger: "danger",
+    rose :"rose",
+    white: "white",
+    facebook: "facebook",
+    twitter: "twitter",
+    google: "google",
+    github: "github",
+    transparent: "transparent",
+  } ;
+
+
   const classes = makeComponentStyles();
+
+  const setMainColor = (color : any) => {
+    let mainColor : 'primary' | 'secondary' | "inherit" | "default";
+    if(color && mainColorProperties.hasOwnProperty(color) ) {
+        mainColor = color
+        return mainColor
+    } else {
+      return undefined
+    }
+  }
+
+  const setCustomColor = (color : any) => {
+    let customColor : "info" |"success" | "warning" | "danger" | "rose" | "white" | "facebook" | "twitter" | "google" | "github" | "transparent";
+    if(color && customColorProperties.hasOwnProperty(color) ) {
+        customColor = color
+        return customColor
+    } else {
+      return undefined
+    }
+  }
 
   const btnClasses = classNames({
     [classes.button]: customStyle,
     [classes[size!]]: size,
-    [classes[customColor!]]: customColor,
+    [classes[setCustomColor(color)!]]: setCustomColor(color),
     [classes.round]: round,
     [classes.fullWidth]: fullWidth,
     [classes.disabled]: disabled,
@@ -81,7 +127,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
 
   
   return ( 
-    <Button {...rest} color={color} startIcon={startIcon} variant={variant} ref={ref} className={color ? undefined : btnClasses }>
+    <Button {...rest} color={setMainColor(color)} startIcon={startIcon} variant={variant} ref={ref} className={ btnClasses }>
       {children}
     </Button>
   )

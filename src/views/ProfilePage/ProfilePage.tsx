@@ -24,8 +24,8 @@ import {Element} from 'react-scroll'
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer";
+import GridItem from "components/Grid/GridItem";
 import NavPills from "components/NavPills/NavPills";
 import Parallax from "components/Parallax/Parallax.js";
 import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
@@ -38,10 +38,10 @@ import styles from "assets/jss/material-kit-react/views/profilePage";
 
 
 
-const useStyles = makeStyles(styles);
+const useStyles  = makeStyles(styles);
 
-export default function ProfilePage(props) {
-  const classes = useStyles();
+export default function ProfilePage(props : any) {
+  const classes : any = useStyles();
   const {isMobile} = useWindowSize();
   const [activeProject, setActiveProject] = useState(0);
   const { ...rest } = props;
@@ -330,7 +330,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                                 target='_blank'
                                 className='gitHubButton'
                                 classes={{startIcon: 'startIcon'}}
-                                customColor='github' 
+                                color='github' 
                                 startIcon={<GitHubIcon />}
                               >
                                {isMobile ? 'Code' : 'Source Code'}
@@ -342,7 +342,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                                 className='appPageButton' 
                                 variant='contained'
                                 color="primary"  
-                                startIcon={<Conejito color="action" />}
+                                startIcon={<Conejito />}
                               >
                                 App's Page
                               </Button>
@@ -386,7 +386,9 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                               <Button
                                 href="https://codigoaventura-2c741.firebaseapp.com"
                                 target='_blank'
-                                className='appPageButton' color="primary" startIcon={<AdventureCode color="action" />}>
+                                color='primary'
+                                variant='contained'
+                                className='appPageButton' startIcon={<AdventureCode />}>
                                 App's Page
                               </Button>
                             </div>
@@ -430,8 +432,9 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                                 href="https://ravenous-8b12b.firebaseapp.com/" 
                                 target='_blank' 
                                 className='appPageButton' 
-                                color="primary"  
-                                startIcon={<Ravenous color="action" />}
+                                color="primary" 
+                                variant='contained' 
+                                startIcon={<Ravenous />}
                               >
                                 App's Page
                               </Button>

@@ -5,7 +5,7 @@ import { Router, Route, Switch } from "react-router-dom";
 
 import "assets/scss/material-kit-react.scss?v=1.8.0";
 
-import ProfilePage from "views/ProfilePage/ProfilePage.js";
+import ProfilePage from "views/ProfilePage/ProfilePage";
 
 // MUI Imports
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';

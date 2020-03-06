@@ -1,6 +1,6 @@
 import { container, title } from "assets/jss/material-kit-react.js";
 
-import imagesStyle from "assets/jss/material-kit-react/imagesStyles.js";
+import imagesStyle from "assets/jss/material-kit-react/imagesStyles";
 
 import projectOne from "assets/img/projects/Social-Conejito2.jpg"
 
@@ -226,7 +226,11 @@ const profilePageStyle = (theme : Theme) => createStyles({
     },
 
     '& .appPageButton': {
-      margin: '10px'
+      margin: '10px',
+
+      '&:hover': {
+        color: 'white'
+      }
     },
 
     '& .startIcon': {

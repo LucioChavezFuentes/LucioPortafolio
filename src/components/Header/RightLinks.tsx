@@ -69,7 +69,7 @@ export default function HeaderLinks(props: any) {
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={0}
-            customColor="transparent"
+            color="transparent"
             variant='text'
             simple
             startIcon={<Conejito />}
@@ -84,7 +84,7 @@ export default function HeaderLinks(props: any) {
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={1}
-            customColor="transparent"
+            color="transparent"
             variant='text'
             simple
             startIcon={<AdventureCode />}
@@ -99,7 +99,7 @@ export default function HeaderLinks(props: any) {
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={2}
-            customColor="transparent"
+            color="transparent"
             variant='text'
             simple
             startIcon={<Ravenous />}
@@ -117,7 +117,7 @@ export default function HeaderLinks(props: any) {
                 target="_blank"
                 className={classes.dropdownButtonLink}
                 data-key={3}
-                customColor="transparent"
+                color="transparent"
                 variant='text'
                 simple
                 startIcon={<TeaCozy/>}
@@ -136,7 +136,7 @@ export default function HeaderLinks(props: any) {
               className={classes.dropdownButtonLink}
               href="https://twitter.com/CreativeTim?ref=creativetim"
               target="_blank"
-              customColor="transparent"
+              color="transparent"
               startIcon={<TwitterIcon />}
             >
               { /*fab and fa-twitter appear to be global classNames*/ }
@@ -146,7 +146,7 @@ export default function HeaderLinks(props: any) {
         <ListItem className={classes.listItem}>
             <Button
               className={classes.dropdownButtonLink}
-              customColor="transparent"
+              color="transparent"
               href="https://www.facebook.com/CreativeTim?ref=creativetim"
               target="_blank"
               startIcon={<InstagramIcon />}
@@ -221,7 +221,7 @@ export default function HeaderLinks(props: any) {
         <Button
             href="https://twitter.com/CreativeTim?ref=creativetim"
             target="_blank"
-            customColor="transparent"
+            color="transparent"
             className={classes.navLink}
           >
             { /*fab and fa-twitter appear to be global classNames*/ }
@@ -237,7 +237,7 @@ export default function HeaderLinks(props: any) {
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
-            customColor="transparent"
+            color="transparent"
             href="https://www.facebook.com/CreativeTim?ref=creativetim"
             target="_blank"
             className={classes.navLink}

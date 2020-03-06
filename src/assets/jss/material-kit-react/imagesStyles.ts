@@ -1,3 +1,6 @@
+import createStyles from "@material-ui/core/styles/createStyles";
+
+
 const imagesStyles = {
   imgFluid: {
     maxWidth: "100%",
