@@ -7,7 +7,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 import ListSubheader from '@material-ui/core/ListSubheader';
-import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 
 // @material-ui/icons
@@ -25,6 +24,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button";
+import BadgeIcon from "components/BadgeIcon";
 
 
 import { Link as LinkScroll} from 'react-scroll'
@@ -109,9 +109,8 @@ export default function HeaderLinks(props: any) {
           </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
-            <Badge
-              classes={{anchorOriginTopRightRectangle: 'externalLink'}}
-              badgeContent={<ExternalLink sizeInPixels='10px'/>}
+            <BadgeIcon
+              badgeContent={ExternalLink}
             >
               <Button
                 href='https://tea-cozy-37cbf.firebaseapp.com'
@@ -125,7 +124,7 @@ export default function HeaderLinks(props: any) {
               >
                 Tea Cozy
               </Button>
-            </Badge>
+            </BadgeIcon>
           </ListItem>
         <ListItem className={classes.subList}>
           <ListSubheader id="Social-Media" className={classes.listSubheader}>
@@ -135,10 +134,10 @@ export default function HeaderLinks(props: any) {
         <ListItem className={classes.listItem}>
           <Button
               className={classes.dropdownButtonLink}
-              href="https://twitter.com/CreativeTim?ref=creativetim"
+              href="https://github.com/LucioChavezFuentes"
               target="_blank"
               color="transparent"
-              startIcon={<TwitterIcon />}
+              startIcon={<GitHubIcon />}
             >
               { /*fab and fa-twitter appear to be global classNames*/ }
               Lucio's Twitter
@@ -148,9 +147,9 @@ export default function HeaderLinks(props: any) {
             <Button
               className={classes.dropdownButtonLink}
               color="transparent"
-              href="https://www.facebook.com/CreativeTim?ref=creativetim"
+              href=""
               target="_blank"
-              startIcon={<InstagramIcon />}
+              startIcon={<MailOutlineIcon />}
             >
               Lucio's Instagram
             </Button>
