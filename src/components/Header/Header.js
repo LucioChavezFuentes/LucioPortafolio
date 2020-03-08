@@ -76,7 +76,7 @@ export default function Header(props) {
             brandComponent
           )}
         </div>
-        <Hidden smDown implementation="css">
+        <Hidden smDown implementation="css"> 
           <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} isMobile={false} />
         </Hidden>
         <Hidden mdUp>

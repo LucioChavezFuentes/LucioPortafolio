@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useState} from "react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,8 +11,6 @@ import IconButton from '@material-ui/core/IconButton';
 
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/Instagram';
 import Conejito from "assets/img/customIcons/Conejito";
 import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
@@ -25,6 +23,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button";
 import BadgeIcon from "components/BadgeIcon";
+import EmailDialog from "components/EmailDialog/EmailDialog";
 
 
 import { Link as LinkScroll} from 'react-scroll'
@@ -40,6 +39,8 @@ interface HeaderLinksProps {
 
 export default function HeaderLinks(props: any) {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
   const {onClickProject, projectsSectionRef, handleDrawerToggle, isMobile} = props;
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -56,7 +57,16 @@ export default function HeaderLinks(props: any) {
     }
   }
 
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   return (isMobile ? (
+    <>
     <List
       className={classes.list}
     >
@@ -147,8 +157,8 @@ export default function HeaderLinks(props: any) {
             <Button
               className={classes.dropdownButtonLink}
               color="transparent"
-              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=luciobertinchavez@gmail.com"
-              target="_blank"
+              href="mailto:luciobertinchavez@gmail.com"
+              onClick={handleOpen}
               startIcon={<MailOutlineIcon />}
             >
               !Send an email to Lucio¡
@@ -156,7 +166,10 @@ export default function HeaderLinks(props: any) {
         </ListItem>
       </ListItem>
     </List>
+    <EmailDialog open={open} handleClose={handleClose} />
+    </>
   ) : (
+    <>
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
         <CustomDropdown
@@ -239,15 +252,20 @@ export default function HeaderLinks(props: any) {
           classes={{ tooltip: classes.tooltip }}
         >
           <IconButton
-            href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=luciobertinchavez@gmail.com"
-            target="_blank"
+            href="mailto:luciobertinchavez@gmail.com"
             className={classes.navLink}
+            onClick={handleOpen}
           >
             <MailOutlineIcon />
           </IconButton>
         </Tooltip>
       </ListItem>
     </List>
+    <div style={{position: 'absolute'}}>
+      <EmailDialog open={open} handleClose={handleClose} />
+    </div>
+    
+    </>
     )
   );
 }
