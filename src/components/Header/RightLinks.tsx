@@ -40,6 +40,7 @@ interface HeaderLinksProps {
 export default function HeaderLinks(props: any) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  
 
   const {onClickProject, projectsSectionRef, handleDrawerToggle, isMobile} = props;
 
@@ -261,10 +262,8 @@ export default function HeaderLinks(props: any) {
         </Tooltip>
       </ListItem>
     </List>
-    <div style={{position: 'absolute'}}>
-      <EmailDialog open={open} handleClose={handleClose} />
-    </div>
     
+    <EmailDialog open={open} handleClose={handleClose} />
     </>
     )
   );
