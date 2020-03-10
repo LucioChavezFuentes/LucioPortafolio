@@ -155,19 +155,11 @@ export default function HeaderLinks(props: any) {
             </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
-            <Button
-              className={classes.dropdownButtonLink}
-              color="transparent"
-              href="mailto:luciobertinchavez@gmail.com"
-              onClick={handleOpen}
-              startIcon={<MailOutlineIcon />}
-            >
-              !Send an email to Lucio¡
-            </Button>
+          <EmailDialog className={classes.dropdownButtonLink} isMobile />
         </ListItem>
       </ListItem>
     </List>
-    <EmailDialog open={open} handleClose={handleClose} />
+    
     </>
   ) : (
     <>
@@ -246,24 +238,11 @@ export default function HeaderLinks(props: any) {
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-facebook"
-          title="!Send an email to Lucio¡"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <IconButton
-            href="mailto:luciobertinchavez@gmail.com"
-            className={classes.navLink}
-            onClick={handleOpen}
-          >
-            <MailOutlineIcon />
-          </IconButton>
-        </Tooltip>
+        <EmailDialog className={classes.navLink} tooltipClassName={classes.tooltip} />
       </ListItem>
     </List>
     
-    <EmailDialog open={open} handleClose={handleClose} />
+    
     </>
     )
   );
