@@ -1,7 +1,7 @@
-import createStyles from "@material-ui/core/styles/createStyles";
+import { createStyles, Theme } from '@material-ui/core/styles';
 
 
-const imagesStyles = {
+const imagesStyles = createStyles({
   imgFluid: {
     maxWidth: "100%",
     height: "200px"
@@ -42,6 +42,6 @@ const imagesStyles = {
     left: "0",
     padding: "1.25rem"
   }
-};
+});
 
 export default imagesStyles;

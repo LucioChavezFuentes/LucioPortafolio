@@ -122,7 +122,7 @@ const profilePageStyle = (theme : Theme) => createStyles({
   main: {
     background: "linen",
     position: "relative",
-    zIndex: "3"
+    zIndex: 3,
   },
   mainRaised: {
     // Edit here how close you want the page to the header

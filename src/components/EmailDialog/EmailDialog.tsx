@@ -11,6 +11,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 // Material Icons
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import SendIcon from '@material-ui/icons/Send';
 
 // Helper Imports
 import useForm from 'helper/useForm';
@@ -140,8 +141,8 @@ const EmailDialog:React.FC<Props> = (props) => {
                         fullWidth
                     />
 
-                    <Button type='submit'>
-                        Submit
+                    <Button type='submit' variant='contained' color='primary' endIcon={<SendIcon />} >
+                        Send
                     </Button>
                 </form>
             </DialogContent>

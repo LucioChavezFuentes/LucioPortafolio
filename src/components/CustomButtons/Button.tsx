@@ -25,6 +25,7 @@ interface RegularButtonProps {
   className?: string;
   size?: "sm"| "lg";
   startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
   customStyle?: boolean;
   children: React.ReactNode;
   component?: typeof React.Component;
@@ -69,10 +70,6 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     default : "default",
   };
 
-  const mainColorPropertiesArray = ["inherit", "primary", "secondary", "default",]
-
-  const customColorPropertiesArray = ["info", "success", "warning", "danger", "rose", "white", "facebook", "twitter", "google", "github", "transparent",]
-
   const customColorProperties = {
     info: "info",
     success: "success",
@@ -86,7 +83,6 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     github: "github",
     transparent: "transparent",
   } ;
-
 
   const classes = makeComponentStyles();
 
