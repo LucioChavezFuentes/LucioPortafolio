@@ -140,9 +140,9 @@ const EmailDialog:React.FC<Props> = (props) => {
                         fullWidth
                     />
 
-                    <button type='submit'>
+                    <Button type='submit'>
                         Submit
-                    </button>
+                    </Button>
                 </form>
             </DialogContent>
             

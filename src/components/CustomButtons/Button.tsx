@@ -37,6 +37,7 @@ interface RegularButtonProps {
   href?: string;
   target?: string;
   classes?: any;
+  type?: 'submit' | 'button' | 'reset'
 }
 
 const makeComponentStyles = makeStyles(() => createStyles({
