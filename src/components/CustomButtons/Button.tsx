@@ -57,10 +57,8 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     link,
     justIcon,
     className,
-    startIcon,
     customStyle,
     color,
-    variant,
     ...rest
   } = props;
 
@@ -128,7 +126,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
 
   
   return ( 
-    <Button {...rest} color={setMainColor(color)} startIcon={startIcon} variant={variant} ref={ref} className={ btnClasses }>
+    <Button {...rest} color={setMainColor(color)} ref={ref} className={ btnClasses }>
       {children}
     </Button>
   )
