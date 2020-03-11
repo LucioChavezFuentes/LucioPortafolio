@@ -10,15 +10,19 @@ import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import Button from "components/CustomButtons/Button";
 import Tooltip from "@material-ui/core/Tooltip";
-
-
-
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 // Material Icons
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SendIcon from '@material-ui/icons/Send';
+import CloseIcon from '@material-ui/icons/Close';
+
+// Component Imports
+import DialogFeedback from 'components/DialogFeedback/DialogFeedback'; 
 
 // Helper Imports
 import {validateMessageData} from 'helper/validators';
@@ -44,8 +48,25 @@ interface Errors {
     message?: string;
 }
 
+const styles = (theme: Theme) => createStyles({
+    dialogContentContainer: {
+        width: '95%', 
+        margin: '0 auto 10px auto'
+    },
+
+    progress : {
+        position: 'absolute'
+      }
+})
+
+const useStyles = makeStyles(styles);
+
 const EmailDialog:React.FC<Props> = (props) => {
 
+    // API Variables
+    const USER_ID = "user_8GdofLfZlnlQTza77rkLM";
+    const GMAIL_SERVICE = "gmail";
+    const TEMPLATE_ID = "template_86OdwYcX";
     // Grid Variables
     const none = 0;
     const veryLow = 1;
@@ -64,17 +85,20 @@ const EmailDialog:React.FC<Props> = (props) => {
         message: '',
     }
     const [inputs, setInputs] = React.useState<Inputs>(initialInputsState);
-    const [submitted, setSubmitted] = useState(false);
     const [open, setOpen] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
+    const [loading, setLoading] = useState(false);
+    const [openFeedback, setOpenFeedback] = useState(false);
+    const [APIError, setAPIError] = useState(null);
+    const classes = useStyles();
 
     const handleOpen = () => {
         setOpen(true);
       }
 
     const handleClose = () => {
-        setOpen(false)
-        setSubmitted(false)
+        setOpen(false);
+        setErrors({});
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,24 +107,31 @@ const EmailDialog:React.FC<Props> = (props) => {
 
     const handleSubmit = (event: any) => {
         event.preventDefault()
+        setLoading(true);
         const {errors, valid} = validateMessageData(inputs)
         if(valid){
 
-            emailjs.send("gmail", "template_86OdwYcX", inputs, "user_8GdofLfZlnlQTza77rkLM") 
+            emailjs.send("gmail", "template_86OdwYcX", inputs,) 
                 .then(res => {
-                    console.log("mono saludado")
+                    console.log("mono saludado");
+                    setInputs(initialInputsState);
+                    setLoading(false);
+                    setOpenFeedback(true);
                 })
-                .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+                .catch(err => {
+                    setLoading(false);
+                    setAPIError(err);
+                    setOpenFeedback(true);
+                     return console.error('Oh well, you failed. Here some thoughts on the error that occured:', err)
+                })
+                    
         } else {
-            setErrors(errors)
+            setErrors(errors);
+            setLoading(false);
         }
     }
 
     const {name, email, message, subject} = inputs;
-
-    function isSubmittedAndBlank(field){ 
-        return (!submitted ? false : !field ? true : false)
-    }
 
     return (
         <>
@@ -132,12 +163,13 @@ const EmailDialog:React.FC<Props> = (props) => {
           )}
         </Tooltip>
 
-        <Dialog open={open} onClose={handleClose}>
-            <DialogContent>
-                <form onSubmit={handleSubmit} >
+        <Dialog open={open} onClose={handleClose} maxWidth='md'>
+            
+            <DialogTitle>!Send me a message¡</DialogTitle>
+            <DialogContent dividers>
                     <GridContainer spacing={medium} justify="center">
 
-                        <GridItem>
+                        <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth}>
                             <TextField
                                 name='name'
                                 type='text'
@@ -146,16 +178,17 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 helperText={errors.name}
                                 value={name}
                                 onChange={handleChange}
+                                fullWidth
                             />
                         </GridItem>
 
-                        <GridItem>
+                        <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth}>
                             <TextField
                                 name='email'
                                 type='text'
                                 label='Email'
-                                error={!submitted ? false : true}
-                                helperText={"Can't be blank. I won't spam I promise"}
+                                error={errors.email ? true : false}
+                                helperText={errors.email}
                                 value={email}
                                 onChange={handleChange}
                                 fullWidth
@@ -171,17 +204,18 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 helperText={"This field is optional."}
                                 value={subject}
                                 onChange={handleChange}
-                                fullWidth
+                                
                             />
                         </GridItem>
 
                         <GridItem>
                             <TextField
                                 name='message'
+                                variant="outlined"
                                 multiline
-                                label="What's on your mind?"
-                                error={email ? false : true}
-                                helperText={"Can't be blank. I won't spam I promise"}
+                                label="Message"
+                                error={errors.message ? true : false}
+                                helperText={errors.message}
                                 value={message}
                                 onChange={handleChange}
                                 fullWidth
@@ -189,16 +223,22 @@ const EmailDialog:React.FC<Props> = (props) => {
                         </GridItem>
                     
                     </GridContainer>
-                </form>
+                
             </DialogContent>
 
             <DialogActions>
-                <Button type='submit' variant='contained' color='primary' endIcon={<SendIcon />} >
+                <Button type='submit' variant='contained' color='primary' onClick={handleSubmit} disabled={loading} endIcon={<SendIcon />} >
                     Send
+                    {loading && (
+                            <CircularProgress size={30} className={classes.progress} />)}
+                </Button>
+                <Button type='submit' variant='contained' color='secondary' onClick={handleClose} endIcon={<CloseIcon />} >
+                    Cancel
                 </Button>
             </DialogActions>
             
         </Dialog>
+        <DialogFeedback open={openFeedback} error={APIError} />
         </>
     )
 }
