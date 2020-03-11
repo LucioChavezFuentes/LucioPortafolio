@@ -4,17 +4,23 @@ import emailjs from 'emailjs-com';
 // Material UI Imports
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import Button from "components/CustomButtons/Button";
 import Tooltip from "@material-ui/core/Tooltip";
+
+
+
+import GridContainer from "components/Grid/GridContainer";
+import GridItem from "components/Grid/GridItem";
 
 // Material Icons
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SendIcon from '@material-ui/icons/Send';
 
 // Helper Imports
-import useForm from 'helper/useForm';
 import {validateMessageData} from 'helper/validators';
 
 interface Props {
@@ -26,9 +32,10 @@ interface Props {
 }
 
 interface Inputs {
-    name?: string
-    email?: string 
-    message?: string;
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
 }
 
 interface Errors {
@@ -39,7 +46,23 @@ interface Errors {
 
 const EmailDialog:React.FC<Props> = (props) => {
 
-    const initialInputsState = {}
+    // Grid Variables
+    const none = 0;
+    const veryLow = 1;
+    const low = 2;
+    const medium = 4;
+    const large = 6;
+
+    const halfWidth = 6;
+    const threeQuarterWidth = 9;
+    const fullWidth = 12;
+
+    const initialInputsState = {
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    }
     const [inputs, setInputs] = React.useState<Inputs>(initialInputsState);
     const [submitted, setSubmitted] = useState(false);
     const [open, setOpen] = useState(false);
@@ -62,15 +85,18 @@ const EmailDialog:React.FC<Props> = (props) => {
         event.preventDefault()
         const {errors, valid} = validateMessageData(inputs)
         if(valid){
+
             emailjs.send("gmail", "template_86OdwYcX", inputs, "user_8GdofLfZlnlQTza77rkLM") 
                 .then(res => {
                     console.log("mono saludado")
                 })
                 .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+        } else {
+            setErrors(errors)
         }
     }
 
-    const {name, email, message} = inputs;
+    const {name, email, message, subject} = inputs;
 
     function isSubmittedAndBlank(field){ 
         return (!submitted ? false : !field ? true : false)
@@ -109,43 +135,68 @@ const EmailDialog:React.FC<Props> = (props) => {
         <Dialog open={open} onClose={handleClose}>
             <DialogContent>
                 <form onSubmit={handleSubmit} >
-                    <TextField
-                        name='name'
-                        type='text'
-                        label='Name'
-                        error={isSubmittedAndBlank(name)}
-                        helperText={isSubmittedAndBlank(name) && "Name can't be blank. Please provide a name, everyone and everything have a name"}
-                        value={name}
-                        onChange={handleChange}
-                    />
+                    <GridContainer spacing={medium} justify="center">
 
-                    <TextField
-                        name='email'
-                        type='text'
-                        label='Email'
-                        error={!submitted ? false : true}
-                        helperText={"Can't be blank. I won't spam I promise"}
-                        value={email}
-                        onChange={handleChange}
-                        fullWidth
-                    />
+                        <GridItem>
+                            <TextField
+                                name='name'
+                                type='text'
+                                label='Name'
+                                error={errors.name ? true : false}
+                                helperText={errors.name}
+                                value={name}
+                                onChange={handleChange}
+                            />
+                        </GridItem>
 
-                    <TextField
-                        name='message'
-                        multiline
-                        label="What's on your mind?"
-                        error={email ? false : true}
-                        helperText={"Can't be blank. I won't spam I promise"}
-                        value={message}
-                        onChange={handleChange}
-                        fullWidth
-                    />
+                        <GridItem>
+                            <TextField
+                                name='email'
+                                type='text'
+                                label='Email'
+                                error={!submitted ? false : true}
+                                helperText={"Can't be blank. I won't spam I promise"}
+                                value={email}
+                                onChange={handleChange}
+                                fullWidth
+                            />
+                        </GridItem>
 
-                    <Button type='submit' variant='contained' color='primary' endIcon={<SendIcon />} >
-                        Send
-                    </Button>
+
+                        <GridItem>
+                            <TextField
+                                name='subject'
+                                type='text'
+                                label='Subject'
+                                helperText={"This field is optional."}
+                                value={subject}
+                                onChange={handleChange}
+                                fullWidth
+                            />
+                        </GridItem>
+
+                        <GridItem>
+                            <TextField
+                                name='message'
+                                multiline
+                                label="What's on your mind?"
+                                error={email ? false : true}
+                                helperText={"Can't be blank. I won't spam I promise"}
+                                value={message}
+                                onChange={handleChange}
+                                fullWidth
+                            />
+                        </GridItem>
+                    
+                    </GridContainer>
                 </form>
             </DialogContent>
+
+            <DialogActions>
+                <Button type='submit' variant='contained' color='primary' endIcon={<SendIcon />} >
+                    Send
+                </Button>
+            </DialogActions>
             
         </Dialog>
         </>
