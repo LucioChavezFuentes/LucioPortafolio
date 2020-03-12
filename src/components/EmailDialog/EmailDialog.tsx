@@ -13,6 +13,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
@@ -49,6 +51,17 @@ interface Errors {
 }
 
 const styles = (theme: Theme) => createStyles({
+
+    dialog: {
+        
+        top: '-150px',
+
+        [theme.breakpoints.down('sm')]: {
+            top: '0px'
+        },
+        
+    },
+
     dialogContentContainer: {
         width: '95%', 
         margin: '0 auto 10px auto'
@@ -90,6 +103,8 @@ const EmailDialog:React.FC<Props> = (props) => {
     const [loading, setLoading] = useState(false);
     const [openFeedback, setOpenFeedback] = useState(false);
     const [APIError, setAPIError] = useState(null);
+    const theme = useTheme();
+    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const classes = useStyles();
 
     const handleOpen = () => {
@@ -163,11 +178,11 @@ const EmailDialog:React.FC<Props> = (props) => {
           )}
         </Tooltip>
 
-        <Dialog open={open} onClose={handleClose} maxWidth='md'>
+        <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={fullScreen} PaperProps={{classes: {root: classes.dialog}}}>
             
             <DialogTitle>!Send me a message¡</DialogTitle>
             <DialogContent dividers>
-                    <GridContainer spacing={medium} justify="center">
+                    <GridContainer spacing={low} justify="center" >
 
                         <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth}>
                             <TextField
