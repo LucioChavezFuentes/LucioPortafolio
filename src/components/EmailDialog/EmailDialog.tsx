@@ -116,6 +116,10 @@ const EmailDialog:React.FC<Props> = (props) => {
         setErrors({});
     }
 
+    const handleCloseFeedBack = () => {
+        setOpenFeedback(false)
+    }
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputs({...inputs, [event.target.name]: event.target.value})
     }
@@ -126,9 +130,9 @@ const EmailDialog:React.FC<Props> = (props) => {
         const {errors, valid} = validateMessageData(inputs)
         if(valid){
 
-            emailjs.send("gmail", "template_86OdwYcX", inputs,) 
+            emailjs.send("gmail", "template_86OdwYcX", inputs, USER_ID) 
                 .then(res => {
-                    console.log("mono saludado");
+                    setOpen(false);
                     setInputs(initialInputsState);
                     setLoading(false);
                     setOpenFeedback(true);
@@ -181,29 +185,29 @@ const EmailDialog:React.FC<Props> = (props) => {
         <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={fullScreen} PaperProps={{classes: {root: classes.dialog}}}>
             
             <DialogTitle>!Send me a message¡</DialogTitle>
-            <DialogContent dividers>
-                    <GridContainer spacing={low} justify="center" >
+            <DialogContent dividers >
+                    <GridContainer spacing={low} justify="center" alignItmes='center' style={{marginBottom: '10px'}}  >
 
-                        <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth}>
+                        <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth} >
                             <TextField
                                 name='name'
                                 type='text'
                                 label='Name'
                                 error={errors.name ? true : false}
-                                helperText={errors.name}
+                                helperText={<p style={{position: 'absolute', top: '55px'}}>{errors.name}</p>}
                                 value={name}
                                 onChange={handleChange}
                                 fullWidth
                             />
                         </GridItem>
 
-                        <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth}>
+                        <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth} >
                             <TextField
                                 name='email'
                                 type='text'
                                 label='Email'
                                 error={errors.email ? true : false}
-                                helperText={errors.email}
+                                helperText={<p style={{position: 'absolute', top: '55px'}}>{errors.email}</p>}
                                 value={email}
                                 onChange={handleChange}
                                 fullWidth
@@ -230,7 +234,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 multiline
                                 label="Message"
                                 error={errors.message ? true : false}
-                                helperText={errors.message}
+                                helperText={<p style={{position: 'absolute', top: '65px'}}>{errors.message}</p>}
                                 value={message}
                                 onChange={handleChange}
                                 fullWidth
@@ -253,7 +257,7 @@ const EmailDialog:React.FC<Props> = (props) => {
             </DialogActions>
             
         </Dialog>
-        <DialogFeedback open={openFeedback} error={APIError} />
+        <DialogFeedback open={openFeedback} error={APIError} onClose={handleCloseFeedBack} />
         </>
     )
 }

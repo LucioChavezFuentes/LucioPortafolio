@@ -28,7 +28,7 @@ export const validateMessageData = (inputs: any) => {
     const errors : Errors = {};
 
     if(isEmpty(inputs.email)) {
-        errors.email = "Can't be blank. Which email is sending the message?";
+        errors.email = "Can't be blank. Which email should I respond?";
     } else if(!isEmail(inputs.email)) {
         errors.email = 'Please provide a valid email address';
     }

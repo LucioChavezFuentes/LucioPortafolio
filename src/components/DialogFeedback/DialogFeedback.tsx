@@ -10,7 +10,7 @@ import Button from "components/CustomButtons/Button";
 
 export default function DialogFeedback(props) {
 
-
+/*
     const [open, setOpen] = useState(props.open)
     const handleClose = () => {
         setOpen(false)
@@ -18,13 +18,13 @@ export default function DialogFeedback(props) {
 
     useEffect(() => {
         setOpen(props.open)
-    }, [props.open])
+    }, [props.open])*/
 
     return (
     <>
     <Dialog
-        open={open && !props.error}
-        onClose={handleClose}
+        open={props.open && !props.error}
+        onClose={props.onClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -35,23 +35,22 @@ export default function DialogFeedback(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Acept
+          <Button onClick={props.onClose} color="primary">
+            Accept
           </Button>
         </DialogActions>
       </Dialog>
 
     <Dialog
-        open={open && props.error}
-        onClose={handleClose}
+        open={props.open && props.error}
+        onClose={props.onClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
     >
         <DialogTitle id="alert-dialog-title">{"!Something went wrong¡"}</DialogTitle>
         <DialogContent>
             <DialogContentText id="alert-dialog-description">
-                Looks like we got an error. Check if your email is correct 
-                or try send the email directly to 
+                Looks like we got an error. Try send me the email directly to 
                 
                 <a 
                 style={{textDecoration:'underline' ,marginLeft:'5px', color:'black'}}
@@ -62,8 +61,8 @@ export default function DialogFeedback(props) {
             </DialogContentText>
         </DialogContent>
         <DialogActions>
-        <Button onClick={handleClose} color="primary">
-            Acept
+        <Button onClick={props.onClose} color="primary">
+            Accept
         </Button>
         </DialogActions>
     </Dialog>
