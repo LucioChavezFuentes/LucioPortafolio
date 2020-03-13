@@ -10,16 +10,6 @@ import Button from "components/CustomButtons/Button";
 
 export default function DialogFeedback(props) {
 
-/*
-    const [open, setOpen] = useState(props.open)
-    const handleClose = () => {
-        setOpen(false)
-    }
-
-    useEffect(() => {
-        setOpen(props.open)
-    }, [props.open])*/
-
     return (
     <>
     <Dialog

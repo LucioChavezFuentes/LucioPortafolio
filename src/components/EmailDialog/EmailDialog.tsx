@@ -6,6 +6,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import Button from "components/CustomButtons/Button";
@@ -15,6 +16,8 @@ import GridItem from "components/Grid/GridItem";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import Slide from '@material-ui/core/Slide';
+import { TransitionProps } from '@material-ui/core/transitions';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
@@ -50,11 +53,17 @@ interface Errors {
     message?: string;
 }
 
+
+
+const Transition = React.forwardRef<unknown, TransitionProps>(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const styles = (theme: Theme) => createStyles({
 
     dialog: {
         
-        top: '-150px',
+        top: '-100px',
 
         [theme.breakpoints.down('sm')]: {
             top: '0px'
@@ -76,6 +85,24 @@ const styles = (theme: Theme) => createStyles({
         transition: 'all 2s ease',
 
     },*/
+
+    subtitleText: {
+        marginLeft: '30px', 
+        marginBottom: '10px',
+
+        '& p': {
+            margin: '0'
+        },
+
+        '& a':{
+            marginLeft:'5px', 
+            color:'black'
+        }
+    },
+
+    dialogContent: {
+        marginBottom: '20px',
+    },
 
     sendButtonContainer : {
         position: 'relative',
@@ -150,7 +177,7 @@ const EmailDialog:React.FC<Props> = (props) => {
         const {errors, valid} = validateMessageData(inputs)
         if(valid){
 
-            emailjs.send("gmail", "template_86OdwYcX", inputs) 
+            emailjs.send(GMAIL_SERVICE, TEMPLATE_ID, inputs, USER_ID)
                 .then(res => {
                     setOpen(false);
                     setInputs(initialInputsState);
@@ -202,19 +229,30 @@ const EmailDialog:React.FC<Props> = (props) => {
           )}
         </Tooltip>
 
-        <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={fullScreen} PaperProps={{classes: {root: classes.dialog}}}>
+        <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={fullScreen} TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
             
-            <DialogTitle>!Send me a message¡</DialogTitle>
+            <DialogTitle>!Send me a message from here, simple and fast¡</DialogTitle>
+            <DialogContentText className={classes.subtitleText}>
+                        <p>
+                            Or you could send me an email through 
+                            <a 
+                            href="mailto:luciobertinchavez@gmail.com"
+                            >
+                                luciobertinchavez@gmail.com 
+                            </a>
+                        </p>
+                    </DialogContentText>
             <DialogContent dividers >
-                    <GridContainer spacing={low} justify="center" alignItmes='center' style={{marginBottom: '10px'}}  >
+                    <GridContainer spacing={low} justify="center" alignItmes='center'>
 
                         <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth} >
                             <TextField
                                 name='name'
                                 type='text'
                                 label='Name'
+                                variant="outlined"
                                 error={errors.name ? true : false}
-                                helperText={<p style={{position: 'absolute', top: '55px'}}>{errors.name}</p>}
+                                helperText={<p style={{margin:'0'}}>{errors.name || '*Required'}</p>}
                                 value={name}
                                 onChange={handleChange}
                                 fullWidth
@@ -226,8 +264,9 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 name='email'
                                 type='text'
                                 label='Email'
+                                variant="outlined"
                                 error={errors.email ? true : false}
-                                helperText={<p style={{position: 'absolute', top: '55px'}}>{errors.email}</p>}
+                                helperText={<p style={{margin:'0'}}>{errors.email || '*Required'}</p>}
                                 value={email}
                                 onChange={handleChange}
                                 fullWidth
@@ -240,7 +279,8 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 name='subject'
                                 type='text'
                                 label='Subject'
-                                helperText={"This field is optional."}
+                                variant="outlined"
+                                helperText={<p style={{margin:'0'}} >Optional</p>}
                                 value={subject}
                                 onChange={handleChange}
                                 
@@ -252,9 +292,10 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 name='message'
                                 variant="outlined"
                                 multiline
+                                rows="6"
                                 label="Message"
                                 error={errors.message ? true : false}
-                                helperText={<p style={{position: 'absolute', top: '65px'}}>{errors.message}</p>}
+                                helperText={<p>{errors.message || '*Required'}</p>}
                                 value={message}
                                 onChange={handleChange}
                                 fullWidth
