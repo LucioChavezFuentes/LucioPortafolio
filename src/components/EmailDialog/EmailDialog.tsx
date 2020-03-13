@@ -188,7 +188,6 @@ const EmailDialog:React.FC<Props> = (props) => {
                     setLoading(false);
                     setAPIError(err);
                     setOpenFeedback(true);
-                     return console.error('Oh well, you failed. Here some thoughts on the error that occured:', err)
                 })
                     
         } else {
