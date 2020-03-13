@@ -256,7 +256,7 @@ const buttonStyle = createStyles({
     }
   },
   disabled: {
-    opacity: "0.65",
+    opacity: "0.55",
     pointerEvents: "none"
   },
   lg: {

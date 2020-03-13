@@ -66,10 +66,30 @@ const styles = (theme: Theme) => createStyles({
         width: '95%', 
         margin: '0 auto 10px auto'
     },
+/*
+    progressContainer: {
+        width: '100%',
+        height: '100%',
+        backgroundColor:'rgba(0, 0, 0, 0.5)',
+        borderRadius: '15px',
+        position: 'absolute',
+        transition: 'all 2s ease',
 
-    progress : {
-        position: 'absolute'
-      }
+    },*/
+
+    sendButtonContainer : {
+        position: 'relative',
+
+        '& .progress' : {
+            position: 'absolute',
+            //margin: '3px',
+            color: `${theme.palette.secondary.dark}`,
+            opacity: '1',
+            left: '36%',
+            top: '9%',
+        },
+    },
+
 })
 
 const useStyles = makeStyles(styles);
@@ -130,7 +150,7 @@ const EmailDialog:React.FC<Props> = (props) => {
         const {errors, valid} = validateMessageData(inputs)
         if(valid){
 
-            emailjs.send("gmail", "template_86OdwYcX", inputs, USER_ID) 
+            emailjs.send("gmail", "template_86OdwYcX", inputs) 
                 .then(res => {
                     setOpen(false);
                     setInputs(initialInputsState);
@@ -246,11 +266,15 @@ const EmailDialog:React.FC<Props> = (props) => {
             </DialogContent>
 
             <DialogActions>
-                <Button type='submit' variant='contained' color='primary' onClick={handleSubmit} disabled={loading} endIcon={<SendIcon />} >
-                    Send
+                <div className={classes.sendButtonContainer}>
+                    <Button type='submit' variant='contained' color='primary' onClick={handleSubmit} disabled={loading} endIcon={<SendIcon />} >
+                        Send
+                    </Button>
                     {loading && (
-                            <CircularProgress size={30} className={classes.progress} />)}
-                </Button>
+                                <CircularProgress size={30} thickness={5} className='progress' />
+                            )}
+                </div>
+                
                 <Button type='submit' variant='contained' color='secondary' onClick={handleClose} endIcon={<CloseIcon />} >
                     Cancel
                 </Button>
