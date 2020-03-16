@@ -88,7 +88,8 @@ const styles = (theme: Theme) => createStyles({
 
     subtitleText: {
         marginLeft: '30px', 
-        marginBottom: '10px',
+        marginTop: '10px',
+        flex:'2',
 
         '& p': {
             margin: '0'
@@ -96,7 +97,8 @@ const styles = (theme: Theme) => createStyles({
 
         '& a':{
             marginLeft:'5px', 
-            color:'black'
+            color:'black',
+            textDecoration: 'underline',
         }
     },
 
@@ -230,17 +232,8 @@ const EmailDialog:React.FC<Props> = (props) => {
 
         <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={fullScreen} TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
             
-            <DialogTitle>!Send me a message from here, simple and fast¡</DialogTitle>
-            <DialogContentText className={classes.subtitleText}>
-                        <p>
-                            Or you could send me an email through 
-                            <a 
-                            href="mailto:luciobertinchavez@gmail.com"
-                            >
-                                luciobertinchavez@gmail.com 
-                            </a>
-                        </p>
-                    </DialogContentText>
+            <DialogTitle>Send me a message from here !Simple and Fast¡</DialogTitle>
+           
             <DialogContent dividers >
                     <GridContainer spacing={low} justify="center" alignItmes='center'>
 
@@ -306,6 +299,18 @@ const EmailDialog:React.FC<Props> = (props) => {
             </DialogContent>
 
             <DialogActions>
+                
+                <DialogContentText className={classes.subtitleText}>
+                        <p>
+                            Or you could send me an email through 
+                            <a 
+                            href="mailto:luciobertinchavez@gmail.com"
+                            >
+                                luciobertinchavez@gmail.com 
+                            </a>
+                        </p>
+                    </DialogContentText>
+
                 <div className={classes.sendButtonContainer}>
                     <Button type='submit' variant='contained' color='primary' onClick={handleSubmit} disabled={loading} endIcon={<SendIcon />} >
                         Send
