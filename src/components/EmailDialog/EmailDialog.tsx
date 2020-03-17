@@ -92,14 +92,21 @@ const styles = (theme: Theme) => createStyles({
         flex:'2',
 
         '& p': {
-            margin: '0'
-        },
+            margin: '0',
+            [theme.breakpoints.down('sm')]: {
+                fontSize: '13px'
+            },
 
         '& a':{
             marginLeft:'5px', 
             color:'black',
             textDecoration: 'underline',
-        }
+        },  
+        },
+
+        [theme.breakpoints.down('sm')]: {
+            marginLeft: '5px'
+        },
     },
 
     dialogContent: {
@@ -153,7 +160,7 @@ const EmailDialog:React.FC<Props> = (props) => {
     const [openFeedback, setOpenFeedback] = useState(false);
     const [APIError, setAPIError] = useState(null);
     const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const classes = useStyles();
 
     const handleOpen = () => {
@@ -212,7 +219,6 @@ const EmailDialog:React.FC<Props> = (props) => {
         <Button
             className={props.className}
             color="transparent"
-            href="mailto:luciobertinchavez@gmail.com"
             onClick={handleOpen}
             startIcon={<MailOutlineIcon />}
           >
@@ -230,7 +236,7 @@ const EmailDialog:React.FC<Props> = (props) => {
           )}
         </Tooltip>
 
-        <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={fullScreen} TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
+        <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={isMobile} TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
             
             <DialogTitle>Send me a message from here !Simple and Fast¡</DialogTitle>
            
@@ -301,15 +307,17 @@ const EmailDialog:React.FC<Props> = (props) => {
             <DialogActions>
                 
                 <DialogContentText className={classes.subtitleText}>
+                    
                         <p>
-                            Or you could send me an email through 
+                            { isMobile ? 'Or contact me' :  'Or you could send me an email through' } 
                             <a 
-                            href="mailto:luciobertinchavez@gmail.com"
+                                href="mailto:luciobertinchavez@gmail.com"
                             >
-                                luciobertinchavez@gmail.com 
+                                { isMobile ? 'here' :  'luciobertinchavez@gmail.com ' }
                             </a>
                         </p>
-                    </DialogContentText>
+                    
+                </DialogContentText>
 
                 <div className={classes.sendButtonContainer}>
                     <Button type='submit' variant='contained' color='primary' onClick={handleSubmit} disabled={loading} endIcon={<SendIcon />} >

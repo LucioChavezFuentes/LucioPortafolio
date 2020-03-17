@@ -28,6 +28,8 @@ const useStyles : any = makeStyles(styles);
 
 export default function NavPills(props : any) {
   const [active, setActive] = React.useState(props.active);
+
+  //const {active} = props;
   const {width} = useWindowSize();
   const theme = useTheme();
 
