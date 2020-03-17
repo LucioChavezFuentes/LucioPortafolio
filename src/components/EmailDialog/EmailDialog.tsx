@@ -236,7 +236,7 @@ const EmailDialog:React.FC<Props> = (props) => {
           )}
         </Tooltip>
 
-        <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={isMobile} TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
+        <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={isMobile} scroll='body' TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
             
             <DialogTitle>Send me a message from here !Simple and Fast¡</DialogTitle>
            
