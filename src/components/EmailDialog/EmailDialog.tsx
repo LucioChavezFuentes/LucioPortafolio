@@ -188,15 +188,16 @@ const EmailDialog:React.FC<Props> = (props) => {
 
             emailjs.send(GMAIL_SERVICE, TEMPLATE_ID, inputs, USER_ID)
                 .then(res => {
-                    setOpen(false);
-                    setInputs(initialInputsState);
-                    setLoading(false);
-                    setOpenFeedback(true);
+                    setOpen(() => false);
+                    setLoading(() => false);
+                    setOpenFeedback(() => true);
+                    setInputs(() => initialInputsState);
                 })
                 .catch(err => {
-                    setLoading(false);
-                    setAPIError(err);
-                    setOpenFeedback(true);
+                    setLoading(() => false);
+                    setAPIError(() => err);
+                    setOpenFeedback(() => true);
+                    return console.error('Oh well, you failed. Here some thoughts on the error that occured:', err)
                 })
                     
         } else {
@@ -253,6 +254,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 helperText={<p style={{margin:'0'}}>{errors.name || '*Required'}</p>}
                                 value={name}
                                 onChange={handleChange}
+                                disabled={loading}
                                 fullWidth
                             />
                         </GridItem>
@@ -267,6 +269,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 helperText={<p style={{margin:'0'}}>{errors.email || '*Required'}</p>}
                                 value={email}
                                 onChange={handleChange}
+                                disabled={loading}
                                 fullWidth
                             />
                         </GridItem>
@@ -281,6 +284,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 helperText={<p style={{margin:'0'}} >Optional</p>}
                                 value={subject}
                                 onChange={handleChange}
+                                disabled={loading}
                                 
                             />
                         </GridItem>
@@ -296,6 +300,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 helperText={<p>{errors.message || '*Required'}</p>}
                                 value={message}
                                 onChange={handleChange}
+                                disabled={loading}
                                 fullWidth
                             />
                         </GridItem>
@@ -334,7 +339,7 @@ const EmailDialog:React.FC<Props> = (props) => {
             </DialogActions>
             
         </Dialog>
-        <DialogFeedback open={openFeedback} error={APIError} onClose={handleCloseFeedBack} />
+        <DialogFeedback open={openFeedback} error={APIError} onClose={handleCloseFeedBack} TransitionComponent={Transition} />
         </>
     )
 }

@@ -10,13 +10,16 @@ import Button from "components/CustomButtons/Button";
 
 export default function DialogFeedback(props) {
 
+    const {open, error, onClose, ...rest} = props;
+
     return (
     <>
     <Dialog
-        open={props.open && !props.error}
-        onClose={props.onClose}
+        open={open && !error}
+        onClose={onClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        {...rest}
       >
         <DialogTitle id="alert-dialog-title">{"Message Sent Successfully"}</DialogTitle>
         <DialogContent>
@@ -25,17 +28,18 @@ export default function DialogFeedback(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.onClose} color="primary">
+          <Button onClick={onClose} color="primary">
             Accept
           </Button>
         </DialogActions>
       </Dialog>
 
     <Dialog
-        open={props.open && props.error}
-        onClose={props.onClose}
+        open={open && error}
+        onClose={onClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        {...rest}
     >
         <DialogTitle id="alert-dialog-title">{"!Something went wrong¡"}</DialogTitle>
         <DialogContent>
@@ -51,7 +55,7 @@ export default function DialogFeedback(props) {
             </DialogContentText>
         </DialogContent>
         <DialogActions>
-        <Button onClick={props.onClose} color="primary">
+        <Button onClick={onClose} color="primary">
             Accept
         </Button>
         </DialogActions>
