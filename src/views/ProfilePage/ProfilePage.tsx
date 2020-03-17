@@ -316,7 +316,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
                             <div className={classes.projectDescription}>
                               <p>
-                                The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression who everyone can see, 
+                                The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, 
                                 like and comment. 
                               </p>
                             </div>
