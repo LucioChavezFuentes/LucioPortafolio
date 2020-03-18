@@ -27,28 +27,19 @@ import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
 const useStyles : any = makeStyles(styles);
 
 export default function NavPills(props : any) {
-  const [active, setActive] = React.useState(props.active);
 
-  //const {active} = props;
   const {width} = useWindowSize();
   const theme = useTheme();
-
-  useEffect(() => {
-    setActive(props.active)
-  }, [props.active])
-
-  const handleChange = (event: any, active: number) => {
-    setActive(active);
-  };
-  const handleChangeIndex = (index: any) => {
-    setActive(index);
-  };
+  const { tabs, direction, color, horizontal, alignCenter, handleChangeActive, active } = props;
   const classes = useStyles(active);
-  const { tabs, direction, color, horizontal, alignCenter } = props;
   const flexContainerClasses = classNames({
     [classes.flexContainer]: true,
     [classes.horizontalDisplay]: horizontal !== undefined
   });
+
+  const handleChange = (event: any, active: number) => {
+    handleChangeActive(active)
+  };
 
   function TabsBorder(key: number) {
     return {
@@ -113,7 +104,7 @@ const arrayOfButtons = tabs.map((prop: any, key: number) => {
         animateHeight
         axis={direction === "rtl" ? "x-reverse" : "x"}
         index={active}
-        onChangeIndex={handleChangeIndex}
+        onChangeIndex={handleChangeActive}
       >
         {tabs.map((prop: any, key: number) => {
     return (
@@ -167,5 +158,6 @@ NavPills.propTypes = {
     tabsGrid: PropTypes.object,
     contentGrid: PropTypes.object
   }),
-  alignCenter: PropTypes.bool
+  alignCenter: PropTypes.bool,
+  handleChangeActive: PropTypes.func.isRequired
 };

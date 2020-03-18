@@ -79,7 +79,7 @@ export default function ProfilePage(props : any) {
   
   const projectsSectionRef = 'projectsSection';
 
-  const handleHeaderClick = (active) => {
+  const handleChangeActive = (active) => {
     //window.scrollTo(0, myRef.current.offsetTop)
     setActiveProject(active)
   }
@@ -93,7 +93,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     <div>
       <Header
         color="transparent"
-        onClickProject={handleHeaderClick} 
+        onClickProject={handleChangeActive} 
         projectsSectionRef={projectsSectionRef}
         absolute
         {...rest}
@@ -302,6 +302,7 @@ const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
                   alignCenter
                   color="primary"
                   active={activeProject}
+                  handleChangeActive={handleChangeActive}
                   tabs={[
                     {
                       tabButton: "The Social Conejito",
