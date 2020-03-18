@@ -18,7 +18,7 @@ import TeaCozy from "assets/img/customIcons/TeaCozy";
 import ExternalLink from "assets/img/customIcons/ExternalLink";
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import GitHubIcon from '@material-ui/icons/GitHub';
-
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button";
@@ -73,6 +73,12 @@ export default function HeaderLinks(props: any) {
     >
       <ListSubheader  id="All Projects"  className={classes.listSubheader}>
         All Projects
+
+        <div style={{float: 'right'}} >
+            <IconButton onClick={handleDrawerToggle}>
+              <ChevronRightIcon />
+            </IconButton> 
+        </div>
       </ListSubheader>
         <ListItem className={classes.listItem}>
           <Button component={LinkScroll}

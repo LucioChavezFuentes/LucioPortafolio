@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
+
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
@@ -99,6 +100,7 @@ export default function Header(props) {
           }}
           onClose={handleDrawerToggle}
         >
+          
           <div className={classes.appResponsive}>
             {leftLinks}
             <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} handleDrawerToggle={handleDrawerToggle} isMobile={true} />
