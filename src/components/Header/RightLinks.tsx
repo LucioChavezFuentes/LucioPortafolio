@@ -207,15 +207,23 @@ export default function HeaderLinks(props: any) {
             >
               Ravenous
             </LinkScroll>,
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href='https://tea-cozy-37cbf.firebaseapp.com'
-              className={classes.dropdownLink}
-              data-key={3}
-            >
-            Tea Cozy
-            </a>
+            <div className={classes.dropdownLinkBadge}>
+              <BadgeIcon
+                badgeContent={ExternalLink}
+              
+              >
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href='https://tea-cozy-37cbf.firebaseapp.com'
+                className={classes.dropdownLink}
+                data-key={3}
+              >
+                Tea Cozy
+              </a>
+            </ BadgeIcon>
+            </div>
+            
           ]}
         />
       </ListItem>

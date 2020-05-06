@@ -145,6 +145,13 @@ const headerLinksStyle = (theme:Theme) => createStyles({
       padding: "10px 20px"
     }
   },
+  dropdownLinkBadge : {
+    "&:hover,&:focus": {
+      "& svg": {
+        color: 'white'
+      }
+    }
+  },
   dropdownButtonLink: {
     textTransform: 'unset',
     margin: '0',
