@@ -127,7 +127,7 @@ export default function HeaderLinks(props: any) {
           </ListItem>
           <ListItem className={classes.listItem}>
             <BadgeIcon
-              badgeContent={ExternalLink}
+              icon={ExternalLink}
             >
               <Button
                 href='https://tea-cozy-37cbf.firebaseapp.com'
@@ -209,8 +209,9 @@ export default function HeaderLinks(props: any) {
             </LinkScroll>,
             <div className={classes.dropdownLinkBadge}>
               <BadgeIcon
-                badgeContent={ExternalLink}
-              
+                icon={ExternalLink}
+                fullWidth
+                rightPositionInPixels={60}
               >
               <a
                 target="_blank"
