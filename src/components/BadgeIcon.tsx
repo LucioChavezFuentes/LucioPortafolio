@@ -8,14 +8,16 @@ interface BadgeContentProps {
 }
 
 interface Props {
-    badgeContent: React.ComponentType<BadgeContentProps>;
+    icon: React.ComponentType<BadgeContentProps>;
     sizeInPixels?: string;
     fullWidth?: boolean;
+    rightPositionInPixels?: number;
 }
 
 const styles = (theme : Theme) => createStyles({
     iconPosition: {
         top: '11px',
+        right: (props:Props) => props.rightPositionInPixels ? `${props.rightPositionInPixels}px` : '0',
     },
 
     additionalStyle: {
@@ -30,7 +32,7 @@ const BadgeIcon:React.FC<Props> = (props) => {
     return (
         <Badge
             classes={{anchorOriginTopRightRectangle: classes.iconPosition}}
-            badgeContent={<props.badgeContent sizeInPixels={sizeInPixels || '10px'} />}
+            badgeContent={<props.icon sizeInPixels={sizeInPixels || '10px'} />}
             className={classes.additionalStyle}
         >
             {children}
