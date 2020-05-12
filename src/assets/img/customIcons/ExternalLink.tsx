@@ -12,7 +12,8 @@ interface Props{
 const styles = (theme:Theme) => createStyles({
     root: {
         color: 'black',
-        fontSize: (props:Props) => props.sizeInPixels
+        fontSize: (props:Props) => props.sizeInPixels,
+        transition: 'unset'
     }
 
 })
