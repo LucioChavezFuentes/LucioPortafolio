@@ -142,12 +142,15 @@ const headerLinksStyle = (theme:Theme) => createStyles({
       color: "inherit",
       textDecoration: "none",
       display: "block",
-      padding: "10px 20px"
+      padding: "10px 20px",
+      width: '100%',
     }
   },
   dropdownLinkBadge : {
+    
     "&:hover,&:focus": {
       "& svg": {
+        transition: 'all 150ms ease-in',
         color: 'white'
       }
     }
