@@ -10,22 +10,29 @@ interface BadgeContentProps {
 interface Props {
     badgeContent: React.ComponentType<BadgeContentProps>;
     sizeInPixels?: string;
+    fullWidth?: boolean;
 }
 
 const styles = (theme : Theme) => createStyles({
     iconPosition: {
         top: '11px',
+    },
+
+    additionalStyle: {
+        width: (props:Props) => props.fullWidth ? '100%' : 'auto'
     }
 })
 const useStyles = makeStyles(styles);
 
 const BadgeIcon:React.FC<Props> = (props) => {
     const {sizeInPixels, children} = props;
-    const classes = useStyles();
+    const classes = useStyles(props);
     return (
         <Badge
             classes={{anchorOriginTopRightRectangle: classes.iconPosition}}
-            badgeContent={<props.badgeContent sizeInPixels={sizeInPixels || '10px'} />}>
+            badgeContent={<props.badgeContent sizeInPixels={sizeInPixels || '10px'} />}
+            className={classes.additionalStyle}
+        >
             {children}
         </Badge>
     )
