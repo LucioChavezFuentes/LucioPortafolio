@@ -1,5 +1,5 @@
 
-import React, {useState} from "react";
+import React from "react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,7 +16,6 @@ import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
 import TeaCozy from "assets/img/customIcons/TeaCozy";
 import ExternalLink from "assets/img/customIcons/ExternalLink";
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // core components
@@ -39,8 +38,6 @@ interface HeaderLinksProps {
 
 export default function HeaderLinks(props: any) {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
-  
 
   const {onClickProject, projectsSectionRef, handleDrawerToggle, isMobile} = props;
 
@@ -56,14 +53,6 @@ export default function HeaderLinks(props: any) {
       // triggers onClickProject in ProfilePage to set the active project selected
       onClickProject(intKey)
     }
-  }
-
-  const handleOpen = () => {
-    setOpen(true);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
   }
 
   return (isMobile ? (

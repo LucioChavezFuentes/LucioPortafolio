@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 
 import Badge from '@material-ui/core/Badge';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';

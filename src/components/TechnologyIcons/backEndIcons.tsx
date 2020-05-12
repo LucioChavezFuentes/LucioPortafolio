@@ -40,11 +40,11 @@ function BackEndIcons() {
         <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>
             <div className={classes.flexContainer}>
                 <div className='itemNode'>
-                    <img src={nodeIcon} />
+                    <img src={nodeIcon} alt='node-js' />
                 </div>
 
                 <div className='itemFirebase'>
-                    <img src={firebaseIcon} />
+                    <img src={firebaseIcon} alt='firebase' />
                 </div>
             </div>
         </ScrollAnimation>

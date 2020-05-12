@@ -38,11 +38,11 @@ function BackEndIcons() {
         <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>
             <div className={classes.flexContainer}>
                 <div className='itemJest'>
-                    <img src={jestIcon} />
+                    <img src={jestIcon} alt='jest' />
                 </div>
 
                 <div className='itemTestingLibrary'>
-                    <img src={testingLibraryIcon} />
+                    <img src={testingLibraryIcon} alt='testing-library' />
                 </div>
             </div>
         </ScrollAnimation>

@@ -50,19 +50,19 @@ function FrontEndIcons() {
         <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>
             <div className={classes.flexContainer}>
                 <div className='itemHTMLCSS'>
-                    <img src={hTMLCSSIcon} />
+                    <img src={hTMLCSSIcon} alt='html-css' />
                 </div>
 
                 <div className='itemTS'>
-                    <img src={tsIcon} />
+                    <img src={tsIcon} alt='typescript' />
                 </div>
 
                 <div className='itemReact'>
-                    <img src={ReactIcon} />
+                    <img src={ReactIcon} alt='react' />
                 </div>
 
                 <div className='itemRedux'>
-                    <img src={reduxIcon} />
+                    <img src={reduxIcon} alt='redux' />
                 </div>
             </div>
         </ScrollAnimation>

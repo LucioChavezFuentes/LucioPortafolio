@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import emailjs from 'emailjs-com';
 
 // Material UI Imports
@@ -137,14 +137,14 @@ const EmailDialog:React.FC<Props> = (props) => {
     const GMAIL_SERVICE = "gmail";
     const TEMPLATE_ID = "template_86OdwYcX";
     // Grid Variables
-    const none = 0;
-    const veryLow = 1;
+    //const none = 0;
+    //const veryLow = 1;
     const low = 2;
-    const medium = 4;
-    const large = 6;
+    //const medium = 4;
+    //const large = 6;
 
     const halfWidth = 6;
-    const threeQuarterWidth = 9;
+    //const threeQuarterWidth = 9;
     const fullWidth = 12;
 
     const initialInputsState = {

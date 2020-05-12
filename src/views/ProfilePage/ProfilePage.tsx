@@ -45,21 +45,20 @@ export default function ProfilePage(props : any) {
   const {isMobile} = useWindowSize();
   const [activeProject, setActiveProject] = useState(0);
   const { ...rest } = props;
-  const imageClasses = classNames(
+  /*const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
     classes.imgFluid
-  );
+  );*/
 
   //Grid Variables
   const none = 0;
   const veryLow = 1;
-  const low = 2;
+  //const low = 2;
   const medium = 4;
-  const large = 6;
+ 
 
   const halfWidth = 6;
-  const threeQuarterWidth = 9;
   const fullWidth = 12;
 
   let currentGridSpacing;
@@ -87,7 +86,7 @@ export default function ProfilePage(props : any) {
   //use this function to set the Grids using the variable 'currentGridSpacing '
   setGridSpacing(medium)
 
-const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+//const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
   return (
     <div>
