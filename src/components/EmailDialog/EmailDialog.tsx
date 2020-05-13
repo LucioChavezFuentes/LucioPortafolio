@@ -250,7 +250,9 @@ const EmailDialog:React.FC<Props> = (props) => {
             
             <DialogTitle disableTypography id="customized-dialog-title">
 
-                <Typography variant="h6" style={{textTransform: 'unset'}}>Send me a message from here. !Simple and Fast¡</Typography>
+                <Typography variant="h6" style={{textTransform: 'unset'}}>Send me a message from here. </Typography>
+
+                <Typography variant="h6" style={{textTransform: 'unset'}}>!Simple and Fast¡</Typography>
 
                 <IconButton aria-label="close" className={classes.titleCloseButton} onClick={handleClose} >
                     <CloseIcon />
