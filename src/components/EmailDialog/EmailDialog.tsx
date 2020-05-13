@@ -18,6 +18,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
+import Typography from '@material-ui/core/Typography';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
@@ -25,6 +26,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SendIcon from '@material-ui/icons/Send';
 import CloseIcon from '@material-ui/icons/Close';
+
 
 // Component Imports
 import DialogFeedback from 'components/DialogFeedback/DialogFeedback'; 
@@ -74,6 +76,13 @@ const styles = (theme: Theme) => createStyles({
     dialogContentContainer: {
         width: '95%', 
         margin: '0 auto 10px auto'
+    },
+
+    titleCloseButton: {
+        position: 'absolute',
+        right: theme.spacing(0),
+        top: theme.spacing(1),
+        color: theme.palette.grey[500],
     },
 /*
     progressContainer: {
@@ -239,7 +248,15 @@ const EmailDialog:React.FC<Props> = (props) => {
 
         <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={isMobile} scroll='body' TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
             
-            <DialogTitle>Send me a message from here !Simple and Fast¡</DialogTitle>
+            <DialogTitle disableTypography id="customized-dialog-title">
+
+                <Typography variant="h6" style={{textTransform: 'unset'}}>Send me a message from here. !Simple and Fast¡</Typography>
+
+                <IconButton aria-label="close" className={classes.titleCloseButton} onClick={handleClose} >
+                    <CloseIcon />
+                </IconButton> 
+              
+            </DialogTitle>
            
             <DialogContent dividers >
                     <GridContainer spacing={low} justify="center" alignItmes='center'>
