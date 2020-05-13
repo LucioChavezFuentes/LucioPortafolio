@@ -11,6 +11,9 @@ import ProfilePage from "views/ProfilePage/ProfilePage";
 // MUI Imports
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
+if(/^\?fbclid=/.test(window.location.search))
+     window.location.replace(window.location.href.replace(/\?fbclid.+/, ""));
+
 const theme = createMuiTheme({
   palette: {
     primary: {
