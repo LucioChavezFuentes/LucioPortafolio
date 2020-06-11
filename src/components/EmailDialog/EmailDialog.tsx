@@ -237,7 +237,7 @@ const EmailDialog:React.FC<Props> = (props) => {
         
         ) : (
         <IconButton
-            href="mailto:luciobertinchavez@gmail.com"
+            
             onClick={handleOpen}
             className={props.className}
         >
