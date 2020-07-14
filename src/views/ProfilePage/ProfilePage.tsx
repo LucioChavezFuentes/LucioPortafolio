@@ -5,14 +5,18 @@ import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import GitHubIcon from '@material-ui/icons/GitHub';
+import Brightness5Icon from '@material-ui/icons/Brightness5';
 // Custom Icons
 import Conejito from "assets/img/customIcons/Conejito";
 import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
+
+
 // Material IU imports
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from '@material-ui/core/LinearProgress';
+
 
 //On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -32,6 +36,7 @@ import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
 import BackEndIcons from "components/TechnologyIcons/backEndIcons";
 import TechTestingIcons from "components/TechnologyIcons/techTestingIcons";
 import useWindowSize from "helper/useWindowSize";
+import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
 
 // styles
 import styles from "assets/jss/material-kit-react/views/profilePage";
@@ -94,6 +99,7 @@ export default function ProfilePage(props : any) {
         color="transparent"
         onClickProject={handleChangeActive} 
         projectsSectionRef={projectsSectionRef}
+        leftLinks= {<ThemeSwitch />}
         absolute
         {...rest}
       />
