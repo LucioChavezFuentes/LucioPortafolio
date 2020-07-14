@@ -5,7 +5,6 @@ import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import GitHubIcon from '@material-ui/icons/GitHub';
-import Brightness5Icon from '@material-ui/icons/Brightness5';
 // Custom Icons
 import Conejito from "assets/img/customIcons/Conejito";
 import AdventureCode from "assets/img/customIcons/AdventureCode";
@@ -49,7 +48,7 @@ export default function ProfilePage(props : any) {
   const classes : any = useStyles();
   const {isMobile} = useWindowSize();
   const [activeProject, setActiveProject] = useState(0);
-  const { ...rest } = props;
+  const { setDarkTheme, darkTheme,   ...rest} = props;
   /*const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
@@ -99,7 +98,7 @@ export default function ProfilePage(props : any) {
         color="transparent"
         onClickProject={handleChangeActive} 
         projectsSectionRef={projectsSectionRef}
-        leftLinks= {<ThemeSwitch />}
+        leftLinks={<ThemeSwitch setDarkTheme={setDarkTheme} darkTheme={darkTheme} />}
         absolute
         {...rest}
       />
