@@ -8,7 +8,7 @@ import 'typeface-roboto';
 import ProfilePage from "views/ProfilePage/ProfilePage";
 
 // MUI Imports
-import {MuiThemeProvider} from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
 //Themes Imports
 import themes, {LIGHT_THEME} from './themes/constants';
@@ -22,13 +22,26 @@ const hist = createBrowserHistory();
 
 function App() {
 
-    const [themeName, setThemeName] = useState(LIGHT_THEME);
+    const [darkTheme, setDarkTheme] = useState(false);
+    const theme = createMuiTheme({
+      palette: {
+
+        type: darkTheme ? 'dark' : 'light',
+
+        primary: {
+          main: '#43a047',
+        },
+        secondary: {
+          main: '#f44336',
+        },
+      },
+    })
 
     return (
-        <MuiThemeProvider theme={themes[themeName]}>
+        <MuiThemeProvider theme={theme}>
             <Router history={hist}>
                 <Switch>
-                    <Route path="/" render={ (props) => <ProfilePage {...props} setThemeName={setThemeName} />}  />
+                    <Route path="/" render={(props) => <ProfilePage {...props} setDarkTheme={setDarkTheme} darkTheme={darkTheme} />}  />
                 </Switch>
             </Router>
         </MuiThemeProvider>
