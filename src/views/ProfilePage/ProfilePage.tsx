@@ -117,7 +117,7 @@ export default function ProfilePage(props : any) {
                 */}
                   <div className={classes.name}>
                     <h3 className={classes.title}>Lucio Chávez</h3>
-                    <h6>Web Developer</h6>
+                    <h6 className={classes.occupation}>Web Developer</h6>
                     { /*fab and fa-twitter appear to be global classNames*/ }
                     {/*<Button justIcon link target="_blank" href={"https://twitter.com/LucioBbrtiChvez"} className={classes.margin5}>
                       <GitHubIcon />

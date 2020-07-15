@@ -1,6 +1,6 @@
 import { container, primaryColor } from "assets/jss/material-kit-react.js";
 
-const footerStyle = {
+const footerStyle = (theme) => ({
   block: {
     color: "inherit",
     padding: "0.9375rem",
@@ -59,6 +59,12 @@ const footerStyle = {
     height: "18px",
     position: "relative",
     top: "3px"
+  },
+
+  emailTo: {
+    textDecoration:'underline',
+    marginLeft:'5px', 
+    color: theme.palette.text.primary,
   }
-};
+});
 export default footerStyle;

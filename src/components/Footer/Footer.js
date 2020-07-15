@@ -84,8 +84,7 @@ export default function Footer(props) {
           <div>
             <p>Feel free to contact me via email at 
               <a
-              style={{textDecoration:'underline' ,marginLeft:'5px', color:'black'}}
-              
+              className={classes.emailTo}
               href="mailto:luciobertinchavez@gmail.com"
             >
               luciobertinchavez@gmail.com

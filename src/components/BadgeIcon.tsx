@@ -4,7 +4,8 @@ import Badge from '@material-ui/core/Badge';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 interface BadgeContentProps {
-    sizeInPixels?: string
+    sizeInPixels?: string;
+    isMobile?: boolean;
 }
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
     sizeInPixels?: string;
     fullWidth?: boolean;
     rightPositionInPixels?: number;
+    isMobile?: boolean;
 }
 
 const styles = (theme : Theme) => createStyles({
@@ -27,12 +29,12 @@ const styles = (theme : Theme) => createStyles({
 const useStyles = makeStyles(styles);
 
 const BadgeIcon:React.FC<Props> = (props) => {
-    const {sizeInPixels, children} = props;
+    const {sizeInPixels, children, isMobile} = props;
     const classes = useStyles(props);
     return (
         <Badge
             classes={{anchorOriginTopRightRectangle: classes.iconPosition}}
-            badgeContent={<props.icon sizeInPixels={sizeInPixels || '10px'} />}
+            badgeContent={<props.icon sizeInPixels={sizeInPixels || '10px'}  isMobile={isMobile} />}
             className={classes.additionalStyle}
         >
             {children}

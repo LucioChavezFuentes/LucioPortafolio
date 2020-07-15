@@ -6,12 +6,13 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 interface Props{
-    sizeInPixels?: string
+    sizeInPixels?: string;
+    isMobile?: boolean;
 }
 
 const styles = (theme:Theme) => createStyles({
     root: {
-        color: 'black',
+        color: (props: Props) => props.isMobile ? theme.palette.text.primary : 'black',
         fontSize: (props:Props) => props.sizeInPixels,
         transition: 'unset'
     }

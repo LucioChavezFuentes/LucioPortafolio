@@ -117,6 +117,7 @@ export default function HeaderLinks(props: any) {
           <ListItem className={classes.listItem}>
             <BadgeIcon
               icon={ExternalLink}
+              isMobile={isMobile}
             >
               <Button
                 href='https://tea-cozy-37cbf.firebaseapp.com'

@@ -9,6 +9,7 @@ import ProfilePage from "views/ProfilePage/ProfilePage";
 
 // MUI Imports
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 //Themes Imports
 import themes, {LIGHT_THEME} from './themes/constants';
@@ -27,11 +28,22 @@ function App() {
     const theme = React.useMemo(
       () =>
         createMuiTheme({
+
+          overrides: {
+            MuiCssBaseline: {
+              '@global': {
+                body: {
+                  backgroundColor: darkTheme ? '#424242' : 'auto',
+                },
+              },
+            },
+          },
+
           palette: {
             type: darkTheme ? 'dark' : 'light',
 
             primary: {
-              main: darkTheme ? '#4A148C' : '#43a047',
+              main: darkTheme ? '#8e24aa' : '#43a047',
             },
             secondary: {
               main: darkTheme ? '#B71C1C' : '#f44336',
@@ -62,11 +74,13 @@ function App() {
 
     return (
         <MuiThemeProvider theme={theme}>
+          <CssBaseline>
             <Router history={hist}>
                 <Switch>
                     <Route path="/" render={(props) => <ProfilePage {...props} setDarkTheme={setDarkTheme} darkTheme={darkTheme} />}  />
                 </Switch>
             </Router>
+          </CssBaseline>
         </MuiThemeProvider>
     )
 }

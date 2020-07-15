@@ -82,6 +82,7 @@ const profilePageStyle = (theme : Theme) => {
         fontSize: "0.9rem",
         margin: "0",
         color: theme.palette.text.primary,
+        lineHeight: '25px',
   
         [theme.breakpoints.down("xs")]: {
           fontSize: "0.87rem",
@@ -113,11 +114,13 @@ const profilePageStyle = (theme : Theme) => {
         [theme.breakpoints.down("sm")]: {
           padding:"5px",
           margin: '10px'
-        }
+        },
+        
       },
   
     },
-    name: {
+    occupation: {
+      color: theme.palette.text.primary
     },
     ...imagesStyle,
     // @ts-ignore
@@ -140,7 +143,8 @@ const profilePageStyle = (theme : Theme) => {
       position: "relative",
       marginTop: "30px",
       minHeight: "32px",
-      textDecoration: "none"
+      textDecoration: "none",
+      color: theme.palette.text.primary,
     },
     socials: {
       marginTop: "0",
@@ -319,6 +323,11 @@ const profilePageStyle = (theme : Theme) => {
           [theme.breakpoints.down("sm")]: {
             padding:"5px",
           }
+      },
+
+      '& p': {
+        lineHeight: '25px',
+        margin: '0',
       },
   
       '& li': {
