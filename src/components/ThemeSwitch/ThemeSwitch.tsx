@@ -42,9 +42,9 @@ function ThemeSwitch(props) {
 
     return (
         <div className={classes.switchContainer}>
-            <Brightness5Icon/>
-            <BaseThemeSwitch onChange={handleChange} checked={darkTheme}  />
-            <Brightness3Icon/>
+          <Brightness5Icon/>
+          <BaseThemeSwitch onChange={handleChange} checked={darkTheme}  />
+          <Brightness3Icon/>
         </div>
     )
 }

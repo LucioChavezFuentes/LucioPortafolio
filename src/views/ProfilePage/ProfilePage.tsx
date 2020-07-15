@@ -41,7 +41,6 @@ import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
 
-
 const useStyles  = makeStyles(styles);
 
 export default function ProfilePage(props : any) {
@@ -60,8 +59,6 @@ export default function ProfilePage(props : any) {
   const veryLow = 1;
   //const low = 2;
   const medium = 4;
- 
-
   const halfWidth = 6;
   const fullWidth = 12;
 
@@ -78,7 +75,10 @@ export default function ProfilePage(props : any) {
     currentGridSpacing = gridVariable
   }
 
-  //const myRef = useRef();
+  //Paper Elevation Variables
+  const MAX_ELEVATION = 24;
+  const MEDIUM_ELEVATION = 12;
+  const LOW_ELEVATION = 6;
   
   const projectsSectionRef = 'projectsSection';
 
@@ -142,7 +142,7 @@ export default function ProfilePage(props : any) {
               <GridContainer item justify="center" xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={veryLow} >
                 <GridItem >
                   <div className={classes.philosophy}>
-                  <Paper elevation={1} className="paperPhilosophy paperDescription" >
+                  <Paper elevation={MAX_ELEVATION} className="paperPhilosophy paperDescription" >
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p>
                         I am a web developer specialized in front end, 
@@ -170,7 +170,7 @@ export default function ProfilePage(props : any) {
             
               <GridItem   xs={fullWidth} sm={fullWidth} md={halfWidth}>
               <div className='gridItemDescription'>
-              <Paper className='paperDescription'>
+              <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                 <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                 
                   <p key="2" >The scope of my skills cover front-end technologies such as:
@@ -192,7 +192,7 @@ export default function ProfilePage(props : any) {
 
               <GridItem justify='center' xs={fullWidth} sm={fullWidth} md={halfWidth}>
               <div className='gridItemDescription'>
-                <Paper className='paperDescription'>
+                <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                   <FrontEndIcons />
                 </Paper>
               </div>
@@ -215,7 +215,7 @@ export default function ProfilePage(props : any) {
 
                 <GridItem  xs={fullWidth} sm={halfWidth} md={halfWidth} >
                   <div className='gridItemDescription'>
-                  <Paper className='paperDescription'>
+                  <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="4" >
                         I also write unit and/or integration tests with:
@@ -230,7 +230,7 @@ export default function ProfilePage(props : any) {
 
                 <GridItem xs={fullWidth} sm={halfWidth} md={halfWidth}>
                   <div className='gridItemDescription'>
-                    <Paper className='paperDescription'>
+                    <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                       <TechTestingIcons />
                     </Paper>
                   </div>
@@ -252,7 +252,7 @@ export default function ProfilePage(props : any) {
               >
                 <GridItem  xs={fullWidth} sm={halfWidth} md={halfWidth} >
                 <div className='gridItemDescription'>
-                  <Paper className='paperDescription'>
+                  <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="6" >
                         And I have some experience in:
@@ -268,7 +268,7 @@ export default function ProfilePage(props : any) {
 
                 <GridItem xs={fullWidth} sm={halfWidth} md={halfWidth} >
                   <div className='gridItemDescription'>
-                  <Paper className='paperDescription'>
+                  <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                     <BackEndIcons />
                   </Paper>
                   </div>
@@ -293,7 +293,7 @@ export default function ProfilePage(props : any) {
 
             <Element name={projectsSectionRef}>
               <div className={classes.latestProjectsTitleContainer}>
-                <Paper elevation={0} className="paperLatestProjects">
+                <Paper elevation={MAX_ELEVATION} className="paperLatestProjects">
                   <Typography color='textPrimary' className="latestProjectsTitle">Latest Projects</Typography>
                 </Paper>
               </div>
@@ -464,7 +464,7 @@ export default function ProfilePage(props : any) {
               <GridContainer justify={isMobile ? "center" : "space-between"} alignItems='flex-start' spacing={currentGridSpacing}>
                 <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth}>
                   <div className={classes.paperTitleContainer}>
-                    <Paper elevation={0} className="paper">
+                    <Paper elevation={MAX_ELEVATION} className="paper">
                       <Typography color='textPrimary' className="title">About Me</Typography>
                     </Paper>
                   </div>
@@ -477,7 +477,7 @@ export default function ProfilePage(props : any) {
                 </GridItem>
 
                 <GridItem className='gridItemDescription' xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                <Paper className='paperDescription'>
+                <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                   <p>
                     I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. 
                     I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.
@@ -493,7 +493,7 @@ export default function ProfilePage(props : any) {
                   </GridItem>
 
                   <GridItem className='gridItemDescription' xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                    <Paper className='paperDescription'>
+                    <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                       <p className='hobbiesDescription'>
                         Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books.
                         My last two favorite are: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.

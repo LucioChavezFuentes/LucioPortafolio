@@ -76,7 +76,7 @@ const customDropdownStyle = theme => ({
   },
   primaryHover: {
     "&:hover": {
-      backgroundColor: primaryColor,
+      backgroundColor: theme.palette.primary.main,
       color: "#FFFFFF",
       ...primaryBoxShadow
     }

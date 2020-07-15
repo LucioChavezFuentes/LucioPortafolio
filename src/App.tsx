@@ -22,8 +22,31 @@ const hist = createBrowserHistory();
 
 function App() {
 
-    const [darkTheme, setDarkTheme] = useState(false);
-    const theme = createMuiTheme({
+  const [darkTheme, setDarkTheme] = useState(false);
+
+    const theme = React.useMemo(
+      () =>
+        createMuiTheme({
+          palette: {
+            type: darkTheme ? 'dark' : 'light',
+
+            primary: {
+              main: darkTheme ? '#4A148C' : '#43a047',
+            },
+            secondary: {
+              main: darkTheme ? '#B71C1C' : '#f44336',
+            },
+
+            background: {
+              default: darkTheme ? '#121212' : '#fafafa'
+            }
+          },
+        }),
+      [darkTheme],
+    );
+
+    
+    /*const theme = createMuiTheme({
       palette: {
 
         type: darkTheme ? 'dark' : 'light',
@@ -35,7 +58,7 @@ function App() {
           main: '#f44336',
         },
       },
-    })
+    })*/
 
     return (
         <MuiThemeProvider theme={theme}>
