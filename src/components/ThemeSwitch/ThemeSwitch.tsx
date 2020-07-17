@@ -46,9 +46,7 @@ function ThemeSwitch(props) {
         setDarkTheme()
       } else {
         setLightTheme()
-      }
-        
-      };
+      }};
 
     return (
         <div className={classes.switchContainer}>
@@ -61,6 +59,6 @@ function ThemeSwitch(props) {
 
 const mapStateToProps = (state) => ({
   isThemeDark: state.ui.isThemeDark
-})
+});
 
 export default connect(mapStateToProps, mapDispatch)(ThemeSwitch);

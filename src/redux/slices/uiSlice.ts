@@ -5,7 +5,7 @@
 The "mutative" code only works correctly inside of createReducer function
 won't let you mix "mutating" the draft state and also returning a new state value
 */
-import  {createReducer, createAction, createSlice} from '@reduxjs/toolkit';
+import  {createSlice} from '@reduxjs/toolkit';
 
 interface UIState {
     isThemeDark: boolean;
