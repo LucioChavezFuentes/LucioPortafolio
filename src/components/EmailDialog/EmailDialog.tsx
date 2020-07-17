@@ -20,7 +20,7 @@ import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
 import Typography from '@material-ui/core/Typography';
 
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme, withStyles } from '@material-ui/core/styles';
 
 // Material Icons
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
@@ -84,6 +84,23 @@ const styles = (theme: Theme) => createStyles({
         top: theme.spacing(1),
         color: theme.palette.grey[500],
     },
+
+    inputText: {
+        '& label.Mui-focused': {
+            color: theme.palette.primary.light,
+          },
+          '& .MuiOutlinedInput-root': {
+            /*'& fieldset': {
+              borderColor: 'red',
+            },
+            '&:hover fieldset': {
+              borderColor: 'yellow',
+            },*/
+            '&.Mui-focused fieldset': {
+              borderColor: theme.palette.primary.light,
+            },
+          },
+    },
 /*
     progressContainer: {
         width: '100%',
@@ -136,6 +153,28 @@ const styles = (theme: Theme) => createStyles({
     },
 
 })
+
+const CustomTextField = withStyles((theme) => ({
+    root: {
+      '& label.Mui-focused': {
+        color: theme.palette.primary.light,
+      },
+      /*'& .MuiInput-underline:after': {
+        borderBottomColor: 'green',
+      },*/
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'red',
+        },
+        '&:hover fieldset': {
+          borderColor: 'yellow',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: 'green',
+        },
+      },
+    },
+  }))(TextField)
 
 const useStyles = makeStyles(styles);
 
@@ -269,6 +308,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 type='text'
                                 label='Name'
                                 variant="outlined"
+                                classes={{root: classes.inputText}}
                                 error={errors.name ? true : false}
                                 helperText={<p style={{margin:'0'}}>{errors.name || '*Required'}</p>}
                                 value={name}
@@ -284,6 +324,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 type='text'
                                 label='Email'
                                 variant="outlined"
+                                classes={{root: classes.inputText}}
                                 error={errors.email ? true : false}
                                 helperText={<p style={{margin:'0'}}>{errors.email || '*Required'}</p>}
                                 value={email}
@@ -300,6 +341,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 type='text'
                                 label='Subject'
                                 variant="outlined"
+                                classes={{root: classes.inputText}}
                                 helperText={<p style={{margin:'0'}} >Optional</p>}
                                 value={subject}
                                 onChange={handleChange}
@@ -315,6 +357,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 multiline
                                 rows="6"
                                 label="Message"
+                                classes={{root: classes.inputText}}
                                 error={errors.message ? true : false}
                                 helperText={<p>{errors.message || '*Required'}</p>}
                                 value={message}

@@ -79,7 +79,7 @@ export default function ProfilePage(props : any) {
   //Paper Elevation Variables
   const MAX_ELEVATION = 24;
   const MEDIUM_ELEVATION = 12;
-  const LOW_ELEVATION = 6;
+  //const LOW_ELEVATION = 6;
   
   const projectsSectionRef = 'projectsSection';
 

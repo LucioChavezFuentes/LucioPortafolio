@@ -120,7 +120,9 @@ const profilePageStyle = (theme : Theme) => {
   
     },
     occupation: {
-      color: theme.palette.text.primary
+      color: theme.palette.text.primary,
+      fontSize: '16px',
+      margin: '10px',
     },
     ...imagesStyle,
     // @ts-ignore
@@ -145,6 +147,7 @@ const profilePageStyle = (theme : Theme) => {
       minHeight: "32px",
       textDecoration: "none",
       color: theme.palette.text.primary,
+      fontSize: "30px",
     },
     socials: {
       marginTop: "0",

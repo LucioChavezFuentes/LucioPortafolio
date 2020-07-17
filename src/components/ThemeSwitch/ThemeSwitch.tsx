@@ -1,15 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
 //Material UI Imports
-import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 
 //Material UI Icons
 import Brightness5Icon from '@material-ui/icons/Brightness5';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
-
-//Import Constants
-import {DARK_THEME, LIGHT_THEME} from 'themes/constants';
 
 const useStyles = makeStyles({
     switchContainer: {

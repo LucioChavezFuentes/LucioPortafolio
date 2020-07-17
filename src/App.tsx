@@ -2,22 +2,20 @@ import React, { useState } from 'react'
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
-import "assets/scss/material-kit-react.scss?v=1.8.0";
+//import "assets/scss/material-kit-react.scss?v=1.8.0";
 import 'typeface-roboto';
 
 import ProfilePage from "views/ProfilePage/ProfilePage";
 
 // MUI Imports
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import {MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 //Themes Imports
-import themes, {LIGHT_THEME} from './themes/constants';
+import themes from './themes/constants';
 
 if(/^\?fbclid=/.test(window.location.search))
      window.location.replace(window.location.href.replace(/\?fbclid.+/, ""));
-
-
 
 const hist = createBrowserHistory();
 
@@ -26,51 +24,8 @@ function App() {
   const [darkTheme, setDarkTheme] = useState(false);
 
     const theme = React.useMemo(
-      () =>
-        createMuiTheme({
-
-          overrides: {
-            MuiCssBaseline: {
-              '@global': {
-                body: {
-                  backgroundColor: darkTheme ? '#424242' : 'auto',
-                },
-              },
-            },
-          },
-
-          palette: {
-            type: darkTheme ? 'dark' : 'light',
-
-            primary: {
-              main: darkTheme ? '#8e24aa' : '#43a047',
-            },
-            secondary: {
-              main: darkTheme ? '#B71C1C' : '#f44336',
-            },
-
-            background: {
-              default: darkTheme ? '#121212' : '#fafafa'
-            }
-          },
-        }),
-      [darkTheme],
-    );
-
-    
-    /*const theme = createMuiTheme({
-      palette: {
-
-        type: darkTheme ? 'dark' : 'light',
-
-        primary: {
-          main: '#43a047',
-        },
-        secondary: {
-          main: '#f44336',
-        },
-      },
-    })*/
+      () => darkTheme ? themes.darkTheme : themes.lightTheme
+    , [darkTheme]);
 
     return (
         <MuiThemeProvider theme={theme}>
