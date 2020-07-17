@@ -1,5 +1,11 @@
 import React from 'react'
 
+//React-Redux Imports
+import {connect} from 'react-redux';
+
+//Redux Imports
+import {setDarkTheme, setLightTheme} from 'redux/slices/uiSlice';
+
 //Material UI Imports
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
@@ -14,6 +20,8 @@ const useStyles = makeStyles({
         alignItems: 'center',
     }
 })
+
+const mapDispatch = {setDarkTheme, setLightTheme };
 
 const BaseThemeSwitch = withStyles((theme) => ({
     switchBase: {
@@ -31,19 +39,28 @@ const BaseThemeSwitch = withStyles((theme) => ({
 
 function ThemeSwitch(props) {
     const classes = useStyles();
-    const {setDarkTheme, darkTheme} = props;
+    const {setDarkTheme, setLightTheme, isThemeDark} = props;
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDarkTheme(!darkTheme)
+      if(event.target.checked){
+        setDarkTheme()
+      } else {
+        setLightTheme()
+      }
+        
       };
 
     return (
         <div className={classes.switchContainer}>
           <Brightness5Icon/>
-          <BaseThemeSwitch onChange={handleChange} checked={darkTheme}  />
+          <BaseThemeSwitch onChange={handleChange} checked={isThemeDark}  />
           <Brightness3Icon/>
         </div>
     )
 }
 
-export default ThemeSwitch;
+const mapStateToProps = (state) => ({
+  isThemeDark: state.ui.isThemeDark
+})
+
+export default connect(mapStateToProps, mapDispatch)(ThemeSwitch);

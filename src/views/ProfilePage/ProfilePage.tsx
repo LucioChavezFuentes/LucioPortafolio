@@ -99,7 +99,7 @@ export default function ProfilePage(props : any) {
         color="transparent"
         onClickProject={handleChangeActive} 
         projectsSectionRef={projectsSectionRef}
-        leftLinks={<ThemeSwitch setDarkTheme={setDarkTheme} darkTheme={darkTheme} />}
+        leftLinks={<ThemeSwitch />}
         absolute
         {...rest}
       />

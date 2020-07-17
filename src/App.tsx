@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
+//Redux
+import { connect } from 'react-redux';
+
 //import "assets/scss/material-kit-react.scss?v=1.8.0";
 import 'typeface-roboto';
 
@@ -14,25 +17,26 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 //Themes Imports
 import themes from './themes/constants';
 
+//This test removes the 'fbclid=' in the URL if the Web App is opened from a facebooks's inbox link
 if(/^\?fbclid=/.test(window.location.search))
      window.location.replace(window.location.href.replace(/\?fbclid.+/, ""));
 
 const hist = createBrowserHistory();
 
-function App() {
+function App(props) {
 
-  const [darkTheme, setDarkTheme] = useState(false);
+  const {isThemeDark} = props;
 
     const theme = React.useMemo(
-      () => darkTheme ? themes.darkTheme : themes.lightTheme
-    , [darkTheme]);
+      () => isThemeDark ? themes.darkTheme : themes.lightTheme
+    , [isThemeDark]);
 
     return (
         <MuiThemeProvider theme={theme}>
           <CssBaseline>
             <Router history={hist}>
                 <Switch>
-                    <Route path="/" render={(props) => <ProfilePage {...props} setDarkTheme={setDarkTheme} darkTheme={darkTheme} />}  />
+                    <Route path="/" render={(props) => <ProfilePage {...props} />}  />
                 </Switch>
             </Router>
           </CssBaseline>
@@ -40,4 +44,8 @@ function App() {
     )
 }
 
-export default App
+const mapStateToProps = (state) => ({
+  isThemeDark: state.ui.isThemeDark,
+})
+
+export default connect(mapStateToProps)(App)
