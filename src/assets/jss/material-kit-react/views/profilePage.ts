@@ -68,13 +68,13 @@ const profilePageStyle = (theme : Theme) => {
   
       '& .miniTitle': {
         textAlign: "center",
-        fontSize: "0.9rem",
+        fontSize: "1.1rem",
         borderBottom: `3px solid ${theme.palette.primary.main}`,
         margin: "20px auto -10px auto",
         width: "35%",
         color: theme.palette.text.primary,
         [theme.breakpoints.down("xs")]: {
-          fontSize: "0.8rem",
+          fontSize: "1rem",
           width: "85%",
         }
       },
@@ -121,7 +121,7 @@ const profilePageStyle = (theme : Theme) => {
     },
     occupation: {
       color: theme.palette.text.primary,
-      fontSize: '16px',
+      fontSize: '19px',
       margin: '10px',
     },
     ...imagesStyle,

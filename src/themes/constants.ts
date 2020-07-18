@@ -4,7 +4,7 @@ import {createMuiTheme} from '@material-ui/core/styles';
 export const LIGHT_THEME = 'lightTheme';
 export const DARK_THEME = 'darkTheme';
 
-/*const lightThemeObject = {
+const THEME_OBJECT = {
   palette: {
     primary: {
       main: '#43a047',
@@ -12,8 +12,50 @@ export const DARK_THEME = 'darkTheme';
     secondary: {
       main: '#f44336',
     },
+
+    dark: {
+      primary: {
+        main: '#8e24aa',
+        light: '#ce93d8',
+      },
+
+      secondary: {
+        main: '#B71C1C'
+      },
+
+      text: {
+        primary: '#fff',
+        secondary:'rgba(255, 255, 255, 0.7)',
+        disabled:' rgba(255, 255, 255, 0.5)',
+      },
+
+      action: {
+        active: '#fff',
+        hover: 'rgba(255, 255, 255, 0.08)',
+        selected: 'rgba(255, 255, 255, 0.16)',
+        disabled: 'rgba(255, 255, 255, 0.3)',
+        disabledBackground : 'rgba(255, 255, 255, 0.12)',
+      },
+
+      background: {
+        default: '#121212',
+        paper: '#424242'
+      },
+
+      divider: 'rgba(255, 255, 255, 0.12)',
+    }
   },
 }
+/*
+const lightThemeObject = {
+  palette: {
+    primary: {
+      main: '#43a047',
+    },
+    secondary: {
+      main: '#f44336',
+    },
+}}
 
 const darkThemeObject = {
 
