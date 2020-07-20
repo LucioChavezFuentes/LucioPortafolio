@@ -5,3 +5,9 @@ declare namespace NodeJS {
       browser: boolean;
     }
   }
+
+declare interface NodeModule {
+  hot: {
+    accept(path?: string, fn: () => void, callback?: () => void): void;
+  };
+}

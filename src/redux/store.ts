@@ -1,16 +1,20 @@
 import {configureStore} from '@reduxjs/toolkit';
-//import { combineReducers } from 'redux';
 
-import uiReducer from './slices/uiSlice';
 
-/*const rootReducer = combineReducers({
-    uiReducer
-})*/
+import rootReducer from './rootReducer';
+
+if (process.env.NODE_ENV === 'development' && module.hot) {
+    module.hot.accept('./rootReducer', () => {
+      const newRootReducer = require('./rootReducer').default
+      store.replaceReducer(newRootReducer)
+    })
+  }
+  
+export type AppDispatch = typeof store.dispatch
+
 
 const store = configureStore({
-    reducer: {
-        ui: uiReducer
-    }
+    reducer: rootReducer
   })
 
 export default store;
