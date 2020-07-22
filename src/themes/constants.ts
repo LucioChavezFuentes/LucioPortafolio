@@ -21,7 +21,9 @@ export const THEME_OBJECT = createMuiTheme({
       },
   
       secondary: {
-        main: '#B71C1C'
+        main: '#B71C1C',
+        light: "rgb(197, 73, 73)",
+        dark: "rgb(128, 19, 19)"
       },
   
       text: {

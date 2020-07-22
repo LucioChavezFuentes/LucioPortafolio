@@ -12,6 +12,8 @@ declare module "@material-ui/core/styles/createPalette" {
       },
       secondary: {
         main: React.CSSProperties['color'],
+        dark: React.CSSProperties['color'],
+        light: React.CSSProperties['color'],
       },
       text: {
         primary: React.CSSProperties['color'],

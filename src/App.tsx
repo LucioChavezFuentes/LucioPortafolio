@@ -75,6 +75,13 @@ const useStyles = makeStyles((theme) => ({
       }
     },
 
+    '.MuiButton-containedSecondary': {
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'secondary', props as StyleProps),
+      "&:hover,&:focus": {
+        backgroundColor: (props) => getDarkOrLightTheme(theme, 'secondary-dark', props as StyleProps),
+      }
+    },
+
     '.MuiButtonGroup-root': {
       backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props as StyleProps),
       "&:hover,&:focus": {

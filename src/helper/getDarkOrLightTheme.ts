@@ -52,10 +52,10 @@ const getDarkOrLightTheme = ({palette}: Theme, type : Type, {isThemeDark} : Styl
         
         case 'secondary-light':
             //There is no dark.secondary.light, if you want to add it go to createMuiTheme
-            return isThemeDark ? palette.dark.secondary.main : palette.secondary.light
+            return isThemeDark ? palette.dark.secondary.light : palette.secondary.light
         
         case 'secondary-dark':
-            return isThemeDark ? palette.dark.secondary.main : palette.secondary.light
+            return isThemeDark ? palette.dark.secondary.dark : palette.secondary.dark
 
         case 'icon':
             return isThemeDark ? palette.background.default : palette.dark.background.default
