@@ -125,7 +125,7 @@ const styles = (theme: Theme) => createStyles({
 
         '& a':{
             marginLeft:'5px', 
-            color: theme.palette.text.primary,
+            //color: theme.palette.text.primary,
             textDecoration: 'underline',
         },  
         },

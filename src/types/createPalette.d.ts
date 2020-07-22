@@ -32,19 +32,22 @@ declare module "@material-ui/core/styles/createPalette" {
       },
 
       divider: React.CSSProperties['color'],
+
+      textFieldInput: {
+        label: React.CSSProperties['color'],
+        outline: React.CSSProperties['color'],
+      }
+    }
+
+    textFieldInput: {
+      label: React.CSSProperties['color'],
+      outline: React.CSSProperties['color'],
     }
   }
   interface PaletteOptions {
-    dark?: Palette['dark'] /*{
-      primary: {
-        main: React.CSSProperties['color'],
-        light: React.CSSProperties['color'],
-      },
-      secondary: {
-        main: React.CSSProperties['color'],
-      },
-    }*/
-  }
+    dark?: Palette['dark']
+    textFieldInput?:  Palette['textFieldInput']
+}
 }
 /*
 declare module '@material-ui/core/styles/createPalette' {

@@ -24,6 +24,16 @@ import Button from "components/CustomButtons/Button";
 import BadgeIcon from "components/BadgeIcon";
 import EmailDialog from "components/EmailDialog/EmailDialog";
 
+//Redux
+import { connect } from 'react-redux';
+
+//Helpers
+// Provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+
+//types
+import {RootState} from 'redux/rootReducer';
+import StyleProps from 'types/StyleProps';
 
 import { Link as LinkScroll} from 'react-scroll'
 
@@ -36,8 +46,9 @@ interface HeaderLinksProps {
 
 }
 
-export default function HeaderLinks(props: any) {
-  const classes = useStyles();
+function HeaderLinks(props: any) {
+  const {isThemeDark} = props
+  const classes = useStyles({isThemeDark});
 
   const {onClickProject, projectsSectionRef, handleDrawerToggle, isMobile} = props;
 
@@ -197,7 +208,7 @@ export default function HeaderLinks(props: any) {
             >
               Ravenous
             </LinkScroll>,
-            <div className={classes.dropdownLinkBadge}>
+            <div className={classes.dropdownLinkBadge} id='externalLink'>
               <BadgeIcon
                 icon={ExternalLink}
                 fullWidth
@@ -252,3 +263,9 @@ export default function HeaderLinks(props: any) {
     )
   );
 }
+
+const mapStateToProps = (state : RootState) => ({
+  isThemeDark: state.ui.isThemeDark,
+})
+
+export default connect(mapStateToProps)(HeaderLinks);

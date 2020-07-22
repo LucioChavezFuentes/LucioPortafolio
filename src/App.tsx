@@ -47,11 +47,11 @@ const useStyles = makeStyles((theme) => ({
     },
 
     // This rule changes all icons in the ToolBar Component, check for <ToolBar> with id='toolBar' in Header.tsx
-    '#toolBar': {
+    /*'#toolBar': {
       '& .MuiSvgIcon-root': {
         color: theme.palette.background.default,
       }
-    },
+    },*/
 
     '.MuiPaper-root': {
       backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
@@ -88,10 +88,72 @@ const useStyles = makeStyles((theme) => ({
 
     '.MuiTypography-colorTextPrimary': {
       color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
+    },
+
+    '.MuiTextField-root': {
+
+      '& .MuiInputBase-root': {
+        color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
+      },
+
+      '& .MuiInputLabel-root': {
+        color: (props) => getDarkOrLightTheme(theme, 'label', props as StyleProps)
+      },
+
+      '& label.Mui-focused': {
+        color: (props) => getDarkOrLightTheme(theme, 'primary-light', props as StyleProps),
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: (props) => getDarkOrLightTheme(theme, 'outlineInput', props as StyleProps),
+        },
+        '&:hover fieldset': {
+          borderColor: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: (props) => getDarkOrLightTheme(theme, 'primary-light', props as StyleProps),
+        },
+      },
+    },
+
+    '.MuiFormHelperText-root' : {
+      '& p': {
+      color: (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps),
+      }
+    },
+
+    '.MuiDialogContent-dividers': {
+      borderTop: (props) => `1px solid ${getDarkOrLightTheme(theme, 'divider', props as StyleProps)}`,
+      borderBottom: (props) => `1px solid ${getDarkOrLightTheme(theme, 'divider', props as StyleProps)}`,
+    },
+
+    '.MuiDialogActions-root': {
+      '& p': {
+        color: (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps)
+      },
+    },
+
+    '.MuiDialogTitle-root': {
+      color : (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
+    },
+
+    '.MuiListSubheader-root': {
+      color : (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
+    },
+
+   /*'.MuiListItem-root': {
+    '& .MuiSvgIcon-root': {
+      color : (props) => getDarkOrLightTheme(theme, 'icon', props as StyleProps)
     }
+   },*/
 
     
-
+     /* '#externalLink': {
+        '& .MuiSvgIcon-root': {
+          color : (props) => getDarkOrLightTheme(theme, 'icon', props as StyleProps)
+        }
+      },*/
+    
   }
 })
 )

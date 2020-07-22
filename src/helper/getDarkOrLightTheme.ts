@@ -12,7 +12,11 @@ type Type =
     'secondary' | 
     'secondary-light' | 
     'secondary-dark' |
-    'icon'
+    'icon' |
+    'outlineInput' |
+    'label' |
+    'divider' |
+    'text-secondary'
 
 //const defaultType : Type = 'text' as Type
 
@@ -26,6 +30,9 @@ const getDarkOrLightTheme = ({palette}: Theme, type : Type, {isThemeDark} : Styl
 
         case 'text':
             return isThemeDark ? palette.dark.text.primary : palette.text.primary
+        
+        case 'text-secondary':
+            return isThemeDark ? palette.dark.text.secondary : palette.text.secondary
             
         case 'paper':
             return isThemeDark ? palette.dark.background.paper : palette.background.paper
@@ -52,8 +59,17 @@ const getDarkOrLightTheme = ({palette}: Theme, type : Type, {isThemeDark} : Styl
 
         case 'icon':
             return isThemeDark ? palette.background.default : palette.dark.background.default
+        
+        case 'outlineInput':
+            return isThemeDark ? palette.dark.textFieldInput.outline : palette.textFieldInput.outline
 
-        default: 
+        case 'label':
+            return isThemeDark ? palette.dark.textFieldInput.label : palette.textFieldInput.label
+
+        case 'divider':
+            return isThemeDark ? palette.dark.divider : palette.divider
+
+        default:
             return isThemeDark ? palette.dark.primary.main : palette.primary.main
     }
 } 

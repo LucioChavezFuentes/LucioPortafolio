@@ -1,6 +1,13 @@
 import { defaultFont } from "assets/jss/material-kit-react.js";
 import { createStyles, Theme } from '@material-ui/core/styles';
 
+//Helpers
+// Provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+
+//Types
+import StyleProps from 'types/StyleProps';
+
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const headerLinksStyle = (theme:Theme) => {
@@ -24,7 +31,7 @@ const headerLinksStyle = (theme:Theme) => {
     },
     listItem: {
       float: "left",
-      color: "inherit",
+      color: 'inherint',
       position: "relative",
       display: "block",
       width: "auto",
@@ -32,6 +39,7 @@ const headerLinksStyle = (theme:Theme) => {
       padding: "0 0 0 10px",
       [theme.breakpoints.down("sm")]: {
         width: "100%",
+        color: (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps),
         "&:after": {
           width: "calc(100% - 30px)",
           content: '""',
@@ -162,7 +170,7 @@ const headerLinksStyle = (theme:Theme) => {
       textTransform: 'unset',
       margin: '0',
       fontSize: '14px',
-      color: theme.palette.text.secondary
+      //color: theme.palette.text.secondary
     },
   
     ...tooltip,

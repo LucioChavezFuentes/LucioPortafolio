@@ -44,6 +44,16 @@ export const THEME_OBJECT = createMuiTheme({
       },
   
       divider: 'rgba(255, 255, 255, 0.12)',
+
+      textFieldInput: {
+        label: 'rgba(255, 255, 255, 0.7)',
+        outline: 'rgba(255, 255, 255, 0.23)',
+      },
+    },
+
+    textFieldInput: {
+      label: 'rgba(0, 0, 0, 0.7)',
+      outline: 'rgba(0, 0, 0, 0.23)',
     },
   }
 })
