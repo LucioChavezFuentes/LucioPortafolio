@@ -9,9 +9,12 @@ import {
   purpleColor,
 } from "assets/jss/material-kit-react.js";
 
+//Helpers
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+
 import createStyles from "@material-ui/core/styles/createStyles";
 
-const buttonStyle = createStyles({
+const buttonStyle = (theme) => createStyles({
   button: {
     minHeight: "auto",
     minWidth: "auto",
@@ -199,7 +202,7 @@ const buttonStyle = createStyles({
     },
     "&$primary": {
       "&,&:focus,&:hover,&:visited": {
-        color: primaryColor
+        color: (props) => getDarkOrLightTheme(theme, 'primary', props)
       }
     },
     "&$info": {

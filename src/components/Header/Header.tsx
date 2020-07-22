@@ -16,12 +16,13 @@ import Drawer from "@material-ui/core/Drawer";
 import Menu from "@material-ui/icons/Menu";
 // core components
 import RightLinks from "./RightLinks";
-import styles from "assets/jss/material-kit-react/components/headerStyle.js";
+import styles from "assets/jss/material-kit-react/components/headerStyle";
 
 const useStyles = makeStyles(styles);
 
 export default function Header(props) {
-  const classes = useStyles();
+  const {isThemeDark} = props;
+  const classes = useStyles({isThemeDark});
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -66,7 +67,7 @@ export default function Header(props) {
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
     <AppBar className={appBarClasses}>
-      <Toolbar className={classes.container}>
+      <Toolbar className={classes.container} id='toolBar'>
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>
           {leftLinks !== undefined ? (

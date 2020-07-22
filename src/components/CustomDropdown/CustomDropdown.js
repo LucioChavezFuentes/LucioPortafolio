@@ -15,6 +15,9 @@ import Divider from "@material-ui/core/Divider";
 import Icon from "@material-ui/core/Icon";
 import Popper from "@material-ui/core/Popper";
 
+//Redux
+import { connect } from 'react-redux';
+
 // core components
 import Button from "components/CustomButtons/Button";
 
@@ -22,7 +25,7 @@ import styles from "assets/jss/material-kit-react/components/customDropdownStyle
 
 const useStyles = makeStyles(styles);
 
-export default function CustomDropdown(props) {
+ function CustomDropdown(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = event => {
     if (anchorEl && anchorEl.contains(event.target)) {
@@ -43,7 +46,6 @@ export default function CustomDropdown(props) {
     }
     setAnchorEl(null);
   };
-  const classes = useStyles();
   const {
     buttonText,
     buttonIcon,
@@ -55,8 +57,11 @@ export default function CustomDropdown(props) {
     hoverColor,
     left,
     rtlActive,
-    noLiPadding
+    noLiPadding,
+    isThemeDark
   } = props;
+  const classes = useStyles({isThemeDark});
+  
   const caretClasses = classNames({
     [classes.caret]: true,
     [classes.caretActive]: Boolean(anchorEl),
@@ -165,6 +170,12 @@ export default function CustomDropdown(props) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  isThemeDark: state.ui.isThemeDark,
+})
+
+export default connect(mapStateToProps)(CustomDropdown)
 
 CustomDropdown.defaultProps = {
   caret: true,

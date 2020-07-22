@@ -6,11 +6,14 @@ import {
   dangerColor
 } from "assets/jss/material-kit-react.js";
 
+//Helpers
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { createStyles } from '@material-ui/core/styles';
 
-function fadePrimaryColor(theme){
-  return fade(theme.palette.primary.main, 0.3)
+function fadePrimaryColor(theme, props){
+  return fade(getDarkOrLightTheme(theme, 'primary', props), 0.3)
 }
 
 const navPillsStyle = theme => createStyles({
@@ -60,7 +63,7 @@ const navPillsStyle = theme => createStyles({
     "&:hover": {
       //Make sure the color is more visible than the background
       color: "#303030",
-      backgroundColor: fadePrimaryColor(theme),
+      backgroundColor: (props) => fadePrimaryColor(theme, props),
     },
     [theme.breakpoints.down("xs")]: {
       //border: `3px solid ${fade(theme.palette.text.secondary, 0.3)}`,
@@ -120,7 +123,7 @@ const navPillsStyle = theme => createStyles({
   primary: {
     "&,&:hover": {
       color: "#FFFFFF",
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props),
       boxShadow:
         "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4)",
       //border: `5px solid ${theme.palette.primary.dark} !important`,

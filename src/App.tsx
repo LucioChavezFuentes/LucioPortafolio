@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
@@ -11,11 +11,20 @@ import 'typeface-roboto';
 import ProfilePage from "views/ProfilePage/ProfilePage";
 
 // MUI Imports
-import {MuiThemeProvider} from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-//Themes Imports
-import themes from './themes/constants';
+//Helpers
+// Just provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+
+//types
+import {RootState} from 'redux/rootReducer';
+import StyleProps from 'types/StyleProps';
+
+interface AppProps {
+  isThemeDark: boolean
+}
 
 //This test removes the 'fbclid=' in the URL if the Web App is opened from a facebooks's inbox link
 if(/^\?fbclid=/.test(window.location.search))
@@ -23,29 +32,91 @@ if(/^\?fbclid=/.test(window.location.search))
 
 const hist = createBrowserHistory();
 
-function App(props) {
+const useStyles = makeStyles((theme) => ({
+  '@global': {
+    body: {
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
+    },
+    // If color does not change look if some specific class with nested <p> tag modifies it.
+    p: {
+      color: (props) => getDarkOrLightTheme(theme, 'text',  props as StyleProps),
+    },
+
+    a: {
+      color: (props) => getDarkOrLightTheme(theme, 'text',  props as StyleProps)
+    },
+
+    // This rule changes all icons in the ToolBar Component, check for <ToolBar> with id='toolBar' in Header.tsx
+    '#toolBar': {
+      '& .MuiSvgIcon-root': {
+        color: theme.palette.background.default,
+      }
+    },
+
+    '.MuiPaper-root': {
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
+      // This class changes the icons inside every Paper component
+      //TODO: This rule may make unexpected styles, read more about class nesting in SCSS
+      /*'& .MuiSvgIcon-root': {
+        color: (props) => getDarkOrLightTheme(theme, 'icon',  props as StyleProps),
+      }*/
+    },
+
+    '.MuiDrawer-paper': {
+      '& .MuiSvgIcon-root': {
+        color: (props) => getDarkOrLightTheme(theme, 'icon',  props as StyleProps),
+      }
+    },
+
+    '.MuiButton-containedPrimary': {
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props as StyleProps),
+      "&:hover,&:focus": {
+        backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps),
+      }
+    },
+
+    '.MuiButtonGroup-root': {
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props as StyleProps),
+      "&:hover,&:focus": {
+        backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps),
+      }
+    },
+
+    '.MuiLinearProgress-barColorPrimary': {
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props as StyleProps),
+    },
+
+    '.MuiTypography-colorTextPrimary': {
+      color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
+    }
+
+    
+
+  }
+})
+)
+
+function App(props : AppProps) {
 
   const {isThemeDark} = props;
-
-    const theme = React.useMemo(
+  useStyles({isThemeDark})
+    /*const theme = React.useMemo(
       () => isThemeDark ? themes.darkTheme : themes.lightTheme
-    , [isThemeDark]);
+    , [isThemeDark]);*/
 
     return (
-        <MuiThemeProvider theme={theme}>
-          <CssBaseline>
-            <Router history={hist}>
-                <Switch>
-                    <Route path="/" render={(props) => <ProfilePage {...props} />}  />
-                </Switch>
-            </Router>
-          </CssBaseline>
-        </MuiThemeProvider>
+      <CssBaseline>
+        <Router history={hist}>
+          <Switch>
+            <Route path="/" render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
+          </Switch>
+        </Router>
+      </CssBaseline>
     )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state : RootState) => ({
   isThemeDark: state.ui.isThemeDark,
 })
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(App);

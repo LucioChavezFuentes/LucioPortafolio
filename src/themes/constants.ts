@@ -1,10 +1,10 @@
 // MUI Imports
-import {createMuiTheme} from '@material-ui/core/styles';
+import {createMuiTheme,} from '@material-ui/core/styles';
 
 export const LIGHT_THEME = 'lightTheme';
 export const DARK_THEME = 'darkTheme';
 
-const THEME_OBJECT = {
+export const THEME_OBJECT = createMuiTheme({
   palette: {
     primary: {
       main: '#43a047',
@@ -12,23 +12,24 @@ const THEME_OBJECT = {
     secondary: {
       main: '#f44336',
     },
-
+  
     dark: {
       primary: {
         main: '#8e24aa',
         light: '#ce93d8',
+        dark: "rgb(74, 18, 107)",
       },
-
+  
       secondary: {
         main: '#B71C1C'
       },
-
+  
       text: {
         primary: '#fff',
         secondary:'rgba(255, 255, 255, 0.7)',
         disabled:' rgba(255, 255, 255, 0.5)',
       },
-
+  
       action: {
         active: '#fff',
         hover: 'rgba(255, 255, 255, 0.08)',
@@ -36,16 +37,16 @@ const THEME_OBJECT = {
         disabled: 'rgba(255, 255, 255, 0.3)',
         disabledBackground : 'rgba(255, 255, 255, 0.12)',
       },
-
+  
       background: {
         default: '#121212',
         paper: '#424242'
       },
-
+  
       divider: 'rgba(255, 255, 255, 0.12)',
-    }
-  },
-}
+    },
+  }
+})
 /*
 const lightThemeObject = {
   palette: {
@@ -95,6 +96,7 @@ const darkTheme = createMuiTheme(JSON.parse("{\n   \"overrides\": {\n      \"Mui
 const themes = {
     lightTheme,
     darkTheme,
+    THEME_OBJECT
   }
 
 export default themes;

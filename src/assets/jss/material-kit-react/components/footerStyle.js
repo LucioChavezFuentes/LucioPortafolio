@@ -61,10 +61,14 @@ const footerStyle = (theme) => ({
     top: "3px"
   },
 
+  contact: {
+    fontWeight:'bold',
+    fontSize: '17px',
+  },
+
   emailTo: {
     textDecoration:'underline',
-    marginLeft:'5px', 
-    color: theme.palette.text.primary,
+    marginLeft:'5px',
   }
 });
 export default footerStyle;

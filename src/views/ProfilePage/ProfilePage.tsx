@@ -10,12 +10,13 @@ import Conejito from "assets/img/customIcons/Conejito";
 import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
 
+//Redux
+import { connect } from 'react-redux';
 
 // Material IU imports
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from '@material-ui/core/LinearProgress';
-
 
 //On Scroll Animation
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -24,7 +25,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import {Element} from 'react-scroll'
 
 // core components
-import Header from "components/Header/Header.js";
+import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button";
 import GridContainer from "components/Grid/GridContainer";
@@ -41,14 +42,26 @@ import AboutMe from './AbouteMe';
 // styles
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
+//types
+import { RouteComponentProps } from "react-router-dom";
+import StyleProps from 'types/StyleProps';
+
+interface Props extends RouteComponentProps<any>, React.Props<any> {
+  isThemeDark: boolean;
+}
+
+/*interface Props {
+  isThemeDark: boolean;
+}*/
 
 const useStyles  = makeStyles(styles);
 
-export default function ProfilePage(props : any) {
-  const classes : any = useStyles();
+function ProfilePage(props: any) {
+  const { isThemeDark,   ...rest} = props;
+  const classes : any = useStyles({isThemeDark} as StyleProps);
   const {isMobile} = useWindowSize();
   const [activeProject, setActiveProject] = useState(0);
-  const { setDarkTheme, darkTheme,   ...rest} = props;
+  
   /*const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
@@ -103,7 +116,7 @@ export default function ProfilePage(props : any) {
         absolute
         {...rest}
       />
-      <Parallax small />
+      <Parallax small isThemeDark={isThemeDark} />
       
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>
@@ -306,6 +319,7 @@ export default function ProfilePage(props : any) {
                 <NavPills
                   alignCenter
                   color="primary"
+                  isThemeDark= {isThemeDark}
                   active={activeProject}
                   handleChangeActive={handleChangeActive}
                   tabs={[
@@ -457,7 +471,7 @@ export default function ProfilePage(props : any) {
             </div>
 
             <div className={classes.lineSeparator} style={{paddingTop: currentPixelsSpacing, paddingBottom: currentPixelsSpacing}}>
-              <LinearProgress variant="determinate" value={100}  />
+              <LinearProgress color='primary' variant="determinate" value={100} />
             </div>
 
             <AboutMe 
@@ -477,3 +491,9 @@ export default function ProfilePage(props : any) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  isThemeDark: state.ui.isThemeDark,
+})
+
+export default connect(mapStateToProps)(ProfilePage);

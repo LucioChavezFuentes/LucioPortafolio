@@ -19,7 +19,8 @@ import ScrollAnimation from 'react-animate-on-scroll';
 // On Scroll Animations
 import "animate.css/animate.min.css";
 
-// useWindowSize
+//Helpers
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 import useWindowSize from 'helper/useWindowSize'
 
 import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
@@ -30,8 +31,9 @@ export default function NavPills(props : any) {
 
   const {width} = useWindowSize();
   const theme = useTheme();
-  const { tabs, direction, color, horizontal, alignCenter, handleChangeActive, active } = props;
-  const classes = useStyles(active);
+  // If TypeScript complains for types in a component check its PropTypes at the bottom, even if the component does not have a ts interface
+  const { tabs, direction, color, horizontal, alignCenter, handleChangeActive, active, isThemeDark } = props;
+  const classes = useStyles({isThemeDark});
   const flexContainerClasses = classNames({
     [classes.flexContainer]: true,
     [classes.horizontalDisplay]: horizontal !== undefined
@@ -47,10 +49,10 @@ export default function NavPills(props : any) {
       borderBottomLeftRadius: key === 0 ? "20px" : undefined,
       borderTopRightRadius: key === (tabs.length-1) ? "20px" : undefined,
       borderBottomRightRadius: key === (tabs.length-1) ? "20px" : undefined,
-      borderTop: active === key ? `1px solid ${theme.palette.primary.dark}` : `1px solid ${theme.palette.text.secondary}`,
+      borderTop: active === key ? `1px solid ${getDarkOrLightTheme(theme, 'primary-dark', {isThemeDark}) }` : `1px solid ${theme.palette.text.secondary}`,
       borderRight: key === (tabs.length-1) ? `1px solid ${theme.palette.text.secondary}` : undefined,
-      borderBottom: active === key ? `1px solid ${theme.palette.primary.dark}` : `5px solid ${theme.palette.text.secondary}` ,
-      borderLeft: active === key ? `1px solid ${theme.palette.primary.dark}` : `1px solid ${theme.palette.text.secondary}`,
+      borderBottom: active === key ? `1px solid ${getDarkOrLightTheme(theme, 'primary-dark', {isThemeDark})}` : `5px solid ${theme.palette.text.secondary}` ,
+      borderLeft: active === key ? `1px solid ${getDarkOrLightTheme(theme, 'primary-dark', {isThemeDark})}` : `1px solid ${theme.palette.text.secondary}`,
 
     }
   }
@@ -153,6 +155,7 @@ NavPills.propTypes = {
     "info",
     "rose"
   ]),
+  isThemeDark: PropTypes.bool.isRequired,
   direction: PropTypes.string,
   horizontal: PropTypes.shape({
     tabsGrid: PropTypes.object,

@@ -5,11 +5,18 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
+//Redux
+import { connect } from 'react-redux';
+
 // @material-ui/core components
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import createStyles from "@material-ui/core/styles/createStyles";
 import Button from "@material-ui/core/Button";
 // core components
+
+//Helpers
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+import StyleProps from "types/StyleProps";
 
 import buttonStyle from "assets/jss/material-kit-react/components/buttonStyle.js";
 
@@ -39,13 +46,11 @@ interface RegularButtonProps {
   href?: string;
   target?: string;
   classes?: any;
-  type?: 'submit' | 'button' | 'reset'
+  type?: 'submit' | 'button' | 'reset';
+  isThemeDark?: boolean;
 }
 
-const makeComponentStyles = makeStyles(() => createStyles({
-  ...buttonStyle
-  }
-));
+const makeComponentStyles = makeStyles(buttonStyle);
 
 const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((props, ref) => {
   const {
@@ -61,6 +66,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     className,
     customStyle,
     color,
+    isThemeDark,
     ...rest
   } = props;
 
@@ -85,7 +91,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     transparent: "transparent",
   } ;
 
-  const classes = makeComponentStyles();
+  const classes = makeComponentStyles({isThemeDark});
 
   const setMainColor = (color : any) => {
     let mainColor : 'primary' | 'secondary' | "inherit" | "default";
@@ -157,4 +163,8 @@ RegularButton.propTypes = {
   className: PropTypes.string
 };
 */
-export default RegularButton;
+const mapStateToProps = (state) => ({
+  isThemeDark: state.ui.isThemeDark as boolean
+});
+
+export default connect(mapStateToProps, null)(RegularButton);

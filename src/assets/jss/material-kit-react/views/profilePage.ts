@@ -6,6 +6,10 @@ import projectOne from "assets/img/projects/Social-Conejito2.jpg"
 
 import { createStyles, Theme } from '@material-ui/core/styles';
 
+//Helpers
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+import StyleProps from "types/StyleProps";
+
 const profilePageStyle = (theme : Theme) => {
 
   const lightPrimaryColor = undefined //theme.palette.primary.light;
@@ -69,10 +73,10 @@ const profilePageStyle = (theme : Theme) => {
       '& .miniTitle': {
         textAlign: "center",
         fontSize: "1.1rem",
-        borderBottom: `3px solid ${theme.palette.primary.main}`,
+        borderBottom: (props: StyleProps) => `3px solid ${getDarkOrLightTheme(theme, 'primary', props)}`,
         margin: "20px auto -10px auto",
         width: "35%",
-        color: theme.palette.text.primary,
+        color: (props: StyleProps) => getDarkOrLightTheme(theme, 'text', props),
         [theme.breakpoints.down("xs")]: {
           fontSize: "1rem",
           width: "85%",
@@ -81,7 +85,7 @@ const profilePageStyle = (theme : Theme) => {
       '& p': {
         fontSize: "0.9rem",
         margin: "0",
-        color: theme.palette.text.primary,
+        //color: theme.palette.text.primary,
         lineHeight: '25px',
   
         [theme.breakpoints.down("xs")]: {
@@ -120,14 +124,14 @@ const profilePageStyle = (theme : Theme) => {
   
     },
     occupation: {
-      color: theme.palette.text.primary,
+      color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps), //theme.palette.text.primary,
       fontSize: '19px',
       margin: '10px',
     },
     ...imagesStyle,
     // @ts-ignore
     main: {
-      background: theme.palette.background.default,
+      background: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
       position: "relative",
       zIndex: 3,
     },
@@ -146,7 +150,7 @@ const profilePageStyle = (theme : Theme) => {
       marginTop: "30px",
       minHeight: "32px",
       textDecoration: "none",
-      color: theme.palette.text.primary,
+      color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
       fontSize: "30px",
     },
     socials: {
@@ -210,12 +214,12 @@ const profilePageStyle = (theme : Theme) => {
     projectIframe: {
       width: '100%',
       height:"500px",
-      border: `solid 5px ${theme.palette.primary.dark}`,
+      border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
       borderRadius: '10px',
     },
   
     projectDescription: {
-      border: `solid 1px ${theme.palette.primary.main}`,
+      border: (props) => `solid 1px ${getDarkOrLightTheme(theme, 'primary', props as StyleProps)}`,
       borderRadius: '10px',
       width: '90%',
       margin: '0 auto',
@@ -224,7 +228,7 @@ const profilePageStyle = (theme : Theme) => {
   
       '& p':{
         margin: 'auto',
-        color: textPrimary,
+        //color: textPrimary,
       }
     },
   
@@ -307,7 +311,7 @@ const profilePageStyle = (theme : Theme) => {
       },
   
       '& .miniTitle': {
-        border: `solid 1px ${theme.palette.primary.main}`,
+        border: (props) => `solid 1px ${getDarkOrLightTheme(theme, 'primary', props as StyleProps)}`,
         borderRadius: '10px',
         width: '20%',
         margin: '0 auto',

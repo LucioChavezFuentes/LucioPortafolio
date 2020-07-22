@@ -78,8 +78,10 @@ export default function Footer(props) {
           </a>{" "}
   for a better web.
   </div>*/}
-          <div style={{fontWeight:'bold'}}>
-            Contact
+          <div>
+            <p className={classes.contact}>
+              Contact
+            </p>
           </div>
           <div>
             <p>Feel free to contact me via email at 

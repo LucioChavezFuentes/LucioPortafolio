@@ -13,6 +13,10 @@ import {
   roseBoxShadow
 } from "assets/jss/material-kit-react.js";
 
+//Helpers
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+import StyleProps from 'types/StyleProps';
+
 const customDropdownStyle = theme => ({
   popperClose: {
     pointerEvents: "none"
@@ -61,7 +65,7 @@ const customDropdownStyle = theme => ({
     clear: "both",
     fontWeight: "400",
     height: "fit-content",
-    color: "#333",
+    color: (props) => getDarkOrLightTheme(theme, 'text', props),
     whiteSpace: "nowrap",
     minHeight: "unset"
   },
@@ -75,7 +79,7 @@ const customDropdownStyle = theme => ({
   },
   primaryHover: {
     "&:hover": {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props),
       color: "#FFFFFF",
       ...primaryBoxShadow
     }

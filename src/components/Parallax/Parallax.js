@@ -6,6 +6,9 @@ import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
+//Helpers
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+
 // core components
 import styles from "assets/jss/material-kit-react/components/parallaxStyle.js";
 
@@ -35,7 +38,7 @@ export default function Parallax(props) {
     var windowScrollTop = window.pageYOffset / 3;
     setTransform("translate3d(0," + windowScrollTop + "px,0)");
   };
-  const { filter, className, children, style, small } = props;
+  const { filter, className, children, style, small, isThemeDark } = props;
   const classes = useStyles();
   const theme = useTheme();
   const parallaxClasses = classNames({
@@ -49,7 +52,7 @@ export default function Parallax(props) {
       className={parallaxClasses}
       style={{
         ...style,
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: getDarkOrLightTheme(theme, 'primary', {isThemeDark}),
         transform: transform
       }}
     >
@@ -64,5 +67,6 @@ Parallax.propTypes = {
   children: PropTypes.node,
   style: PropTypes.string,
   image: PropTypes.string,
-  small: PropTypes.bool
+  small: PropTypes.bool,
+  isThemeDark: PropTypes.bool.isRequired,
 };
