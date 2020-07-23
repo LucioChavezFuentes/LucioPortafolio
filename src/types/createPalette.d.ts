@@ -38,12 +38,14 @@ declare module "@material-ui/core/styles/createPalette" {
       textFieldInput: {
         label: React.CSSProperties['color'],
         outline: React.CSSProperties['color'],
+        autoFill: React.CSSProperties['color']
       }
     }
 
     textFieldInput: {
       label: React.CSSProperties['color'],
       outline: React.CSSProperties['color'],
+      autoFill: React.CSSProperties['color'],
     }
   }
   interface PaletteOptions {

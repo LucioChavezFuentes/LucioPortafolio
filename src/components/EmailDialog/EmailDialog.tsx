@@ -27,19 +27,26 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SendIcon from '@material-ui/icons/Send';
 import CloseIcon from '@material-ui/icons/Close';
 
+//Redux
+import {connect} from 'react-redux';
 
 // Component Imports
 import DialogFeedback from 'components/DialogFeedback/DialogFeedback'; 
 
 // Helper Imports
 import {validateMessageData} from 'helper/validators';
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme'
+//Types
+import { RootState } from 'redux/rootReducer';
+import StyleProps from 'types/StyleProps';
 
 interface Props {
     open?: boolean;
     handleClose?: () => void;
     className?: string;
     tooltipClassName?: string;
-    isMobile?: boolean
+    isMobile?: boolean;
+    isThemeDark: boolean;
 }
 
 interface Inputs {
@@ -86,6 +93,8 @@ const styles = (theme: Theme) => createStyles({
     },
 
     inputText: {
+        color: theme.palette.primary.light,
+        borderColor: theme.palette.primary.light,
         '& label.Mui-focused': {
             color: theme.palette.primary.light,
           },
@@ -145,7 +154,7 @@ const styles = (theme: Theme) => createStyles({
         '& .progress' : {
             position: 'absolute',
             //margin: '3px',
-            color: `${theme.palette.secondary.dark}`,
+            color: ({isThemeDark} : StyleProps) => isThemeDark ? theme.palette.secondary.light : `${theme.palette.secondary.dark}`,
             opacity: '1',
             left: '36%',
             top: '9%',
@@ -209,7 +218,7 @@ const EmailDialog:React.FC<Props> = (props) => {
     const [APIError, setAPIError] = useState(null);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const classes = useStyles();
+    const classes = useStyles({isThemeDark: props.isThemeDark});
 
     const handleOpen = () => {
         setOpen(true);
@@ -308,6 +317,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 type='text'
                                 label='Name'
                                 variant="outlined"
+                                className={classes.inputText}
                                 classes={{root: classes.inputText}}
                                 error={errors.name ? true : false}
                                 helperText={<p style={{margin:'0'}}>{errors.name || '*Required'}</p>}
@@ -406,6 +416,10 @@ const EmailDialog:React.FC<Props> = (props) => {
     )
 }
 
-export default EmailDialog;
+const mapStateToProps = (state : RootState) => ({
+    isThemeDark: state.ui.isThemeDark,
+  })
+
+export default connect(mapStateToProps)(EmailDialog);
 
 

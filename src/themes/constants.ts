@@ -50,12 +50,14 @@ export const THEME_OBJECT = createMuiTheme({
       textFieldInput: {
         label: 'rgba(255, 255, 255, 0.7)',
         outline: 'rgba(255, 255, 255, 0.23)',
+        autoFill: 'rgb(46, 48, 51)',
       },
     },
 
     textFieldInput: {
       label: 'rgba(0, 0, 0, 0.7)',
       outline: 'rgba(0, 0, 0, 0.23)',
+      autoFill: 'rgb(232, 240, 254)',
     },
   }
 })

@@ -30,14 +30,14 @@ const useStyles = makeStyles((theme) => ({
 
 const mapDispatch = {setDarkTheme, setLightTheme };
 
-const BaseThemeSwitch = withStyles((theme) => ({
+const BaseThemeSwitch = withStyles(({palette}) => ({
     switchBase: {
-      color: 'white',
+      color: palette.background.paper,
       '&$checked': {
-        color: 'black',
+        color: palette.dark.background.default,
       },
       '&$checked + $track': {
-        backgroundColor: 'white',
+        backgroundColor: palette.background.paper,
       },
     },
     checked: {},

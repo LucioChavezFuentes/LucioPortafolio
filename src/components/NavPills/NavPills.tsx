@@ -69,9 +69,10 @@ const arrayOfButtons = tabs.map((prop: any, key: number) => {
   });
   return (
     <Tab
-      style={width <= 600 ? TabsBorder(key) : undefined}
+      style={width <= 600 ? TabsBorder(key) : {} }
       aria-label={prop.tabButton}
       label={width <= 600 ? undefined : prop.tabButton}
+      id={active === key ? 'selectedPill' : 'normalPill'}
       key={key}
       {...icon}
       classes={{

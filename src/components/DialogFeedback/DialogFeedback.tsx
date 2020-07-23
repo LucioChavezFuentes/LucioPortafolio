@@ -47,7 +47,7 @@ export default function DialogFeedback(props) {
                 Looks like we got an error. Try send me the email directly to 
                 
                 <a 
-                style={{textDecoration:'underline' ,marginLeft:'5px', color:'black'}}
+                style={{textDecoration:'underline', marginLeft:'5px',}}
                 href="mailto:luciobertinchavez@gmail.com"
                 >
                     luciobertinchavez@gmail.com 

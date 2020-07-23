@@ -52,6 +52,12 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.background.default,
       }
     },*/
+    // This rule modifies the input style when focused or autofilled, only available on Chrome's autocomplete
+    'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus,textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus': {
+      '-webkit-text-fill-color': (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
+      '-webkit-box-shadow': (props) => `0 0 0px 1000px ${getDarkOrLightTheme(theme, 'autofillInput', props as StyleProps)} inset`,
+      'transition': 'background-color 5000s ease-in-out 0s',
+    },
 
     '.MuiPaper-root': {
       backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
@@ -86,8 +92,18 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props as StyleProps),
       "&:hover,&:focus": {
         backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps),
-      }
+      },
     },
+
+    '.MuiButton-textPrimary': {
+      color: (props) => getDarkOrLightTheme(theme, 'primary-light', props as StyleProps),
+    },
+    /*'.MuiButtonBase-root': {
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props as StyleProps),
+      "&:hover,&:focus": {
+        backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps),
+      }
+    },*/
 
     '.MuiLinearProgress-barColorPrimary': {
       backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props as StyleProps),
@@ -144,22 +160,13 @@ const useStyles = makeStyles((theme) => ({
       color : (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
     },
 
+    '.MuiTypography-colorTextSecondary': {
+      color : (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps)
+    },
+
     '.MuiListSubheader-root': {
       color : (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
     },
-
-   /*'.MuiListItem-root': {
-    '& .MuiSvgIcon-root': {
-      color : (props) => getDarkOrLightTheme(theme, 'icon', props as StyleProps)
-    }
-   },*/
-
-    
-     /* '#externalLink': {
-        '& .MuiSvgIcon-root': {
-          color : (props) => getDarkOrLightTheme(theme, 'icon', props as StyleProps)
-        }
-      },*/
     
   }
 })

@@ -17,6 +17,14 @@ function fadePrimaryColor(theme, props){
 }
 
 const navPillsStyle = theme => createStyles({
+
+  //TODO: Find if this is an apropiate pattern
+  '@global': {
+    '#selectedPill': {
+      color:'#FFFFFF',
+    },
+  },
+
   root: {
     marginTop: "20px",
     paddingLeft: "0",
@@ -30,6 +38,9 @@ const navPillsStyle = theme => createStyles({
     display: "block",
     color: "inherit",
   },
+
+  
+
   flexContainer: {
     [theme.breakpoints.down("xs")]: {
       display: "flex",
@@ -45,6 +56,7 @@ const navPillsStyle = theme => createStyles({
   horizontalDisplay: {
     display: "block"
   },
+
   pills: {
     float: "left",
     position: "relative",
@@ -62,7 +74,8 @@ const navPillsStyle = theme => createStyles({
     zIndex: "1",
     "&:hover": {
       //Make sure the color is more visible than the background
-      color: "#303030",
+      //(props) => props.isThemeDark ? "#8e8e8e" : "#303030"
+      color: (props) => props.isThemeDark ? "#8e8e8e" : "#303030",
       backgroundColor: (props) => fadePrimaryColor(theme, props),
     },
     [theme.breakpoints.down("xs")]: {
@@ -101,6 +114,7 @@ const navPillsStyle = theme => createStyles({
     filter: 'grayscale(0%)',
     //filter: 'saturate(1)',
     color: 'black',
+    
     "&, & *": {
       letterSpacing: "normal !important"
     },
