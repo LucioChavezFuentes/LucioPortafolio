@@ -14,6 +14,8 @@ import ProfilePage from "views/ProfilePage/ProfilePage";
 import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+import {IntlProvider} from 'react-intl';
+
 //Helpers
 // Just provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
@@ -188,11 +190,13 @@ function App(props : AppProps) {
 
     return (
       <CssBaseline>
+        <IntlProvider locale="es" defaultLocale="en">
         <Router history={hist}>
           <Switch>
             <Route path="/" render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
           </Switch>
         </Router>
+        </IntlProvider>
       </CssBaseline>
     )
 }

@@ -39,6 +39,8 @@ import useWindowSize from "helper/useWindowSize";
 import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
 import AboutMe from './AbouteMe';
 
+import {injectIntl} from 'react-intl';
+
 // styles
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
@@ -57,7 +59,7 @@ interface Props extends RouteComponentProps<any>, React.Props<any> {
 const useStyles  = makeStyles(styles);
 
 function ProfilePage(props: any) {
-  const { isThemeDark,   ...rest} = props;
+  const { isThemeDark, intl,  ...rest} = props;
   const classes : any = useStyles({isThemeDark} as StyleProps);
   const {isMobile} = useWindowSize();
   const [activeProject, setActiveProject] = useState(0);
@@ -131,7 +133,12 @@ function ProfilePage(props: any) {
                 */}
                   <div className={classes.name}>
                     <h3 className={classes.title}>Lucio Chávez</h3>
-                    <h6 className={classes.occupation}>Web Developer</h6>
+                    <h6 className={classes.occupation}>
+                    {intl.formatMessage({
+                        defaultMessage: 'Web Developer',
+                        description: 'occupation',
+                      })}
+                    </h6>
                     { /*fab and fa-twitter appear to be global classNames*/ }
                     {/*<Button justIcon link target="_blank" href={"https://twitter.com/LucioBbrtiChvez"} className={classes.margin5}>
                       <GitHubIcon />
@@ -496,4 +503,4 @@ const mapStateToProps = (state) => ({
   isThemeDark: state.ui.isThemeDark,
 })
 
-export default connect(mapStateToProps)(ProfilePage);
+export default connect(mapStateToProps)(injectIntl(ProfilePage));
