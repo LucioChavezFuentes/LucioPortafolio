@@ -20,7 +20,7 @@ import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
 import Typography from '@material-ui/core/Typography';
 
-import { createStyles, makeStyles, Theme, withStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 // Material Icons
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
@@ -35,7 +35,6 @@ import DialogFeedback from 'components/DialogFeedback/DialogFeedback';
 
 // Helper Imports
 import {validateMessageData} from 'helper/validators';
-import getDarkOrLightTheme from 'helper/getDarkOrLightTheme'
 //Types
 import { RootState } from 'redux/rootReducer';
 import StyleProps from 'types/StyleProps';
@@ -163,14 +162,15 @@ const styles = (theme: Theme) => createStyles({
 
 })
 
-const CustomTextField = withStyles((theme) => ({
+//TODO: Analize if this approach could be better than a global class in App.tsx to style darkMode
+/*const CustomTextField = withStyles((theme) => ({
     root: {
       '& label.Mui-focused': {
         color: theme.palette.primary.light,
       },
-      /*'& .MuiInput-underline:after': {
+      '& .MuiInput-underline:after': {
         borderBottomColor: 'green',
-      },*/
+      },
       '& .MuiOutlinedInput-root': {
         '& fieldset': {
           borderColor: 'red',
@@ -183,7 +183,8 @@ const CustomTextField = withStyles((theme) => ({
         },
       },
     },
-  }))(TextField)
+  }))(TextField
+    )*/
 
 const useStyles = makeStyles(styles);
 

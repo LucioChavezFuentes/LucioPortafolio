@@ -27,13 +27,8 @@ import EmailDialog from "components/EmailDialog/EmailDialog";
 //Redux
 import { connect } from 'react-redux';
 
-//Helpers
-// Provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
-import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
-
 //types
 import {RootState} from 'redux/rootReducer';
-import StyleProps from 'types/StyleProps';
 
 import { Link as LinkScroll} from 'react-scroll'
 

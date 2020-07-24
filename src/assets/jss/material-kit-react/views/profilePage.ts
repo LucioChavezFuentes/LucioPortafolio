@@ -13,7 +13,6 @@ import StyleProps from "types/StyleProps";
 const profilePageStyle = (theme : Theme) => {
 
   const lightPrimaryColor = undefined //theme.palette.primary.light;
-  const textPrimary = theme.palette.text.primary;
 
   return createStyles({
     container,

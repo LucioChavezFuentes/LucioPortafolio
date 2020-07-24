@@ -12,7 +12,7 @@ import {
   drawerWidth
 } from "assets/jss/material-kit-react.js";
 
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { createStyles, Theme } from "@material-ui/core/styles";
 
 const headerStyle = (theme : Theme) => createStyles({
   appBar: {

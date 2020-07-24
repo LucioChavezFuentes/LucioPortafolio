@@ -15,7 +15,8 @@ import {
 
 //Helpers
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
-import StyleProps from 'types/StyleProps';
+//Types not neccesary while this file is .js
+//import StyleProps from 'types/StyleProps';
 
 const customDropdownStyle = theme => ({
   popperClose: {
