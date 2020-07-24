@@ -164,6 +164,12 @@ const useStyles = makeStyles((theme) => ({
       color : (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps)
     },
 
+    '.MuiFormHelperText-root.Mui-error': {
+      '& p': {
+        color: (props: StyleProps) => props.isThemeDark ? theme.palette.error.light : theme.palette.error.main ,
+      }
+    },
+
     '.MuiListSubheader-root': {
       color : (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
     },

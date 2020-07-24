@@ -369,7 +369,7 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 label="Message"
                                 classes={{root: classes.inputText}}
                                 error={errors.message ? true : false}
-                                helperText={<p>{errors.message || '*Required'}</p>}
+                                helperText={<p style={{margin:'0'}}>{errors.message || '*Required'}</p>}
                                 value={message}
                                 onChange={handleChange}
                                 disabled={loading}

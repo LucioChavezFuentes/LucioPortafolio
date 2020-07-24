@@ -19,6 +19,7 @@ function fadePrimaryColor(theme, props){
 const navPillsStyle = theme => createStyles({
 
   //TODO: Find if this is an apropiate pattern
+  //DO NOT Abuse of global selector, modify only the ids selectors of this module
   '@global': {
     '#selectedPill': {
       color:'#FFFFFF',
