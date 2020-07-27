@@ -1,0 +1,19 @@
+{
+    "occupation": "Desarrollador Web " ,
+
+    "occupation-description": "Soy un desarrollador web especializado en front end, con conocimientos en back end y alguien está constantemente aprendiendo nuevas y mejores prácticas para el desarrollo de software",
+    "skills": "El alcance de mis habilidades cubren tecnologías de front end tales como: ",
+    "word-and": "y",
+    
+    "testing-skills-description": "También creo pruebas unitarias y/o de integración con:",
+    "back-end-skills-description-partOne": "Y tengo algo de experiencia con:",
+    "back-end-skills-description-partTwo": "para resolver problemas en el back end y en el modelo",
+    "latest-projects-title": "Últimos Projectos",
+    "the-social-conejito-description":  "The Social Conejito es una red social compuesta de cortos mensajes llamados 'Squeals or Screams' para la expresión del usuario donde todos pueden ver, dar me gusta(likes) y comentar.",
+    "code-word": "Código",
+    "code-button": "Código Fuente",
+    "app-page-button": "Página de la App",
+    "adventure-code-title": "Código Aventura",
+    "adventure-code-description": "Código Aventura es un editor de código en línea en donde todos quienes se registren pueden escribir código y evaluar su resultado.",
+    "ravenous-description": "Ravenous busca restaurantes en una ciudad o país basado en un tipo de comida especificado."
+  }

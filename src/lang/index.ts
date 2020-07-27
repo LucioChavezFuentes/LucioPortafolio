@@ -1,15 +1,19 @@
-import enMessages from './en.json';
+import enUSMessages from './en.json';
+import esMxMessages from './es_MX.json';
 
 const AppLocale = {
     en: {
         locale: 'en-US',
-        ...enMessages
+        messages: {
+            ...enUSMessages
+        },
     },
 
     es: {
         locale: 'es-MX',
-
-
+        messages: {
+            ...esMxMessages
+        },
     }
     
   };
