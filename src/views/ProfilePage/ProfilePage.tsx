@@ -137,6 +137,7 @@ function ProfilePage(props: any) {
                     {intl.formatMessage({
                         defaultMessage: 'Web Developer',
                         description: 'occupation',
+                        id: "occupation",
                       })}
                     </h6>
                     { /*fab and fa-twitter appear to be global classNames*/ }
@@ -165,11 +166,13 @@ function ProfilePage(props: any) {
                   <div className={classes.philosophy}>
                   <Paper elevation={MAX_ELEVATION} className="paperPhilosophy paperDescription" >
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-                      <p>
-                        I am a web developer specialized in front end, 
-                        with knowledge in back end, 
-                        who is constantly learning the best practices of software development.
-                      </p>   
+                    <p>
+                      {intl.formatMessage({
+                        defaultMessage: 'I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development.',
+                        description: 'occupation-description',
+                        id: "occupation-description",
+                      })}
+                    </p>
                     </ScrollAnimation>
                     </Paper>
                   </div>
@@ -194,7 +197,11 @@ function ProfilePage(props: any) {
               <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                 <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                 
-                  <p key="2" >The scope of my skills cover front-end technologies such as:
+                  <p key="2" >{intl.formatMessage({
+                        defaultMessage: 'The scope of my skills cover front-end technologies such as:',
+                        description: 'skills',
+                        id: "skills",
+                      })}
                     <span  className='bold'> HTML, </span>
                     <span className='bold'> CSS/SCSS, </span>
                     <span  className='bold'> Flexbox, </span>
@@ -202,7 +209,11 @@ function ProfilePage(props: any) {
                     <span  className='bold'> Material IU, </span>
                     <span  className='bold'> TypeScript/JavaScript, </span>
                     <span  className='bold'> React </span> 
-                      and
+                    {intl.formatMessage({
+                        defaultMessage: 'and',
+                        description: 'word-and',
+                        id: "word-and",
+                      })}
                     <span  className='bold'> Redux.</span>
                   </p>
                 </ScrollAnimation>
@@ -239,9 +250,18 @@ function ProfilePage(props: any) {
                   <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="4" >
-                        I also write unit and/or integration tests with:
+                        {intl.formatMessage({
+                          defaultMessage: 'I also write unit and/or integration tests with:',
+                          description: 'testing-skills-description',
+                          id: "testing-skills-description",
+                        })}
+                        
                         <span className='bold'> Jest </span> 
-                          and
+                        {intl.formatMessage({
+                          defaultMessage: 'and',
+                          description: 'word-and',
+                          id: "word-and",
+                        })}
                         <span className='bold'> React Testing Library. </span>
                       </p>
                     </ScrollAnimation>
@@ -276,11 +296,21 @@ function ProfilePage(props: any) {
                   <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="6" >
-                        And I have some experience in:
+                        {intl.formatMessage({
+                          defaultMessage: 'And I have some experience in:',
+                          description: 'back-end-skills-description-partOne',
+                          id: "back-end-skills-description-partOne",
+                        })}
+                        
                         <span className='bold'> SQL, </span>
                         <span className='bold'> Node.js</span>,
                         <span className='bold'> Firebase </span>
-                        for back-end and model solutions.
+                        {intl.formatMessage({
+                          defaultMessage: 'for back-end and model solutions.',
+                          description: 'back-end-skills-description-partTwo',
+                          id: "back-end-skills-description-partTwo",
+                        })}
+                        
                       </p>
                     </ScrollAnimation>
                   </Paper>
@@ -315,7 +345,13 @@ function ProfilePage(props: any) {
             <Element name={projectsSectionRef}>
               <div className={classes.latestProjectsTitleContainer}>
                 <Paper elevation={MAX_ELEVATION} className="paperLatestProjects">
-                  <Typography color='textPrimary' className="latestProjectsTitle">Latest Projects</Typography>
+                  <Typography color='textPrimary' className="latestProjectsTitle">
+                    {intl.formatMessage({
+                      defaultMessage: 'Latest Projects',
+                      description: 'latest-projects-title',
+                      id: "latest-projects-title",
+                    })}
+                  </Typography>
                 </Paper>
               </div>
             </Element>
@@ -343,8 +379,12 @@ function ProfilePage(props: any) {
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
                             <div className={classes.projectDescription}>
                               <p>
-                                The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, 
-                                like and comment. 
+                                {intl.formatMessage({
+                                  defaultMessage: "The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment.",
+                                  description: 'the-social-conejito-description',
+                                  id: "the-social-conejito-description",
+                                })}
+                                
                               </p>
                             </div>
                           </GridItem>
@@ -360,7 +400,17 @@ function ProfilePage(props: any) {
                                 color='github' 
                                 startIcon={<GitHubIcon />}
                               >
-                               {isMobile ? 'Code' : 'Source Code'}
+                              {isMobile ? 
+                                intl.formatMessage({
+                                  defaultMessage: 'Code',
+                                  description: 'code-word',
+                                  id: "code-word",
+                                }) : 
+                                intl.formatMessage({
+                                  defaultMessage: 'Source Code',
+                                  description: 'code-button',
+                                  id: "code-button",
+                                })}
                               </Button>
                             
                               <Button
@@ -371,7 +421,12 @@ function ProfilePage(props: any) {
                                 color="primary"  
                                 startIcon={<Conejito />}
                               >
-                                App's Page
+                                {intl.formatMessage({
+                                  defaultMessage: "App's Page",
+                                  description: 'app-page-button',
+                                  id: "app-page-button",
+                                })}
+                                
                               </Button>
                             </div>
                             
@@ -380,7 +435,11 @@ function ProfilePage(props: any) {
                       )
                     },
                     {
-                      tabButton: "Adventure Code",
+                      tabButton: intl.formatMessage({
+                        defaultMessage: 'Adventure Code',
+                        description: 'adventure-code-title',
+                        id: "adventure-code-title",
+                      }),
                       tabIcon: AdventureCode,
                       tabContent: (
                         <GridContainer justify="center" >
@@ -391,7 +450,11 @@ function ProfilePage(props: any) {
                           <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth} >
                             <div className={classes.projectDescription}>
                               <p>
-                                Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output.
+                                {intl.formatMessage({
+                                  defaultMessage: "Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output.",
+                                  description: 'adventure-code-description',
+                                  id: "adventure-code-description",
+                                })}
                               </p>
                             </div>
                           </GridItem>
@@ -407,7 +470,17 @@ function ProfilePage(props: any) {
                                 color='github' 
                                 startIcon={<GitHubIcon />}
                               >
-                              {isMobile ? 'Code' : 'Source Code'}
+                              {isMobile ?
+                                intl.formatMessage({
+                                  defaultMessage: 'Code',
+                                  description: 'code-word',
+                                  id: "code-word",
+                                }) : 
+                                intl.formatMessage({
+                                  defaultMessage: 'Source Code',
+                                  description: 'code-button',
+                                  id: "code-button",
+                                })}
                               </Button>
 
                               <Button
@@ -416,7 +489,11 @@ function ProfilePage(props: any) {
                                 color='primary'
                                 variant='contained'
                                 className='appPageButton' startIcon={<AdventureCode />}>
-                                App's Page
+                                {intl.formatMessage({
+                                  defaultMessage: "App's Page",
+                                  description: 'app-page-button',
+                                  id: "app-page-button",
+                                })}
                               </Button>
                             </div>
 
@@ -436,7 +513,11 @@ function ProfilePage(props: any) {
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
                             <div className={classes.projectDescription}>
                               <p>
-                                Ravenous searches for restaurants in a city or country with a given type of food.
+                                {intl.formatMessage({
+                                  defaultMessage: "Ravenous searches for restaurants in a city or country with a given type of food.",
+                                  description: 'ravenous-description',
+                                  id: "ravenous-description",
+                                })}
                               </p>
                             </div>
                           </GridItem>
@@ -452,7 +533,17 @@ function ProfilePage(props: any) {
                                 color='github' 
                                 startIcon={<GitHubIcon />}
                               >
-                              {isMobile ? 'Code' : 'Source Code'}
+                              {isMobile ? 
+                                intl.formatMessage({
+                                  defaultMessage: 'Code',
+                                  description: 'code-word',
+                                  id: "code-word",
+                                }) : 
+                                intl.formatMessage({
+                                  defaultMessage: 'Source Code',
+                                  description: 'code-button',
+                                  id: "code-button",
+                                })}
                               </Button>
 
                               <Button
@@ -463,7 +554,11 @@ function ProfilePage(props: any) {
                                 variant='contained' 
                                 startIcon={<Ravenous />}
                               >
-                                App's Page
+                                {intl.formatMessage({
+                                  defaultMessage: "App's Page",
+                                  description: 'app-page-button',
+                                  id: "app-page-button",
+                                })}
                               </Button>
                             </div>
 

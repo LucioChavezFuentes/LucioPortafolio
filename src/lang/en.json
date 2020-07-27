@@ -1,0 +1,62 @@
+{
+  "occupation": {
+    "defaultMessage": "Web Developer",
+    "description": "occupation"
+  },
+  "occupation-description": {
+    "defaultMessage": "I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development.",
+    "description": "occupation-description"
+  },
+  "skills": {
+    "defaultMessage": "The scope of my skills cover front-end technologies such as:",
+    "description": "skills"
+  },
+  "word-and": {
+    "defaultMessage": "and",
+    "description": "word-and"
+  },
+  "testing-skills-description": {
+    "defaultMessage": "I also write unit and/or integration tests with:",
+    "description": "testing-skills-description"
+  },
+  "back-end-skills-description-partOne": {
+    "defaultMessage": "And I have some experience in:",
+    "description": "back-end-skills-description-partOne"
+  },
+  "back-end-skills-description-partTwo": {
+    "defaultMessage": "for back-end and model solutions.",
+    "description": "back-end-skills-description-partTwo"
+  },
+  "latest-projects-title": {
+    "defaultMessage": "Latest Projects",
+    "description": "latest-projects-title"
+  },
+  "the-social-conejito-description": {
+    "defaultMessage": "The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment.",
+    "description": "the-social-conejito-description"
+  },
+  "code-word": {
+    "defaultMessage": "Code",
+    "description": "code-word"
+  },
+  "code-button": {
+    "defaultMessage": "Source Code",
+    "description": "code-button"
+  },
+  "app-page-button": {
+    "defaultMessage": "App's Page",
+    "description": "app-page-button"
+  },
+  "adventure-code-title": {
+    "defaultMessage": "Adventure Code",
+    "description": "adventure-code-title"
+  },
+  "adventure-code-description": {
+    "defaultMessage": "Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output.",
+    "description": "adventure-code-description"
+  },
+  "ravenous-description": {
+    "defaultMessage": "Ravenous searches for restaurants in a city or country with a given type of food.",
+    "description": "ravenous-description"
+  }
+}
