@@ -1,11 +1,13 @@
-import ui, { setDarkTheme, setLightTheme } from './redux/slices/uiSlice';
 
-describe('switchTheme', () => {
-    it('should switch themes', () => {
-      const action1 = setDarkTheme()
-      const action2 = setLightTheme()
-  
-      expect(action1.type).toEqual('setDarkTheme')
-      expect(action2.type).toEqual('setLightTheme')
-    })
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+describe('app', () => {
+  it('renders without crashing', () => {
+
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
   })
