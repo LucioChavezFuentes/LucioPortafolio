@@ -6,22 +6,19 @@ The "mutative" code only works correctly inside of createReducer function
 won't let you mix "mutating" the draft state and also returning a new state value
 */
 import  {createSlice} from '@reduxjs/toolkit';
-import MexicoFlag from 'assets/img/flags/MexicoFlag.svg'
-import USFlag from 'assets/img/flags/U.SFlag.svg'
+import AppLocale from 'lang/index';
 
 interface UIState {
     isThemeDark: boolean;
     lenguage: {
-        locale: 'en' | 'es',
-        icon: any
+        locale: 'en-US' | 'es-MX',
+        icon: string,
+        messages: typeof AppLocale['enUS']['messages']
     }
 }
 const initialState : UIState = {
     isThemeDark: false,
-    lenguage: {
-        locale: 'en',
-        icon: USFlag
-    }
+    lenguage: AppLocale.enUS
 }
 
 const uiSlice = createSlice({
@@ -30,14 +27,19 @@ const uiSlice = createSlice({
     reducers: {
         setDarkTheme(state) {
             state.isThemeDark = true
-      },
+        },
         setLightTheme(state) {
             state.isThemeDark = false
-      }
+        },
+
+        changeLenguage(state, {payload}) {
+            state.lenguage = AppLocale[payload.locale]
+        },
+
     }
   })
   
-  export const { setDarkTheme, setLightTheme } = uiSlice.actions
+  export const { setDarkTheme, setLightTheme, changeLenguage } = uiSlice.actions
   
   export default uiSlice.reducer
 
