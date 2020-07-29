@@ -14,6 +14,7 @@ interface Props {
     fullWidth?: boolean;
     rightPositionInPixels?: number;
     isMobile?: boolean;
+    id?: string;
 }
 
 const styles = (theme : Theme) => createStyles({
@@ -29,13 +30,14 @@ const styles = (theme : Theme) => createStyles({
 const useStyles = makeStyles(styles);
 
 const BadgeIcon:React.FC<Props> = (props) => {
-    const {sizeInPixels, children, isMobile} = props;
+    const {sizeInPixels, children, isMobile, ...rest} = props;
     const classes = useStyles(props);
     return (
         <Badge
             classes={{anchorOriginTopRightRectangle: classes.iconPosition}}
             badgeContent={<props.icon sizeInPixels={sizeInPixels || '10px'}  isMobile={isMobile} />}
             className={classes.additionalStyle}
+            {...rest}
         >
             {children}
         </Badge>

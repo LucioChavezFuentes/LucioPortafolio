@@ -12,7 +12,8 @@ interface Props{
 
 const styles = (theme:Theme) => createStyles({
     root: {
-        color: (props: Props) => props.isMobile ? theme.palette.text.primary : 'black',
+        //Try no to force the color on icon and text, use "inherint" instead as first resource
+        color: (props: Props) => props.isMobile ? theme.palette.text.primary : 'inherint',
         fontSize: (props:Props) => props.sizeInPixels,
         transition: 'unset'
     }

@@ -11,15 +11,14 @@ import AppLocale from 'lang/index';
 interface UIState {
     isThemeDark: boolean;
     lenguage: {
-        locale: 'en-US' | 'es-MX',
+        locale: 'enUS' | 'esMX',
         icon: string,
-        messages: typeof AppLocale['enUS']['messages']
     }
 }
 const initialState : UIState = {
     isThemeDark: false,
     lenguage: AppLocale.enUS
-}
+};
 
 const uiSlice = createSlice({
     name: 'ui',
@@ -35,7 +34,6 @@ const uiSlice = createSlice({
         changeLenguage(state, {payload}) {
             state.lenguage = AppLocale[payload.locale]
         },
-
     }
   })
   

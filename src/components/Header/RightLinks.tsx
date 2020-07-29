@@ -203,23 +203,23 @@ function HeaderLinks(props: any) {
             >
               Ravenous
             </LinkScroll>,
-            <div className={classes.dropdownLinkBadge} id='externalLink'>
-              <BadgeIcon
+            
+            <BadgeIcon
                 icon={ExternalLink}
+                rightPositionInPixels={64}
                 fullWidth
-                rightPositionInPixels={60}
+                id='externalLink'
               >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href='https://tea-cozy-37cbf.firebaseapp.com'
-                className={classes.dropdownLink}
-                data-key={3}
-              >
-                Tea Cozy
-              </a>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href='https://tea-cozy-37cbf.firebaseapp.com'
+                  className={classes.dropdownLink}
+                  data-key={3}
+                >
+                  Tea Cozy
+                </a>
             </ BadgeIcon>
-            </div>
             
           ]}
         />

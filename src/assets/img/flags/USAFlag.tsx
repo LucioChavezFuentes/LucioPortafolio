@@ -3,7 +3,7 @@ import React from 'react'
 // Material IU Icon Warapper
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import { ReactComponent as usaFlag} from './MexicoFlag.svg';
+import {ReactComponent as usaFlag }from './USAFlag.svg';
 
 interface Props{
     sizeInPixels?: string

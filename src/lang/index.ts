@@ -1,19 +1,19 @@
 import enUSMessages from './en.json';
 import esMxMessages from './es_MX.json';
 import MexicoFlag from 'assets/img/flags/MexicoFlag.svg'
-import USFlag from 'assets/img/flags/U.SFlag.svg'
+import USAFlag from 'assets/img/flags/USAFlag.svg'
 
 const AppLocale = {
     enUS: {
-        locale: 'en-US' as const,
+        locale: 'enUS' as const,
         messages: {
             ...enUSMessages
         },
-        icon: USFlag,
+        icon: USAFlag,
     },
 
     esMX: {
-        locale: 'es-MX' as const,
+        locale: 'esMX' as const,
         messages: {
             ...esMxMessages
         },

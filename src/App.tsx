@@ -3,7 +3,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
 //Redux
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 //import "assets/scss/material-kit-react.scss?v=1.8.0";
 import 'typeface-roboto';
@@ -24,8 +24,12 @@ import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 import {RootState} from 'redux/rootReducer';
 import StyleProps from 'types/StyleProps';
 
+//AppLocale 
+import AppLocale from "lang/index";
+
 interface AppProps {
-  isThemeDark: boolean
+  isThemeDark: boolean;
+  locale: string
 }
 
 //This test removes the 'fbclid=' in the URL if the Web App is opened from a facebooks's inbox link
@@ -182,7 +186,10 @@ const useStyles = makeStyles((theme) => ({
 
 function App(props : AppProps) {
 
-  const {isThemeDark} = props;
+  //const {locale} = useSelector(state => state.ui.lenguage )
+ 
+
+  const {isThemeDark, locale} = props;
   useStyles({isThemeDark})
     /*const theme = React.useMemo(
       () => isThemeDark ? themes.darkTheme : themes.lightTheme
@@ -190,7 +197,7 @@ function App(props : AppProps) {
 
     return (
       <CssBaseline>
-        <IntlProvider locale="es" defaultLocale="en">
+        <IntlProvider locale='es' defaultLocale="en" messages={AppLocale[locale].messages as any } >
         <Router history={hist}>
           <Switch>
             <Route path="/" render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
@@ -203,6 +210,7 @@ function App(props : AppProps) {
 
 const mapStateToProps = (state : RootState) => ({
   isThemeDark: state.ui.isThemeDark,
+  locale: state.ui.lenguage.locale,
 })
 
 export default connect(mapStateToProps)(App);

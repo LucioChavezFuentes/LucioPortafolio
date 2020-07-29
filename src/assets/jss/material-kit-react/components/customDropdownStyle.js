@@ -62,7 +62,7 @@ const customDropdownStyle = theme => ({
     borderRadius: "2px",
     position: "relative",
     transition: "all 150ms linear",
-    display: "block",
+    display: "flex",
     clear: "both",
     fontWeight: "400",
     height: "fit-content",

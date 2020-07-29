@@ -38,6 +38,7 @@ import TechTestingIcons from "components/TechnologyIcons/techTestingIcons";
 import useWindowSize from "helper/useWindowSize";
 import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
 import AboutMe from './AbouteMe';
+import LenguageList from 'components/LenguageList/LenguageList';
 
 import {injectIntl} from 'react-intl';
 
@@ -114,7 +115,7 @@ function ProfilePage(props: any) {
         color="transparent"
         onClickProject={handleChangeActive} 
         projectsSectionRef={projectsSectionRef}
-        leftLinks={<ThemeSwitch />}
+        leftLinks={[<ThemeSwitch />, <LenguageList />]}
         absolute
         {...rest}
       />

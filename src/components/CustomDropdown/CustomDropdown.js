@@ -154,10 +154,10 @@ const useStyles = makeStyles(styles);
                     return (
                       <MenuItem
                         key={key}
-                        onClick={() => handleClose(prop)}
+                        onClick={() => handleClose(prop.param || prop)}
                         className={dropdownItem}
                       >
-                        {prop}
+                        {prop.content || prop}
                       </MenuItem>
                     );
                   })}
