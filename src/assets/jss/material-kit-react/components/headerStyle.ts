@@ -51,6 +51,7 @@ const headerStyle = (theme : Theme) => createStyles({
     flexWrap: "nowrap"
   },
   flex: {
+    display: 'flex',
     flex: 1
   },
   title: {
@@ -68,7 +69,7 @@ const headerStyle = (theme : Theme) => createStyles({
     }
   },
   appResponsive: {
-    margin: "20px 10px"
+    margin: "20px 10px",
   },
   primary: {
     backgroundColor: primaryColor,

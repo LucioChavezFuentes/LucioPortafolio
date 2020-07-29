@@ -77,6 +77,9 @@ const useStyles = makeStyles((theme) => ({
     '.MuiDrawer-paper': {
       '& .MuiSvgIcon-root': {
         color: (props) => getDarkOrLightTheme(theme, 'icon',  props as StyleProps),
+      },
+      '& .MuiButton-label': {
+        color: (props) => getDarkOrLightTheme(theme, 'icon',  props as StyleProps),
       }
     },
 
@@ -210,7 +213,7 @@ function App(props : AppProps) {
 
 const mapStateToProps = (state : RootState) => ({
   isThemeDark: state.ui.isThemeDark,
-  locale: state.ui.lenguage.locale,
+  locale: state.ui.locale,
 })
 
 export default connect(mapStateToProps)(App);

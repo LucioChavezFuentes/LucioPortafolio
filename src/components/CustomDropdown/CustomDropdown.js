@@ -58,7 +58,8 @@ const useStyles = makeStyles(styles);
     left,
     rtlActive,
     noLiPadding,
-    isThemeDark
+    isThemeDark,
+    buttonIconClass
   } = props;
   const classes = useStyles({isThemeDark});
   
@@ -73,10 +74,16 @@ const useStyles = makeStyles(styles);
     [classes.noLiPadding]: noLiPadding,
     [classes.dropdownItemRTL]: rtlActive
   });
+  const buttonIconClasses = classNames({
+    [classes.buttonIcon] : true,
+    [buttonIconClass]: buttonIconClass !== undefined,
+  })
   let icon = null;
+
   switch (typeof buttonIcon) {
+    case "function":
     case "object":
-      icon = <props.buttonIcon className={classes.buttonIcon} />;
+      icon = <props.buttonIcon className={buttonIconClasses} />;
       break;
     case "string":
       icon = <Icon className={classes.buttonIcon}>{props.buttonIcon}</Icon>;

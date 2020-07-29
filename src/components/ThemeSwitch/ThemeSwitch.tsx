@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     switchContainer: {
         display: 'flex',
         alignItems: 'center',
+        marginLeft: '15px',
     },
     sunIcon: {
       color: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),

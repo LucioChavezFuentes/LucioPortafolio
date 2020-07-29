@@ -1,7 +1,7 @@
 import React from "react";
 
 //React-Redux Imports
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,24 +17,44 @@ import Button from "components/CustomButtons/Button";
 //import USAFlag from 'assets/img/flags/USAFlag';
 // Don´t forget to set the viewbox prop in SVG Icon as the original svg 
 import MexicoFlag from 'assets/img/flags/MexicoFlag';
+import { ReactComponent as MexFlag } from 'assets/img/flags/MexicoFlag.svg'; 
 
 //import {ReactComponent as USAFlag }from 'assets/img/flags/USAFlag.svg';
 import  USAFlag from 'assets/img/flags/USAFlag.svg';
 
 import { changeLenguage } from 'redux/slices/uiSlice';
+import AppLocale from 'lang/index';
+
+//Types
+import { RootState } from "redux/rootReducer";
+
+const useStyles = makeStyles({
+    lenguageNavLink: {
+				color: 'inherit',
+				marginLeft: '10px',
+		},
+		
+		buttonIcon: {
+			marginRight: "10px",
+			width: "25px",
+		}
+})
 
 function LenguageList(props) {
 
-    const {changeLenguage} = props;
-    const handleClick = (event) => {
-        const key = event.currentTarget.getAttribute('id')
-
-        changeLenguage({key})
-    }
+  const classes = useStyles()
+	const {locale} = useSelector((state : RootState) => state.ui)
+  const {changeLenguage} = props;
 
     return (
         <CustomDropdown
-            onClick={changeLenguage}
+						onClick={changeLenguage}
+						buttonText="Lenguage"
+            buttonIcon={AppLocale[locale].icon}
+            buttonProps={{
+                className: classes.lenguageNavLink
+						}}
+						buttonIconClass={classes.buttonIcon}
             dropdownList={[
                 {content : (
                 <>

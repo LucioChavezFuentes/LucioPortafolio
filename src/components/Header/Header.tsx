@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
@@ -68,11 +69,13 @@ export default function Header(props) {
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container} id='toolBar'>
-        {leftLinks !== undefined ? brandComponent : null}
+        {leftLinks === undefined ? brandComponent : null}
         <div className={classes.flex}>
           {leftLinks !== undefined ? (
             <Hidden smDown implementation="css">
-              {leftLinks}
+              <div className={classes.flex}>
+                {leftLinks}
+              </div>
             </Hidden>
           ) : (
             brandComponent
@@ -103,6 +106,11 @@ export default function Header(props) {
         >
           
           <div className={classes.appResponsive}>
+              <div style={{float: 'right'}} >
+                <IconButton onClick={handleDrawerToggle}>
+                  <ChevronRightIcon />
+                </IconButton> 
+            </div>
             {leftLinks}
             <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} handleDrawerToggle={handleDrawerToggle} isMobile={true} />
           </div>

@@ -3,13 +3,13 @@ import React from 'react'
 // Material IU Icon Warapper
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import { ReactComponent as MexFlag } from './MexicoFlag.svg'; 
+import { ReactComponent as MexFlag } from './MexicoFlag1.svg'; 
 
 interface Props{
     sizeInPixels?: string
 }
 
-const MexicoFlag: React.FC<Props> = (props: Props) => {
+function MexicoFlag(props: Props) {
 
     return (
         <SvgIcon {...props} viewBox="0 0 980 560" style={{fontSize: props.sizeInPixels}} component={MexFlag} />

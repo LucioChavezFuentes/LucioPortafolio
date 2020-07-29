@@ -10,14 +10,11 @@ import AppLocale from 'lang/index';
 
 interface UIState {
     isThemeDark: boolean;
-    lenguage: {
-        locale: 'enUS' | 'esMX',
-        icon: string,
-    }
+    locale: 'enUS' | 'esMX';
 }
 const initialState : UIState = {
     isThemeDark: false,
-    lenguage: AppLocale.enUS
+    locale: 'enUS',
 };
 
 const uiSlice = createSlice({
@@ -32,7 +29,7 @@ const uiSlice = createSlice({
         },
 
         changeLenguage(state, {payload}) {
-            state.lenguage = AppLocale[payload.locale]
+            state.locale = payload.locale
         },
     }
   })
