@@ -582,7 +582,9 @@ function ProfilePage(props: any) {
               isMobile={isMobile} 
               gridConst={{currentGridSpacing, currentPixelsSpacing}} 
               elevationConst={{MAX_ELEVATION,MEDIUM_ELEVATION}} 
-              fullWidth={fullWidth} />
+              fullWidth={fullWidth}
+              intl={intl}
+            />
 
             
           </div>

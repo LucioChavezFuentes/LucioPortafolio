@@ -15,5 +15,10 @@
     "app-page-button": "Página de la App",
     "adventure-code-title": "Código Aventura",
     "adventure-code-description": "Código Aventura es un editor de código en línea en donde todos quienes se registren pueden escribir código y evaluar su resultado.",
-    "ravenous-description": "Ravenous busca restaurantes en una ciudad o país basado en un tipo de comida especificado."
+    "ravenous-description": "Ravenous busca restaurantes en una ciudad o país basado en un tipo de comida especificado.",
+    "title-about-me": "Sobre mí",
+    "philosophy": "Siempre estoy dispuesto aprender algo nuevo, escribir código basado en las mejores prácticas y estar atento a aquellas que están por descubrir. Confío en realizar un buen y honesto trabajo desde el principio para evitar trabajo y costos extra en el futuro.",
+    "title-philosophy": "Filosofía",
+    "title-hobbies": "Hobbies y Lectura",
+    "hobbies" : "Usualmente estoy jugando video juegos, mirando caricaturas en YouTube y leyendo libros para mi aprendizaje profesional. Mis dos libros favoritos son: 'Code Complete' de Steve McConell y 'Essentialism: The Disciplined Pursuit of Less' de Greg McKeown."
   }
