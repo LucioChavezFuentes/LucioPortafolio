@@ -7,6 +7,8 @@ import classNames from "classnames";
 // material-ui core components
 import { List, ListItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+// helper
+import IntlMessage from 'helper/IntlMessages';
 
 import styles from "assets/jss/material-kit-react/components/footerStyle.js";
 
@@ -80,11 +82,18 @@ export default function Footer(props) {
   </div>*/}
           <div>
             <p className={classes.contact}>
-              Contact
+              <IntlMessage
+                defaultMessage='Contact' 
+                id='contact-word' description='contact-word'
+              />
             </p>
           </div>
           <div>
-            <p>Feel free to contact me via email at 
+            <p>
+            <IntlMessage
+                defaultMessage='Feel free to contact me via email at' 
+                id='contact-legend' description='contact-legend'
+              /> 
               <a
               className={classes.emailTo}
               href="mailto:luciobertinchavez@gmail.com"

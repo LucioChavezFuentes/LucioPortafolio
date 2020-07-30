@@ -149,7 +149,10 @@ const headerStyle = (theme : Theme) => createStyles({
     paddingRight: "0px",
     paddingLeft: "0",
     ...transition
-  }
+  }, 
+  dropdownLenguage: {
+    boxShadow: ({isThemeDark} : any) => isThemeDark ?  "1px 2px 50px 100px rgba(0, 0, 0, 0.6)" : "1px 2px 50px 10px rgba(0, 0, 0, 0.26)",
+  },
 });
 
 export default headerStyle;

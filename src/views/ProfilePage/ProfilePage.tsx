@@ -115,7 +115,8 @@ function ProfilePage(props: any) {
         color="transparent"
         onClickProject={handleChangeActive} 
         projectsSectionRef={projectsSectionRef}
-        leftLinks={[<ThemeSwitch />, <LenguageList />]}
+        leftLinks={{ThemeSwitch , LenguageList} }
+        isThemeDark={isThemeDark}
         absolute
         {...rest}
       />

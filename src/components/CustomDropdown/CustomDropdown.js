@@ -50,6 +50,7 @@ const useStyles = makeStyles(styles);
     buttonText,
     buttonIcon,
     dropdownList,
+    dropdownClass,
     buttonProps,
     dropup,
     dropdownHeader,
@@ -77,6 +78,11 @@ const useStyles = makeStyles(styles);
   const buttonIconClasses = classNames({
     [classes.buttonIcon] : true,
     [buttonIconClass]: buttonIconClass !== undefined,
+  })
+
+  const dropdownClasses = classNames({
+    [classes.dropdown] : true,
+    [dropdownClass]: dropdownClass,
   })
   let icon = null;
 
@@ -137,7 +143,7 @@ const useStyles = makeStyles(styles);
                 : { transformOrigin: "0 0 0" }
             }
           >
-            <Paper className={classes.dropdown}>
+            <Paper className={dropdownClasses} elevation={18}>
               <ClickAwayListener onClickAway={handleCloseAway}>
                 <MenuList role="menu" className={classes.menuList}>
                   {dropdownHeader !== undefined ? (

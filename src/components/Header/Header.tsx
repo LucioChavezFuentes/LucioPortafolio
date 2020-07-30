@@ -72,11 +72,14 @@ export default function Header(props) {
         {leftLinks === undefined ? brandComponent : null}
         <div className={classes.flex}>
           {leftLinks !== undefined ? (
-            <Hidden smDown implementation="css">
-              <div className={classes.flex}>
-                {leftLinks}
-              </div>
-            </Hidden>
+            <div className={classes.flex}> 
+              <leftLinks.ThemeSwitch />
+              <Hidden smDown implementation="css">
+                <div className={classes.flex}>
+                   <leftLinks.LenguageList /> 
+                </div>
+              </Hidden>
+            </div>
           ) : (
             brandComponent
           )}
@@ -111,7 +114,8 @@ export default function Header(props) {
                   <ChevronRightIcon />
                 </IconButton> 
             </div>
-            {leftLinks}
+            <leftLinks.ThemeSwitch />
+            <leftLinks.LenguageList dropdownClass={classes.dropdownLenguage}/>
             <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} handleDrawerToggle={handleDrawerToggle} isMobile={true} />
           </div>
         </Drawer>

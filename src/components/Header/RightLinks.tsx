@@ -23,6 +23,8 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button";
 import BadgeIcon from "components/BadgeIcon";
 import EmailDialog from "components/EmailDialog/EmailDialog";
+import {injectIntl} from 'react-intl';
+import IntlMessage from 'helper/IntlMessages';
 
 //Redux
 import { connect } from 'react-redux';
@@ -42,7 +44,7 @@ interface HeaderLinksProps {
 }
 
 function HeaderLinks(props: any) {
-  const {isThemeDark} = props
+  const {isThemeDark, intl} = props
   const classes = useStyles({isThemeDark});
 
   const {onClickProject, projectsSectionRef, handleDrawerToggle, isMobile} = props;
@@ -67,7 +69,11 @@ function HeaderLinks(props: any) {
       className={classes.list}
     >
       <ListSubheader  id="All Projects"  className={classes.listSubheader}>
-        All Projects
+      <IntlMessage 
+                        defaultMessage='All Projects' 
+                        id='all-projects' description='all-projects' 
+                    />
+        
       </ListSubheader>
         <ListItem className={classes.listItem}>
           <Button component={LinkScroll}
@@ -96,7 +102,11 @@ function HeaderLinks(props: any) {
             simple
             startIcon={<AdventureCode />}
           >
-            Adventure Code
+            {intl.formatMessage({
+                        defaultMessage: 'Adventure Code',
+                        description: 'adventure-code-title',
+                        id: "adventure-code-title",
+                      })}
           </Button>
         </ListItem>
           <ListItem className={classes.listItem}>
@@ -135,7 +145,12 @@ function HeaderLinks(props: any) {
           </ListItem>
         <ListItem className={classes.subList}>
           <ListSubheader id="Social-Media" className={classes.listSubheader}>
-            Social Media
+          {intl.formatMessage({
+                        defaultMessage: 'Social Media',
+                        description: 'social-media-title',
+                        id: "social-media-title",
+                      })}
+            
           </ListSubheader>
 
         <ListItem className={classes.listItem}>
@@ -147,7 +162,12 @@ function HeaderLinks(props: any) {
               startIcon={<GitHubIcon />}
             >
               { /*fab and fa-twitter appear to be global classNames*/ }
-              Lucio's GitHub
+              {intl.formatMessage({
+                        defaultMessage: "Lucio's GitHub",
+                        description: 'github-tooltip',
+                        id: "github-tooltip",
+                      })}
+              
             </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
@@ -163,7 +183,10 @@ function HeaderLinks(props: any) {
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
-          buttonText="All Projects"
+          buttonText={<IntlMessage 
+            defaultMessage='All Projects' 
+            id='all-projects' description='all-projects' 
+        />}
           buttonProps={{
             className: classes.navLink,
             color: "transparent"
@@ -186,7 +209,11 @@ function HeaderLinks(props: any) {
               onClick={handleClick as any}
               data-key={1}
             >
-              Adventure Code
+              {intl.formatMessage({
+                        defaultMessage: 'Adventure Code',
+                        description: 'adventure-code-title',
+                        id: "adventure-code-title",
+                      })}
             </LinkScroll>,
             <LinkScroll
               to={projectsSectionRef}
@@ -226,7 +253,11 @@ function HeaderLinks(props: any) {
         </Tooltip>*/}
         <Tooltip
           id="instagram-twitter"
-          title="Lucio's GitHub"
+          title={intl.formatMessage({
+            defaultMessage: "Lucio's GitHub",
+            description: 'github-tooltip',
+            id: "github-tooltip",
+          })}
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
@@ -257,4 +288,4 @@ const mapStateToProps = (state : RootState) => ({
   isThemeDark: state.ui.isThemeDark,
 })
 
-export default connect(mapStateToProps)(HeaderLinks);
+export default connect(mapStateToProps)(injectIntl(HeaderLinks));

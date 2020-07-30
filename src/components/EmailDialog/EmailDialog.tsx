@@ -31,10 +31,12 @@ import CloseIcon from '@material-ui/icons/Close';
 import {connect} from 'react-redux';
 
 // Component Imports
-import DialogFeedback from 'components/DialogFeedback/DialogFeedback'; 
+import DialogFeedback from 'components/DialogFeedback/DialogFeedback';
+import {injectIntl} from 'react-intl';
 
 // Helper Imports
 import {validateMessageData} from 'helper/validators';
+import IntlMessage from 'helper/IntlMessages';
 //Types
 import { RootState } from 'redux/rootReducer';
 import StyleProps from 'types/StyleProps';
@@ -46,6 +48,7 @@ interface Props {
     tooltipClassName?: string;
     isMobile?: boolean;
     isThemeDark: boolean;
+    intl: any;
 }
 
 interface Inputs {
@@ -189,7 +192,7 @@ const styles = (theme: Theme) => createStyles({
 const useStyles = makeStyles(styles);
 
 const EmailDialog:React.FC<Props> = (props) => {
-
+    const {intl} = props;
     // API Variables
     const USER_ID = "user_8GdofLfZlnlQTza77rkLM";
     const GMAIL_SERVICE = "gmail";
@@ -270,7 +273,12 @@ const EmailDialog:React.FC<Props> = (props) => {
         <>
         <Tooltip
           id="instagram-facebook"
-          title="!Send an email to Lucio¡"
+          title={intl.formatMessage({
+            defaultMessage: "!Send an email to Lucio¡",
+            description: 'email-tooltip',
+            id: "email-tooltip",
+          })
+    }
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: props.tooltipClassName}}
         >
@@ -281,7 +289,13 @@ const EmailDialog:React.FC<Props> = (props) => {
             onClick={handleOpen}
             startIcon={<MailOutlineIcon />}
           >
-            !Send an email to Lucio¡
+              {intl.formatMessage({
+                        defaultMessage: "!Send an email to Lucio¡",
+                        description: 'email-tooltip',
+                        id: "email-tooltip",
+                      })
+                }
+            
           </Button>
         
         ) : (
@@ -299,9 +313,25 @@ const EmailDialog:React.FC<Props> = (props) => {
             
             <DialogTitle disableTypography id="customized-dialog-title">
 
-                <Typography variant="h6" style={{textTransform: 'unset'}}>Send me a message from here. </Typography>
+                <Typography variant="h6" style={{textTransform: 'unset'}}>
+                {intl.formatMessage({
+                        defaultMessage: "Send me a message from here.",
+                        description: "legend-1-email",
+                        id: "legend-1-email",
+                      })
+                }
+                     
+                </Typography>
 
-                <Typography variant="h6" style={{textTransform: 'unset'}}>!Simple and Fast¡</Typography>
+                <Typography variant="h6" style={{textTransform: 'unset'}}>
+                {intl.formatMessage({
+                        defaultMessage: "!Simple and Fast¡",
+                        description: "legend-2-email",
+                        id: "legend-2-email",
+                      })
+                }
+                    
+                </Typography>
 
                 <IconButton aria-label="close" className={classes.titleCloseButton} onClick={handleClose} >
                     <CloseIcon />
@@ -316,12 +346,21 @@ const EmailDialog:React.FC<Props> = (props) => {
                             <TextField
                                 name='name'
                                 type='text'
-                                label='Name'
+                                label={intl.formatMessage({
+                                    defaultMessage: "Name",
+                                    description: "name-email",
+                                    id: "name-email",
+                                  })
+                                }   
                                 variant="outlined"
                                 className={classes.inputText}
                                 classes={{root: classes.inputText}}
                                 error={errors.name ? true : false}
-                                helperText={<p style={{margin:'0'}}>{errors.name || '*Required'}</p>}
+                                helperText={<p style={{margin:'0'}}>{errors.name || intl.formatMessage({
+                                    defaultMessage: "*Required",
+                                    description: "required-field-email",
+                                    id: "required-field-email",
+                                  })}</p>}
                                 value={name}
                                 onChange={handleChange}
                                 disabled={loading}
@@ -333,11 +372,20 @@ const EmailDialog:React.FC<Props> = (props) => {
                             <TextField
                                 name='email'
                                 type='text'
-                                label='Email'
+                                label={intl.formatMessage({
+                                    defaultMessage: "Email",
+                                    description: "emailField-email",
+                                    id: "emailField-email",
+                                  })
+                                }
                                 variant="outlined"
                                 classes={{root: classes.inputText}}
                                 error={errors.email ? true : false}
-                                helperText={<p style={{margin:'0'}}>{errors.email || '*Required'}</p>}
+                                helperText={<p style={{margin:'0'}}>{errors.email || intl.formatMessage({
+                                    defaultMessage: "*Required",
+                                    description: "required-field-email",
+                                    id: "required-field-email",
+                                  })}</p>}
                                 value={email}
                                 onChange={handleChange}
                                 disabled={loading}
@@ -350,10 +398,20 @@ const EmailDialog:React.FC<Props> = (props) => {
                             <TextField
                                 name='subject'
                                 type='text'
-                                label='Subject'
+                                label={intl.formatMessage({
+                                    defaultMessage: 'Subject',
+                                    description: "subject-email",
+                                    id: "subject-email",
+                                  })
+                                }
                                 variant="outlined"
                                 classes={{root: classes.inputText}}
-                                helperText={<p style={{margin:'0'}} >Optional</p>}
+                                helperText={<p style={{margin:'0'}}>
+                                    <IntlMessage 
+                                        defaultMessage='Optional' 
+                                        id='optional-word' description='optional-word' 
+                                    />
+                                    </p>}
                                 value={subject}
                                 onChange={handleChange}
                                 disabled={loading}
@@ -367,10 +425,19 @@ const EmailDialog:React.FC<Props> = (props) => {
                                 variant="outlined"
                                 multiline
                                 rows="6"
-                                label="Message"
+                                label={intl.formatMessage({
+                                    defaultMessage: "Message",
+                                    description: "message-email",
+                                    id: "message-email",
+                                  })
+                                }
                                 classes={{root: classes.inputText}}
                                 error={errors.message ? true : false}
-                                helperText={<p style={{margin:'0'}}>{errors.message || '*Required'}</p>}
+                                helperText={<p style={{margin:'0'}}>{errors.message || intl.formatMessage({
+                                    defaultMessage: "*Required",
+                                    description: "required-field-email",
+                                    id: "required-field-email",
+                                  })}</p>}
                                 value={message}
                                 onChange={handleChange}
                                 disabled={loading}
@@ -387,11 +454,21 @@ const EmailDialog:React.FC<Props> = (props) => {
                 <DialogContentText className={classes.subtitleText}>
                     
                         <p>
-                            { isMobile ? 'Or contact me' :  'Or you could send me an email through' } 
+                            { isMobile ? intl.formatMessage({
+                                    defaultMessage: 'Or contact me',
+                                    description: "contact-me-email",
+                                    id: "contact-me-email",
+                                  }) :  <IntlMessage 
+                                  defaultMessage='Or you could send me an email through' 
+                                  id='legend-email' description='legend-email' />
+                            } 
                             <a 
                                 href="mailto:luciobertinchavez@gmail.com"
                             >
-                                { isMobile ? 'here' :  'luciobertinchavez@gmail.com ' }
+                                { isMobile ? <IntlMessage 
+                                                defaultMessage='here' 
+                                                id='here-word' description='here-word' /> :  'luciobertinchavez@gmail.com' 
+                                                 }
                             </a>
                         </p>
                     
@@ -399,7 +476,11 @@ const EmailDialog:React.FC<Props> = (props) => {
 
                 <div className={classes.sendButtonContainer}>
                     <Button type='submit' variant='contained' color='primary' onClick={handleSubmit} disabled={loading} endIcon={<SendIcon />} >
-                        Send
+                    <IntlMessage 
+                        defaultMessage='Send' 
+                        id='send-word' description='send-word' 
+                    />
+                        
                     </Button>
                     {loading && (
                                 <CircularProgress size={30} thickness={5} className='progress' />
@@ -407,7 +488,11 @@ const EmailDialog:React.FC<Props> = (props) => {
                 </div>
                 
                 <Button type='submit' variant='contained' color='secondary' onClick={handleClose} endIcon={<CloseIcon />} >
-                    Cancel
+                <IntlMessage 
+                        defaultMessage='Cancel' 
+                        id='cancel-word' description='cancel-word' 
+                    />
+                    
                 </Button>
             </DialogActions>
             
@@ -421,6 +506,6 @@ const mapStateToProps = (state : RootState) => ({
     isThemeDark: state.ui.isThemeDark,
   })
 
-export default connect(mapStateToProps)(EmailDialog);
+export default connect(mapStateToProps)(injectIntl(EmailDialog));
 
 

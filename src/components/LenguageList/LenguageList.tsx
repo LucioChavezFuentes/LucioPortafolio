@@ -25,6 +25,8 @@ import  USAFlag from 'assets/img/flags/USAFlag.svg';
 import { changeLenguage } from 'redux/slices/uiSlice';
 import AppLocale from 'lang/index';
 
+import {injectIntl} from 'react-intl';
+
 //Types
 import { RootState } from "redux/rootReducer";
 
@@ -41,20 +43,25 @@ const useStyles = makeStyles({
 })
 
 function LenguageList(props) {
-
+  const {changeLenguage, dropdownClass, intl} = props;
   const classes = useStyles()
 	const {locale} = useSelector((state : RootState) => state.ui)
-  const {changeLenguage} = props;
+  
 
     return (
         <CustomDropdown
 						onClick={changeLenguage}
-						buttonText="Lenguage"
+						buttonText={intl.formatMessage({
+              defaultMessage: 'Language',
+              description: 'language-title',
+              id: "language-title",
+            })}
             buttonIcon={AppLocale[locale].icon}
             buttonProps={{
                 className: classes.lenguageNavLink
 						}}
-						buttonIconClass={classes.buttonIcon}
+            buttonIconClass={classes.buttonIcon}
+            dropdownClass={dropdownClass}
             dropdownList={[
                 {content : (
                 <>
@@ -79,4 +86,4 @@ function LenguageList(props) {
     )
 }
 
-export default connect(null,{changeLenguage})(LenguageList);
+export default connect(null,{changeLenguage})(injectIntl(LenguageList));
