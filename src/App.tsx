@@ -3,7 +3,10 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
 //Redux
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+//Redux Persist
+import { PersistGate } from 'redux-persist/integration/react'
+import {persistor} from 'redux/store';
 
 //import "assets/scss/material-kit-react.scss?v=1.8.0";
 import 'typeface-roboto';
@@ -199,15 +202,17 @@ function App(props : AppProps) {
     , [isThemeDark]);*/
 
     return (
-      <CssBaseline>
-        <IntlProvider locale='es' defaultLocale="en" messages={AppLocale[locale].messages as any } >
-        <Router history={hist}>
-          <Switch>
-            <Route path="/" render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
-          </Switch>
-        </Router>
-        </IntlProvider>
-      </CssBaseline>
+      <PersistGate loading={null} persistor={persistor}>
+        <CssBaseline>
+          <IntlProvider locale='es' defaultLocale="en" messages={AppLocale[locale].messages as any } >
+          <Router history={hist}>
+            <Switch>
+              <Route path="/" render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
+            </Switch>
+          </Router>
+          </IntlProvider>
+        </CssBaseline>
+      </PersistGate>
     )
 }
 

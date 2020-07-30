@@ -5,21 +5,15 @@ import {connect, useSelector} from 'react-redux';
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import CustomDropdown from 'components/CustomDropdown/CustomDropdown';
-import Button from "components/CustomButtons/Button";
 
 //import {ReactComponent as MexicanFlag} from 'assets/img/flags/MexicoFlag1.svg';
 //import USAFlag from 'assets/img/flags/USAFlag';
-// Don´t forget to set the viewbox prop in SVG Icon as the original svg 
+// Don´t forget to set the viewbox prop in SVGIcon Component as the original svg 
 import MexicoFlag from 'assets/img/flags/MexicoFlag';
-import { ReactComponent as MexFlag } from 'assets/img/flags/MexicoFlag.svg'; 
 
-//import {ReactComponent as USAFlag }from 'assets/img/flags/USAFlag.svg';
 import  USAFlag from 'assets/img/flags/USAFlag.svg';
 
 import { changeLenguage } from 'redux/slices/uiSlice';
