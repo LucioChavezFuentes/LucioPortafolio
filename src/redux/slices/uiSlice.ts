@@ -6,7 +6,6 @@ The "mutative" code only works correctly inside of createReducer function
 won't let you mix "mutating" the draft state and also returning a new state value
 */
 import  {createSlice} from '@reduxjs/toolkit';
-import AppLocale from 'lang/index';
 
 interface UIState {
     isThemeDark: boolean;

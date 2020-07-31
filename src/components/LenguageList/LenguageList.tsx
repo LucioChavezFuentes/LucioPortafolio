@@ -69,7 +69,7 @@ function LenguageList(props) {
                 {content : (
                     <>
                         <ListItemIcon>
-                          <img src={USAFlag} style={{width: '35px'}} />
+                          <img src={USAFlag} alt='USA-Flag' style={{width: '35px'}} />
                         </ListItemIcon>
                         <ListItemText primary="EN-US" />
                     </> ),

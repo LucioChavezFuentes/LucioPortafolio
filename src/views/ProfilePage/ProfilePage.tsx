@@ -14,7 +14,6 @@ import Ravenous from "assets/img/customIcons/Ravenous";
 import { connect } from 'react-redux';
 
 // Material IU imports
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
@@ -49,7 +48,6 @@ import styles from "assets/jss/material-kit-react/views/profilePage";
 //types
 import { RouteComponentProps } from "react-router-dom";
 import StyleProps from 'types/StyleProps';
-import color from "@material-ui/core/colors/amber";
 
 interface Props extends RouteComponentProps<any>, React.Props<any> {
   isThemeDark: boolean;
