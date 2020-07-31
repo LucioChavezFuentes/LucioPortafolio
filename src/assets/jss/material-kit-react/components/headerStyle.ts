@@ -14,6 +14,13 @@ import {
 
 import { createStyles, Theme } from "@material-ui/core/styles";
 
+//Helpers
+// Just provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
+import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+
+//types
+import StyleProps from 'types/StyleProps';
+
 const headerStyle = (theme : Theme) => createStyles({
   appBar: {
     display: "flex",
@@ -26,7 +33,8 @@ const headerStyle = (theme : Theme) => createStyles({
     backgroundColor: "#fff",
     boxShadow:
       "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
-    //transition: "all 150ms ease 0s",
+    //TODO: Find why on click EmailDialog appears 'paddign-right: 17px' and makes unwanted animation when transition is settle to 'all'
+    transition: "background-color 750ms ease 0s, padding-top 750ms ease 0s",
     alignItems: "center",
     flexFlow: "row nowrap",
     justifyContent: "flex-start",
@@ -39,7 +47,7 @@ const headerStyle = (theme : Theme) => createStyles({
   },
   fixed: {
     position: "fixed",
-    zIndex: 1100
+    zIndex: 1100,
   },
   container: {
     ...container,
@@ -71,11 +79,11 @@ const headerStyle = (theme : Theme) => createStyles({
   appResponsive: {
     margin: "20px 10px",
   },
-  primary: {
-    backgroundColor: primaryColor,
+  primaryHeader: {
+    backgroundColor: (props : StyleProps) => getDarkOrLightTheme(theme, 'header', props),
     color: "#FFFFFF",
     boxShadow:
-      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46)"
+      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgb(0 0 0 / 50%)"
   },
   info: {
     backgroundColor: infoColor,

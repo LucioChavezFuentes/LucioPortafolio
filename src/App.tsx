@@ -68,16 +68,19 @@ const useStyles = makeStyles((theme) => ({
       'transition': 'background-color 5000s ease-in-out 0s',
     },
 
-    '.MuiPaper-root': {
+    '.MuiDialog-container': {
+      //backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
+      '& .MuiDialog-paper': {
+        backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
+      }
+    },
+
+    '.MuiPaper-rounded': {
       backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
-      // This class changes the icons inside every Paper component
-      //TODO: This rule may make unexpected styles, read more about class nesting in SCSS
-      /*'& .MuiSvgIcon-root': {
-        color: (props) => getDarkOrLightTheme(theme, 'icon',  props as StyleProps),
-      }*/
     },
 
     '.MuiDrawer-paper': {
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
       '& .MuiSvgIcon-root': {
         color: (props) => getDarkOrLightTheme(theme, 'icon',  props as StyleProps),
       },

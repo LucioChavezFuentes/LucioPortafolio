@@ -3,7 +3,7 @@ import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 
 // Material IU imports
-import Paper from '@material-ui/core/Paper';
+import CustomPaper from 'components/CustomPaper/CustomPaper';
 import Typography from '@material-ui/core/Typography';
 
 function AbouteMe({
@@ -26,7 +26,7 @@ function AbouteMe({
               <GridContainer justify={isMobile ? "center" : "space-between"} alignItems='flex-start' spacing={currentGridSpacing}>
                 <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth}>
                   <div className={classes.paperTitleContainer}>
-                    <Paper elevation={MAX_ELEVATION} className="paper">
+                    <CustomPaper elevation={MAX_ELEVATION} className="paper">
                       <Typography color='textPrimary' className="title">
                         {intl.formatMessage({
                         defaultMessage: "About Me",
@@ -35,7 +35,7 @@ function AbouteMe({
                         })}
                         
                       </Typography>
-                    </Paper>
+                    </CustomPaper>
                   </div>
                 </GridItem>
 
@@ -53,7 +53,7 @@ function AbouteMe({
                 </GridItem>
 
                 <GridItem className='gridItemDescription' xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
+                <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                   <p>
                   {intl.formatMessage({
                     defaultMessage: "I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.",
@@ -61,7 +61,7 @@ function AbouteMe({
                     id: "philosophy",
                   })}
                   </p>
-                </Paper>
+                </CustomPaper>
                 </GridItem>
 
                 
@@ -79,7 +79,7 @@ function AbouteMe({
                   </GridItem>
 
                   <GridItem className='gridItemDescription' xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                    <Paper elevation={MEDIUM_ELEVATION} className='paperDescription'>
+                    <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
                       <p className='hobbiesDescription'>
                         {intl.formatMessage({
                           defaultMessage: "Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books for my professional growth. My last two favorite are: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.",
@@ -87,7 +87,7 @@ function AbouteMe({
                           id: "hobbies",
                         })}
                       </p>
-                    </Paper>
+                    </CustomPaper>
                   </GridItem>
 
               </GridContainer>

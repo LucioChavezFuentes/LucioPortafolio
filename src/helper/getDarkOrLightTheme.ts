@@ -17,7 +17,8 @@ type Type =
     'label' |
     'divider' |
     'text-secondary' |
-    'autofillInput'
+    'autofillInput' |
+    'header'
 
 //const defaultType : Type = 'text' as Type
 
@@ -72,6 +73,9 @@ const getDarkOrLightTheme = ({palette}: Theme, type : Type, {isThemeDark} : Styl
         
         case 'autofillInput':
             return isThemeDark ? palette.dark.textFieldInput.autoFill : palette.textFieldInput.autoFill
+        
+        case 'header':
+            return isThemeDark ? '#212121' : palette.primary.main
 
         default:
             return isThemeDark ? palette.dark.primary.main : palette.primary.main

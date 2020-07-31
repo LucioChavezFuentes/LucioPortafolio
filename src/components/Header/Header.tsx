@@ -22,9 +22,10 @@ import styles from "assets/jss/material-kit-react/components/headerStyle";
 const useStyles = makeStyles(styles);
 
 export default function Header(props) {
-  const {isThemeDark} = props;
+  const {isThemeDark, color} = props;
   const classes = useStyles({isThemeDark});
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [colorOnScroll, setColorOnScroll] = React.useState(color)
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
       window.addEventListener("scroll", headerColorChange);
@@ -38,10 +39,12 @@ export default function Header(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  
   const headerColorChange = () => {
-    const { color, changeColorOnScroll } = props;
+    const { changeColorOnScroll } = props;
     const windowsScrollTop = window.pageYOffset;
-    if (windowsScrollTop > changeColorOnScroll.height) {
+     setColorOnScroll(windowsScrollTop > changeColorOnScroll.height ? changeColorOnScroll.color : color)
+    /*if (windowsScrollTop > changeColorOnScroll.height) {
       document.body
         .getElementsByTagName("header")[0]
         .classList.remove(classes[color]);
@@ -55,13 +58,13 @@ export default function Header(props) {
       document.body
         .getElementsByTagName("header")[0]
         .classList.remove(classes[changeColorOnScroll.color]);
-    }
+    }*/
   };
-  const { color, leftLinks, brand, fixed, absolute, onClickProject, projectsSectionRef } = props;
+  const { leftLinks, brand, fixed, absolute, onClickProject, projectsSectionRef } = props;
   
   const appBarClasses = classNames({
     [classes.appBar]: true,
-    [classes[color]]: color,
+    [classes[colorOnScroll]]: color,
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });

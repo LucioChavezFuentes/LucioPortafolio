@@ -165,7 +165,7 @@ const styles = (theme: Theme) => createStyles({
 
 })
 
-//TODO: Analize if this approach could be better than a global class in App.tsx to style darkMode
+//TODO: Move global styles from App.tsx to its corresponding component. This approach IS better than a global class in App.tsx to style darkMode
 /*const CustomTextField = withStyles((theme) => ({
     root: {
       '& label.Mui-focused': {
