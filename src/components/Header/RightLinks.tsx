@@ -15,13 +15,11 @@ import Conejito from "assets/img/customIcons/Conejito";
 import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
 import TeaCozy from "assets/img/customIcons/TeaCozy";
-import ExternalLink from "assets/img/customIcons/ExternalLink";
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button";
-import BadgeIcon from "components/BadgeIcon";
 import EmailDialog from "components/EmailDialog/EmailDialog";
 import {injectIntl} from 'react-intl';
 import IntlMessage from 'helper/IntlMessages';
@@ -31,8 +29,6 @@ import { connect } from 'react-redux';
 
 //types
 import {RootState} from 'redux/rootReducer';
-
-import { Link as LinkScroll} from 'react-scroll'
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle";
 const useStyles = makeStyles(styles);
@@ -47,7 +43,7 @@ function HeaderLinks(props: any) {
   const {isThemeDark, intl} = props
   const classes = useStyles({isThemeDark});
 
-  const {onClickProject, projectsSectionRef, handleDrawerToggle, isMobile} = props;
+  const {onClickProject, handleDrawerToggle, isMobile} = props;
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
 
@@ -76,9 +72,10 @@ function HeaderLinks(props: any) {
         
       </ListSubheader>
         <ListItem className={classes.listItem}>
-          <Button component={LinkScroll}
-            to={projectsSectionRef}
-            spy={true} smooth={true} duration={500}
+          <Button
+            href='https://thesocialmono.firebaseapp.com'
+            target="_blank"
+            rel="noopener noreferrer"
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={0}
@@ -91,9 +88,10 @@ function HeaderLinks(props: any) {
           </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
-        <Button component={LinkScroll}
-            to={projectsSectionRef}
-            spy={true} smooth={true} duration={500}
+        <Button 
+            href="https://codigoaventura-2c741.firebaseapp.com"
+            target='_blank'
+            rel="noopener noreferrer"
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={1}
@@ -110,9 +108,10 @@ function HeaderLinks(props: any) {
           </Button>
         </ListItem>
           <ListItem className={classes.listItem}>
-          <Button component={LinkScroll}
-            to={projectsSectionRef}
-            spy={true} smooth={true} duration={500}
+          <Button 
+            href='https://ravenous-8b12b.firebaseapp.com'
+            target='_blank'
+            rel="noopener noreferrer"
             className={classes.dropdownButtonLink}
             onClick={handleClick}
             data-key={2}
@@ -125,13 +124,12 @@ function HeaderLinks(props: any) {
           </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
-            <BadgeIcon
-              icon={ExternalLink}
-              isMobile={isMobile}
-            >
+            
               <Button
+                onClick={handleDrawerToggle}
                 href='https://tea-cozy-37cbf.firebaseapp.com'
                 target="_blank"
+                rel="noopener noreferrer"
                 className={classes.dropdownButtonLink}
                 data-key={3}
                 color="transparent"
@@ -141,7 +139,6 @@ function HeaderLinks(props: any) {
               >
                 Tea Cozy
               </Button>
-            </BadgeIcon>
           </ListItem>
         <ListItem className={classes.subList}>
           <ListSubheader id="Social-Media" className={classes.listSubheader}>
@@ -193,54 +190,65 @@ function HeaderLinks(props: any) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <LinkScroll
-            to={projectsSectionRef}
-            spy={true} smooth={true} duration={500}
-            className={classes.dropdownLink}
-            onClick={handleClick as any}
-            data-key={0}
-            >
-              The Social Conejito
-            </LinkScroll>,
-            <LinkScroll
-              to={projectsSectionRef}
-              spy={true} smooth={true} duration={500}
-              className={classes.dropdownLink}
-              onClick={handleClick as any}
+            <Button 
+              onClick={handleClick}
+              data-key={0}
+              href='https://thesocialmono.firebaseapp.com' 
+              target='_blank'
+              rel="noopener noreferrer"
+              className={classes.dropdownButtonLink}
+              color="transparent"
+              variant='text'
+              simple
+              startIcon={<Conejito />}
+          >
+            The Social Conejito
+          </Button>,
+            <Button
+              onClick={handleClick}
               data-key={1}
-            >
-              {intl.formatMessage({
+              href="https://codigoaventura-2c741.firebaseapp.com"
+              target='_blank'
+              rel="noopener noreferrer"
+              className={classes.dropdownButtonLink}
+              color="transparent"
+              variant='text'
+              simple
+              startIcon={<AdventureCode />}
+          >
+            {intl.formatMessage({
                         defaultMessage: 'Adventure Code',
                         description: 'adventure-code-title',
                         id: "adventure-code-title",
                       })}
-            </LinkScroll>,
-            <LinkScroll
-              to={projectsSectionRef}
-              spy={true} smooth={true} duration={500}
-              className={classes.dropdownLink}
-              onClick={handleClick as any}
+          </Button>,
+            <Button
+              onClick={handleClick}
               data-key={2}
-            >
-              Ravenous
-            </LinkScroll>,
+              href='https://ravenous-8b12b.firebaseapp.com'
+              target='_blank'
+              rel="noopener noreferrer"
+              className={classes.dropdownButtonLink}
+              color="transparent"
+              variant='text'
+              simple
+              startIcon={<Ravenous />}
+          >
+            Ravenous
+          </Button>,
             
-            <BadgeIcon
-                icon={ExternalLink}
-                rightPositionInPixels={64}
-                fullWidth
-                id='externalLink'
+            <Button
+                href='https://tea-cozy-37cbf.firebaseapp.com'
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.dropdownButtonLink}
+                color="transparent"
+                variant='text'
+                simple
+                startIcon={<TeaCozy/>}
               >
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href='https://tea-cozy-37cbf.firebaseapp.com'
-                  className={classes.dropdownLink}
-                  data-key={3}
-                >
-                  Tea Cozy
-                </a>
-            </ BadgeIcon>
+                Tea Cozy
+              </Button>
             
           ]}
         />

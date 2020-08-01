@@ -40,6 +40,7 @@ interface RegularButtonProps {
   classes?: any;
   type?: 'submit' | 'button' | 'reset';
   isThemeDark?: boolean;
+  rel?: string
 }
 
 const makeComponentStyles = makeStyles(buttonStyle);

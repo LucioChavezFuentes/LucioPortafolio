@@ -64,7 +64,6 @@ function ProfilePage(props: any) {
   const classes : any = useStyles({isThemeDark} as StyleProps);
   const {isMobile} = useWindowSize();
   const [activeProject, setActiveProject] = useState(0);
-  
   /*const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
@@ -99,8 +98,13 @@ function ProfilePage(props: any) {
   
   const projectsSectionRef = 'projectsSection';
 
+  //const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+
   const handleChangeActive = (active) => {
-    //window.scrollTo(0, myRef.current.offsetTop)
+    /*if(myRef !== null) {
+      window.scrollTo(0, myRef.current.offsetTop )
+    }*/
+    
     setActiveProject(active)
   }
 
@@ -349,7 +353,7 @@ function ProfilePage(props: any) {
           <div className={classes.projectsContainer} style={{paddingTop: currentPixelsSpacing, paddingBottom: currentPixelsSpacing}}>
 
             <Element name={projectsSectionRef}>
-              <div className={classes.latestProjectsTitleContainer}>
+              <div className={classes.latestProjectsTitleContainer} >
                 <CustomPaper elevation={MAX_ELEVATION} className="paperLatestProjects">
                   <Typography color='textPrimary' className="latestProjectsTitle">
                     {intl.formatMessage({
@@ -420,7 +424,7 @@ function ProfilePage(props: any) {
                               </Button>
                             
                               <Button
-                                href="https://thesocialmono.firebaseapp.com/"
+                                href="https://thesocialmono.firebaseapp.com"
                                 target='_blank'
                                 className='appPageButton' 
                                 variant='contained'
