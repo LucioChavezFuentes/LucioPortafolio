@@ -405,6 +405,7 @@ function ProfilePage(props: any) {
                               <Button 
                                 href='https://github.com/LucioChavezFuentes/TheSocialConejitoComplete' 
                                 target='_blank'
+                                rel="noopener noreferrer"
                                 className='gitHubButton'
                                 classes={{startIcon: 'startIcon'}}
                                 color='github' 
@@ -426,6 +427,7 @@ function ProfilePage(props: any) {
                               <Button
                                 href="https://thesocialmono.firebaseapp.com"
                                 target='_blank'
+                                rel="noopener noreferrer"
                                 className='appPageButton' 
                                 variant='contained'
                                 color="primary"  
@@ -475,6 +477,7 @@ function ProfilePage(props: any) {
                               <Button  
                                 href='https://github.com/LucioChavezFuentes/codigoAventura' 
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className='gitHubButton' 
                                 classes={{startIcon: 'startIcon'}}
                                 color='github' 
@@ -496,6 +499,7 @@ function ProfilePage(props: any) {
                               <Button
                                 href="https://codigoaventura-2c741.firebaseapp.com"
                                 target='_blank'
+                                rel="noopener noreferrer"
                                 color='primary'
                                 variant='contained'
                                 className='appPageButton' startIcon={<AdventureCode />}>
@@ -537,7 +541,8 @@ function ProfilePage(props: any) {
                             <div className={classes.projectsButtonsContainer}>
                               <Button
                                 href='https://github.com/LucioChavezFuentes/Ravenous'
-                                target='_blank' 
+                                target='_blank'
+                                rel="noopener noreferrer"
                                 className='gitHubButton'
                                 classes={{startIcon: 'startIcon'}}
                                 color='github' 
@@ -558,7 +563,8 @@ function ProfilePage(props: any) {
 
                               <Button
                                 href="https://ravenous-8b12b.firebaseapp.com/" 
-                                target='_blank' 
+                                target='_blank'
+                                rel="noopener noreferrer"
                                 className='appPageButton' 
                                 color="primary" 
                                 variant='contained' 
