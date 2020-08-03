@@ -8,6 +8,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from "components/CustomButtons/Button";
 
+import IntlMessage from 'helper/IntlMessages';
+
 export default function DialogFeedback(props) {
 
     const {open, error, onClose, ...rest} = props;
@@ -21,15 +23,27 @@ export default function DialogFeedback(props) {
         aria-describedby="alert-dialog-description"
         {...rest}
       >
-        <DialogTitle id="alert-dialog-title">{"Message Sent Successfully"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+        <IntlMessage 
+              defaultMessage="!Message Sent Successfully¡" 
+              description= 'alert-dialog-title-success'
+              id= "alert-dialog-title-success" />
+        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Thank you. We will be in touch.
+          <IntlMessage 
+              defaultMessage="Thank you. We will be in touch." 
+              description= 'send-email-form-success'
+              id= "send-email-form-success" />
+            
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose} color="primary">
-            Accept
+            <IntlMessage 
+              defaultMessage="Accept" 
+              description= 'accept-word'
+              id= "accept-word" />
           </Button>
         </DialogActions>
       </Dialog>
@@ -41,10 +55,19 @@ export default function DialogFeedback(props) {
         aria-describedby="alert-dialog-description"
         {...rest}
     >
-        <DialogTitle id="alert-dialog-title">{"!Something went wrong¡"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+          <IntlMessage 
+              defaultMessage="!Something went wrong¡" 
+              description= 'alert-dialog-title-error'
+              id= "alert-dialog-title-error"
+          />
+        </DialogTitle>
         <DialogContent>
             <DialogContentText id="alert-dialog-description">
-                Looks like we got an error. Try send me the email directly to 
+            <IntlMessage 
+              defaultMessage="Looks like we got an error. Try send me the email directly to" 
+              description= 'send-email-form-error'
+              id= "send-email-form-error" />
                 
                 <a 
                 style={{textDecoration:'underline', marginLeft:'5px',}}
@@ -56,7 +79,11 @@ export default function DialogFeedback(props) {
         </DialogContent>
         <DialogActions>
         <Button onClick={onClose} color="primary">
-            Accept
+          <IntlMessage 
+              defaultMessage="Accept" 
+              description= 'accept-word'
+              id= "accept-word" />
+            
         </Button>
         </DialogActions>
     </Dialog>

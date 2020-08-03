@@ -38,7 +38,7 @@
     "react-scroll": "^1.7.16",
     "react-scrollable-anchor": "^0.6.1",
     "react-slick": "0.25.2",
-    "react-swipeable-views": "0.13.3",
+    "react-swipeable-views": "0.13.9",
     "redux-persist": "^6.0.0",
     "typeface-roboto": "^0.0.75",
     "typescript": "^3.8.3",

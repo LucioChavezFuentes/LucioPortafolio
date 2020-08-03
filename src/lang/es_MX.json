@@ -23,7 +23,7 @@
     "hobbies" : "Usualmente estoy jugando video juegos, mirando caricaturas en YouTube y leyendo libros para mi aprendizaje profesional. Mis dos libros favoritos son: 'Code Complete' de Steve McConell y 'Essentialism: The Disciplined Pursuit of Less' de Greg McKeown.",
     "language-title": "Idioma",
     "email-tooltip": "!Envía un email a Lucio¡",
-    "legend-1-email": "Envía me un mensaje desde aquí.",
+    "legend-1-email": "Envíame un mensaje desde aquí.",
     "legend-2-email": "!Sencillo y Rápido¡",
     "github-tooltip": "GitHub de Lucio",
     "name-email": "Nombre",
@@ -39,6 +39,16 @@
     "social-media-title": "Redes Sociales",
     "legend-email": "O puedes enviarme un email a",
     "contact-word": "!Contáctame¡",
-    "contact-legend": "Mándame un saludo sin compromiso a"
+    "contact-legend": "Mándame un saludo sin compromiso a",
+    "back-end-model-title": "Back End y Modelo",
+    "error-email-form-1": "!No puede estar vacío¡ ¿A cual email debería responder?",
+    "error-email-form-2": "Por favor provee un email válido",
+    "error-name-form": "!No puede estar vacío¡ Me gustaría saber tu nombre.",
+    "error-message-form": "!No puede estar vacío, no deberías mandar un email sin un mensaje¡",
+    "send-email-form-success": "Gracias. Estaremos en contacto.",
+    "send-email-form-error": "Parece que tuvimos un error. Intenta enviarme el correo directamente a",
+    "accept-word": "Aceptar",
+    "alert-dialog-title-success": "!Mensaje Enviado Exitosamente¡",
+    "alert-dialog-title-error": "!Algo Salió Mal¡"
 
   }

@@ -42,6 +42,9 @@ import CustomPaper from 'components/CustomPaper/CustomPaper';
 
 import {injectIntl} from 'react-intl';
 
+//Helper
+import IntlMessage from 'helper/IntlMessages';
+
 // styles
 import styles from "assets/jss/material-kit-react/views/profilePage";
 
@@ -291,7 +294,12 @@ function ProfilePage(props: any) {
                
               <GridContainer id="Back-End-Model-Title" item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={none}>
                 <GridItem>
-                  <h6 key="5" className='miniTitle'>Back End and Model</h6>
+                  <h6 key="5" className='miniTitle'> 
+                    <IntlMessage 
+                      defaultMessage='Back End and Model' 
+                      description= 'back-end-model-title'
+                      id= "back-end-model-title" />
+                  </h6>
                 </GridItem>
               </GridContainer>
 
