@@ -38,7 +38,11 @@ const headerStyle = (theme : Theme) => createStyles({
     flexFlow: "row nowrap",
     justifyContent: "flex-start",
     position: "relative",
-    zIndex: "unset"
+    zIndex: "unset",
+
+    [theme.breakpoints.down('sm')]: {
+      height: '50px'
+    },
   },
   absolute: {
     position: "absolute",
