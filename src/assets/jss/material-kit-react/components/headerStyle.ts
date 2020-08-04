@@ -33,7 +33,7 @@ const headerStyle = (theme : Theme) => createStyles({
     boxShadow:
       "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
     //TODO: Find why on click EmailDialog appears 'paddign-right: 17px' and makes unwanted animation when transition is settle to 'all'
-    transition: "background-color 750ms ease 0s, padding-top 750ms ease 0s",
+    transition: "background-color 750ms ease-in 50ms, padding-top 750ms ease 0s",
     alignItems: "center",
     flexFlow: "row nowrap",
     justifyContent: "flex-start",

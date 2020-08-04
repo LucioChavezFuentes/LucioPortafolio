@@ -125,7 +125,7 @@ function ProfilePage(props: any) {
         leftLinks={{ThemeSwitch , LenguageList} }
         isThemeDark={isThemeDark}
         changeColorOnScroll={{
-          height: 70,
+          height: isMobile ? 45 : 30,
           color: 'primaryHeader',
         }}
         fixed
