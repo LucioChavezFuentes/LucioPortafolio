@@ -49,7 +49,7 @@ const profilePageStyle = (theme : Theme) => {
         minHeight: '567px',
       }
     },
-    // @ts-ignore
+    
     description: {
       margin: "1.071rem auto",
       width: '80%',
@@ -128,7 +128,7 @@ const profilePageStyle = (theme : Theme) => {
       margin: '10px',
     },
     ...imagesStyle,
-    // @ts-ignore
+
     main: {
       background: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
       position: "relative",
@@ -141,7 +141,7 @@ const profilePageStyle = (theme : Theme) => {
       boxShadow:
         "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
     },
-    // @ts-ignore
+
     title: {
       ...title,
       display: "inline-block",
@@ -198,7 +198,7 @@ const profilePageStyle = (theme : Theme) => {
   
       "& .paperLatestProjects": {
         width: "100%",
-        margin: "5%",
+        margin: "10px",
         padding: "10px",
       },
       "& .latestProjectsTitle": {
@@ -291,7 +291,7 @@ const profilePageStyle = (theme : Theme) => {
   
       "& .paper": {
         width: "100%",
-        margin: "5%",
+        margin: "10px",
         padding: "10px",
       },
       "& .title": {
@@ -307,6 +307,9 @@ const profilePageStyle = (theme : Theme) => {
       '& .aboutMe': {
         width: '80%',
         margin: '0 auto 3rem auto',
+        [theme.breakpoints.down("sm")]: {
+          width: '100%'
+        }
       },
   
       '& .miniTitle': {
@@ -326,9 +329,6 @@ const profilePageStyle = (theme : Theme) => {
       '& .paperDescription': {
           padding:"10px",
           borderRadius: '20px',
-          [theme.breakpoints.down("sm")]: {
-            padding:"5px",
-          }
       },
 
       '& p': {
