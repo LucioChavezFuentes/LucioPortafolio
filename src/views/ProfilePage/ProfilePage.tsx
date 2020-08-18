@@ -178,14 +178,16 @@ function ProfilePage(props: any) {
                 <GridItem >
                   <div className={classes.philosophy}>
                   <CustomPaper elevation={MAX_ELEVATION} className="paperPhilosophy paperDescription" >
-                    <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-                    <p>
+                    <ScrollAnimation animateIn="fadeIn" animateOnce={true} >
+                      
+                      <p>
                       {intl.formatMessage({
                         defaultMessage: 'I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development.',
                         description: 'occupation-description',
                         id: "occupation-description",
                       })}
                     </p>
+                    
                     </ScrollAnimation>
                     </CustomPaper>
                   </div>
@@ -200,17 +202,16 @@ function ProfilePage(props: any) {
             
 
             <GridContainer 
-              id="Front-End-Description" 
-              justify='center' 
-              alignItems="center" 
+              id="Front-End-Description"
+              justify='center'
+              alignItems="stretch"
               item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={isMobile ? veryLow : medium}>
             
               <GridItem   xs={fullWidth} sm={fullWidth} md={halfWidth}>
               <div className='gridItemDescription'>
-              <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
+              <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription paperDescriptionText'>
                 <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-                
-                  <p key="2" >{intl.formatMessage({
+                  <p key="2">{intl.formatMessage({
                         defaultMessage: 'The scope of my skills cover front-end technologies such as:',
                         description: 'skills',
                         id: "skills",
@@ -254,15 +255,15 @@ function ProfilePage(props: any) {
               <GridContainer 
                 id="Test-Description" 
                 justify='center' 
-                alignItems="center" 
+                alignItems="stretch"
                 item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={isMobile ? veryLow : medium}
               >
 
                 <GridItem  xs={fullWidth} sm={halfWidth} md={halfWidth} >
                   <div className='gridItemDescription'>
-                  <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
-                    <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-                      <p key="4" >
+                  <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription paperDescriptionText'>
+                    <ScrollAnimation animateIn="fadeIn" animateOnce={true} >
+                      <p key="4">
                         {intl.formatMessage({
                           defaultMessage: 'I also write unit and/or integration tests with:',
                           description: 'testing-skills-description',
@@ -306,12 +307,12 @@ function ProfilePage(props: any) {
               <GridContainer 
                 id="Back-End-Model-Description" 
                 justify='center' 
-                alignItems="center" 
+                alignItems="stretch" 
                 item xs={fullWidth} sm={fullWidth} md={fullWidth} spacing={isMobile ? veryLow : medium}
               >
                 <GridItem  xs={fullWidth} sm={halfWidth} md={halfWidth} >
                 <div className='gridItemDescription'>
-                  <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
+                  <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription paperDescriptionText'>
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                       <p key="6" >
                         {intl.formatMessage({

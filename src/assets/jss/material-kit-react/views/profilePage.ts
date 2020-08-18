@@ -104,6 +104,7 @@ const profilePageStyle = (theme : Theme) => {
         backgroundColor: lightPrimaryColor,
         borderRadius: "20px",
         display: 'flex',
+        height: '100%',
         '& img': {
           maxWidth:'90%',
           maxHeight:'90%'
@@ -118,8 +119,19 @@ const profilePageStyle = (theme : Theme) => {
           padding:"5px",
           margin: '10px'
         },
-        
+
       },
+
+      '& .paperDescriptionText': {
+        '& div': {
+          height: '100%', 
+          display: 'flex'
+        },
+
+        '& p': {
+          alignSelf: 'center'
+        }
+      }
   
     },
     occupation: {
@@ -261,10 +273,13 @@ const profilePageStyle = (theme : Theme) => {
       borderRadius: '20px',
   
       '& .paperPhilosophy': {
-        padding: "15px",
+        padding: "25px",
         textAlign: "center",
         borderRadius: '20px',
         margin: "15px",
+        [theme.breakpoints.down("sm")]: {
+          padding: "15px",
+        },
         [theme.breakpoints.down("xs")]: {
           margin: "5% 5%",
         }
