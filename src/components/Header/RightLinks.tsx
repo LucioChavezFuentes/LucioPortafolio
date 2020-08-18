@@ -35,9 +35,9 @@ const useStyles = makeStyles(styles);
 
 
 // TODO: Fill the HeaderLinksProps interface
-interface HeaderLinksProps {
+/*interface HeaderLinksProps {
 
-}
+}*/
 
 function HeaderLinks(props: any) {
   const {isThemeDark, intl} = props
@@ -193,6 +193,7 @@ function HeaderLinks(props: any) {
             <Button 
               onClick={handleClick}
               data-key={0}
+              key={0}
               href='https://thesocialmono.firebaseapp.com' 
               target='_blank'
               rel="noopener noreferrer"
@@ -207,6 +208,7 @@ function HeaderLinks(props: any) {
             <Button
               onClick={handleClick}
               data-key={1}
+              key={1}
               href="https://codigoaventura-2c741.firebaseapp.com"
               target='_blank'
               rel="noopener noreferrer"
@@ -225,6 +227,7 @@ function HeaderLinks(props: any) {
             <Button
               onClick={handleClick}
               data-key={2}
+              key={2}
               href='https://ravenous-8b12b.firebaseapp.com'
               target='_blank'
               rel="noopener noreferrer"
@@ -246,6 +249,7 @@ function HeaderLinks(props: any) {
                 variant='text'
                 simple
                 startIcon={<TeaCozy/>}
+                key={3}
               >
                 Tea Cozy
               </Button>

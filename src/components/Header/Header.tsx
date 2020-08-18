@@ -21,7 +21,7 @@ import styles from "assets/jss/material-kit-react/components/headerStyle";
 
 const useStyles = makeStyles(styles);
 
-export default function Header(props) {
+export default function Header(props : any) {
   const {isThemeDark, color} = props;
   const classes = useStyles({isThemeDark});
   const [mobileOpen, setMobileOpen] = React.useState(false);
