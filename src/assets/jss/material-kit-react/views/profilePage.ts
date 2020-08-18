@@ -117,7 +117,7 @@ const profilePageStyle = (theme : Theme) => {
         borderRadius: '20px',
         [theme.breakpoints.down("sm")]: {
           padding:"5px",
-          margin: '10px'
+          margin: '0'
         },
 
       },
@@ -129,7 +129,10 @@ const profilePageStyle = (theme : Theme) => {
         },
 
         '& p': {
-          alignSelf: 'center'
+          alignSelf: 'center',
+          [theme.breakpoints.down("sm")]: {
+            padding:"5px"
+          }
         }
       }
   
@@ -279,9 +282,10 @@ const profilePageStyle = (theme : Theme) => {
         margin: "15px",
         [theme.breakpoints.down("sm")]: {
           padding: "15px",
+          margin: "0",
         },
         [theme.breakpoints.down("xs")]: {
-          margin: "5% 5%",
+          margin: "0",
         }
       }
     },
