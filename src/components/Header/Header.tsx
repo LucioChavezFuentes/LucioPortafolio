@@ -20,7 +20,7 @@ import RightLinks from "./RightLinks";
 import styles from "assets/jss/material-kit-react/components/headerStyle";
 
 const useStyles = makeStyles(styles);
-
+//TODO: Create a type interface for Header Props
 export default function Header(props : any) {
   const {isThemeDark, color} = props;
   const classes = useStyles({isThemeDark});
