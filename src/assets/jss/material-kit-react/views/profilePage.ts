@@ -56,7 +56,12 @@ const profilePageStyle = (theme : Theme) => {
       padding: '1rem auto',
       color: "#999",
       textAlign: "center",
+      //For all cellphones
       [theme.breakpoints.down("xs")]: {
+        width: '100%',
+      },
+      //For Tablets or Ipads
+      [theme.breakpoints.only("sm")]: {
         width: '100%',
       },
   
@@ -134,8 +139,7 @@ const profilePageStyle = (theme : Theme) => {
             padding:"5px"
           }
         }
-      }
-  
+      },
     },
     occupation: {
       color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps), //theme.palette.text.primary,
@@ -299,7 +303,7 @@ const profilePageStyle = (theme : Theme) => {
       textAlign: "center",
       // borderTop: `3px solid ${theme.palette.secondary.light}`,
       margin: "0 auto",
-      width: "50%",
+      width: "63%",
       //backgroundColor: lightPrimaryColor,
       borderRadius: "20px",
       display: 'flex',

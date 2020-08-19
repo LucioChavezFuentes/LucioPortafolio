@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme : Theme) => createStyles({
         flexWrap: "wrap",
         justifyContent:"center",
         alignItems: "center",
+        height: '100%',
 
         '& .itemNode':{
             width: '40%'
@@ -37,7 +38,7 @@ function BackEndIcons() {
     const classes = useStyles();
 
     return (
-        <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>
+        <ScrollAnimation animateIn="fadeIn"  animateOnce={true} style={{height: '100%'}}>
             <div className={classes.flexContainer}>
                 <div className='itemNode'>
                     <img src={nodeIcon} alt='node-js' />

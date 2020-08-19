@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme : Theme) => createStyles({
         flexWrap: "wrap",
         justifyContent:"center",
         alignItems: "center",
+        height: '100%',
 
         '& .itemHTMLCSS':{
             width: '30%'
@@ -47,7 +48,7 @@ function FrontEndIcons() {
     const classes = useStyles();
 
     return (
-        <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>
+        <ScrollAnimation animateIn="fadeIn"  animateOnce={true} style={{height: '100%'}}>
             <div className={classes.flexContainer}>
                 <div className='itemHTMLCSS'>
                     <img src={hTMLCSSIcon} alt='html-css' />

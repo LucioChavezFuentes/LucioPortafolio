@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme : Theme) => createStyles({
         flexWrap: "wrap",
         justifyContent:"space-evenly",
         alignItems: "center",
+        height: '100%',
 
         '& .itemJest':{
             width: '20%'
@@ -35,7 +36,7 @@ function BackEndIcons() {
     const classes = useStyles();
 
     return (
-        <ScrollAnimation animateIn="fadeIn"  animateOnce={true}>
+        <ScrollAnimation animateIn="fadeIn"  animateOnce={true} style={{height: '100%'}}>
             <div className={classes.flexContainer}>
                 <div className='itemJest'>
                     <img src={jestIcon} alt='jest' />
