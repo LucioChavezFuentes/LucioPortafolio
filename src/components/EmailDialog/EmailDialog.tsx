@@ -1,5 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import emailjs from 'emailjs-com';
+
+//React Router
+import {useLocation, useHistory, matchPath} from 'react-router-dom';
 
 // Material UI Imports
 import Dialog from '@material-ui/core/Dialog';
@@ -191,7 +194,7 @@ const styles = (theme: Theme) => createStyles({
 
 const useStyles = makeStyles(styles);
 
-const EmailDialog:React.FC<Props> = (props) => {
+const EmailDialog:React.FC<Props> = (props : Props) => {
     const {intl} = props;
     // API Variables
     const USER_ID = "user_8GdofLfZlnlQTza77rkLM";
@@ -214,6 +217,8 @@ const EmailDialog:React.FC<Props> = (props) => {
         subject: '',
         message: '',
     }
+    const location = useLocation();
+    const history = useHistory();
     const [inputs, setInputs] = React.useState<Inputs>(initialInputsState);
     const [open, setOpen] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
@@ -224,11 +229,23 @@ const EmailDialog:React.FC<Props> = (props) => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const classes = useStyles({isThemeDark: props.isThemeDark});
 
+    useEffect(() => {
+        if(matchPath('/', {path: location.pathname})) {
+            setOpen(false);
+            setErrors({});
+        } else {
+            setOpen(true);
+        }
+
+    }, [location])
+
     const handleOpen = () => {
+        history.push('/email')
         setOpen(true);
       }
 
     const handleClose = () => {
+        history.push('/');
         setOpen(false);
         setErrors({});
     }
@@ -253,11 +270,14 @@ const EmailDialog:React.FC<Props> = (props) => {
                     setLoading(() => false);
                     setOpenFeedback(() => true);
                     setInputs(() => initialInputsState);
+                    history.push('/');
                 })
                 .catch(err => {
+                    setOpen(() => false);
                     setLoading(() => false);
                     setAPIError(() => err);
                     setOpenFeedback(() => true);
+                    history.push('/');
                     return console.error('Oh well, you failed. Here some thoughts on the error that occured:', err)
                 })
                     
