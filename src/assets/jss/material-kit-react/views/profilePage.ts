@@ -311,6 +311,10 @@ const profilePageStyle = (theme : Theme) => {
       [theme.breakpoints.down("xs")]: {
         width: "100%",
       },
+
+      [theme.breakpoints.only("sm")]: {
+        width: "50%",
+      },
   
       "& .paper": {
         width: "100%",
