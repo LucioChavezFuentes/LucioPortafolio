@@ -299,7 +299,7 @@ const profilePageStyle = (theme : Theme) => {
       width: '75%',
     },
   
-    paperTitleContainer: {
+    aboutMePaperTitleContainer: {
       textAlign: "center",
       // borderTop: `3px solid ${theme.palette.secondary.light}`,
       margin: "0 auto",

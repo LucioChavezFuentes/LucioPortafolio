@@ -41,7 +41,7 @@ const AbouteMe : React.FC<Props> = ({
       <div className='aboutMe'>
         <GridContainer justify={isMobile ? "center" : "space-between"} alignItems='flex-start' spacing={currentGridSpacing}>
           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-            <div className={classes.paperTitleContainer}>
+            <div className={classes.aboutMePaperTitleContainer}>
               <CustomPaper elevation={MAX_ELEVATION} className="paper">
                 <Typography color='textPrimary' className="title">
                   {intl.formatMessage({
