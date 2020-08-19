@@ -354,8 +354,11 @@ const profilePageStyle = (theme : Theme) => {
       },
   
       '& .paperDescription': {
-          padding:"10px",
+          padding:"25px",
           borderRadius: '20px',
+          [theme.breakpoints.down("xs")]: {
+            padding: '15px',
+          }
       },
 
       '& p': {
