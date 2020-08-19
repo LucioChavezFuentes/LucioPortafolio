@@ -168,7 +168,7 @@ function HeaderLinks(props: any) {
             </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
-          <EmailDialog className={classes.dropdownButtonLink} isMobile />
+          <EmailDialog className={classes.dropdownButtonLink} handleDrawerToggle={handleDrawerToggle} isMobile />
         </ListItem>
       </ListItem>
     </List>

@@ -51,6 +51,7 @@ interface Props {
     tooltipClassName?: string;
     isMobile?: boolean;
     isThemeDark: boolean;
+    handleDrawerToggle?: any;
     intl: any;
 }
 
@@ -195,7 +196,7 @@ const styles = (theme: Theme) => createStyles({
 const useStyles = makeStyles(styles);
 
 const EmailDialog:React.FC<Props> = (props : Props) => {
-    const {intl} = props;
+    const {intl, handleDrawerToggle} = props;
     // API Variables
     const USER_ID = "user_8GdofLfZlnlQTza77rkLM";
     const GMAIL_SERVICE = "gmail";
@@ -242,6 +243,9 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
     const handleOpen = () => {
         history.push('/email')
         setOpen(true);
+        if(handleDrawerToggle){
+            handleDrawerToggle()
+        }
       }
 
     const handleClose = () => {
