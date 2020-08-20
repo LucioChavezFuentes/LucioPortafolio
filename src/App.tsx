@@ -2,6 +2,9 @@ import React from 'react'
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
+//Animations
+import {motion, AnimatePresence} from 'framer-motion'
+
 //Redux
 import { connect } from 'react-redux';
 //Redux Persist
@@ -16,7 +19,7 @@ import ProfilePage from "views/ProfilePage/ProfilePage";
 // MUI Imports
 import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+//Internationalization
 import {IntlProvider} from 'react-intl';
 
 //Helpers
@@ -209,9 +212,11 @@ function App(props : AppProps) {
         <CssBaseline>
           <IntlProvider locale='es' defaultLocale="en" messages={AppLocale[locale].messages as any } >
           <Router history={hist}>
-            <Switch>
-              <Route path="/" render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
-            </Switch>
+            <AnimatePresence>
+              <Switch>
+                <Route path="/" render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
+              </Switch>
+            </AnimatePresence>
           </Router>
           </IntlProvider>
         </CssBaseline>
