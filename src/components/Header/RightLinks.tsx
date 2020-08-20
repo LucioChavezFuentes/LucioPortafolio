@@ -152,6 +152,7 @@ function HeaderLinks(props: any) {
 
         <ListItem className={classes.listItem}>
           <Button
+            onClick={handleDrawerToggle}
               className={classes.dropdownButtonLink}
               href="https://github.com/LucioChavezFuentes"
               target="_blank"
@@ -168,7 +169,7 @@ function HeaderLinks(props: any) {
             </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
-          <EmailDialog className={classes.dropdownButtonLink} handleDrawerToggle={handleDrawerToggle} isMobile />
+          <EmailDialog className={classes.dropdownButtonLink} isMobile />
         </ListItem>
       </ListItem>
     </List>
