@@ -1,4 +1,8 @@
 import React from "react";
+
+//React Router
+import {useLocation, useHistory, matchPath} from 'react-router-dom';
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -26,6 +30,8 @@ export default function Header(props : any) {
   const classes = useStyles({isThemeDark});
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [colorOnScroll, setColorOnScroll] = React.useState(color)
+  const location = useLocation();
+  const history = useHistory();
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
       window.addEventListener("scroll", headerColorChange);
@@ -36,8 +42,26 @@ export default function Header(props : any) {
       }
     };
   });
+
+  React.useEffect(() => {
+    //The mobile drawer will show if the route is '/menu'
+    if(matchPath('/menu', {path: location.pathname, exact: true})) {
+      setMobileOpen(true);
+      
+    } else {
+      setMobileOpen(false);
+    }
+  }, [location])
+
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    setMobileOpen((prevMobileOpen) => {
+      if(prevMobileOpen) {
+        history.push('/')
+      } else {
+        history.push('/menu')
+      }
+      return !mobileOpen
+    } );
   };
   
   const headerColorChange = () => {
