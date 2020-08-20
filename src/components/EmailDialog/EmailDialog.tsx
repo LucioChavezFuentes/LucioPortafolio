@@ -196,7 +196,7 @@ const styles = (theme: Theme) => createStyles({
 const useStyles = makeStyles(styles);
 
 const EmailDialog:React.FC<Props> = (props : Props) => {
-    const {intl, handleDrawerToggle} = props;
+    const {intl} = props;
     // API Variables
     const USER_ID = "user_8GdofLfZlnlQTza77rkLM";
     const GMAIL_SERVICE = "gmail";
@@ -231,11 +231,12 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
     const classes = useStyles({isThemeDark: props.isThemeDark});
 
     useEffect(() => {
-        if(matchPath('/', {path: location.pathname})) {
+        //The EmailDialog will show if the route is '/email'
+        if(matchPath('/email', {path: location.pathname, exact: true})) {
+            setOpen(true);
+        } else {
             setOpen(false);
             setErrors({});
-        } else {
-            setOpen(true);
         }
 
     }, [location])
@@ -243,9 +244,6 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
     const handleOpen = () => {
         history.push('/email')
         setOpen(true);
-        if(handleDrawerToggle){
-            handleDrawerToggle()
-        }
       }
 
     const handleClose = () => {
