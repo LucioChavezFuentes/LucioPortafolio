@@ -1,4 +1,7 @@
 import React, {useState} from "react";
+//Animations
+import {motion} from 'framer-motion'
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -117,7 +120,7 @@ function ProfilePage(props: any) {
 //const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
   return (
-    <div>
+    <motion.div>
       <Header
         color="transparent"
         onClickProject={handleChangeActive}
@@ -617,7 +620,7 @@ function ProfilePage(props: any) {
       
       <Footer/>
       
-    </div>
+    </motion.div>
   );
 }
 
