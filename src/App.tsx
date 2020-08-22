@@ -15,6 +15,11 @@ import {persistor} from 'redux/store';
 import 'typeface-roboto';
 
 import ProfilePage from "views/ProfilePage/ProfilePage";
+import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
+import LenguageList from 'components/LenguageList/LenguageList';
+import Parallax from "components/Parallax/Parallax.js";
+import Header from "components/Header/Header";
+import Projects from 'views/Projects/Projects';
 
 // MUI Imports
 import {makeStyles} from '@material-ui/core/styles';
@@ -25,6 +30,7 @@ import {IntlProvider} from 'react-intl';
 //Helpers
 // Just provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+import useWindowSize from "helper/useWindowSize";
 
 //types
 import {RootState} from 'redux/rootReducer';
@@ -70,6 +76,16 @@ const useStyles = makeStyles((theme) => ({
       '-webkit-box-shadow': (props) => `0 0 0px 1000px ${getDarkOrLightTheme(theme, 'autofillInput', props as StyleProps)} inset`,
       'transition': 'background-color 5000s ease-in-out 0s',
     },
+
+    '::-webkit-scrollbar': {
+      width:' 6px',
+      borderLeft: '1px solid #E6ECF8',
+    },
+
+    '::-webkit-scrollbar-thumb' : {
+      backgroundColor: '#141c3a',
+    },
+
 
     '.MuiDialog-container': {
       //backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
@@ -200,7 +216,7 @@ function App(props : AppProps) {
 
   //const {locale} = useSelector(state => state.ui.lenguage )
  
-
+  const {isMobile} = useWindowSize();
   const {isThemeDark, locale} = props;
   useStyles({isThemeDark})
     /*const theme = React.useMemo(
@@ -212,9 +228,22 @@ function App(props : AppProps) {
         <CssBaseline>
           <IntlProvider locale='es' defaultLocale="en" messages={AppLocale[locale].messages as any } >
           <Router history={hist}>
+            <Header
+              color="transparent"
+              leftLinks={{ThemeSwitch , LenguageList}}
+              isThemeDark={isThemeDark}
+              changeColorOnScroll={{
+                height: isMobile ? 45 : 30,
+                color: 'primaryHeader',
+              }}
+              fixed
+            />
+            <Parallax small isThemeDark={isThemeDark} />
             <AnimatePresence>
               <Switch>
-                <Route path="/" render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
+                <Route path="/" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
+                <Route path="/projects" component={Projects } />
+                <Route path="/:path" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
               </Switch>
             </AnimatePresence>
           </Router>

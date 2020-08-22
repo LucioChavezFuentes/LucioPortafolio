@@ -27,20 +27,20 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import {Element} from 'react-scroll'
 
 // core components
-import Header from "components/Header/Header";
+
 import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import NavPills from "components/NavPills/NavPills";
-import Parallax from "components/Parallax/Parallax.js";
+
 import FrontEndIcons from "components/TechnologyIcons/frontEndIcons";
 import BackEndIcons from "components/TechnologyIcons/backEndIcons";
 import TechTestingIcons from "components/TechnologyIcons/techTestingIcons";
 import useWindowSize from "helper/useWindowSize";
-import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
+
 import AboutMe from './AbouteMe';
-import LenguageList from 'components/LenguageList/LenguageList';
+
 import CustomPaper from 'components/CustomPaper/CustomPaper';
 
 import {injectIntl} from 'react-intl';
@@ -121,20 +121,6 @@ function ProfilePage(props: any) {
 
   return (
     <motion.div>
-      <Header
-        color="transparent"
-        onClickProject={handleChangeActive}
-        projectsSectionRef={projectsSectionRef}
-        leftLinks={{ThemeSwitch , LenguageList} }
-        isThemeDark={isThemeDark}
-        changeColorOnScroll={{
-          height: isMobile ? 45 : 30,
-          color: 'primaryHeader',
-        }}
-        fixed
-        {...rest}
-      />
-      <Parallax small isThemeDark={isThemeDark} />
       
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>

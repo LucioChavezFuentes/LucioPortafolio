@@ -28,9 +28,9 @@ interface RegularButtonProps {
   endIcon?: React.ReactNode;
   customStyle?: boolean;
   children: React.ReactNode;
-  component?: typeof React.Component;
+  component?: any //typeof React.Component;
   variant?: "text" | "outlined" | "contained";
-  to?: boolean;
+  to?: string;
   spy?: boolean;
   smooth?: boolean;
   duration?: number;

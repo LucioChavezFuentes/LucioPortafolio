@@ -1,6 +1,9 @@
 
 import React from "react";
 
+//React Router
+import {Link, matchPath, useLocation} from 'react-router-dom';
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -41,6 +44,7 @@ const useStyles = makeStyles(styles);
 
 function HeaderLinks(props: any) {
   const {isThemeDark, intl} = props
+  const location = useLocation();
   const classes = useStyles({isThemeDark});
 
   const {onClickProject, handleDrawerToggle, isMobile} = props;
@@ -55,7 +59,9 @@ function HeaderLinks(props: any) {
         handleDrawerToggle()
       }
       // triggers onClickProject in ProfilePage to set the active project selected
-      onClickProject(intKey)
+      if(onClickProject){
+        onClickProject(intKey)
+      }
     }
   }
 
@@ -179,7 +185,17 @@ function HeaderLinks(props: any) {
     <>
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <CustomDropdown
+        {/*matchPath('/', {path: location.pathname, exact: true}) ? (
+          <Button className={classes.navLink} to='/projects' startIcon={<Apps />} component={Link}>
+            All Projects
+          </Button>
+        ) : (
+          <Button className={classes.navLink} to='/' component={Link}>
+            About Lucio
+          </Button>
+        )*/}
+        
+        {<CustomDropdown
           noLiPadding
           buttonText={<IntlMessage 
             defaultMessage='All Projects' 
@@ -256,7 +272,7 @@ function HeaderLinks(props: any) {
               </Button>
             
           ]}
-        />
+        />}
       </ListItem>
       <ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">

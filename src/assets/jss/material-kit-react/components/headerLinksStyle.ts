@@ -22,7 +22,8 @@ const headerLinksStyle = (theme:Theme) => {
       listStyle: "none",
       paddingTop: "0",
       paddingBottom: "0",
-      color: "inherit"
+      color: "inherit",
+      display: 'flex',
     },
   
     listSubheader: {
@@ -37,6 +38,7 @@ const headerLinksStyle = (theme:Theme) => {
       width: "auto",
       margin: "0",
       padding: "0 0 0 10px",
+      alignSelf: 'center',
       [theme.breakpoints.down("sm")]: {
         width: "100%",
         color: (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps),

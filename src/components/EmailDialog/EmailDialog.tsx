@@ -232,7 +232,8 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
 
     useEffect(() => {
         //The EmailDialog will show if the route is '/email'
-        if(matchPath('/email', {path: location.pathname, exact: true})) {
+        const routes = location.pathname.split('/')
+        if(matchPath('/email', {path: '/' + routes[routes.length - 1], exact: true})) {
             setOpen(true);
         } else {
             setOpen(false);
@@ -242,12 +243,18 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
     }, [location])
 
     const handleOpen = () => {
-        history.push('/email')
+        if(matchPath('/', {path: location.pathname, exact: true})) {
+            history.push(`/email`)
+        } else {
+            history.push(`${location.pathname}/email`)
+        }
+        
         setOpen(true);
       }
 
     const handleClose = () => {
-        history.push('/');
+        const route = location.pathname.replace('/email', '')
+        history.push(route || '/')
         setOpen(false);
         setErrors({});
     }
