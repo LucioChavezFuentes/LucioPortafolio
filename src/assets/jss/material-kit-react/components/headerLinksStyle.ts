@@ -24,6 +24,10 @@ const headerLinksStyle = (theme:Theme) => {
       paddingBottom: "0",
       color: "inherit",
       display: 'flex',
+      [theme.breakpoints.down("sm")]: {
+        display: 'block'
+      }
+
     },
   
     listSubheader: {
