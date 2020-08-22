@@ -4,7 +4,7 @@ import React from 'react'
 import ScrollAnimation from 'react-animate-on-scroll';
 
 // Images
-import jestIcon from "assets/img/logos/jest.svg";
+import {ReactComponent as JestIcon} from "assets/img/logos/jest.svg";
 import testingLibraryIcon from "assets/img/logos/testingLibraryLogo.png";
 
 // @material-ui/core components
@@ -39,7 +39,7 @@ function BackEndIcons() {
         <ScrollAnimation animateIn="fadeIn"  animateOnce={true} style={{height: '100%'}}>
             <div className={classes.flexContainer}>
                 <div className='itemJest'>
-                    <img src={jestIcon} alt='jest' />
+                    <JestIcon style={{height: 'auto', maxWidth: '90%',}} title='jest' fill='black' />
                 </div>
 
                 <div className='itemTestingLibrary'>

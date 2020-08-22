@@ -7,6 +7,9 @@ import GridItem from "components/Grid/GridItem";
 
 //images
 import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
+import ravenousProject from 'assets/img/projects/ravenous.jpg';
+import codigoAventura from 'assets/img/projects/codigoAventura.jpg';
+import teaCozy from 'assets/img/projects/teaCozy.jpg'
 //Redux
 import { useSelector } from 'react-redux';
 
@@ -116,8 +119,6 @@ const Projects = (props) => {
 		},
 	};
 
-	const {initial, end} = childrenAnimation;
-
 	const parentAnimation = {
 		initial: {
 			opacity: 0,
@@ -126,16 +127,16 @@ const Projects = (props) => {
 			},
 		},
 		end: {
-			opacity: 1, 
-			transition: { 
+			opacity: 1,
+			transition: {
 				when: "beforeChildren",
-				staggerChildren: 0.07, 
-				delayChildren: 0.2 
+				staggerChildren: 0.27,
+				
 			}
 		}
 	}
 
-	return(
+	return (
 		<motion.div >
 			<div className={classes.main}>
 				<motion.div
@@ -151,64 +152,64 @@ const Projects = (props) => {
 					</div>
 
 					<GridContainer className={classes.projectsContainer} spacing={isMobile ? veryLow : veryHigh}>
-						
 
-							
 
-							<GridItem xs={fullWidth} sm={halfWidth} key={1}>
-								<motion.div
-									className={classes.projectItem}
-									variants={childrenAnimation}
-									key={1}
-								>
+
+
+						<GridItem xs={fullWidth} sm={halfWidth} key={1}>
+							<motion.div
+								className={classes.projectItem}
+								variants={childrenAnimation}
+								key={1}
+							>
 								<img className={classes.projectImage} src={socialConejitoProject} alt='The Social Conejito' />
 
 								<p className={classes.projectDescription}>
 									{`The Social Conejito is a social network composed of short messages named 
 										'Squeals or Screams' for user expression where everyone can see, like and comment.`}
 								</p>
-								
-								</motion.div>
-							</GridItem>
 
-					<GridItem xs={fullWidth} sm={halfWidth}>
-						<motion.div 
-							className={classes.projectItem}
-							initial={initial}
-							animate={end}
-						>
-							<img className={classes.projectImage} src={socialConejitoProject} alt='The Social Conejito' />
-							<div >
-								<p className={classes.projectDescription}>
-									{`The Social Conejito is a social network composed of short messages named 
+							</motion.div>
+						</GridItem>
+
+						<GridItem xs={fullWidth} sm={halfWidth} key={2}>
+							<motion.div
+								className={classes.projectItem}
+								variants={childrenAnimation}
+								key={2}
+							>
+								<img className={classes.projectImage} src={ravenousProject} alt='The Social Conejito' />
+								<div >
+									<p className={classes.projectDescription}>
+										{`The Social Conejito is a social network composed of short messages named 
 									'Squeals or Screams' for user expression where everyone can see, like and comment.`}
-								</p>
-							</div>
-						</motion.div>
-					</GridItem>
+									</p>
+								</div>
+							</motion.div>
+						</GridItem>
 
-					<GridItem xs={fullWidth} sm={halfWidth}>
-						<motion.div 
-							className={classes.projectItem}
-							initial={initial}
-							animate={end}
-						>
-							<img className={classes.projectImage} src={socialConejitoProject} alt='The Social Conejito' />
-						</motion.div>
-					</GridItem>
+						<GridItem xs={fullWidth} sm={halfWidth} key={3}>
+							<motion.div
+								className={classes.projectItem}
+								variants={childrenAnimation}
+								key={3}
+							>
+								<img className={classes.projectImage} src={codigoAventura} alt='The Social Conejito' />
+							</motion.div>
+						</GridItem>
 
-					<GridItem xs={fullWidth} sm={halfWidth}>
-						<motion.div 
-							className={classes.projectItem}
-							initial={initial}
-							animate={end}
-						>
-							<img className={classes.projectImage} src={socialConejitoProject} alt='The Social Conejito' />
-						</motion.div>
-					</GridItem>
+						<GridItem xs={fullWidth} sm={halfWidth} key={4}>
+							<motion.div
+								className={classes.projectItem}
+								variants={childrenAnimation}
+								key={4}
+							>
+								<img className={classes.projectImage} src={teaCozy} alt='The Social Conejito' />
+							</motion.div>
+						</GridItem>
 
-				</GridContainer>
-			</motion.div>
+					</GridContainer>
+				</motion.div>
 			</div >
 
 		</motion.div >

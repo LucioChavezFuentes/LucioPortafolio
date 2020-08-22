@@ -6,8 +6,8 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 // Images
 
-import nodeIcon from "assets/img/logos/Node.js_logo.svg";
-import firebaseIcon from "assets/img/logos/Firebase_Logo_Standard_Lockup.svg";
+import NodeIcon from "assets/img/logos/Node.js_logo.svg";
+import { ReactComponent as FirebaseIcon} from "assets/img/logos/Firebase_Logo_Standard_Lockup.svg";
 
 // @material-ui/core components
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
@@ -41,11 +41,11 @@ function BackEndIcons() {
         <ScrollAnimation animateIn="fadeIn"  animateOnce={true} style={{height: '100%'}}>
             <div className={classes.flexContainer}>
                 <div className='itemNode'>
-                    <img src={nodeIcon} alt='node-js' />
+                    <img src={NodeIcon} alt='node-js' />
                 </div>
 
                 <div className='itemFirebase'>
-                    <img src={firebaseIcon} alt='firebase' />
+                    <FirebaseIcon style={{height: 'auto', maxWidth: '90%',}} title='firebase' />
                 </div>
             </div>
         </ScrollAnimation>

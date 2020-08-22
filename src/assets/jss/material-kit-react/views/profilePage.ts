@@ -127,6 +127,10 @@ const profilePageStyle = (theme : Theme) => {
 
       },
 
+      '& .paperIcons': {
+        //minWidth: '100%',
+      },
+
       '& .paperDescriptionText': {
         '& div': {
           height: '100%', 

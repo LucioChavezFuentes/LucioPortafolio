@@ -120,10 +120,14 @@ function ProfilePage(props: any) {
 //const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
   return (
-    <motion.div>
+    <div>
       
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{opacity: 1}}
+          transition={{ duration: 0.5 }}
+        >
           <div  className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth}>
@@ -227,7 +231,7 @@ function ProfilePage(props: any) {
 
               <GridItem justify='center' xs={fullWidth} sm={halfWidth} md={halfWidth}>
               <div className='gridItemDescription'>
-                <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
+                <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription paperIcons'>
                   <FrontEndIcons />
                 </CustomPaper>
               </div>
@@ -601,12 +605,12 @@ function ProfilePage(props: any) {
 
             
           </div>
-        </div>
+        </motion.div>
       </div>
       
       <Footer/>
       
-    </motion.div>
+    </div>
   );
 }
 
