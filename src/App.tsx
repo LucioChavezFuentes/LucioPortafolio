@@ -223,6 +223,8 @@ function App(props : AppProps) {
       () => isThemeDark ? themes.darkTheme : themes.lightTheme
     , [isThemeDark]);*/
 
+    //TODO:Find a better way to handle the route '/menu/email' for mobile
+
     return (
       <PersistGate loading={null} persistor={persistor}>
         <CssBaseline>
@@ -244,6 +246,7 @@ function App(props : AppProps) {
                 <Route path="/" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
                 <Route path="/projects" component={Projects } />
                 <Route path="/:path" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
+                <Route path="/menu/email" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
               </Switch>
             </AnimatePresence>
           </Router>
