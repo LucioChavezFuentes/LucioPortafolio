@@ -69,6 +69,7 @@ const styles = (theme: Theme) => createStyles({
 		position: 'relative',
 		overflow: 'hidden',
 		borderRadius: '20px',
+		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`, 
 
 		'&:hover $projectImage': {
 			//opacity: 0.09,
