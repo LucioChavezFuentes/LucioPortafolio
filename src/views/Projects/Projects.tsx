@@ -25,13 +25,14 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles, createStyles, Theme, useTheme } from "@material-ui/core/styles";
 //Helpers
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+import IntlMessage from 'helper/IntlMessages';
 //Types
 import StyleProps from "types/StyleProps";
 import { RootState } from 'redux/rootReducer';
 
 const styles = (theme: Theme) => createStyles({
 	main: {
-		backgroundColor: 'rgb(18, 18, 18)',
+		backgroundColor: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
 		margin: "-290px 30px 0px",
 		position: 'relative',
 		borderRadius: '6px',
@@ -195,33 +196,67 @@ const Projects = (props) => {
 			alt: 'The Social Conejito',
 		},
 		title: 'The Social Conejito',
-		description: `The Social Conejito is a social network composed of short messages named 
-		'Squeals or Screams' for user expression where everyone can see, like and comment.`,
-		ButtonLink: <SocialConejitoLink className={classes.webSiteLink} label='Visit Social Conejito' />
+		description: <IntlMessage
+			defaultMessage="The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment."
+			description='the-social-conejito-description'
+			id="the-social-conejito-description" />,
+		ButtonLink: <SocialConejitoLink className={classes.webSiteLink}
+			label={<IntlMessage
+				defaultMessage='Visit Social Conejito'
+				description="The visit label for social conejito's link button"
+				id='visit-label-conejito-button' />} />
 	}, {
 		img: {
 			src: ravenousProject,
 			alt: 'Ravenous'
 		},
 		title: 'Ravenous',
-		description: `Ravenous searches for restaurants in a city or country with a given type of food.`,
-		ButtonLink: <RavenousLink className={classes.webSiteLink} label='Visit Ravenous' /> 
+		description: <IntlMessage
+			defaultMessage="Ravenous searches for restaurants in a city or country with a given type of food."
+			description='ravenous-description'
+			id="ravenous-description" />,
+		ButtonLink: <RavenousLink
+			className={classes.webSiteLink}
+			label={<IntlMessage
+				defaultMessage='Visit Ravenous'
+				description="The visit label for ravenous's link button"
+				id='visit-label-ravenous-button'
+			/>}/>
 	}, {
 		img: {
 			src: codigoAventura,
 			alt: 'Adventure Code'
-		} ,
-		title: 'Adventure Code',
-		description: `Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output.`,
-		ButtonLink: <CodigoAventuraLink className={classes.webSiteLink} label='Visit Adventure Code' />
+		},
+		title: <IntlMessage
+			defaultMessage='Adventure Code'
+			description='adventure-code-title'
+			id="adventure-code-title"
+		/>,
+		description: <IntlMessage
+			defaultMessage="Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output."
+			description='adventure-code-description'
+			id="adventure-code-description" />,
+		ButtonLink: <CodigoAventuraLink className={classes.webSiteLink} label={<IntlMessage
+			defaultMessage='Visit Adventure Code'
+			description="The visit label for adventure code's link button"
+			id='visit-label-adventure-code-button'
+		/>} />
 	}, {
 		img: {
 			src: teaCozy,
 			alt: 'Tea Cozy',
 		},
 		title: 'Tea Cozy',
-		description: `A lovely static web page that designed for tea/coffee shop.`,
-		ButtonLink: <TeaCozyLink className={classes.webSiteLink} label='Visit Tea Cozy' /> 
+		description: <IntlMessage
+			defaultMessage='A lovely web page designed for a tea/coffee shop.'
+			description='tea-cozy-description'
+			id='tea-cozy-description' />,
+		ButtonLink: <TeaCozyLink className={classes.webSiteLink} 
+			label={<IntlMessage
+			defaultMessage='Visit Tea Cozy'
+			description="The visit label for tea cozy's link button"
+			id='visit-label-tea-cozy-button'
+		/>} />
 	}]
 
 	return (
@@ -235,14 +270,14 @@ const Projects = (props) => {
 				>
 					<div>
 						<div className={classes.name}>
-							<h3 className={classes.title}>{`All Lucio's Projects`}</h3>
+							<h3 className={classes.title}><IntlMessage defaultMessage="All Lucio's Projects" description="All Lucio's Projects Title" id='all-lucio-projects' /></h3>
 						</div>
 					</div>
 
 					<GridContainer className={classes.projectsContainer} spacing={isMobile ? veryLow : veryHigh}>
 
 
-						{gridItems.map(({img, title, description, ButtonLink}, index) => {
+						{gridItems.map(({ img, title, description, ButtonLink }, index) => {
 							return (
 								<GridItem xs={fullWidth} sm={halfWidth} key={index}>
 									<motion.div
@@ -254,9 +289,9 @@ const Projects = (props) => {
 									>
 										<motion.img
 											variants={hoverImage}
-											className={classes.projectImage} 
-											src={img.src} 
-											alt={img.alt} 
+											className={classes.projectImage}
+											src={img.src}
+											alt={img.alt}
 										/>
 
 										<motion.div className={classes.projectDetails}>

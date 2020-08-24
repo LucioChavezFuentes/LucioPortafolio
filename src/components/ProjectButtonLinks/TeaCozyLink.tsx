@@ -7,7 +7,7 @@ import Button from "components/CustomButtons/Button";
 interface Props {
     className?: string;
     variant?: "text" | "outlined" | "contained";
-    label?: string;
+    label?: any;
 }
 
 const RavenousLink : React.FC<Props> = ({className, variant, label} : Props) => {

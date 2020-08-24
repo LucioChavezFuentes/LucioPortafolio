@@ -49,6 +49,12 @@
     "send-email-form-error": "Parece que tuvimos un error. Intenta enviarme el correo directamente a",
     "accept-word": "Aceptar",
     "alert-dialog-title-success": "!Mensaje Enviado Exitosamente¡",
-    "alert-dialog-title-error": "!Algo Salió Mal¡"
+    "alert-dialog-title-error": "!Algo Salió Mal¡",
+    "tea-cozy-description": "Una bonita página web para una cafetería.",
+    "visit-label-conejito-button": "Visita The Social Conejito",
+    "visit-label-ravenous-button": "Visita Ravenous",
+    "visit-label-tea-cozy-button": "Visita Tea Cozy",
+    "visit-label-adventure-code-button": "Visita Código Aventura",
+    "all-lucio-projects": "Todos los Proyectos de Lucio"
 
   }
