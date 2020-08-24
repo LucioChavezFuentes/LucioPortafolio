@@ -71,7 +71,8 @@ const styles = (theme: Theme) => createStyles({
 		borderRadius: '20px',
 
 		'&:hover $projectImage': {
-			opacity: 0.09,
+			//opacity: 0.09,
+			filter: 'brightness(30%)',
 		},
 
 		'&:hover $projectTitle': {
@@ -113,6 +114,7 @@ const styles = (theme: Theme) => createStyles({
 		margin: '10px',
 		opacity: 0,
 		transition: 'all 700ms ease 200ms',
+		color: 'rgb(255, 255, 255)',
 	},
 
 	projectDescription: {
