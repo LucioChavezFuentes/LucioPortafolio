@@ -26,6 +26,7 @@ import Button from "components/CustomButtons/Button";
 import EmailDialog from "components/EmailDialog/EmailDialog";
 import {injectIntl} from 'react-intl';
 import IntlMessage from 'helper/IntlMessages';
+import LinkShifter from 'components/LinkShifter/LinkShifter';
 
 //Redux
 import { connect } from 'react-redux';
@@ -185,17 +186,9 @@ function HeaderLinks(props: any) {
     <>
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        {/*matchPath('/', {path: location.pathname, exact: true}) ? (
-          <Button className={classes.navLink} to='/projects' startIcon={<Apps />} component={Link}>
-            All Projects
-          </Button>
-        ) : (
-          <Button className={classes.navLink} to='/' component={Link}>
-            About Lucio
-          </Button>
-        )*/}
+        <LinkShifter />
         
-        {<CustomDropdown
+        {/*<CustomDropdown
           noLiPadding
           buttonText={<IntlMessage 
             defaultMessage='All Projects' 
@@ -272,7 +265,7 @@ function HeaderLinks(props: any) {
               </Button>
             
           ]}
-        />}
+        />*/}
       </ListItem>
       <ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">

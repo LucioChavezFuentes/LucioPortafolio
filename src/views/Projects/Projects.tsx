@@ -3,12 +3,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 //Components
-import SocialConejitoLink from 'components/SocialConejitoLink/SocialConejitoLink';
+import SocialConejitoLink from 'components/ProjectButtonLinks/SocialConejitoLink';
+import RavenousLink from 'components/ProjectButtonLinks/RavenousLink';
+import CodigoAventuraLink from 'components/ProjectButtonLinks/CodigoAventuraLink';
+import TeaCozyLink from 'components/ProjectButtonLinks/TeaCozyLink';
 
 //Custom MUI Components
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
-import Button from "components/CustomButtons/Button";
 
 //images
 import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
@@ -17,9 +19,6 @@ import codigoAventura from 'assets/img/projects/codigoAventura.jpg';
 import teaCozy from 'assets/img/projects/teaCozy.jpg'
 //Redux
 import { useSelector } from 'react-redux';
-
-// Custom Icons
-import Conejito from "assets/img/customIcons/Conejito";
 
 // @material-ui/core components
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -70,18 +69,20 @@ const styles = (theme: Theme) => createStyles({
 		overflow: 'hidden',
 		borderRadius: '20px',
 
-		'&:hover $projectDescription': {
-			opacity: 1,
-
-		},
-
 		'&:hover $projectImage': {
 			opacity: 0.09,
 		},
 
+		'&:hover $projectTitle': {
+			opacity: 1,
+		},
+
+		'&:hover $projectDescription': {
+			opacity: 1,
+		},
+
 		'&:hover $webSiteLink': {
 			opacity: 1,
-
 		},
 	},
 
@@ -109,14 +110,14 @@ const styles = (theme: Theme) => createStyles({
 		fontSize: '30px',
 		fontFamily: 'Roboto',
 		margin: '10px',
+		opacity: 0,
+		transition: 'all 700ms ease 200ms',
 	},
 
 	projectDescription: {
-		//position: 'absolute',
 		opacity: 0,
 		transition: 'all 700ms ease 200ms',
 		fontSize: '25px',
-		
 		alignSelf: 'center',
 		color: 'rgb(255, 255, 255)',
 		margin: '20px 0',
@@ -203,27 +204,24 @@ const Projects = (props) => {
 			alt: 'Ravenous'
 		},
 		title: 'Ravenous',
-		description: `The Social Conejito is a social network composed of short messages named 
-		'Squeals or Screams' for user expression where everyone can see, like and comment.`,
-		ButtonLink: <SocialConejitoLink className={classes.webSiteLink} /> 
+		description: `Ravenous searches for restaurants in a city or country with a given type of food.`,
+		ButtonLink: <RavenousLink className={classes.webSiteLink} label='Visit Ravenous' /> 
 	}, {
 		img: {
 			src: codigoAventura,
 			alt: 'Adventure Code'
 		} ,
 		title: 'Adventure Code',
-		description: `The Social Conejito is a social network composed of short messages named 
-		'Squeals or Screams' for user expression where everyone can see, like and comment.`,
-		ButtonLink: <SocialConejitoLink className={classes.webSiteLink} />
+		description: `Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output.`,
+		ButtonLink: <CodigoAventuraLink className={classes.webSiteLink} label='Visit Adventure Code' />
 	}, {
 		img: {
 			src: teaCozy,
 			alt: 'Tea Cozy',
 		},
 		title: 'Tea Cozy',
-		description: `The Social Conejito is a social network composed of short messages named 
-		'Squeals or Screams' for user expression where everyone can see, like and comment.`,
-		ButtonLink: <SocialConejitoLink className={classes.webSiteLink} /> 
+		description: `A lovely static web page that designed for tea/coffee shop.`,
+		ButtonLink: <TeaCozyLink className={classes.webSiteLink} label='Visit Tea Cozy' /> 
 	}]
 
 	return (
