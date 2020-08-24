@@ -2,8 +2,13 @@ import React from 'react';
 //Animations
 import { motion } from 'framer-motion';
 
+//Components
+import SocialConejitoLink from 'components/SocialConejitoLink/SocialConejitoLink';
+
+//Custom MUI Components
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
+import Button from "components/CustomButtons/Button";
 
 //images
 import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
@@ -12,6 +17,9 @@ import codigoAventura from 'assets/img/projects/codigoAventura.jpg';
 import teaCozy from 'assets/img/projects/teaCozy.jpg'
 //Redux
 import { useSelector } from 'react-redux';
+
+// Custom Icons
+import Conejito from "assets/img/customIcons/Conejito";
 
 // @material-ui/core components
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -59,29 +67,67 @@ const styles = (theme: Theme) => createStyles({
 
 	projectItem: {
 		position: 'relative',
+		overflow: 'hidden',
+		borderRadius: '20px',
 
 		'&:hover $projectDescription': {
 			opacity: 1,
+
 		},
 
 		'&:hover $projectImage': {
 			opacity: 0.09,
-		}
+		},
+
+		'&:hover $webSiteLink': {
+			opacity: 1,
+
+		},
 	},
 
 	projectImage: {
 		width: '100%',
 		height: 'auto',
-		borderRadius: '20px',
+		transition: 'all 500ms ease 200ms',
+		display: 'block'
+	},
+
+	projectDetails: {
+		display: 'flex',
+		flexFlow: 'column',
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%',
+		padding: '20px',
+		justifyContent: 'center',
+		textAlign: 'center',
+	},
+
+	projectTitle: {
+		fontSize: '30px',
+		fontFamily: 'Roboto',
+		margin: '10px',
 	},
 
 	projectDescription: {
-		position: 'absolute',
+		//position: 'absolute',
 		opacity: 0,
-		top: '50%',
-		left: '50%',
-		transform: 'translate(-50%,-50%)',
-		width: '90%',
+		transition: 'all 700ms ease 200ms',
+		fontSize: '25px',
+		
+		alignSelf: 'center',
+		color: 'rgb(255, 255, 255)',
+		margin: '20px 0',
+	},
+
+	webSiteLink: {
+		opacity: 0,
+		width: '40%',
+		transition: 'all 700ms ease 200ms',
+		fontSize: '15px',
+		alignSelf: 'center'
 	},
 })
 
@@ -131,10 +177,54 @@ const Projects = (props) => {
 			transition: {
 				when: "beforeChildren",
 				staggerChildren: 0.27,
-				
+
 			}
 		}
 	}
+
+	const hoverImage = {
+		hover: {
+			scale: 1.05
+		}
+	}
+
+	const gridItems = [{
+		img: {
+			src: socialConejitoProject,
+			alt: 'The Social Conejito',
+		},
+		title: 'The Social Conejito',
+		description: `The Social Conejito is a social network composed of short messages named 
+		'Squeals or Screams' for user expression where everyone can see, like and comment.`,
+		ButtonLink: <SocialConejitoLink className={classes.webSiteLink} label='Visit Social Conejito' />
+	}, {
+		img: {
+			src: ravenousProject,
+			alt: 'Ravenous'
+		},
+		title: 'Ravenous',
+		description: `The Social Conejito is a social network composed of short messages named 
+		'Squeals or Screams' for user expression where everyone can see, like and comment.`,
+		ButtonLink: <SocialConejitoLink className={classes.webSiteLink} /> 
+	}, {
+		img: {
+			src: codigoAventura,
+			alt: 'Adventure Code'
+		} ,
+		title: 'Adventure Code',
+		description: `The Social Conejito is a social network composed of short messages named 
+		'Squeals or Screams' for user expression where everyone can see, like and comment.`,
+		ButtonLink: <SocialConejitoLink className={classes.webSiteLink} />
+	}, {
+		img: {
+			src: teaCozy,
+			alt: 'Tea Cozy',
+		},
+		title: 'Tea Cozy',
+		description: `The Social Conejito is a social network composed of short messages named 
+		'Squeals or Screams' for user expression where everyone can see, like and comment.`,
+		ButtonLink: <SocialConejitoLink className={classes.webSiteLink} /> 
+	}]
 
 	return (
 		<motion.div >
@@ -154,59 +244,40 @@ const Projects = (props) => {
 					<GridContainer className={classes.projectsContainer} spacing={isMobile ? veryLow : veryHigh}>
 
 
+						{gridItems.map(({img, title, description, ButtonLink}, index) => {
+							return (
+								<GridItem xs={fullWidth} sm={halfWidth} key={index}>
+									<motion.div
+										className={classes.projectItem}
+										variants={childrenAnimation}
+										whileHover='hover'
 
+										key={index}
+									>
+										<motion.img
+											variants={hoverImage}
+											className={classes.projectImage} 
+											src={img.src} 
+											alt={img.alt} 
+										/>
 
-						<GridItem xs={fullWidth} sm={halfWidth} key={1}>
-							<motion.div
-								className={classes.projectItem}
-								variants={childrenAnimation}
-								key={1}
-							>
-								<img className={classes.projectImage} src={socialConejitoProject} alt='The Social Conejito' />
+										<motion.div className={classes.projectDetails}>
 
-								<p className={classes.projectDescription}>
-									{`The Social Conejito is a social network composed of short messages named 
-										'Squeals or Screams' for user expression where everyone can see, like and comment.`}
-								</p>
+											<p className={classes.projectTitle}>
+												{title}
+											</p>
 
-							</motion.div>
-						</GridItem>
+											<p className={classes.projectDescription}>
+												{description}
+											</p>
 
-						<GridItem xs={fullWidth} sm={halfWidth} key={2}>
-							<motion.div
-								className={classes.projectItem}
-								variants={childrenAnimation}
-								key={2}
-							>
-								<img className={classes.projectImage} src={ravenousProject} alt='The Social Conejito' />
-								<div >
-									<p className={classes.projectDescription}>
-										{`The Social Conejito is a social network composed of short messages named 
-									'Squeals or Screams' for user expression where everyone can see, like and comment.`}
-									</p>
-								</div>
-							</motion.div>
-						</GridItem>
+											{ButtonLink}
+										</motion.div>
 
-						<GridItem xs={fullWidth} sm={halfWidth} key={3}>
-							<motion.div
-								className={classes.projectItem}
-								variants={childrenAnimation}
-								key={3}
-							>
-								<img className={classes.projectImage} src={codigoAventura} alt='The Social Conejito' />
-							</motion.div>
-						</GridItem>
-
-						<GridItem xs={fullWidth} sm={halfWidth} key={4}>
-							<motion.div
-								className={classes.projectItem}
-								variants={childrenAnimation}
-								key={4}
-							>
-								<img className={classes.projectImage} src={teaCozy} alt='The Social Conejito' />
-							</motion.div>
-						</GridItem>
+									</motion.div>
+								</GridItem>
+							)
+						})}
 
 					</GridContainer>
 				</motion.div>
