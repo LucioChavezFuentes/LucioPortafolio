@@ -69,11 +69,13 @@ const styles = (theme: Theme) => createStyles({
 		position: 'relative',
 		overflow: 'hidden',
 		borderRadius: '20px',
-		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`, 
+		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
+		boxShadow:
+			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
 
 		'&:hover $projectImage': {
 			//opacity: 0.09,
-			filter: 'brightness(30%)',
+			filter: 'brightness(20%)',
 		},
 
 		'&:hover $projectTitle': {
@@ -109,6 +111,13 @@ const styles = (theme: Theme) => createStyles({
 		textAlign: 'center',
 	},
 
+	projectTitleContainer: {
+		flex:'1', 
+		alignSelf: 'center',
+		display: 'flex',
+		justifyContent: 'center',
+	},
+
 	projectTitle: {
 		fontSize: '30px',
 		fontFamily: 'Roboto',
@@ -116,6 +125,8 @@ const styles = (theme: Theme) => createStyles({
 		opacity: 0,
 		transition: 'all 700ms ease 200ms',
 		color: 'rgb(255, 255, 255)',
+		alignSelf: 'center',
+		borderBottom: (props: StyleProps) => `3px solid ${getDarkOrLightTheme(theme, 'primary-light', props)}`,
 	},
 
 	projectDescription: {
@@ -262,6 +273,18 @@ const Projects = (props) => {
 		/>} />
 	}]
 
+	const gridSpacingWeb = {
+		container: veryHigh,
+		item: ''
+	}
+
+	const gridSpacingMobile = {
+		container: none,
+		item: '32px 0'
+	}
+
+	const getGridSpacing = (type : 'container' | 'item') => isMobile ? gridSpacingMobile[type] : gridSpacingWeb[type] 
+
 	return (
 		<motion.div >
 			<div className={classes.main}>
@@ -270,6 +293,7 @@ const Projects = (props) => {
 					animate="end"
 					variants={parentAnimation}
 					transition={{ duration: 0.5 }}
+					
 				>
 					<div>
 						<div className={classes.name}>
@@ -277,17 +301,15 @@ const Projects = (props) => {
 						</div>
 					</div>
 
-					<GridContainer className={classes.projectsContainer} spacing={isMobile ? veryLow : veryHigh}>
-
+					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
 
 						{gridItems.map(({ img, title, description, ButtonLink }, index) => {
 							return (
-								<GridItem xs={fullWidth} sm={halfWidth} key={index}>
+								<GridItem xs={fullWidth} sm={halfWidth} key={index} style={{padding: getGridSpacing('item')}}>
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}
 										whileHover='hover'
-
 										key={index}
 									>
 										<motion.img
@@ -298,16 +320,19 @@ const Projects = (props) => {
 										/>
 
 										<motion.div className={classes.projectDetails}>
+											<div className={classes.projectTitleContainer}>
+												<p  className={classes.projectTitle}>
+													{title}
+												</p>
+											</div>
 
-											<p className={classes.projectTitle}>
-												{title}
-											</p>
-
-											<p className={classes.projectDescription}>
+											<p style={{flex:'1'}} className={classes.projectDescription}>
 												{description}
 											</p>
 
+											<div style={{flex: '1'}}>
 											{ButtonLink}
+											</div>
 										</motion.div>
 
 									</motion.div>
