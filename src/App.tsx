@@ -3,7 +3,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
 //Animations
-import {motion, AnimatePresence} from 'framer-motion'
+import {AnimatePresence,  AnimateSharedLayout} from 'framer-motion'
 
 //Redux
 import { connect } from 'react-redux';
@@ -20,6 +20,9 @@ import LenguageList from 'components/LenguageList/LenguageList';
 import Parallax from "components/Parallax/Parallax.js";
 import Header from "components/Header/Header";
 import Projects from 'views/Projects/Projects';
+
+//Mobile Components
+import MobileProjects from 'mobile/views/Projects';
 
 // MUI Imports
 import {makeStyles} from '@material-ui/core/styles';
@@ -229,6 +232,7 @@ function App(props : AppProps) {
       <PersistGate loading={null} persistor={persistor}>
         <CssBaseline>
           <IntlProvider locale='es' defaultLocale="en" messages={AppLocale[locale].messages as any } >
+          <AnimateSharedLayout type="crossfade">
           <Router history={hist}>
             <Header
               color="transparent"
@@ -244,12 +248,15 @@ function App(props : AppProps) {
             <AnimatePresence>
               <Switch>
                 <Route path="/" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
-                <Route path="/projects" component={Projects } />
+                <Route path="/projects" exact component={isMobile ? MobileProjects : Projects  } />
+                <Route path="/projects/email" exact component={isMobile ? MobileProjects : Projects  } />
+                <Route path="/projects/:project" exact component={MobileProjects} />
                 <Route path="/:path" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
                 <Route path="/menu/email" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
               </Switch>
             </AnimatePresence>
           </Router>
+          </AnimateSharedLayout>
           </IntlProvider>
         </CssBaseline>
       </PersistGate>
