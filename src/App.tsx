@@ -82,11 +82,11 @@ const useStyles = makeStyles((theme) => ({
 
     '::-webkit-scrollbar': {
       width:' 6px',
-      borderLeft: '1px solid #E6ECF8',
+      borderLeft: (props) => `1px solid ${getDarkOrLightTheme(theme, 'primary-light', props as StyleProps)}`,
     },
 
     '::-webkit-scrollbar-thumb' : {
-      backgroundColor: '#141c3a',
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps),
     },
 
 
@@ -251,6 +251,8 @@ function App(props : AppProps) {
                 <Route path="/projects" exact component={isMobile ? MobileProjects : Projects  } />
                 <Route path="/projects/email" exact component={isMobile ? MobileProjects : Projects  } />
                 <Route path="/projects/:project" exact component={MobileProjects} />
+                <Route path="/projects/menu/email" exact component={MobileProjects} />
+                <Route path="/projects/menu" exact component={MobileProjects} />
                 <Route path="/:path" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
                 <Route path="/menu/email" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
               </Switch>
