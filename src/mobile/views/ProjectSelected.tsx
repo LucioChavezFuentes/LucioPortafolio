@@ -4,44 +4,67 @@ import { motion } from 'framer-motion';
 //React Router Dom;
 import { Link } from "react-router-dom";
 
-import { makeStyles, createStyles, Theme, useTheme } from "@material-ui/core/styles";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 //Helpers
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+
+//MUI Icons
+import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
+
+import IconButton from '@material-ui/core/IconButton';
+
+//Custon Material-UI Components
+import CustomPaper from 'components/CustomPaper/CustomPaper';
+import CustomIconButton from 'components/CustomIconButton/CustomIconButton';
+// Custom Icons
+import Conejito from "assets/img/customIcons/Conejito";
+import AdventureCode from "assets/img/customIcons/AdventureCode";
+import Ravenous from "assets/img/customIcons/Ravenous";
+import TeaCozy from "assets/img/customIcons/TeaCozy";
+
 //Types
 import StyleProps from "types/StyleProps";
+
+const icons = {
+	socialConejito: Conejito,
+	ravenous: Ravenous ,
+	adventureCode: AdventureCode ,
+	teaCozy: TeaCozy 
+
+}
 
 const styles = (theme: Theme) => createStyles({
     projectItem: {
 		position: 'fixed',
         //borderRadius: '20px',
-        backgroundColor: 'black',
-        overflow: 'hidden',
+        backgroundColor: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
+        overflow: 'auto',
         top: 0,
         left: 0,
         right: 0,
         height: '100%',
         width: '100%',
-        overflowY: 'auto',
-		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
-		boxShadow:
-            "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
+		zIndex: 1400,
     },
 
     projectImage: {
 		width: '100%',
 		height: 'auto',
 		transition: 'all 500ms ease 200ms',
-		display: 'block'
+		display: 'block',
+		marginTop: '30px',
+		borderTop: (props: StyleProps) => `5px solid ${getDarkOrLightTheme(theme, 'primary', props)}`,
+		borderBottom: (props: StyleProps) => `5px solid ${getDarkOrLightTheme(theme, 'primary', props)}`
 	},
 
 	projectDetails: {
 		display: 'flex',
 		flexFlow: 'column',
 		width: '100%',
-		height: '100%',
 		padding: '20px',
 		justifyContent: 'center',
 		textAlign: 'center',
+		marginBottom: '20px',
 	},
 
 	projectTitleContainer: {
@@ -49,39 +72,46 @@ const styles = (theme: Theme) => createStyles({
 		alignSelf: 'center',
 		display: 'flex',
 		justifyContent: 'center',
+		marginTop: '40px',
 	},
 
 	projectTitle: {
 		fontSize: '30px',
-		fontFamily: 'Roboto',
+		fontFamily: 'Roboto Slab',
 		margin: '10px',
 		transition: 'all 700ms ease 200ms',
-		color: 'rgb(255, 255, 255)',
+		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
 		alignSelf: 'center',
 		borderBottom: (props: StyleProps) => `3px solid ${getDarkOrLightTheme(theme, 'primary-light', props)}`,
 	},
 
+	paperProjectDescription: {
+		marginBottom: '15px'
+	},
+
 	projectDescription: {
 		transition: 'all 700ms ease 200ms',
-		fontSize: '25px',
+		fontSize: '20px',
 		alignSelf: 'center',
-		color: 'rgb(255, 255, 255)',
-		margin: '20px 0',
+		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
+		margin: '0',
+		padding: '5px 20px 20px 20px',
 	},
 
 	webSiteLink: {
-		width: '40%',
+		width: '80%',
 		transition: 'all 700ms ease 200ms',
 		fontSize: '15px',
 		alignSelf: 'center'
     },
     
-    cardOpenLink: {
+    returnLink: {
 		position: 'absolute',
-		top: 0,
-	    left: 0,
-		right: 0,
-		bottom: 0,
+		margin: '10px 0 0 10px',
+	},
+
+	iconProject: {
+		margin: '15px 0 0 0',
 	}
 })
 
@@ -89,9 +119,15 @@ const useStyles = makeStyles(styles)
 
 const ProjectSelected = ({ items, id, isThemeDark } : any) => {
 
+	//Paper Elevation Variables
+	const MAX_ELEVATION = 24;
+	const MEDIUM_ELEVATION = 12;
+	//const LOW_ELEVATION = 6;
     const classes = useStyles({isThemeDark});
 
-    const { title, img, description, ButtonLink } = items.find(item => item.id === id);
+	const { title, img, description, ButtonLink } = items.find(item => item.id === id);
+	
+	const SelectedIcon = icons[id] 
 
     return (
         <motion.div
@@ -99,29 +135,36 @@ const ProjectSelected = ({ items, id, isThemeDark } : any) => {
             key={id}
             layoutId={`project-${id}`}
         >
-            <motion.img
-                className={classes.projectImage}
-                src={img.src}
-                alt={img.alt}
-                layoutId={`project-${id}`}
-            />
+			<CustomIconButton component={Link} to='/projects' className={classes.returnLink}>
+				<KeyboardReturnIcon />
+			</CustomIconButton>
 
-            <motion.div className={classes.projectDetails} >
-                <div className={classes.projectTitleContainer}>
+				<div className={classes.projectTitleContainer}>
+					
                     <p className={classes.projectTitle}>
                         {title}
                     </p>
                 </div>
+            <motion.img
+                className={classes.projectImage}
+                src={img.src}
+                alt={img.alt}
+            />
 
-                <p style={{ flex: '1' }} className={classes.projectDescription}>
-                    {description}
-                </p>
+            <motion.div className={classes.projectDetails} animate >
+                
+				<CustomPaper elevation={MAX_ELEVATION} className={classes.paperProjectDescription} >
+					<SelectedIcon className={classes.iconProject}  />
+					<p className={classes.projectDescription}>
+						{description}
+					</p>
+				</CustomPaper>
 
-                <div style={{ flex: '1' }}>
+                <div className={classes.webSiteLink}>
                     {ButtonLink}
                 </div>
             </motion.div>
-            <Link to='/projects' className={classes.cardOpenLink} />
+            {/*<Link to='/projects' className={classes.cardOpenLink} />*/}
         </motion.div>
     )
 }
