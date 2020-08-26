@@ -64,6 +64,8 @@ const styles = (theme: Theme) => createStyles({
 	projectsContainer: {
 		width: '90%',
 		margin: '0 auto',
+		display: 'flex',
+		flexFlow: 'column',
 
 	},
 
@@ -227,7 +229,7 @@ const Projects = ({match} : any) => {
 			defaultMessage="The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment."
 			description='the-social-conejito-description'
 			id="the-social-conejito-description" />,
-		ButtonLink: <SocialConejitoLink className={classes.webSiteLink}
+		ButtonLink: <SocialConejitoLink
 			label={<IntlMessage
 				defaultMessage='Visit Social Conejito'
 				description="The visit label for social conejito's link button"
@@ -244,7 +246,7 @@ const Projects = ({match} : any) => {
 			description='ravenous-description'
 			id="ravenous-description" />,
 		ButtonLink: <RavenousLink
-			className={classes.webSiteLink}
+			
 			label={<IntlMessage
 				defaultMessage='Visit Ravenous'
 				description="The visit label for ravenous's link button"
@@ -265,7 +267,7 @@ const Projects = ({match} : any) => {
 			defaultMessage="Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output."
 			description='adventure-code-description'
 			id="adventure-code-description" />,
-		ButtonLink: <CodigoAventuraLink className={classes.webSiteLink} label={<IntlMessage
+		ButtonLink: <CodigoAventuraLink label={<IntlMessage
 			defaultMessage='Visit Adventure Code'
 			description="The visit label for adventure code's link button"
 			id='visit-label-adventure-code-button'
@@ -281,7 +283,7 @@ const Projects = ({match} : any) => {
 			defaultMessage='A lovely web page designed for a tea/coffee shop.'
 			description='tea-cozy-description'
 			id='tea-cozy-description' />,
-		ButtonLink: <TeaCozyLink className={classes.webSiteLink} 
+		ButtonLink: <TeaCozyLink 
 			label={<IntlMessage
 			defaultMessage='Visit Tea Cozy'
 			description="The visit label for tea cozy's link button"
@@ -301,8 +303,6 @@ const Projects = ({match} : any) => {
 	}
 
     const getGridSpacing = (type : 'container' | 'item') => isMobile ? gridSpacingMobile[type] : gridSpacingWeb[type]
-    
-    const itemToshow = gridItems.find(item => item.id === project);
 
 	return (
 		<motion.div >
@@ -322,36 +322,35 @@ const Projects = ({match} : any) => {
 
 					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
 
-						{gridItems.map(({ img, title, description, ButtonLink, id }, index) => {
-
-                            const isSelected = project === id;
+						{gridItems.map(({ img, id }) => {
 
 							return (
-								<GridItem xs={fullWidth} sm={halfWidth} key={index} style={{padding: getGridSpacing('item')}}>
+								<GridItem xs={fullWidth} sm={halfWidth} key={id} style={{padding: getGridSpacing('item')}}>
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}
 										whileHover='hover'
                                         key={id}
-                                        layoutId={`project-${project}`}
+                                        layoutId={`project-${id}`}
 									>
 										<motion.img
 											variants={hoverImage}
 											className={classes.projectImage}
 											src={img.src}
                                             alt={img.alt}
-                                            layoutId={`project-${project}`}
+                                            
 										/>
+										
 
 									</motion.div>
-                                    <Link to={`/projects/${id}`} className={classes.cardOpenLink} />
+									<Link to={`/projects/${id}`} className={classes.cardOpenLink} />
 								</GridItem>
 							)
 						})}
 
                         {project && imageHasLoaded && <ProjectSelected items={gridItems} id={project} isThemeDark={isThemeDark} /> }
-
 					</GridContainer>
+					
 				</motion.div>
 			</div >
 
