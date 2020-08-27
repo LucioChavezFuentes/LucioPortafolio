@@ -302,7 +302,9 @@ const Projects = ({match} : any) => {
 		item: '32px 0'
 	}
 
-    const getGridSpacing = (type : 'container' | 'item') => isMobile ? gridSpacingMobile[type] : gridSpacingWeb[type]
+	const getGridSpacing = (type : 'container' | 'item') => isMobile ? gridSpacingMobile[type] : gridSpacingWeb[type]
+	
+	const projectRoute = gridItems.find(item => item.id === project);
 
 	return (
 		<motion.div >
@@ -348,7 +350,7 @@ const Projects = ({match} : any) => {
 							)
 						})}
 
-                        {project && imageHasLoaded && <ProjectSelected items={gridItems} id={project} isThemeDark={isThemeDark} /> }
+                        {projectRoute && imageHasLoaded && <ProjectSelected items={gridItems} id={project} isThemeDark={isThemeDark} /> }
 					</GridContainer>
 					
 				</motion.div>
