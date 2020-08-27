@@ -27,6 +27,8 @@ import EmailDialog from "components/EmailDialog/EmailDialog";
 import {injectIntl} from 'react-intl';
 import IntlMessage from 'helper/IntlMessages';
 import LinkShifter from 'components/LinkShifter/LinkShifter';
+import AllProjectsLink from 'components/AllProjectsLink/AllProjectsLink';
+import AboutLucioLink from 'components/AboutLucioLink/AboutLucioLink';
 
 //Redux
 import { connect } from 'react-redux';
@@ -72,13 +74,15 @@ function HeaderLinks(props: any) {
       className={classes.list}
     >
       <ListSubheader  id="All Projects"  className={classes.listSubheader}>
-      <IntlMessage 
+      {/*<IntlMessage 
                         defaultMessage='All Projects' 
                         id='all-projects' description='all-projects' 
-                    />
+      />*/}
+      <AllProjectsLink />
+      <AboutLucioLink />
         
       </ListSubheader>
-        <ListItem className={classes.listItem}>
+        {/*<ListItem className={classes.listItem}>
           <Button
             href='https://thesocialmono.firebaseapp.com'
             target="_blank"
@@ -146,7 +150,7 @@ function HeaderLinks(props: any) {
               >
                 Tea Cozy
               </Button>
-          </ListItem>
+                    </ListItem>*/}
         <ListItem className={classes.subList}>
           <ListSubheader id="Social-Media" className={classes.listSubheader}>
           {intl.formatMessage({
@@ -186,8 +190,8 @@ function HeaderLinks(props: any) {
     <>
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <LinkShifter />
-        
+        <AboutLucioLink/>
+        <AllProjectsLink/>
         {/*<CustomDropdown
           noLiPadding
           buttonText={<IntlMessage 

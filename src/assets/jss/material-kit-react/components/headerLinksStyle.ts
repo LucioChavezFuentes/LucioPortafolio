@@ -71,6 +71,7 @@ const headerLinksStyle = (theme:Theme) => {
       padding: "0",
       [theme.breakpoints.down("sm")]: {
         width: "100%",
+        margin: '0',
         "&:after": {
           width: "calc(100% - 30px)",
           content: '""',

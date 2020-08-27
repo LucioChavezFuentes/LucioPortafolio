@@ -27,7 +27,7 @@ import { RootState } from "redux/rootReducer";
 const useStyles = makeStyles({
     lenguageNavLink: {
 				color: 'inherit',
-				marginLeft: '10px',
+                margin: '8px 0 8px 10px'
 		},
 		
 		buttonIcon: {
