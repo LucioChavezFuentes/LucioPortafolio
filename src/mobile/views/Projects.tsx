@@ -327,7 +327,7 @@ const Projects = ({match} : any) => {
 						{gridItems.map(({ img, id }) => {
 
 							return (
-								<GridItem xs={fullWidth} sm={halfWidth} key={id} style={{padding: getGridSpacing('item')}}>
+								<GridItem xs={fullWidth} sm={fullWidth} key={id} style={{padding: getGridSpacing('item')}}>
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}

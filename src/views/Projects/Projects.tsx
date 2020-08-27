@@ -143,7 +143,10 @@ const styles = (theme: Theme) => createStyles({
 		width: '40%',
 		transition: 'all 700ms ease 200ms',
 		fontSize: '15px',
-		alignSelf: 'center'
+		alignSelf: 'center',
+		[theme.breakpoints.down('sm')]: {
+			width: '60%'
+		}
 	},
 })
 
@@ -305,7 +308,7 @@ const Projects = (props) => {
 
 						{gridItems.map(({ img, title, description, ButtonLink }, index) => {
 							return (
-								<GridItem xs={fullWidth} sm={halfWidth} key={index} style={{padding: getGridSpacing('item')}}>
+								<GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} lg={halfWidth} key={index} style={{padding: getGridSpacing('item')}}>
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}
