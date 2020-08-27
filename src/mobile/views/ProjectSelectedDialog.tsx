@@ -140,11 +140,14 @@ const Transition = React.forwardRef<unknown, TransitionProps>(function Transitio
 const ProjectSelected = ({ items, id, isThemeDark } : any) => {
 
     const [open, setOpen] = React.useState(true)
-    const history = useHistory()
-
+    const history = useHistory();
+    
     const handleClose = () => {
-        history.push('/projects')
         setOpen(false)
+    }
+
+    const pushToProjects = () => {
+        history.push('/projects')
     }
 
 	//Paper Elevation Variables
@@ -158,12 +161,12 @@ const ProjectSelected = ({ items, id, isThemeDark } : any) => {
 	const SelectedIcon = icons[id] 
 
     return (
-        <Dialog open={open} fullWidth keepMounted maxWidth='md' fullScreen scroll='body' TransitionComponent={Transition}>
+        <Dialog open={open} onExited={pushToProjects} fullWidth keepMounted maxWidth='md' fullScreen scroll='body' TransitionComponent={Transition}>
         <motion.div
             className={classes.projectItem}
             key={id}
         >
-			<CustomIconButton component={Link} to='/projects' className={classes.returnLink} onClick={handleClose}>
+			<CustomIconButton className={classes.returnLink} onClick={handleClose}>
 				<KeyboardReturnIcon />
 			</CustomIconButton>
 
