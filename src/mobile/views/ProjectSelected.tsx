@@ -45,6 +45,8 @@ const styles = (theme: Theme) => createStyles({
         height: '100%',
         width: '100%',
 		zIndex: 1400,
+		//boxShadow: 'inset 0px 11px 15px -7px rgba(0,0,0,0.2), inset 0px 24px 38px 3px rgba(0,0,0,0.14), inset 0px 9px 46px 8px rgba(0,0,0,0.12)',
+		boxShadow: 'inset 0px 1px 5px -7px rgba(0,0,0,0.2), inset 0px 4px 8px 3px rgba(0,0,0,0.14), inset 0px 9px 46px 8px rgba(0,0,0,0.12)'
     },
 
     projectImage: {
@@ -54,7 +56,8 @@ const styles = (theme: Theme) => createStyles({
 		display: 'block',
 		marginTop: '30px',
 		borderTop: (props: StyleProps) => `5px solid ${getDarkOrLightTheme(theme, 'primary', props)}`,
-		borderBottom: (props: StyleProps) => `5px solid ${getDarkOrLightTheme(theme, 'primary', props)}`
+		borderBottom: (props: StyleProps) => `5px solid ${getDarkOrLightTheme(theme, 'primary', props)}`,
+		//boxShadow: '0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12)',
 	},
 
 	projectDetails: {
@@ -64,7 +67,8 @@ const styles = (theme: Theme) => createStyles({
 		padding: '20px',
 		justifyContent: 'center',
 		textAlign: 'center',
-		marginBottom: '20px',
+		
+		//boxShadow: 'inset 0px 11px 15px -7px rgba(0,0,0,0.2), inset 0px 24px 38px 3px rgba(0,0,0,0.14), inset 0px 9px 46px 8px rgba(0,0,0,0.12)'
 	},
 
 	projectTitleContainer: {
@@ -72,7 +76,12 @@ const styles = (theme: Theme) => createStyles({
 		alignSelf: 'center',
 		display: 'flex',
 		justifyContent: 'center',
-		marginTop: '40px',
+		//marginTop: '40px',
+		//boxShadow: '0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12)',
+		borderRadius: '20px',
+		/* opacity: 1; */
+		width: '90%',
+		margin: '50px auto auto auto',
 	},
 
 	projectTitle: {
@@ -83,10 +92,12 @@ const styles = (theme: Theme) => createStyles({
 		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
 		alignSelf: 'center',
 		borderBottom: (props: StyleProps) => `3px solid ${getDarkOrLightTheme(theme, 'primary-light', props)}`,
+
 	},
 
 	paperProjectDescription: {
-		marginBottom: '15px'
+		marginBottom: '15px',
+		boxShadow: 'inset 0px 1px 1px -70px rgba(0,0,0,0.2), inset 0px 4px 8px 3px rgba(0,0,0,0.14), inset 0px 9px 26px 8px rgba(0,0,0,0.12), 0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12)'
 	},
 
 	projectDescription: {
@@ -102,7 +113,8 @@ const styles = (theme: Theme) => createStyles({
 		width: '80%',
 		transition: 'all 700ms ease 200ms',
 		fontSize: '15px',
-		alignSelf: 'center'
+		alignSelf: 'center',
+		marginBottom: '20px',
     },
     
     returnLink: {
