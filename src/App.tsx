@@ -250,9 +250,9 @@ function App(props : AppProps) {
                 <Route path="/" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
                 <Route path="/projects" exact component={isMobile ? MobileProjects : Projects  } />
                 <Route path="/projects/email" exact component={isMobile ? MobileProjects : Projects  } />
-                <Route path="/projects/:project" exact component={MobileProjects} />
-                <Route path="/projects/menu/email" exact component={MobileProjects} />
-                <Route path="/projects/menu" exact component={MobileProjects} />
+                <Route path="/projects/:project" exact component={isMobile ? MobileProjects : Projects} />
+                <Route path="/projects/menu/email" exact component={isMobile ? MobileProjects : Projects} />
+                <Route path="/projects/menu" exact component={isMobile ? MobileProjects : Projects} />
                 <Route path="/:path" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
                 <Route path="/menu/email" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
               </Switch>
