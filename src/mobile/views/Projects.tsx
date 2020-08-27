@@ -10,6 +10,8 @@ import RavenousLink from 'components/ProjectButtonLinks/RavenousLink';
 import CodigoAventuraLink from 'components/ProjectButtonLinks/CodigoAventuraLink';
 import TeaCozyLink from 'components/ProjectButtonLinks/TeaCozyLink';
 import ProjectSelected from 'mobile/views/ProjectSelected'
+import Button from "components/CustomButtons/Button";
+import ProjectSelectedDialog from 'mobile/views/ProjectSelectedDialog';
 //Custom MUI Components
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
@@ -345,12 +347,14 @@ const Projects = ({match} : any) => {
 										
 
 									</motion.div>
-									<Link to={`/projects/${id}`} className={classes.cardOpenLink} />
+									<Button component={Link} to={`/projects/${id}`} className={classes.cardOpenLink} />
+
+								
 								</GridItem>
 							)
 						})}
 
-                        {projectRoute && imageHasLoaded && <ProjectSelected items={gridItems} id={project} isThemeDark={isThemeDark} /> }
+                        {projectRoute && imageHasLoaded && <ProjectSelectedDialog items={gridItems} id={project} isThemeDark={isThemeDark} /> }
 					</GridContainer>
 					
 				</motion.div>
