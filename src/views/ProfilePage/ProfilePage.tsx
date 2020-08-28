@@ -66,7 +66,7 @@ interface Props extends RouteComponentProps<any>, React.Props<any> {
 const useStyles  = makeStyles(styles);
 
 function ProfilePage(props: any) {
-  const { isThemeDark, intl,  ...rest} = props;
+  const { isThemeDark, intl } = props;
   const classes : any = useStyles({isThemeDark} as StyleProps);
   const {isMobile} = useWindowSize();
   const [activeProject, setActiveProject] = useState(0);
