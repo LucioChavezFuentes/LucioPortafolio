@@ -94,7 +94,8 @@ const styles = (theme: Theme) => createStyles({
 		width: '100%',
 		height: 'auto',
 		transition: 'all 500ms ease 200ms',
-		display: 'block'
+		display: 'block',
+		borderRadius: '15px',
 	},
 
 	projectDetails: {
@@ -151,6 +152,7 @@ const styles = (theme: Theme) => createStyles({
 		left: 0,
 		right: 0,
 		bottom: 0,
+		borderRadius: '20px',
 	}
 })
 
@@ -265,9 +267,9 @@ const Projects : React.FC<any> = ({match} : any) => {
                                             
 										/>
 										
-
+										<Button component={Link} to={`/projects/${id}`} className={classes.cardOpenLink} />
 									</motion.div>
-									<Button component={Link} to={`/projects/${id}`} className={classes.cardOpenLink} />
+									
 
 								
 								</GridItem>
