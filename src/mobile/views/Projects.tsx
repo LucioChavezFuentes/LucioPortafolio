@@ -9,7 +9,8 @@ import SocialConejitoLink from 'components/ProjectButtonLinks/SocialConejitoLink
 import RavenousLink from 'components/ProjectButtonLinks/RavenousLink';
 import CodigoAventuraLink from 'components/ProjectButtonLinks/CodigoAventuraLink';
 import TeaCozyLink from 'components/ProjectButtonLinks/TeaCozyLink';
-import ProjectSelected from 'mobile/views/ProjectSelected'
+//Uncomment if you want to change the animation on clicking a project
+//import ProjectSelected from 'mobile/views/ProjectSelected'
 import Button from "components/CustomButtons/Button";
 import ProjectSelectedDialog from 'mobile/views/ProjectSelectedDialog';
 //Custom MUI Components
@@ -155,15 +156,15 @@ const styles = (theme: Theme) => createStyles({
     cardOpenLink: {
 		position: 'absolute',
 		top: 0,
-	    left: 0,
+		left: 0,
 		right: 0,
 		bottom: 0,
-	  }
+	}
 })
 
 const useStyles = makeStyles(styles)
 
-const Projects = ({match} : any) => {
+const Projects : React.FC<any> = ({match} : any) => {
 
     const { project } = match.params;
     const imageHasLoaded = true;
@@ -174,13 +175,13 @@ const Projects = ({match} : any) => {
 	const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 	//Grid Container Spacing
 	const none = 0;
-	const veryLow = 1;
+	//const veryLow = 1;
 	//const low = 2;
-	const medium = 4;
-	const high = 6;
+	//const medium = 4;
+	//const high = 6;
 	const veryHigh = 8;
 	//Grid Items space to take on Grid Container
-	const halfWidth = 6;
+	//const halfWidth = 6;
 	const fullWidth = 12;
 
 	const childrenAnimation = {
