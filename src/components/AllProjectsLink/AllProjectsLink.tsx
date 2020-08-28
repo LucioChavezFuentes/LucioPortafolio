@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
+//helper
+import IntlMessage from 'helper/IntlMessages';
 
 const useStyles = makeStyles((theme) =>
 
@@ -45,7 +47,10 @@ const AllProjectsLink = () => {
 
     return (
         <Button className={classes.navLink} to='/projects' startIcon={<Apps />} component={Link}>
-            All Projects
+            <IntlMessage
+                defaultMessage='All Projects'
+                id='all-projects' description='all-projects'
+            />
         </Button>
     )
 }
