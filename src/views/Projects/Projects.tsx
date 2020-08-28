@@ -160,10 +160,10 @@ const Projects = (props) => {
 	const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 	//Grid Container Spacing
 	const none = 0;
-	const veryLow = 1;
+	//const veryLow = 1;
 	//const low = 2;
-	const medium = 4;
-	const high = 6;
+	//const medium = 4;
+	//const high = 6;
 	const veryHigh = 8;
 	//Grid Items space to take on Grid Container
 	const halfWidth = 6;

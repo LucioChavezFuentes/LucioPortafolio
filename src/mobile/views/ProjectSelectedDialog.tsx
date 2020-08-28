@@ -2,7 +2,7 @@ import React from 'react'
 //Animations
 import { motion } from 'framer-motion';
 //React Router Dom;
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 //MUI Core
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
@@ -12,8 +12,6 @@ import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 
 //MUI Icons
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
-
-import IconButton from '@material-ui/core/IconButton';
 
 //Custon Material-UI Components
 import CustomPaper from 'components/CustomPaper/CustomPaper';
@@ -137,7 +135,7 @@ const Transition = React.forwardRef<unknown, TransitionProps>(function Transitio
     return <Slide direction="up" ref={ref} {...props as any} />;
   });
 
-const ProjectSelected = ({ items, id, isThemeDark } : any) => {
+const ProjectSelected : React.FC<any> = ({ items, id, isThemeDark } : any) => {
 
     const [open, setOpen] = React.useState(true)
     const history = useHistory();
@@ -152,7 +150,7 @@ const ProjectSelected = ({ items, id, isThemeDark } : any) => {
 
 	//Paper Elevation Variables
 	const MAX_ELEVATION = 24;
-	const MEDIUM_ELEVATION = 12;
+	//const MEDIUM_ELEVATION = 12;
 	//const LOW_ELEVATION = 6;
     const classes = useStyles({isThemeDark});
 
