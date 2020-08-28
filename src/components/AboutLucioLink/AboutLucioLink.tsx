@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import FaceIcon from '@material-ui/icons/Face';
+//helper
+import IntlMessage from 'helper/IntlMessages';
 
 const useStyles = makeStyles((theme) =>
 
@@ -46,7 +48,10 @@ const AboutLucioLink = () => {
 
 	return (
 		<Button className={classes.navLink} to='/' startIcon={<FaceIcon />} component={Link}>
-			About Lucio
+            <IntlMessage
+                defaultMessage='About Lucio'
+                id='about-lucio' description='about-lucio'
+            />
 		</Button>
 	)
 }
