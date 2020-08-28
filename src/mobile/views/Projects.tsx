@@ -22,7 +22,7 @@ import { makeStyles, createStyles, Theme, useTheme } from "@material-ui/core/sty
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 import IntlMessage from 'helper/IntlMessages';
 //Data
-import projectsById, {projectIds, arrayOfProjects} from 'data/projects';
+import projectsById, { arrayOfProjects} from 'data/projects';
 //Types
 import StyleProps from "types/StyleProps";
 import { RootState } from 'redux/rootReducer';

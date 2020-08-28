@@ -38,7 +38,7 @@ function HeaderLinks(props: any) {
   const { isThemeDark, intl } = props
   const classes = useStyles({ isThemeDark });
 
-  const { onClickProject, handleDrawerToggle, isMobile } = props;
+  const { handleDrawerToggle, isMobile } = props;
 
   /*const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
 
@@ -107,7 +107,7 @@ function HeaderLinks(props: any) {
   ) : (
       <>
         <List className={classes.list}>
-          
+
           <ListItem className={classes.listItem}>
             <AboutLucioLink />
           </ListItem>
