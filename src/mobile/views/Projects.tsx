@@ -303,10 +303,16 @@ const Projects = ({match} : any) => {
 		container: none,
 		item: '32px 0'
 	}
+	const routes = {
+		socialConejito: 'socialConejito',
+		ravenous: 'ravenous',
+		adventureCode: 'adventureCode',
+		teaCozy: 'teaCozy'
+	}
 
 	const getGridSpacing = (type : 'container' | 'item') => isMobile ? gridSpacingMobile[type] : gridSpacingWeb[type]
 	
-	const projectRoute = gridItems.find(item => item.id === project);
+	//const projectRoute = gridItems.find(item => item.id === project);
 
 	return (
 		<motion.div >
@@ -354,7 +360,7 @@ const Projects = ({match} : any) => {
 							)
 						})}
 
-                        {projectRoute && imageHasLoaded && <ProjectSelectedDialog items={gridItems} id={project} isThemeDark={isThemeDark} /> }
+                        {routes[project] && imageHasLoaded && <ProjectSelectedDialog items={gridItems} id={project} isThemeDark={isThemeDark} /> }
 					</GridContainer>
 					
 				</motion.div>
