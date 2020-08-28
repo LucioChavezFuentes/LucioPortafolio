@@ -135,7 +135,7 @@ const Transition = React.forwardRef<unknown, TransitionProps>(function Transitio
     return <Slide direction="up" ref={ref} {...props as any} />;
   });
 
-const ProjectSelected : React.FC<any> = ({ items, id, isThemeDark } : any) => {
+const ProjectSelected : React.FC<any> = ({ item: {title, img, description, ButtonLink}, id, isThemeDark } : any) => {
 
     const [open, setOpen] = React.useState(true)
     const history = useHistory();
@@ -152,11 +152,9 @@ const ProjectSelected : React.FC<any> = ({ items, id, isThemeDark } : any) => {
 	const MAX_ELEVATION = 24;
 	//const MEDIUM_ELEVATION = 12;
 	//const LOW_ELEVATION = 6;
-    const classes = useStyles({isThemeDark});
-
-	const { title, img, description, ButtonLink } = items.find(item => item.id === id);
+  const classes = useStyles({isThemeDark});
 	
-	const SelectedIcon = icons[id] 
+	const SelectedIcon = icons[id]
 
     return (
         <Dialog open={open} onExited={pushToProjects} fullWidth keepMounted maxWidth='md' fullScreen scroll='body' TransitionComponent={Transition}>

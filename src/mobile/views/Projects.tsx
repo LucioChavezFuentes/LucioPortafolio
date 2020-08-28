@@ -4,11 +4,6 @@ import { motion } from 'framer-motion';
 //React Router Dom;
 import { Link } from "react-router-dom";
 
-//Components
-import SocialConejitoLink from 'components/ProjectButtonLinks/SocialConejitoLink';
-import RavenousLink from 'components/ProjectButtonLinks/RavenousLink';
-import CodigoAventuraLink from 'components/ProjectButtonLinks/CodigoAventuraLink';
-import TeaCozyLink from 'components/ProjectButtonLinks/TeaCozyLink';
 //Uncomment if you want to change the animation on clicking a project
 //import ProjectSelected from 'mobile/views/ProjectSelected'
 import Button from "components/CustomButtons/Button";
@@ -17,11 +12,6 @@ import ProjectSelectedDialog from 'mobile/views/ProjectSelectedDialog';
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 
-//images
-import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
-import ravenousProject from 'assets/img/projects/ravenous.jpg';
-import codigoAventura from 'assets/img/projects/codigoAventura.jpg';
-import teaCozy from 'assets/img/projects/teaCozy.jpg'
 //Redux
 import { useSelector } from 'react-redux';
 
@@ -31,6 +21,8 @@ import { makeStyles, createStyles, Theme, useTheme } from "@material-ui/core/sty
 //Helpers
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 import IntlMessage from 'helper/IntlMessages';
+//Data
+import projectsById, {projectIds, arrayOfProjects} from 'data/projects';
 //Types
 import StyleProps from "types/StyleProps";
 import { RootState } from 'redux/rootReducer';
@@ -222,79 +214,6 @@ const Projects : React.FC<any> = ({match} : any) => {
 		}
 	}
 
-	const gridItems = [{
-		img: {
-			src: socialConejitoProject,
-			alt: 'The Social Conejito',
-		},
-		title: 'The Social Conejito',
-		description: <IntlMessage
-			defaultMessage="The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment."
-			description='the-social-conejito-description'
-			id="the-social-conejito-description" />,
-		ButtonLink: <SocialConejitoLink
-			label={<IntlMessage
-				defaultMessage='Visit Social Conejito'
-				description="The visit label for social conejito's link button"
-                id='visit-label-conejito-button' />} />,
-        id: 'socialConejito',
-	}, {
-		img: {
-			src: ravenousProject,
-			alt: 'Ravenous'
-		},
-		title: 'Ravenous',
-		description: <IntlMessage
-			defaultMessage="Ravenous searches for restaurants in a city or country with a given type of food."
-			description='ravenous-description'
-			id="ravenous-description" />,
-		ButtonLink: <RavenousLink
-			
-			label={<IntlMessage
-				defaultMessage='Visit Ravenous'
-				description="The visit label for ravenous's link button"
-				id='visit-label-ravenous-button'
-            />}/>,
-        id: 'ravenous'
-	}, {
-		img: {
-			src: codigoAventura,
-			alt: 'Adventure Code'
-		},
-		title: <IntlMessage
-			defaultMessage='Adventure Code'
-			description='adventure-code-title'
-			id="adventure-code-title"
-		/>,
-		description: <IntlMessage
-			defaultMessage="Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output."
-			description='adventure-code-description'
-			id="adventure-code-description" />,
-		ButtonLink: <CodigoAventuraLink label={<IntlMessage
-			defaultMessage='Visit Adventure Code'
-			description="The visit label for adventure code's link button"
-			id='visit-label-adventure-code-button'
-        />} />,
-        id: 'adventureCode',
-	}, {
-		img: {
-			src: teaCozy,
-			alt: 'Tea Cozy',
-		},
-		title: 'Tea Cozy',
-		description: <IntlMessage
-			defaultMessage='A lovely web page designed for a tea/coffee shop.'
-			description='tea-cozy-description'
-			id='tea-cozy-description' />,
-		ButtonLink: <TeaCozyLink 
-			label={<IntlMessage
-			defaultMessage='Visit Tea Cozy'
-			description="The visit label for tea cozy's link button"
-			id='visit-label-tea-cozy-button'
-        />} />,
-        id: 'teaCozy'
-	}]
-
 	const gridSpacingWeb = {
 		container: veryHigh,
 		item: ''
@@ -304,16 +223,10 @@ const Projects : React.FC<any> = ({match} : any) => {
 		container: none,
 		item: '32px 0'
 	}
-	const routes = {
-		socialConejito: 'socialConejito',
-		ravenous: 'ravenous',
-		adventureCode: 'adventureCode',
-		teaCozy: 'teaCozy'
-	}
 
 	const getGridSpacing = (type : 'container' | 'item') => isMobile ? gridSpacingMobile[type] : gridSpacingWeb[type]
-	
-	//const projectRoute = gridItems.find(item => item.id === project);
+
+	const projectDetails = projectsById[project]
 
 	return (
 		<motion.div >
@@ -333,7 +246,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 
 					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
 
-						{gridItems.map(({ img, id }) => {
+						{arrayOfProjects.map(({ img, id }) => {
 
 							return (
 								<GridItem xs={fullWidth} sm={fullWidth} key={id} style={{padding: getGridSpacing('item')}}>
@@ -341,14 +254,14 @@ const Projects : React.FC<any> = ({match} : any) => {
 										className={classes.projectItem}
 										variants={childrenAnimation}
 										whileHover='hover'
-                                        key={id}
-                                        layoutId={`project-${id}`}
+                    key={id}
+                    layoutId={`project-${id}`}
 									>
 										<motion.img
 											variants={hoverImage}
 											className={classes.projectImage}
 											src={img.src}
-                                            alt={img.alt}
+                      alt={img.alt}
                                             
 										/>
 										
@@ -361,7 +274,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 							)
 						})}
 
-                        {routes[project] && imageHasLoaded && <ProjectSelectedDialog items={gridItems} id={project} isThemeDark={isThemeDark} /> }
+                        {projectDetails && imageHasLoaded && <ProjectSelectedDialog item={projectDetails} id={project} isThemeDark={isThemeDark} /> }
 					</GridContainer>
 					
 				</motion.div>

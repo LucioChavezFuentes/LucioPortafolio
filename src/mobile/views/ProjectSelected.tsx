@@ -11,8 +11,6 @@ import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 //MUI Icons
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 
-import IconButton from '@material-ui/core/IconButton';
-
 //Custon Material-UI Components
 import CustomPaper from 'components/CustomPaper/CustomPaper';
 import CustomIconButton from 'components/CustomIconButton/CustomIconButton';
@@ -27,29 +25,29 @@ import StyleProps from "types/StyleProps";
 
 const icons = {
 	socialConejito: Conejito,
-	ravenous: Ravenous ,
-	adventureCode: AdventureCode ,
-	teaCozy: TeaCozy 
+	ravenous: Ravenous,
+	adventureCode: AdventureCode,
+	teaCozy: TeaCozy
 
 }
 
 const styles = (theme: Theme) => createStyles({
-    projectItem: {
+	projectItem: {
 		position: 'fixed',
-        //borderRadius: '20px',
-        backgroundColor: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
-        overflow: 'auto',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '100%',
-        width: '100%',
+		//borderRadius: '20px',
+		backgroundColor: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
+		overflow: 'auto',
+		top: 0,
+		left: 0,
+		right: 0,
+		height: '100%',
+		width: '100%',
 		zIndex: 1400,
 		//boxShadow: 'inset 0px 11px 15px -7px rgba(0,0,0,0.2), inset 0px 24px 38px 3px rgba(0,0,0,0.14), inset 0px 9px 46px 8px rgba(0,0,0,0.12)',
 		boxShadow: 'inset 0px 1px 5px -7px rgba(0,0,0,0.2), inset 0px 4px 8px 3px rgba(0,0,0,0.14), inset 0px 9px 46px 8px rgba(0,0,0,0.12)'
-    },
+	},
 
-    projectImage: {
+	projectImage: {
 		width: '100%',
 		height: 'auto',
 		transition: 'all 500ms ease 200ms',
@@ -67,12 +65,12 @@ const styles = (theme: Theme) => createStyles({
 		padding: '20px',
 		justifyContent: 'center',
 		textAlign: 'center',
-		
+
 		//boxShadow: 'inset 0px 11px 15px -7px rgba(0,0,0,0.2), inset 0px 24px 38px 3px rgba(0,0,0,0.14), inset 0px 9px 46px 8px rgba(0,0,0,0.12)'
 	},
 
 	projectTitleContainer: {
-		flex:'1', 
+		flex: '1',
 		alignSelf: 'center',
 		display: 'flex',
 		justifyContent: 'center',
@@ -115,9 +113,9 @@ const styles = (theme: Theme) => createStyles({
 		fontSize: '15px',
 		alignSelf: 'center',
 		marginBottom: '20px',
-    },
-    
-    returnLink: {
+	},
+
+	returnLink: {
 		position: 'absolute',
 		margin: '10px 0 0 10px',
 	},
@@ -129,56 +127,54 @@ const styles = (theme: Theme) => createStyles({
 
 const useStyles = makeStyles(styles)
 
-const ProjectSelected = ({ items, id, isThemeDark } : any) => {
+const ProjectSelected = ({ item: { title, img, description, ButtonLink }, id, isThemeDark }: any) => {
 
 	//Paper Elevation Variables
 	const MAX_ELEVATION = 24;
-	const MEDIUM_ELEVATION = 12;
+	//const MEDIUM_ELEVATION = 12;
 	//const LOW_ELEVATION = 6;
-    const classes = useStyles({isThemeDark});
+	const classes = useStyles({ isThemeDark });
 
-	const { title, img, description, ButtonLink } = items.find(item => item.id === id);
-	
-	const SelectedIcon = icons[id] 
+	const SelectedIcon = icons[id]
 
-    return (
-        <motion.div
-            className={classes.projectItem}
-            key={id}
-            layoutId={`project-${id}`}
-        >
+	return (
+		<motion.div
+			className={classes.projectItem}
+			key={id}
+			layoutId={`project-${id}`}
+		>
 			<CustomIconButton component={Link} to='/projects' className={classes.returnLink}>
 				<KeyboardReturnIcon />
 			</CustomIconButton>
 
-				<div className={classes.projectTitleContainer}>
-					
-                    <p className={classes.projectTitle}>
-                        {title}
-                    </p>
-                </div>
-            <motion.img
-                className={classes.projectImage}
-                src={img.src}
-                alt={img.alt}
-            />
+			<div className={classes.projectTitleContainer}>
 
-            <motion.div className={classes.projectDetails} animate >
-                
+				<p className={classes.projectTitle}>
+					{title}
+				</p>
+			</div>
+			<motion.img
+				className={classes.projectImage}
+				src={img.src}
+				alt={img.alt}
+			/>
+
+			<motion.div className={classes.projectDetails} animate >
+
 				<CustomPaper elevation={MAX_ELEVATION} className={classes.paperProjectDescription} >
-					<SelectedIcon className={classes.iconProject}  />
+					<SelectedIcon className={classes.iconProject} />
 					<p className={classes.projectDescription}>
 						{description}
 					</p>
 				</CustomPaper>
 
-                <div className={classes.webSiteLink}>
-                    {ButtonLink}
-                </div>
-            </motion.div>
-            {/*<Link to='/projects' className={classes.cardOpenLink} />*/}
-        </motion.div>
-    )
+				<div className={classes.webSiteLink}>
+					{ButtonLink}
+				</div>
+			</motion.div>
+			{/*<Link to='/projects' className={classes.cardOpenLink} />*/}
+		</motion.div>
+	)
 }
 
 export default ProjectSelected
