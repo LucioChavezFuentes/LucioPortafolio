@@ -1,9 +1,6 @@
 
 import React from "react";
 
-//React Router
-import {Link, matchPath, useLocation} from 'react-router-dom';
-
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -13,11 +10,6 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 
 // @material-ui/icons
-import Apps from "@material-ui/icons/Apps";
-import Conejito from "assets/img/customIcons/Conejito";
-import AdventureCode from "assets/img/customIcons/AdventureCode";
-import Ravenous from "assets/img/customIcons/Ravenous";
-import TeaCozy from "assets/img/customIcons/TeaCozy";
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 // core components
@@ -25,8 +17,6 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button";
 import EmailDialog from "components/EmailDialog/EmailDialog";
 import {injectIntl} from 'react-intl';
-import IntlMessage from 'helper/IntlMessages';
-import LinkShifter from 'components/LinkShifter/LinkShifter';
 import AllProjectsLink from 'components/AllProjectsLink/AllProjectsLink';
 import AboutLucioLink from 'components/AboutLucioLink/AboutLucioLink';
 
@@ -47,7 +37,6 @@ const useStyles = makeStyles(styles);
 
 function HeaderLinks(props: any) {
   const {isThemeDark, intl} = props
-  const location = useLocation();
   const classes = useStyles({isThemeDark});
 
   const {onClickProject, handleDrawerToggle, isMobile} = props;
@@ -73,15 +62,15 @@ function HeaderLinks(props: any) {
     <List
       className={classes.list}
     >
-      <ListSubheader  id="All Projects"  className={classes.listSubheader}>
-      {/*<IntlMessage 
-                        defaultMessage='All Projects' 
-                        id='all-projects' description='all-projects' 
-      />*/}
-      <AllProjectsLink />
-      <AboutLucioLink />
-        
-      </ListSubheader>
+      <ListItem className={classes.listItem}>  
+        <AllProjectsLink />
+      </ListItem>
+      
+      <ListItem className={classes.listItem}>
+        <AboutLucioLink />
+      </ListItem>
+      
+      
         {/*<ListItem className={classes.listItem}>
           <Button
             href='https://thesocialmono.firebaseapp.com'
