@@ -50,10 +50,24 @@ const styles = (theme: Theme) => createStyles({
 	title: {
 		fontSize: "30px",
 		marginTop: '50px',
+		marginBottom: '10px',
 		position: 'relative',
 		minHeight: '32px',
 		fontFamily: ' "Roboto Slab", "Times New Roman", serif',
 		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
+	},
+
+	helperTextContainer: {
+		
+		width: '100%',
+		textAlign: 'center',
+		
+	},
+
+	helperText: {
+		fontSize: "20px",
+		fontFamily: ' "Roboto", "Times New Roman", serif',
+		margin: '10px',
 	},
 
 	projectsContainer: {
@@ -245,6 +259,10 @@ const Projects : React.FC<any> = ({match} : any) => {
 							<h3 className={classes.title}><IntlMessage defaultMessage="All Lucio's Projects" description="All Lucio's Projects Title" id='all-lucio-projects' /></h3>
 						</div>
 					</div>
+
+						<div className={classes.helperTextContainer}>
+							<h5 className={classes.helperText}>Click or Tap on image to see project details.</h5>
+						</div>
 
 					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
 
