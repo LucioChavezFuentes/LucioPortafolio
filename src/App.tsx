@@ -2,6 +2,9 @@ import React from 'react'
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
+// @material-ui/core components
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 //Animations
 import {AnimatePresence,  AnimateSharedLayout} from 'framer-motion'
 
@@ -25,8 +28,9 @@ import Projects from 'views/Projects/Projects';
 import MobileProjects from 'mobile/views/Projects';
 
 // MUI Imports
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 //Internationalization
 import {IntlProvider} from 'react-intl';
 
@@ -218,6 +222,8 @@ const useStyles = makeStyles((theme) => ({
 function App(props : AppProps) {
 
   //const {locale} = useSelector(state => state.ui.lenguage )
+  const theme = useTheme();
+  const mobileDevice = useMediaQuery(theme.breakpoints.down('md'));
  
   const {isMobile} = useWindowSize();
   const {isThemeDark, locale} = props;
@@ -248,11 +254,11 @@ function App(props : AppProps) {
             <AnimatePresence>
               <Switch>
                 <Route path="/" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
-                <Route path="/projects" exact component={isMobile ? MobileProjects : Projects  } />
-                <Route path="/projects/email" exact component={isMobile ? MobileProjects : Projects  } />
-                <Route path="/projects/:project" exact component={isMobile ? MobileProjects : Projects} />
-                <Route path="/projects/menu/email" exact component={isMobile ? MobileProjects : Projects} />
-                <Route path="/projects/menu" exact component={isMobile ? MobileProjects : Projects} />
+                <Route path="/projects" exact component={mobileDevice ? MobileProjects : Projects  } />
+                <Route path="/projects/email" exact component={mobileDevice ? MobileProjects : Projects  } />
+                <Route path="/projects/:project" exact component={mobileDevice ? MobileProjects : Projects} />
+                <Route path="/projects/menu/email" exact component={mobileDevice ? MobileProjects : Projects} />
+                <Route path="/projects/menu" exact component={mobileDevice ? MobileProjects : Projects} />
                 <Route path="/:path" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
                 <Route path="/menu/email" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
               </Switch>
