@@ -89,13 +89,31 @@ const styles = (theme: Theme) => createStyles({
 		'&:hover $webSiteLink': {
 			opacity: 1,
 		},
+
+		'&:focus $projectImage': {
+			//opacity: 0.09,
+			filter: 'brightness(20%)',
+		},
+
+		'&:focus $projectTitle': {
+			opacity: 1,
+		},
+
+		'&:focus $projectDescription': {
+			opacity: 1,
+		},
+
+		'&:focus $webSiteLink': {
+			opacity: 1,
+		},
 	},
 
 	projectImage: {
 		width: '100%',
 		height: 'auto',
 		transition: 'all 500ms ease 200ms',
-		display: 'block'
+		display: 'block',
+		borderRadius: '15px',
 	},
 
 	projectDetails: {
@@ -136,6 +154,9 @@ const styles = (theme: Theme) => createStyles({
 		alignSelf: 'center',
 		color: 'rgb(255, 255, 255)',
 		margin: '20px 0',
+		[theme.breakpoints.down("sm")]: {
+			fontSize: '20px',
+		}
 	},
 
 	webSiteLink: {
