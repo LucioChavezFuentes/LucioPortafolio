@@ -68,6 +68,10 @@ const styles = (theme: Theme) => createStyles({
 		fontSize: "20px",
 		fontFamily: ' "Roboto", "Times New Roman", serif',
 		margin: '10px',
+		color: (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps),
+		[theme.breakpoints.down("xs")]: {
+			fontSize: "16px",
+		}
 	},
 
 	projectsContainer: {
@@ -261,7 +265,12 @@ const Projects : React.FC<any> = ({match} : any) => {
 					</div>
 
 						<div className={classes.helperTextContainer}>
-							<h5 className={classes.helperText}>Click or Tap on image to see project details.</h5>
+							<h5 className={classes.helperText}>
+								<IntlMessage 
+									defaultMessage="Click or Tap on images to see project details." 
+									description="projects-helper-text" 
+									id='projects-helper-text' />
+							</h5>
 						</div>
 
 					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
