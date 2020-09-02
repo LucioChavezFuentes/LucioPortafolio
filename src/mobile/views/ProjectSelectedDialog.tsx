@@ -22,6 +22,7 @@ import Conejito from "assets/img/customIcons/Conejito";
 import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
 import TeaCozy from "assets/img/customIcons/TeaCozy";
+import  WanderlustIcon from "assets/img/customIcons/WanderlustIcon";
 
 //Types
 import StyleProps from "types/StyleProps";
@@ -31,7 +32,8 @@ const icons = {
 	socialConejito: Conejito,
 	ravenous: Ravenous ,
 	adventureCode: AdventureCode ,
-	teaCozy: TeaCozy 
+	teaCozy: TeaCozy,
+	wanderlust: WanderlustIcon,
 
 }
 
