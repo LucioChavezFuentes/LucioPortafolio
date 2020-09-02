@@ -2,14 +2,17 @@ import React from 'react';
 //images
 import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
 import ravenousProject from 'assets/img/projects/ravenous.jpg';
+import wanderlust from 'assets/img/projects/wanderlust.jpg';
 import codigoAventura from 'assets/img/projects/codigoAventura.jpg';
-import teaCozy from 'assets/img/projects/teaCozy.jpg'
+import teaCozy from 'assets/img/projects/teaCozy.jpg';
+
 
 //Components
 import SocialConejitoLink from 'components/ProjectButtonLinks/SocialConejitoLink';
 import RavenousLink from 'components/ProjectButtonLinks/RavenousLink';
 import CodigoAventuraLink from 'components/ProjectButtonLinks/CodigoAventuraLink';
 import TeaCozyLink from 'components/ProjectButtonLinks/TeaCozyLink';
+import WanderlustLink from 'components/ProjectButtonLinks/WanderlustLink';
 
 import IntlMessage from 'helper/IntlMessages';
 
@@ -49,6 +52,24 @@ const projectsById = {
         id='visit-label-ravenous-button'
             />}/>,
         id: 'ravenous'
+  },
+  wanderlust: {
+    img: {
+      src: wanderlust,
+      alt: 'Wanderlust',
+    },
+    title: 'Wanderlust',
+    description: <IntlMessage
+      defaultMessage="Wanderlust is travel guide app where you get a city's or country's top attractions and weather forecast."
+      description='wanderlust-description'
+      id="wanderlust-description" />,
+    ButtonLink: <WanderlustLink label={<IntlMessage
+      defaultMessage='Visit Wanderlust'
+      description="The visit label for wanderlust's link button"
+      id='visit-label-wanderlust-button'
+        />} />,
+
+    id: 'wanderlust',
   },
   adventureCode: {
     img: {
@@ -92,7 +113,7 @@ const projectsById = {
   }
 }
 
-export const projectIds = ['socialConejito', 'ravenous', 'adventureCode', 'teaCozy'];
+export const projectIds = ['socialConejito', 'ravenous', 'adventureCode', 'wanderlust', 'teaCozy'];
 
 export const arrayOfProjects = projectIds.map(id => projectsById[id])
 
