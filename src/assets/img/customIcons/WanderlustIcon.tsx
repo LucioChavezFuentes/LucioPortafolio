@@ -4,6 +4,6 @@ import {ReactComponent as WanderlustSVG} from "assets/img/logos/wanderlust-logo.
 // Material IU Icon Warapper
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-const WanderlustIcon = () => <SvgIcon viewBox='0 0 39 41' component={WanderlustSVG} />
+const WanderlustIcon = (props) => <SvgIcon viewBox='0 0 39 41' component={WanderlustSVG} {...props} />
 
 export default WanderlustIcon;
