@@ -60,7 +60,7 @@ const projectsById = {
     },
     title: 'Wanderlust',
     description: <IntlMessage
-      defaultMessage="Wanderlust is travel guide app where you get a city's or country's top attractions and weather forecast."
+      defaultMessage="Wanderlust is a travel guide app where you can get a city or country's top attractions and weather forecast."
       description='wanderlust-description'
       id="wanderlust-description" />,
     ButtonLink: <WanderlustLink label={<IntlMessage
