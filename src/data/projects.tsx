@@ -6,7 +6,6 @@ import wanderlust from 'assets/img/projects/wanderlust.jpg';
 import codigoAventura from 'assets/img/projects/codigoAventura.jpg';
 import teaCozy from 'assets/img/projects/teaCozy.jpg';
 
-
 //Components
 import SocialConejitoLink from 'components/ProjectButtonLinks/SocialConejitoLink';
 import RavenousLink from 'components/ProjectButtonLinks/RavenousLink';
@@ -31,8 +30,8 @@ const projectsById = {
       label={<IntlMessage
         defaultMessage='Visit Social Conejito'
         description="The visit label for social conejito's link button"
-                id='visit-label-conejito-button' />} />,
-        id: 'socialConejito',
+        id='visit-label-conejito-button' />} />,
+    id: 'socialConejito',
   },
   ravenous: {
     img: {
@@ -45,13 +44,13 @@ const projectsById = {
       description='ravenous-description'
       id="ravenous-description" />,
     ButtonLink: <RavenousLink
-      
+
       label={<IntlMessage
         defaultMessage='Visit Ravenous'
         description="The visit label for ravenous's link button"
         id='visit-label-ravenous-button'
-            />}/>,
-        id: 'ravenous'
+      />} />,
+    id: 'ravenous'
   },
   wanderlust: {
     img: {
@@ -67,7 +66,7 @@ const projectsById = {
       defaultMessage='Visit Wanderlust'
       description="The visit label for wanderlust's link button"
       id='visit-label-wanderlust-button'
-        />} />,
+    />} />,
 
     id: 'wanderlust',
   },
@@ -89,7 +88,7 @@ const projectsById = {
       defaultMessage='Visit Adventure Code'
       description="The visit label for adventure code's link button"
       id='visit-label-adventure-code-button'
-        />} />,
+    />} />,
 
     id: 'adventureCode',
   },
@@ -103,13 +102,13 @@ const projectsById = {
       defaultMessage='A lovely web page designed for a tea/coffee shop.'
       description='tea-cozy-description'
       id='tea-cozy-description' />,
-    ButtonLink: <TeaCozyLink 
+    ButtonLink: <TeaCozyLink
       label={<IntlMessage
-      defaultMessage='Visit Tea Cozy'
-      description="The visit label for tea cozy's link button"
-      id='visit-label-tea-cozy-button'
-        />} />,
-        id: 'teaCozy'
+        defaultMessage='Visit Tea Cozy'
+        description="The visit label for tea cozy's link button"
+        id='visit-label-tea-cozy-button'
+      />} />,
+    id: 'teaCozy'
   }
 }
 
