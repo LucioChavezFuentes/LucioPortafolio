@@ -143,7 +143,7 @@ function ProfilePage(props: any) {
                     {intl.formatMessage({
                         defaultMessage: 'Web Developer',
                         description: 'occupation',
-                        id: "occupation",
+                        
                       })}
                     </h6>
                     { /*fab and fa-twitter appear to be global classNames*/ }
