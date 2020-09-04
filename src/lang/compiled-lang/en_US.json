@@ -1,0 +1,194 @@
+{
+  "email-tooltip": [
+    {
+      "type": 0,
+      "value": "!Send an email to Lucio¡"
+    }
+  ],
+  "legend-1-email": [
+    {
+      "type": 0,
+      "value": "Send me a message from here."
+    }
+  ],
+  "legend-2-email": [
+    {
+      "type": 0,
+      "value": "!Simple and Fast¡"
+    }
+  ],
+  "name-email": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
+  "required-field-email": [
+    {
+      "type": 0,
+      "value": "*Required"
+    }
+  ],
+  "emailField-email": [
+    {
+      "type": 0,
+      "value": "Email"
+    }
+  ],
+  "subject-email": [
+    {
+      "type": 0,
+      "value": "Subject"
+    }
+  ],
+  "message-email": [
+    {
+      "type": 0,
+      "value": "Message"
+    }
+  ],
+  "contact-me-email": [
+    {
+      "type": 0,
+      "value": "Or contact me"
+    }
+  ],
+  "social-media-title": [
+    {
+      "type": 0,
+      "value": "Social Media"
+    }
+  ],
+  "github-tooltip": [
+    {
+      "type": 0,
+      "value": "Lucio's GitHub"
+    }
+  ],
+  "language-title": [
+    {
+      "type": 0,
+      "value": "Language"
+    }
+  ],
+  "title-about-me": [
+    {
+      "type": 0,
+      "value": "About Me"
+    }
+  ],
+  "title-philosophy": [
+    {
+      "type": 0,
+      "value": "Philosophy"
+    }
+  ],
+  "philosophy": [
+    {
+      "type": 0,
+      "value": "I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future."
+    }
+  ],
+  "title-hobbies": [
+    {
+      "type": 0,
+      "value": "Hobbies and Lecture"
+    }
+  ],
+  "hobbies": [
+    {
+      "type": 0,
+      "value": "Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books for my professional growth. My last two favorite are: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown."
+    }
+  ],
+  "occupation": [
+    {
+      "type": 0,
+      "value": "Web Developer"
+    }
+  ],
+  "occupation-description": [
+    {
+      "type": 0,
+      "value": "I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development."
+    }
+  ],
+  "skills": [
+    {
+      "type": 0,
+      "value": "The scope of my skills cover front-end technologies such as:"
+    }
+  ],
+  "word-and": [
+    {
+      "type": 0,
+      "value": "and"
+    }
+  ],
+  "testing-skills-description": [
+    {
+      "type": 0,
+      "value": "I also write unit and/or integration tests with:"
+    }
+  ],
+  "back-end-skills-description-partOne": [
+    {
+      "type": 0,
+      "value": "And I have some experience in:"
+    }
+  ],
+  "back-end-skills-description-partTwo": [
+    {
+      "type": 0,
+      "value": "for back-end and model solutions."
+    }
+  ],
+  "latest-projects-title": [
+    {
+      "type": 0,
+      "value": "Latest Projects"
+    }
+  ],
+  "the-social-conejito-description": [
+    {
+      "type": 0,
+      "value": "The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment."
+    }
+  ],
+  "code-word": [
+    {
+      "type": 0,
+      "value": "Code"
+    }
+  ],
+  "code-button": [
+    {
+      "type": 0,
+      "value": "Source Code"
+    }
+  ],
+  "app-page-button": [
+    {
+      "type": 0,
+      "value": "App's Page"
+    }
+  ],
+  "adventure-code-title": [
+    {
+      "type": 0,
+      "value": "Adventure Code"
+    }
+  ],
+  "adventure-code-description": [
+    {
+      "type": 0,
+      "value": "Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output."
+    }
+  ],
+  "ravenous-description": [
+    {
+      "type": 0,
+      "value": "Ravenous searches for restaurants in a city or country with a given type of food."
+    }
+  ]
+}

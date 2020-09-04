@@ -237,7 +237,7 @@ function App(props : AppProps) {
     return (
       <PersistGate loading={null} persistor={persistor}>
         <CssBaseline>
-          <IntlProvider locale='es' defaultLocale="en" messages={AppLocale[locale].messages as any } >
+          <IntlProvider locale={AppLocale[locale].lenguage} defaultLocale="en" messages={AppLocale[locale].messages as any } >
           <AnimateSharedLayout type="crossfade">
           <Router history={hist}>
             <Header
