@@ -60,17 +60,20 @@
     "@types/underscore": "^1.10.15",
     "@typescript-eslint/eslint-plugin": "^3.9.1",
     "@typescript-eslint/parser": "^3.9.1",
+    "babel-plugin-react-intl": "^8.2.0",
+    "customize-cra": "^1.0.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.5",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
     "prettier": "2.0.5",
+    "react-app-rewired": "^2.1.6",
     "tslint": "^6.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint:check": "eslint . --ext=js,jsx;  exit 0",
@@ -81,7 +84,11 @@
     "compile-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.css",
     "minify-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.min.css --output-style compressed",
     "map-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.css --source-map true",
-    "deploy": "yarn run build && firebase deploy --only hosting"
+    "deploy": "yarn run build && firebase deploy --only hosting",
+    "extract": "formatjs extract",
+    "extract:intl-messages": "yarn extract src/**/*.ts* --out-file src/lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6]",
+    "compile": "formatjs compile",
+    "compile:lang-enUS": "yarn compile src/lang/en.json --ast --out-file src/lang/compiled-lang/en_US.json"
   },
   "browserslist": {
     "production": [
