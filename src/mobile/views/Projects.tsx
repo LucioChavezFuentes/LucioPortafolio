@@ -290,7 +290,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}
-										whileTap={{scale: 1.1, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
+										whileTap={{scale: 1.3, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
                     key={id}
                     layoutId={`project-${id}`}
 									>
