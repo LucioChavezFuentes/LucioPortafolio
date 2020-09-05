@@ -284,15 +284,15 @@ const Projects : React.FC<any> = ({match} : any) => {
 					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
 
 						{arrayOfProjects.map(({ img, id }) => {
-
+							//TODO: Find the proper event styling for projectItem
+							/*whileTap={{scale: 1.3, transition: { scale: {velocity: 700, stiffness: 1000 }}}}*/
 							return (
 								<GridItem xs={fullWidth} sm={fullWidth} key={id} style={{padding: getGridSpacing('item')}}>
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}
-										whileTap={{scale: 1.3, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
                     key={id}
-                    layoutId={`project-${id}`}
+										layoutId={`project-${id}`}
 									>
 										<motion.img
 											variants={hoverImage}
