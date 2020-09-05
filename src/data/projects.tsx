@@ -6,6 +6,13 @@ import wanderlust from 'assets/img/projects/wanderlust.jpg';
 import codigoAventura from 'assets/img/projects/codigoAventura.jpg';
 import teaCozy from 'assets/img/projects/teaCozy.jpg';
 
+//logos
+import Conejito from "assets/img/customIcons/Conejito";
+import AdventureCode from "assets/img/customIcons/AdventureCode";
+import Ravenous from "assets/img/customIcons/Ravenous";
+import TeaCozy from "assets/img/customIcons/TeaCozy";
+import WanderlustIcon from 'assets/img/customIcons/WanderlustIcon';
+
 //Components
 import SocialConejitoLink from 'components/ProjectButtonLinks/SocialConejitoLink';
 import RavenousLink from 'components/ProjectButtonLinks/RavenousLink';
@@ -31,6 +38,7 @@ const projectsById = {
         defaultMessage='Visit Social Conejito'
         description="The visit label for social conejito's link button"
         id='visit-label-conejito-button' />} />,
+    logo: Conejito,
     id: 'socialConejito',
   },
   ravenous: {
@@ -50,6 +58,7 @@ const projectsById = {
         description="The visit label for ravenous's link button"
         id='visit-label-ravenous-button'
       />} />,
+    logo: Ravenous,
     id: 'ravenous'
   },
   wanderlust: {
@@ -67,7 +76,7 @@ const projectsById = {
       description="The visit label for wanderlust's link button"
       id='visit-label-wanderlust-button'
     />} />,
-
+    logo: WanderlustIcon,
     id: 'wanderlust',
   },
   adventureCode: {
@@ -89,7 +98,7 @@ const projectsById = {
       description="The visit label for adventure code's link button"
       id='visit-label-adventure-code-button'
     />} />,
-
+    logo: AdventureCode,
     id: 'adventureCode',
   },
   teaCozy: {
@@ -108,6 +117,7 @@ const projectsById = {
         description="The visit label for tea cozy's link button"
         id='visit-label-tea-cozy-button'
       />} />,
+    logo: TeaCozy,
     id: 'teaCozy'
   }
 }

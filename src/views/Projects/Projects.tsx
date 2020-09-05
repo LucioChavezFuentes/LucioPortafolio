@@ -60,14 +60,12 @@ const styles = (theme: Theme) => createStyles({
 		position: 'relative',
 		overflow: 'hidden',
 		borderRadius: '20px',
+		paddingBottom: '55%',
+		height: '0',
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
 		boxShadow:
 			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
 
-		'&:hover $projectImage': {
-			//opacity: 0.09,
-			filter: 'brightness(20%)',
-		},
 
 		'&:hover $projectTitle': {
 			opacity: 1,
@@ -81,9 +79,12 @@ const styles = (theme: Theme) => createStyles({
 			opacity: 1,
 		},
 
-		'&:focus $projectImage': {
-			//opacity: 0.09,
-			filter: 'brightness(20%)',
+		'&:hover $projectIcon': {
+			opacity: 1,
+		},
+
+		'&:hover $projectDetails': {
+			backgroundColor: 'rgba( 0 , 0 , 0 , 0.8)'
 		},
 
 		'&:focus $projectTitle': {
@@ -97,6 +98,14 @@ const styles = (theme: Theme) => createStyles({
 		'&:focus $webSiteLink': {
 			opacity: 1,
 		},
+
+		'&:focus $projectIcon': {
+			opacity: 1,
+		},
+
+		'&:focus $projectDetails': {
+			backgroundColor: 'rgba( 0 , 0 , 0 , 0.8)'
+		},
 	},
 
 	projectImage: {
@@ -105,6 +114,7 @@ const styles = (theme: Theme) => createStyles({
 		transition: 'all 500ms ease 200ms',
 		display: 'block',
 		borderRadius: '15px',
+		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
 	},
 
 	projectDetails: {
@@ -118,6 +128,11 @@ const styles = (theme: Theme) => createStyles({
 		padding: '20px',
 		justifyContent: 'center',
 		textAlign: 'center',
+		transition: 'all 500ms ease 200ms',
+
+		'& #logo-teaCozy': {
+			color: 'white',
+		},
 	},
 
 	projectTitleContainer: {
@@ -136,6 +151,12 @@ const styles = (theme: Theme) => createStyles({
 		color: 'rgb(255, 255, 255)',
 		alignSelf: 'center',
 		borderBottom: (props: StyleProps) => `3px solid ${getDarkOrLightTheme(theme, 'primary-light', props)}`,
+	},
+
+	projectIcon: {
+		margin: '0 auto',
+		opacity: 0,
+		transition: 'all 700ms ease 200ms',
 	},
 
 	projectDescription: {
@@ -249,9 +270,9 @@ const Projects = (props) => {
 
 					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
 
-						{arrayOfProjects.map(({ img, title, id, description, ButtonLink }) => {
+						{arrayOfProjects.map(({ img, title, id, description, ButtonLink, logo : Logo }) => {
 							return (
-								<GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} lg={halfWidth} key={IDBCursorWithValue} style={{padding: getGridSpacing('item')}}>
+								<GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} lg={halfWidth} key={id} style={{padding: getGridSpacing('item')}}>
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}
@@ -271,6 +292,7 @@ const Projects = (props) => {
 													{title}
 												</p>
 											</div>
+											<Logo className={classes.projectIcon } id={`logo-${id}`} />
 
 											<p style={{flex:'1'}} className={classes.projectDescription}>
 												{description}
