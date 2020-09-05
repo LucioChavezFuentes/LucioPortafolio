@@ -89,6 +89,7 @@ const styles = (theme: Theme) => createStyles({
 		paddingBottom: '55%',
 		height: '0',
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
+		transition: 'border 700ms ease 200ms',
 		boxShadow:
 			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
 
@@ -116,7 +117,11 @@ const styles = (theme: Theme) => createStyles({
 		transition: 'all 500ms ease 200ms',
 		display: 'block',
 		borderRadius: '10px',
-		transform: 'scale(1.1)'
+		transform: 'scale(1.1)',
+		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
+		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
+		textAlign: 'center',
+    fontSize: '20px',
 	},
 
 	projectDetails: {
