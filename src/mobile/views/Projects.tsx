@@ -86,6 +86,8 @@ const styles = (theme: Theme) => createStyles({
 		position: 'relative',
 		overflow: 'hidden',
 		borderRadius: '20px',
+		paddingBottom: '55%',
+		height: '0',
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
 		boxShadow:
 			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
@@ -113,7 +115,8 @@ const styles = (theme: Theme) => createStyles({
 		height: 'auto',
 		transition: 'all 500ms ease 200ms',
 		display: 'block',
-		borderRadius: '15px',
+		borderRadius: '10px',
+		transform: 'scale(1.1)'
 	},
 
 	projectDetails: {
@@ -231,7 +234,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 	const hoverImage = {
 		hover: {
 			scale: 1.05
-		}
+		},
 	}
 
 	const gridSpacingWeb = {
@@ -282,7 +285,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}
-										whileHover='hover'
+										whileTap={{scale: 1.1, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
                     key={id}
                     layoutId={`project-${id}`}
 									>
