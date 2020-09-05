@@ -101,7 +101,11 @@ const styles = (theme: Theme) => createStyles({
 
 	paperProjectDescription: {
 		marginBottom: '15px',
-		boxShadow: 'inset 0px 1px 1px -70px rgba(0,0,0,0.2), inset 0px 4px 8px 3px rgba(0,0,0,0.14), inset 0px 9px 26px 8px rgba(0,0,0,0.12), 0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12)'
+		boxShadow: 'inset 0px 1px 1px -70px rgba(0,0,0,0.2), inset 0px 4px 8px 3px rgba(0,0,0,0.14), inset 0px 9px 26px 8px rgba(0,0,0,0.12), 0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12)',
+
+		'& #logo-teaCozy': {
+			color: (props) => getDarkOrLightTheme(theme, 'icon', props as StyleProps),
+		},
 	},
 
 	projectDescription: {
@@ -183,7 +187,7 @@ const ProjectSelected : React.FC<any> = ({ item: {title, img, description, Butto
             <motion.div className={classes.projectDetails} animate >
                 
 				<CustomPaper elevation={MAX_ELEVATION} className={classes.paperProjectDescription} >
-					<SelectedIcon className={classes.iconProject}  />
+					<SelectedIcon className={classes.iconProject} id={`logo-${id}`}  />
 					<p className={classes.projectDescription}>
 						{description}
 					</p>
