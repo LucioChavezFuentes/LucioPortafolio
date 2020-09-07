@@ -95,29 +95,13 @@ const styles = (theme: Theme) => createStyles({
 		boxShadow:
 			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
 
-		'&:hover $projectImage': {
-			//opacity: 0.09,
-			filter: 'brightness(20%)',
-		},
-
-		'&:hover $projectTitle': {
-			opacity: 1,
-		},
-
-		'&:hover $projectDescription': {
-			opacity: 1,
-		},
-
-		'&:hover $webSiteLink': {
-			opacity: 1,
-		},
 	},
 
 	projectImage: {
 		width: '100%',
 		height: 'auto',
-		transition: 'all 500ms ease 200ms',
-		display: 'block',
+		//transition: 'all 500ms ease 200ms',
+		//display: 'block',
 		borderRadius: '10px',
 		transform: 'scale(1.1)',
 		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
@@ -125,54 +109,6 @@ const styles = (theme: Theme) => createStyles({
 		textAlign: 'center',
     fontSize: '20px',
 	},
-
-	projectDetails: {
-		display: 'flex',
-		flexFlow: 'column',
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		width: '100%',
-		height: '100%',
-		padding: '20px',
-		justifyContent: 'center',
-		textAlign: 'center',
-	},
-
-	projectTitleContainer: {
-		flex:'1', 
-		alignSelf: 'center',
-		display: 'flex',
-		justifyContent: 'center',
-	},
-
-	projectTitle: {
-		fontSize: '30px',
-		fontFamily: 'Roboto',
-		margin: '10px',
-		opacity: 0,
-		transition: 'all 700ms ease 200ms',
-		color: 'rgb(255, 255, 255)',
-		alignSelf: 'center',
-		borderBottom: (props: StyleProps) => `3px solid ${getDarkOrLightTheme(theme, 'primary-light', props)}`,
-	},
-
-	projectDescription: {
-		opacity: 0,
-		transition: 'all 700ms ease 200ms',
-		fontSize: '25px',
-		alignSelf: 'center',
-		color: 'rgb(255, 255, 255)',
-		margin: '20px 0',
-	},
-
-	webSiteLink: {
-		opacity: 0,
-		width: '40%',
-		transition: 'all 700ms ease 200ms',
-		fontSize: '15px',
-		alignSelf: 'center'
-    },
     
     cardOpenLink: {
 		position: 'absolute',
@@ -180,7 +116,7 @@ const styles = (theme: Theme) => createStyles({
 		left: 0,
 		right: 0,
 		bottom: 0,
-		borderRadius: '20px',
+		borderRadius: '10px',
 	}
 })
 
@@ -295,8 +231,6 @@ const Projects : React.FC<any> = ({match} : any) => {
 										variants={childrenAnimation}
                     key={id}
 										layoutId={`project-${id}`}
-										whileHover={{scale: 1.07, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
-										whileTap={{scale: 1.07, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
 									>
 										<motion.img
 											variants={hoverImage}
