@@ -86,7 +86,9 @@ const styles = (theme: Theme) => createStyles({
 		position: 'relative',
 		overflow: 'hidden',
 		borderRadius: '20px',
-		paddingBottom: '55%',
+		//The 56.25% is the proper porcentage to get the 16:9 aspect-ratio.
+		//More info: https://www.w3schools.com/howto/howto_css_aspect_ratio.asp
+		paddingBottom: '56.25%',
 		height: '0',
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
 		transition: 'border 700ms ease 200ms',
@@ -293,13 +295,14 @@ const Projects : React.FC<any> = ({match} : any) => {
 										variants={childrenAnimation}
                     key={id}
 										layoutId={`project-${id}`}
+										whileHover={{scale: 1.07, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
+										whileTap={{scale: 1.07, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
 									>
 										<motion.img
 											variants={hoverImage}
 											className={classes.projectImage}
 											src={img.src}
                       alt={img.alt}
-                                            
 										/>
 										
 										<Button component={Link} to={`/projects/${id}`} className={classes.cardOpenLink} />
