@@ -37,7 +37,7 @@ const useWindowSize = (options: Options = {}) => {
         window.removeEventListener('resize', onResize, true);
       }
     };
-  }, []);
+  }, [handle]);
 
   return size;
 };
