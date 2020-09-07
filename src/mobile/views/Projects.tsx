@@ -210,13 +210,11 @@ const Projects : React.FC<any> = ({match} : any) => {
 										variants={childrenAnimation}
                     key={id}
 										layoutId={`project-${id}`}
-										whileTap={{scale: 1.03}}
 									>
-										<motion.img
-											
+										<img
 											className={classes.projectImage}
 											src={img.src}
-                      alt={img.alt}
+											alt={img.alt}
 										/>
 										
 										<Button component={Link} to={`/projects/${id}`} className={classes.cardOpenLink} />
