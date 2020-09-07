@@ -163,7 +163,7 @@ const ProjectSelected : React.FC<any> = ({ item: {title, img, description, Butto
 	const SelectedIcon = icons[id]
 
     return (
-        <Dialog open={open} onExited={pushToProjects} fullWidth keepMounted maxWidth='md' fullScreen scroll='body' TransitionComponent={Transition}>
+        <Dialog open={open} onExited={pushToProjects} fullWidth maxWidth='md' fullScreen scroll='body' TransitionComponent={Transition}>
         <motion.div
             className={classes.projectItem}
             key={id}
@@ -197,7 +197,6 @@ const ProjectSelected : React.FC<any> = ({ item: {title, img, description, Butto
                     {ButtonLink} 
                 </div>
             </motion.div>
-            {/*<Link to='/projects' className={classes.cardOpenLink} />*/}
         </motion.div>
         </Dialog>
     )
