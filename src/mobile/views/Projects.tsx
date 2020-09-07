@@ -16,8 +16,7 @@ import GridItem from "components/Grid/GridItem";
 import { useSelector } from 'react-redux';
 
 // @material-ui/core components
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { makeStyles, createStyles, Theme, useTheme } from "@material-ui/core/styles";
+import { makeStyles, createStyles, Theme} from "@material-ui/core/styles";
 //Helpers
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 import IntlMessage from 'helper/IntlMessages';
@@ -129,15 +128,13 @@ const Projects : React.FC<any> = ({match} : any) => {
 
 	const { isThemeDark } = useSelector((state: RootState) => state.ui)
 	const classes = useStyles({ isThemeDark });
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 	//Grid Container Spacing
 	const none = 0;
 	//const veryLow = 1;
 	//const low = 2;
 	//const medium = 4;
 	//const high = 6;
-	const veryHigh = 8;
+	//const veryHigh = 8;
 	//Grid Items space to take on Grid Container
 	//const halfWidth = 6;
 	const fullWidth = 12;
@@ -174,24 +171,6 @@ const Projects : React.FC<any> = ({match} : any) => {
 		}
 	}
 
-	const hoverImage = {
-		hover: {
-			scale: 1.05
-		},
-	}
-
-	const gridSpacingWeb = {
-		container: veryHigh,
-		item: ''
-	}
-
-	const gridSpacingMobile = {
-		container: none,
-		item: '32px 0'
-	}
-
-	const getGridSpacing = (type : 'container' | 'item') => isMobile ? gridSpacingMobile[type] : gridSpacingWeb[type]
-
 	const projectDetails = projectsById[project]
 
 	return (
@@ -219,21 +198,22 @@ const Projects : React.FC<any> = ({match} : any) => {
 							</h5>
 						</div>
 
-					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
+					<GridContainer className={classes.projectsContainer} spacing={none}>
 
 						{arrayOfProjects.map(({ img, id }) => {
 							//TODO: Find the proper event styling for projectItem
 							/*whileTap={{scale: 1.3, transition: { scale: {velocity: 700, stiffness: 1000 }}}}*/
 							return (
-								<GridItem xs={fullWidth} sm={fullWidth} key={id} style={{padding: getGridSpacing('item')}}>
+								<GridItem xs={fullWidth} sm={fullWidth} key={id} style={{padding: '32px 0'}}>
 									<motion.div
 										className={classes.projectItem}
 										variants={childrenAnimation}
                     key={id}
 										layoutId={`project-${id}`}
+										whileTap={{scale: 1.03}}
 									>
 										<motion.img
-											variants={hoverImage}
+											
 											className={classes.projectImage}
 											src={img.src}
                       alt={img.alt}
