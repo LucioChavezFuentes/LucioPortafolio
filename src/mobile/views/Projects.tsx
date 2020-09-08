@@ -74,26 +74,32 @@ const styles = (theme: Theme) => createStyles({
 	},
 
 	projectsContainer: {
-		width: '90%',
+		width: '100%',
 		margin: '0 auto',
 		display: 'flex',
 		flexFlow: 'column',
+		
 
 	},
 
 	projectItem: {
+		width: '90%',
+		margin: '0 auto',
 		position: 'relative',
 		overflow: 'hidden',
 		borderRadius: '20px',
 		//The 56.25% is the proper porcentage to get the 16:9 aspect-ratio.
 		//More info: https://www.w3schools.com/howto/howto_css_aspect_ratio.asp
-		paddingBottom: '56.25%',
+		//But looks like my imgaes are not 16:9 aspect-ratio
+		paddingBottom: '51.25%',
 		height: '0',
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
-		transition: 'border 700ms ease 200ms',
+		transition: 'border 700ms ease 200ms, transform 700ms ease-out',
 		boxShadow:
 			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
-
+		'&:hover': {
+			transform: 'scale(1.03) !important'
+		}
 	},
 
 	projectImage: {
@@ -149,7 +155,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 			y: 0,
 			opacity: 1,
 			transition: {
-				y: { stiffness: 1000, velocity: -100 }
+				y: { stiffness: 1000, velocity: -100 },
 			}
 		},
 	};
@@ -165,7 +171,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 			opacity: 1,
 			transition: {
 				when: "beforeChildren",
-				staggerChildren: 0.27,
+				staggerChildren: 0.57,
 
 			}
 		}
