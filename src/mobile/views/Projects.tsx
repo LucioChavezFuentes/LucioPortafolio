@@ -88,13 +88,15 @@ const styles = (theme: Theme) => createStyles({
 		position: 'relative',
 		overflow: 'hidden',
 		borderRadius: '20px',
+		zIndex: 20,
 		//The 56.25% is the proper porcentage to get the 16:9 aspect-ratio.
 		//More info: https://www.w3schools.com/howto/howto_css_aspect_ratio.asp
 		//But looks like my imgaes are not 16:9 aspect-ratio
 		paddingBottom: '51.25%',
 		height: '0',
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
-		transition: 'border 700ms ease 200ms, transform 700ms ease-out',
+		//Edit here the childrenAnimation transform (x, y, scale and others) and opacity transition
+		transition: 'border 700ms ease 200ms, transform 700ms ease-out, opacity 100ms ease ',
 		boxShadow:
 			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
 		'&:hover': {
@@ -154,9 +156,12 @@ const Projects : React.FC<any> = ({match} : any) => {
 		end: {
 			y: 0,
 			opacity: 1,
-			transition: {
-				y: { stiffness: 1000, velocity: -100 },
-			}
+			//This comment is kept to give you an idea on how to edit transition in Framer Motion
+			/*transition: {
+				//velocity : 700, ease: 'easeOut', duration: 0.7,
+				//scale: {velocity : 700, ease: 'easeOut', duration: 0.7,},
+				//y: { stiffness: 1000, velocity: -100, ease: 'easeOut', duration: 0.7, },
+			}*/
 		},
 	};
 
@@ -171,7 +176,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 			opacity: 1,
 			transition: {
 				when: "beforeChildren",
-				staggerChildren: 0.57,
+				staggerChildren: 0.42,
 
 			}
 		}
