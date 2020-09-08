@@ -37,7 +37,9 @@ const useWindowSize = (options: Options = {}) => {
         window.removeEventListener('resize', onResize, true);
       }
     };
-  }, [handle]);
+    //Do not try to fix the warning in this particular hook, if you write 'handle' in the array the hook will trigger every throttleMs
+    //TODO: find a way to fix this warning without forcing re-render every moment
+  }, []);
 
   return size;
 };
