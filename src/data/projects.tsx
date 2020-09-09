@@ -1,7 +1,7 @@
 import React from 'react';
 //images
 import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
-import ravenousProject from 'assets/img/projects/ravenousSmall.png';
+import ravenousProject from 'assets/img/projects/ravenous.jpg';
 import wanderlust from 'assets/img/projects/wanderlust.jpg';
 import codigoAventura from 'assets/img/projects/codigoAventuraSmall.png';
 import teaCozy from 'assets/img/projects/teaCozy.jpg';
