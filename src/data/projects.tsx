@@ -3,7 +3,7 @@ import React from 'react';
 import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
 import ravenousProject from 'assets/img/projects/ravenous.jpg';
 import wanderlust from 'assets/img/projects/wanderlust.jpg';
-import codigoAventura from 'assets/img/projects/codigoAventuraSmall.png';
+import codigoAventura from 'assets/img/projects/codigoAventura_compressed.jpg';
 import teaCozy from 'assets/img/projects/teaCozy.jpg';
 //smallImages
 
