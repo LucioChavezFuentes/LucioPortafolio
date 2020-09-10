@@ -96,7 +96,7 @@ const styles = (theme: Theme) => createStyles({
 		height: '0',
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
 		//Edit here the childrenAnimation transform (x, y, scale and others) and opacity transition
-		transition: 'border 700ms ease 200ms, transform 700ms ease-out, opacity 100ms ease ',
+		transition: 'border 700ms ease 200ms, transform 700ms ease-out, opacity 200ms ',
 		boxShadow:
 			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
 		'&:hover': {
