@@ -95,13 +95,13 @@ const styles = (theme: Theme) => createStyles({
 		paddingBottom: '51.25%',
 		height: '0',
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
-		//Edit here the childrenAnimation transform (x, y, scale and others) and opacity transition
-		transition: 'border 700ms ease 200ms, transform 700ms ease-out, opacity 200ms ',
+		//Do no edit trasition transform when used framer motion to prevent animations bugs.
+		transition: 'border 700ms ease 200ms', //transform 700ms ease-out, opacity 200ms ',
 		boxShadow:
 			"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
-		'&:hover': {
+		/*'&:hover': {
 			transform: 'scale(1.03) !important'
-		}
+		}*/
 	},
 
 	projectImage: {
@@ -157,11 +157,11 @@ const Projects : React.FC<any> = ({match} : any) => {
 			y: 0,
 			opacity: 1,
 			//This comment is kept to give you an idea on how to edit transition in Framer Motion
-			/*transition: {
-				//velocity : 700, ease: 'easeOut', duration: 0.7,
+			transition: {
+				velocity : 700, ease: 'easeOut', duration: 0.7,
 				//scale: {velocity : 700, ease: 'easeOut', duration: 0.7,},
-				//y: { stiffness: 1000, velocity: -100, ease: 'easeOut', duration: 0.7, },
-			}*/
+				y: { stiffness: 1000, velocity: -100, ease: 'easeOut', duration: 0.7, },
+			}
 		},
 	};
 
@@ -221,6 +221,9 @@ const Projects : React.FC<any> = ({match} : any) => {
 										variants={childrenAnimation}
                     key={id}
 										layoutId={`project-${id}`}
+										//Compress all images and set them all in one file format to avoid image flickering in low-end cellphones
+										//The flickering could be caused by setting scale too high but not entirely sure. Further researching about scale is required.
+										whileTap={{scale: 1.05, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
 									>
 										<img
 											className={classes.projectImage}
