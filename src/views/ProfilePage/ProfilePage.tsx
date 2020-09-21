@@ -316,7 +316,12 @@ function ProfilePage(props: any) {
                         
                         <span className='bold'> SQL, </span>
                         <span className='bold'> Node.js</span>,
-                        <span className='bold'> Firebase </span> and
+                        <span className='bold'> Firebase </span>
+                        {intl.formatMessage({
+                          defaultMessage: 'and',
+                          description: 'word-and',
+                          id: "word-and",
+                        })}
                         <span className='bold'> AWS's ServerLess Application Model </span>
                         {intl.formatMessage({
                           defaultMessage: 'for back-end and model solutions.',
