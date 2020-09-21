@@ -45,7 +45,8 @@ export default function Header(props : any) {
 
   React.useEffect(() => {
     //The mobile drawer will show if the route is '/menu'
-    if(matchPath('/menu', {path: location.pathname, exact: true})) {
+    const routes = location.pathname.split('/')
+    if(matchPath('menu', {path: routes[routes.length - 1], exact: true})) {
       setMobileOpen(true);
       
     } else {
@@ -54,11 +55,14 @@ export default function Header(props : any) {
   }, [location])
 
   const handleDrawerToggle = () => {
+    const currentLocation = location.pathname === '/' ? '' : location.pathname
+    const locationWithOutMenu = location.pathname.replace('/menu', '')
+    //TODO: Fix double re-render on setMobileOpen
     setMobileOpen((prevMobileOpen) => {
       if(prevMobileOpen) {
-        history.push('/')
+        history.push(`${locationWithOutMenu}`)
       } else {
-        history.push('/menu')
+        history.push(`${currentLocation}/menu`)
       }
       return !mobileOpen
     } );

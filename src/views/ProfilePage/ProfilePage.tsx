@@ -66,7 +66,7 @@ interface Props extends RouteComponentProps<any>, React.Props<any> {
 const useStyles  = makeStyles(styles);
 
 function ProfilePage(props: any) {
-  const { isThemeDark, intl,  ...rest} = props;
+  const { isThemeDark, intl } = props;
   const classes : any = useStyles({isThemeDark} as StyleProps);
   const {isMobile} = useWindowSize();
   const [activeProject, setActiveProject] = useState(0);
@@ -143,7 +143,7 @@ function ProfilePage(props: any) {
                     {intl.formatMessage({
                         defaultMessage: 'Web Developer',
                         description: 'occupation',
-                        id: "occupation",
+                        
                       })}
                     </h6>
                     { /*fab and fa-twitter appear to be global classNames*/ }
@@ -316,7 +316,8 @@ function ProfilePage(props: any) {
                         
                         <span className='bold'> SQL, </span>
                         <span className='bold'> Node.js</span>,
-                        <span className='bold'> Firebase </span>
+                        <span className='bold'> Firebase </span> and
+                        <span className='bold'> AWS's ServerLess Application Model </span>
                         {intl.formatMessage({
                           defaultMessage: 'for back-end and model solutions.',
                           description: 'back-end-skills-description-partTwo',

@@ -53,6 +53,7 @@ export default function Parallax(props) {
       style={{
         ...style,
         backgroundColor: getDarkOrLightTheme(theme, 'primary', {isThemeDark}),
+        transition: 'background-color 700ms ease-out',
         transform: transform
       }}
     >

@@ -2,8 +2,11 @@ import React from 'react'
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
+// @material-ui/core components
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 //Animations
-import {motion, AnimatePresence} from 'framer-motion'
+import {AnimatePresence,  AnimateSharedLayout} from 'framer-motion'
 
 //Redux
 import { connect } from 'react-redux';
@@ -21,9 +24,13 @@ import Parallax from "components/Parallax/Parallax.js";
 import Header from "components/Header/Header";
 import Projects from 'views/Projects/Projects';
 
+//Mobile Components
+import MobileProjects from 'mobile/views/Projects';
+
 // MUI Imports
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 //Internationalization
 import {IntlProvider} from 'react-intl';
 
@@ -79,11 +86,11 @@ const useStyles = makeStyles((theme) => ({
 
     '::-webkit-scrollbar': {
       width:' 6px',
-      borderLeft: '1px solid #E6ECF8',
+      borderLeft: (props) => `1px solid ${getDarkOrLightTheme(theme, 'primary-light', props as StyleProps)}`,
     },
 
     '::-webkit-scrollbar-thumb' : {
-      backgroundColor: '#141c3a',
+      backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps),
     },
 
 
@@ -215,6 +222,8 @@ const useStyles = makeStyles((theme) => ({
 function App(props : AppProps) {
 
   //const {locale} = useSelector(state => state.ui.lenguage )
+  const theme = useTheme();
+  const mobileDevice = useMediaQuery(theme.breakpoints.down('md'));
  
   const {isMobile} = useWindowSize();
   const {isThemeDark, locale} = props;
@@ -228,7 +237,8 @@ function App(props : AppProps) {
     return (
       <PersistGate loading={null} persistor={persistor}>
         <CssBaseline>
-          <IntlProvider locale='es' defaultLocale="en" messages={AppLocale[locale].messages as any } >
+          <IntlProvider locale={AppLocale[locale].lenguage} defaultLocale="en" messages={AppLocale[locale].messages as any } >
+          <AnimateSharedLayout type="crossfade">
           <Router history={hist}>
             <Header
               color="transparent"
@@ -244,12 +254,17 @@ function App(props : AppProps) {
             <AnimatePresence>
               <Switch>
                 <Route path="/" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
-                <Route path="/projects" component={Projects } />
+                <Route path="/projects" exact component={mobileDevice ? MobileProjects : Projects  } />
+                <Route path="/projects/email" exact component={mobileDevice ? MobileProjects : Projects  } />
+                <Route path="/projects/:project" exact component={mobileDevice ? MobileProjects : Projects} />
+                <Route path="/projects/menu/email" exact component={mobileDevice ? MobileProjects : Projects} />
+                <Route path="/projects/menu" exact component={mobileDevice ? MobileProjects : Projects} />
                 <Route path="/:path" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
                 <Route path="/menu/email" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
               </Switch>
             </AnimatePresence>
           </Router>
+          </AnimateSharedLayout>
           </IntlProvider>
         </CssBaseline>
       </PersistGate>

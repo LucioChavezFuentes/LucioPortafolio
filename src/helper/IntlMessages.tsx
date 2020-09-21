@@ -1,9 +1,6 @@
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import { injectIntl } from 'react-intl';
+const IntlMassage = (props) => <FormattedMessage {...props} />
 
-const IntlMassage = ({intl, defaultMessage, description, id}) => intl.formatMessage({
-    defaultMessage,
-    description,
-    id,
-  });
-export default injectIntl(IntlMassage);
+export default IntlMassage;

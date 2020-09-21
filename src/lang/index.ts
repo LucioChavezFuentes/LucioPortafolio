@@ -1,5 +1,5 @@
-import enUSMessages from './en.json';
-import esMxMessages from './es_MX.json';
+import enUSMessages from './compiled-lang/en_US.json';
+import esMxMessages from './compiled-lang/es_MX.json';
 import MexicoFlag from 'assets/img/flags/MexicoFlag'
 import USAFlag from 'assets/img/flags/USAFlag'
 

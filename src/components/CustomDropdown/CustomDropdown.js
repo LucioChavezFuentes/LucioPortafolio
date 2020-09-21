@@ -107,7 +107,6 @@ const useStyles = makeStyles(styles);
           aria-haspopup="true"
           {...buttonProps}
           onClick={handleClick}
-          style={{marginTop: '3px'}}
         >
           {icon}
           {buttonText !== undefined ? buttonText : null}

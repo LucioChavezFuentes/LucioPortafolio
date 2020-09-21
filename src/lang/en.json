@@ -1,5 +1,73 @@
 {
-  "occupation": {
+  "email-tooltip": {
+    "defaultMessage": "!Send an email to Lucio¡",
+    "description": "email-tooltip"
+  },
+  "legend-1-email": {
+    "defaultMessage": "Send me a message from here.",
+    "description": "legend-1-email"
+  },
+  "legend-2-email": {
+    "defaultMessage": "!Simple and Fast¡",
+    "description": "legend-2-email"
+  },
+  "name-email": {
+    "defaultMessage": "Name",
+    "description": "name-email"
+  },
+  "required-field-email": {
+    "defaultMessage": "*Required",
+    "description": "required-field-email"
+  },
+  "emailField-email": {
+    "defaultMessage": "Email",
+    "description": "emailField-email"
+  },
+  "subject-email": {
+    "defaultMessage": "Subject",
+    "description": "subject-email"
+  },
+  "message-email": {
+    "defaultMessage": "Message",
+    "description": "message-email"
+  },
+  "contact-me-email": {
+    "defaultMessage": "Or contact me",
+    "description": "contact-me-email"
+  },
+  "social-media-title": {
+    "defaultMessage": "Social Media",
+    "description": "social-media-title"
+  },
+  "github-tooltip": {
+    "defaultMessage": "Lucio's GitHub",
+    "description": "github-tooltip"
+  },
+  "language-title": {
+    "defaultMessage": "Language",
+    "description": "language-title"
+  },
+  "title-about-me": {
+    "defaultMessage": "About Me",
+    "description": "title-about-me"
+  },
+  "title-philosophy": {
+    "defaultMessage": "Philosophy",
+    "description": "title-philosophy"
+  },
+  "philosophy": {
+    "defaultMessage": "I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.",
+    "description": "philosophy"
+  },
+  "title-hobbies": {
+    "defaultMessage": "Hobbies and Lecture",
+    "description": "title-hobbies"
+  },
+  "hobbies": {
+    "defaultMessage": "Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books for my professional growth. My last two favorite are: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.",
+    "description": "hobbies"
+  },
+  "NOaj/S": {
     "defaultMessage": "Web Developer",
     "description": "occupation"
   },

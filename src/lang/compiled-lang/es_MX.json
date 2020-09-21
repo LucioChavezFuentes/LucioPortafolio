@@ -1,5 +1,10 @@
-{
-    "occupation": "Desarrollador Web " ,
+{   
+    "NOaj/S": [
+    {
+      "type": 0,
+      "value": "Desarrollador Web"
+    }
+  ],
 
     "occupation-description": "Soy un desarrollador web especializado en front end, con conocimientos en back end y alguien que está constantemente aprendiendo nuevas y mejores prácticas para el desarrollo de software.",
     "skills": "El alcance de mis habilidades cubren tecnologías de front end tales como: ",
@@ -55,6 +60,12 @@
     "visit-label-ravenous-button": "Visita Ravenous",
     "visit-label-tea-cozy-button": "Visita Tea Cozy",
     "visit-label-adventure-code-button": "Visita Código Aventura",
-    "all-lucio-projects": "Todos los Proyectos de Lucio"
+    "all-lucio-projects": "Todos los Proyectos de Lucio",
+    "about-lucio": "Sobre Lucio",
+    "projects-helper-text": "Haz Click o Toca en las imágenes para ver detalles de cada proyecto",
+    "wanderlust-description": "Wanderlust es una guía de viajes en el que puedes obtener el pronóstico del clima y las atracciones más populares de una ciudad o país.",
+    "visit-label-wanderlust-button": "Visita Wanderlust",
+
+    "emailField-email": "Email"
 
   }
