@@ -133,6 +133,10 @@ const styles = (theme: Theme) => createStyles({
 		'& #logo-teaCozy': {
 			color: 'white',
 		},
+
+		'& #logo-workNFlow': {
+			color: 'white'
+		}
 	},
 
 	projectTitleContainer: {
