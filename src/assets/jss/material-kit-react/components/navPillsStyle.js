@@ -115,7 +115,8 @@ const navPillsStyle = theme => createStyles({
     margin: "15px 0 !important",
     filter: 'grayscale(0%)',
     //filter: 'saturate(1)',
-    color: 'black',
+    //TODO: Find a way to get a proper color to any Icon for future changes
+    color: 'white',
     transition: "color 200ms, filter 500ms ease",
     
     "&, & *": {
