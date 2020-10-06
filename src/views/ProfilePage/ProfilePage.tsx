@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GitHubIcon from '@material-ui/icons/GitHub';
 // Custom Icons
 import Conejito from "assets/img/customIcons/Conejito";
-import AdventureCode from "assets/img/customIcons/AdventureCode";
+import WorkNFlow from "assets/img/customIcons/WorkNFlow";
 import Ravenous from "assets/img/customIcons/Ravenous";
 
 //Redux
@@ -43,7 +43,7 @@ import AboutMe from './AbouteMe';
 
 import CustomPaper from 'components/CustomPaper/CustomPaper';
 
-import {injectIntl} from 'react-intl';
+import {FormattedMessage, injectIntl} from 'react-intl';
 
 //Helper
 import IntlMessage from 'helper/IntlMessages';
@@ -455,26 +455,20 @@ function ProfilePage(props: any) {
                       )
                     },
                     {
-                      tabButton: intl.formatMessage({
-                        defaultMessage: 'Adventure Code',
-                        description: 'adventure-code-title',
-                        id: "adventure-code-title",
-                      }),
-                      tabIcon: AdventureCode,
+                      tabButton: 'Work & Flow',
+                      tabIcon: WorkNFlow,
                       tabContent: (
                         <GridContainer justify="center" >
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                          <iframe title='Adventure-Code' className={classes.projectIframe} src="https://codigoaventura-2c741.firebaseapp.com/home"></iframe>
+                          <iframe title='Adventure-Code' className={classes.projectIframe} src="https://worknflow.com"></iframe>
                           </GridItem>
 
                           <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth} >
                             <div className={classes.projectDescription}>
                               <p>
-                                {intl.formatMessage({
-                                  defaultMessage: "Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output.",
-                                  description: 'adventure-code-description',
-                                  id: "adventure-code-description",
-                                })}
+                                <FormattedMessage 
+                                  defaultMessage="Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes."
+                                  description='work-n-flow-description' />
                               </p>
                             </div>
                           </GridItem>
@@ -482,35 +476,14 @@ function ProfilePage(props: any) {
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
 
                             <div className={classes.projectsButtonsContainer}>
-                              <Button  
-                                href='https://github.com/LucioChavezFuentes/codigoAventura' 
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className='gitHubButton' 
-                                classes={{startIcon: 'startIcon'}}
-                                color='github' 
-                                startIcon={<GitHubIcon />}
-                              >
-                              {isMobile ?
-                                intl.formatMessage({
-                                  defaultMessage: 'Code',
-                                  description: 'code-word',
-                                  id: "code-word",
-                                }) : 
-                                intl.formatMessage({
-                                  defaultMessage: 'Source Code',
-                                  description: 'code-button',
-                                  id: "code-button",
-                                })}
-                              </Button>
 
                               <Button
-                                href="https://codigoaventura-2c741.firebaseapp.com"
+                                href="https://worknflow.com"
                                 target='_blank'
                                 rel="noopener noreferrer"
                                 color='primary'
                                 variant='contained'
-                                className='appPageButton' startIcon={<AdventureCode />}>
+                                className='appPageButton' startIcon={<WorkNFlow />}>
                                 {intl.formatMessage({
                                   defaultMessage: "App's Page",
                                   description: 'app-page-button',
