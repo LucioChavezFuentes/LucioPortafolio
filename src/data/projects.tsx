@@ -6,7 +6,6 @@ import wanderlust from 'assets/img/projects/wanderlust.jpg';
 import codigoAventura from 'assets/img/projects/codigoAventura_compressed.jpg';
 import teaCozy from 'assets/img/projects/teaCozy.jpg';
 import WorkNFlowScreenshot from 'assets/img/projects/WorkNFlow.jpg';
-//smallImages
 
 //logos
 import Conejito from "assets/img/customIcons/Conejito";
@@ -23,6 +22,9 @@ import CodigoAventuraLink from 'components/ProjectButtonLinks/CodigoAventuraLink
 import TeaCozyLink from 'components/ProjectButtonLinks/TeaCozyLink';
 import WanderlustLink from 'components/ProjectButtonLinks/WanderlustLink';
 import WorkNFlowLink from 'components/ProjectButtonLinks/WorkNFlowLink';
+
+//Buttons
+import AdvCoSourceCodeLink from "components/CustomButtons/AdvCoSourceCodeLink";
 
 // Use the react-intl's FormattedMessage instead of a helper in order to compile without explicit ids and make the lang scripts work
 import { FormattedMessage } from 'react-intl';
@@ -125,6 +127,7 @@ const projectsById = {
       description="The visit label for adventure code's link button"
       id='visit-label-adventure-code-button'
     />} />,
+    ButtonCode: AdvCoSourceCodeLink,
     logo: AdventureCode,
     id: 'adventureCode',
   },
