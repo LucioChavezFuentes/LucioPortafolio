@@ -101,7 +101,8 @@ const navPillsStyle = theme => createStyles({
     display: "block",
     margin: "15px 0 !important",
     filter: 'grayscale(100%)',
-    color: 'black',
+    color: "#555555",
+    transition: "color 200ms, filter 500ms ease",
     "&, & *": {
       letterSpacing: "normal !important"
     },
@@ -115,6 +116,7 @@ const navPillsStyle = theme => createStyles({
     filter: 'grayscale(0%)',
     //filter: 'saturate(1)',
     color: 'black',
+    transition: "color 200ms, filter 500ms ease",
     
     "&, & *": {
       letterSpacing: "normal !important"
