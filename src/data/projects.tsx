@@ -5,8 +5,8 @@ import ravenousProject from 'assets/img/projects/ravenous.jpg';
 import wanderlust from 'assets/img/projects/wanderlust.jpg';
 import codigoAventura from 'assets/img/projects/codigoAventura_compressed.jpg';
 import teaCozy from 'assets/img/projects/teaCozy.jpg';
+import WorkNFlowScreenshot from 'assets/img/projects/WorkNFlow.jpg';
 //smallImages
-
 
 //logos
 import Conejito from "assets/img/customIcons/Conejito";
@@ -14,6 +14,7 @@ import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
 import TeaCozy from "assets/img/customIcons/TeaCozy";
 import WanderlustIcon from 'assets/img/customIcons/WanderlustIcon';
+import WorkNFlow from "assets/img/customIcons/WorkNFlow";
 
 //Components
 import SocialConejitoLink from 'components/ProjectButtonLinks/SocialConejitoLink';
@@ -21,10 +22,34 @@ import RavenousLink from 'components/ProjectButtonLinks/RavenousLink';
 import CodigoAventuraLink from 'components/ProjectButtonLinks/CodigoAventuraLink';
 import TeaCozyLink from 'components/ProjectButtonLinks/TeaCozyLink';
 import WanderlustLink from 'components/ProjectButtonLinks/WanderlustLink';
+import WorkNFlowLink from 'components/ProjectButtonLinks/WorkNFlowLink';
+
+// Use the react-intl's FormattedMessage instead of a helper in order to compile without explicit ids and make the lang scripts work
+import { FormattedMessage } from 'react-intl';
 
 import IntlMessage from 'helper/IntlMessages';
 
 const projectsById = {
+
+  workNFlow: {
+    img: {
+      src: WorkNFlowScreenshot,
+      alt: 'Work-N-Flow',
+    },
+    title: 'Work & Flow',
+    description: <FormattedMessage
+      defaultMessage="Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes."
+      description='work-n-flow-description'
+       />,
+    ButtonLink: <WorkNFlowLink
+      label={<FormattedMessage
+        defaultMessage='Visit Work & Flow'
+        description="The visit label for Work & Flow's link button"
+         />} />,
+    logo: WorkNFlow,
+    id: 'workNFlow',
+  },
+
   socialConejito: {
     img: {
       src: socialConejitoProject,
@@ -124,7 +149,7 @@ const projectsById = {
   }
 }
 
-export const projectIds = ['socialConejito', 'ravenous', 'adventureCode', 'wanderlust', 'teaCozy'];
+export const projectIds = ['socialConejito', 'workNFlow', 'ravenous', 'adventureCode', 'wanderlust', 'teaCozy'];
 
 export const arrayOfProjects = projectIds.map(id => projectsById[id])
 
