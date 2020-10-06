@@ -6,6 +6,19 @@
     }
   ],
 
+  "sPe6XA": [
+    {
+      "type": 0,
+      "value": "Work & Flow es un registrador de tareas personales el cual muestra cuánto tiempo el usuario pasa trabajando, descansando y qué tareas completó en intervalos de trabajo de 25 minutos."
+    }
+  ],
+  "EwIX2U": [
+    {
+      "type": 0,
+      "value": "Visita Work & Flow"
+    }
+  ],
+
     "occupation-description": "Soy un desarrollador web especializado en front end, con conocimientos en back end y alguien que está constantemente aprendiendo nuevas y mejores prácticas para el desarrollo de software.",
     "skills": "El alcance de mis habilidades cubren tecnologías de front end tales como: ",
     "word-and": "y",

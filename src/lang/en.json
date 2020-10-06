@@ -47,6 +47,14 @@
     "defaultMessage": "Language",
     "description": "language-title"
   },
+  "sPe6XA": {
+    "defaultMessage": "Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes.",
+    "description": "work-n-flow-description"
+  },
+  "EwIX2U": {
+    "defaultMessage": "Visit Work & Flow",
+    "description": "The visit label for Work & Flow's link button"
+  },
   "title-about-me": {
     "defaultMessage": "About Me",
     "description": "title-about-me"
