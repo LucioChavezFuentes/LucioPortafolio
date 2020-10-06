@@ -8,6 +8,8 @@ import GridItem from "components/Grid/GridItem";
 
 //Redux
 import { useSelector } from 'react-redux';
+//React Intl 
+import {FormattedMessage} from 'react-intl';
 
 // @material-ui/core components
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -20,6 +22,7 @@ import IntlMessage from 'helper/IntlMessages';
 //Types
 import StyleProps from "types/StyleProps";
 import { RootState } from 'redux/rootReducer';
+
 
 const styles = (theme: Theme) => createStyles({
 	main: {
@@ -177,12 +180,16 @@ const styles = (theme: Theme) => createStyles({
 
 	webSiteLink: {
 		opacity: 0,
-		width: '40%',
+		width: '90%',
 		transition: 'all 700ms ease 200ms',
 		fontSize: '15px',
 		alignSelf: 'center',
 		[theme.breakpoints.down('sm')]: {
 			width: '60%'
+		},
+		'& .sourceCodeLink': {
+			display: 'inline-block',
+			marginLeft: '20px'
 		}
 	},
 })
@@ -274,7 +281,7 @@ const Projects = (props) => {
 
 					<GridContainer className={classes.projectsContainer} spacing={getGridSpacing('container')}>
 
-						{arrayOfProjects.map(({ img, title, id, description, ButtonLink, logo : Logo }) => {
+						{arrayOfProjects.map(({ img, title, id, description, ButtonLink, ButtonCode, logo : Logo }) => {
 							return (
 								<GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} lg={halfWidth} key={id} style={{padding: getGridSpacing('item')}}>
 									<motion.div
@@ -303,7 +310,19 @@ const Projects = (props) => {
 											</p>
 
 											<div className={classes.webSiteLink} style={{flex: '1'}}>
-											{ButtonLink}
+												{ButtonLink}
+												<div className='sourceCodeLink' >
+													{ButtonCode ? 
+														<ButtonCode>
+															<FormattedMessage 
+																defaultMessage= 'Source Code'
+																description= 'code-button'
+																id= "code-button" />
+															</ButtonCode> : (
+
+																<div></div>
+															) }
+												</div>
 											</div>
 										</motion.div>
 

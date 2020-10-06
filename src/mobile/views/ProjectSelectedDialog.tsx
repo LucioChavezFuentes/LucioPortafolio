@@ -9,6 +9,8 @@ import Slide from '@material-ui/core/Slide';
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 //Helpers
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+//React Intl 
+import {FormattedMessage} from 'react-intl';
 
 //MUI Icons
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
@@ -120,12 +122,18 @@ const styles = (theme: Theme) => createStyles({
 	},
 
 	webSiteLink: {
-		width: '80%',
+		width: '100%',
 		transition: 'all 700ms ease 200ms',
 		fontSize: '15px',
 		alignSelf: 'center',
 		marginBottom: '20px',
-    },
+		marginTop: '25px',
+	},
+
+	sourceCodeLink: {
+		display: 'inline-block',
+		marginLeft: '10px'
+	},
     
     returnLink: {
 		position: 'absolute',
@@ -143,7 +151,7 @@ const Transition = React.forwardRef<unknown, TransitionProps>(function Transitio
     return <Slide direction="up" ref={ref} {...props as any} />;
   });
 
-const ProjectSelected : React.FC<any> = ({ item: {title, img, description, ButtonLink}, id, isThemeDark } : any) => {
+const ProjectSelected : React.FC<any> = ({ item: {title, img, description, ButtonLink, ButtonCode}, id, isThemeDark } : any) => {
 
     const [open, setOpen] = React.useState(true)
     const history = useHistory();
@@ -197,6 +205,17 @@ const ProjectSelected : React.FC<any> = ({ item: {title, img, description, Butto
 
                 <div className={classes.webSiteLink} >
                   {ButtonLink}
+								</div>
+
+								<div className={classes.sourceCodeLink}>
+										{ButtonCode ? (
+											<ButtonCode> 
+												<FormattedMessage 
+													defaultMessage= 'Code'
+													description= 'code-word'
+													id= "code-word" 
+												/>
+											</ButtonCode>) : <div></div> }
 									
                 </div>
             </motion.div>
