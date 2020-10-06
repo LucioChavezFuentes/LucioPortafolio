@@ -88,7 +88,8 @@
     "extract": "formatjs extract",
     "extract:intl-messages": "yarn extract src/**/*.ts* --out-file src/lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6]",
     "compile": "formatjs compile",
-    "compile:lang-enUS": "yarn compile src/lang/en.json --ast --out-file src/lang/compiled-lang/en_US.json"
+    "compile:lang-enUS": "yarn compile src/lang/en.json --ast --out-file src/lang/compiled-lang/en_US.json",
+    "create:lang-enUS": "yarn run extract:intl-messages && yarn run compile:lang-enUS"
   },
   "browserslist": {
     "production": [
