@@ -23,6 +23,7 @@ import AdventureCode from "assets/img/customIcons/AdventureCode";
 import Ravenous from "assets/img/customIcons/Ravenous";
 import TeaCozy from "assets/img/customIcons/TeaCozy";
 import  WanderlustIcon from "assets/img/customIcons/WanderlustIcon";
+import WorkNFlow from "assets/img/customIcons/WorkNFlow";
 
 //Types
 import StyleProps from "types/StyleProps";
@@ -34,6 +35,7 @@ const icons = {
 	adventureCode: AdventureCode ,
 	teaCozy: TeaCozy,
 	wanderlust: WanderlustIcon,
+	workNFlow: WorkNFlow
 
 }
 
@@ -194,7 +196,8 @@ const ProjectSelected : React.FC<any> = ({ item: {title, img, description, Butto
 				</CustomPaper>
 
                 <div className={classes.webSiteLink} >
-                    {ButtonLink} 
+                  {ButtonLink}
+									
                 </div>
             </motion.div>
         </motion.div>
