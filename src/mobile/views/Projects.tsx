@@ -229,6 +229,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 											className={classes.projectImage}
 											src={img.src}
 											alt={img.alt}
+											loading='eager'
 										/>
 										
 										<Button component={Link} to={`/projects/${id}`} className={classes.cardOpenLink} />

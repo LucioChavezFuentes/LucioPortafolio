@@ -295,6 +295,7 @@ const Projects = (props) => {
 											className={classes.projectImage}
 											src={img.src}
 											alt={img.alt}
+											loading='eager'
 										/>
 
 										<motion.div className={classes.projectDetails}>
