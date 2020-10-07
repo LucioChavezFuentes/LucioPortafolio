@@ -13,8 +13,7 @@ import CustomDropdown from 'components/CustomDropdown/CustomDropdown';
 //import USAFlag from 'assets/img/flags/USAFlag';
 // Don´t forget to set the viewbox prop in SVGIcon Component as the original svg 
 import MexicoFlag from 'assets/img/flags/MexicoFlag';
-
-import  USAFlag from 'assets/img/flags/USAFlag.svg';
+import USAFlag from 'assets/img/flags/USAFlag'
 
 import { changeLenguage } from 'redux/slices/uiSlice';
 import AppLocale from 'lang/index';
@@ -69,7 +68,7 @@ function LenguageList(props) {
                 {content : (
                     <>
                         <ListItemIcon>
-                          <img src={USAFlag} alt='USA-Flag' style={{width: '35px'}} />
+                            <USAFlag sizeInPixels={'35px'} />
                         </ListItemIcon>
                         <ListItemText primary="EN-US" />
                     </> ),
