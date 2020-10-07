@@ -1,11 +1,11 @@
 import React from 'react';
 //images
-import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
+/*import socialConejitoProject from 'assets/img/projects/Social-Conejito2.jpg';
 import ravenousProject from 'assets/img/projects/ravenous.jpg';
 import wanderlust from 'assets/img/projects/wanderlust.jpg';
 import codigoAventura from 'assets/img/projects/codigoAventura_compressed.jpg';
 import teaCozy from 'assets/img/projects/teaCozy.jpg';
-import WorkNFlowScreenshot from 'assets/img/projects/WorkNFlow.jpg';
+import WorkNFlowScreenshot from 'assets/img/projects/WorkNFlow.jpg';*/
 
 //logos
 import Conejito from "assets/img/customIcons/Conejito";
@@ -30,6 +30,20 @@ import AdvCoSourceCodeLink from "components/CustomButtons/AdvCoSourceCodeLink";
 import { FormattedMessage } from 'react-intl';
 
 import IntlMessage from 'helper/IntlMessages';
+
+/*const socialConejitoProject = require('assets/img/projects/Social-Conejito2.jpg');
+const ravenousProject = require('assets/img/projects/ravenous.jpg') ;
+const wanderlust = require('assets/img/projects/wanderlust.jpg') ;
+const teaCozy = require('assets/img/projects/teaCozy.jpg')
+const WorkNFlowScreenshot = require('assets/img/projects/WorkNFlow.jpg')
+const codigoAventura = require('assets/img/projects/codigoAventura_compressed.jpg')*/
+
+const socialConejitoProject = 'Social-Conejito2.jpg';
+const ravenousProject = 'ravenous.jpg';
+const wanderlust = 'wanderlust.jpg';
+const codigoAventura = 'codigoAventura_compressed.jpg';
+const teaCozy = 'teaCozy.jpg';
+const WorkNFlowScreenshot = 'WorkNFlow.jpg';
 
 const projectsById = {
 
