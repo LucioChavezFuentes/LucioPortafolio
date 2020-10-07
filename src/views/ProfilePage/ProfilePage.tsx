@@ -322,7 +322,7 @@ function ProfilePage(props: any) {
                           description: 'word-and',
                           id: "word-and",
                         })}
-                        <span className='bold'> AWS's ServerLess Application Model </span>
+                        <span className='bold'> {`AWS's ServerLess Application Model` }  </span>
                         {intl.formatMessage({
                           defaultMessage: 'for back-end and model solutions.',
                           description: 'back-end-skills-description-partTwo',
@@ -384,6 +384,49 @@ function ProfilePage(props: any) {
                   active={activeProject}
                   handleChangeActive={handleChangeActive}
                   tabs={[
+
+                    {
+                      tabButton: 'Work & Flow',
+                      tabIcon: WorkNFlow,
+                      tabContent: (
+                        <GridContainer justify="center" >
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                          <iframe title='Adventure-Code' className={classes.projectIframe} src="https://worknflow.com"></iframe>
+                          </GridItem>
+
+                          <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth} >
+                            <div className={classes.projectDescription}>
+                              <p>
+                                <FormattedMessage 
+                                  defaultMessage="Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes."
+                                  description='work-n-flow-description' />
+                              </p>
+                            </div>
+                          </GridItem>
+
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
+
+                            <div className={classes.projectsButtonsContainer}>
+
+                              <Button
+                                href="https://worknflow.com"
+                                target='_blank'
+                                rel="noopener noreferrer"
+                                color='primary'
+                                variant='contained'
+                                className='appPageButton' startIcon={<WorkNFlow />}>
+                                {intl.formatMessage({
+                                  defaultMessage: "App's Page",
+                                  description: 'app-page-button',
+                                  id: "app-page-button",
+                                })}
+                              </Button>
+                            </div>
+
+                          </GridItem>
+                        </GridContainer>
+                      )
+                    },
                     {
                       tabButton: "The Social Conejito",
                       tabIcon: Conejito,
@@ -454,48 +497,7 @@ function ProfilePage(props: any) {
                         </GridContainer>
                       )
                     },
-                    {
-                      tabButton: 'Work & Flow',
-                      tabIcon: WorkNFlow,
-                      tabContent: (
-                        <GridContainer justify="center" >
-                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                          <iframe title='Adventure-Code' className={classes.projectIframe} src="https://worknflow.com"></iframe>
-                          </GridItem>
-
-                          <GridItem  xs={fullWidth} sm={fullWidth} md={fullWidth} >
-                            <div className={classes.projectDescription}>
-                              <p>
-                                <FormattedMessage 
-                                  defaultMessage="Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes."
-                                  description='work-n-flow-description' />
-                              </p>
-                            </div>
-                          </GridItem>
-
-                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth} >
-
-                            <div className={classes.projectsButtonsContainer}>
-
-                              <Button
-                                href="https://worknflow.com"
-                                target='_blank'
-                                rel="noopener noreferrer"
-                                color='primary'
-                                variant='contained'
-                                className='appPageButton' startIcon={<WorkNFlow />}>
-                                {intl.formatMessage({
-                                  defaultMessage: "App's Page",
-                                  description: 'app-page-button',
-                                  id: "app-page-button",
-                                })}
-                              </Button>
-                            </div>
-
-                          </GridItem>
-                        </GridContainer>
-                      )
-                    },
+                    
                     {
                       tabButton: "Ravenous",
                       tabIcon: Ravenous,
