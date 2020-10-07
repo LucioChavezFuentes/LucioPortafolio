@@ -293,7 +293,7 @@ const Projects = (props) => {
 										<motion.img
 											variants={hoverImage}
 											className={classes.projectImage}
-											src={img.src}
+											src={require(`../../assets/img/projects/${img.src}`)}
 											alt={img.alt}
 											loading='eager'
 										/>
