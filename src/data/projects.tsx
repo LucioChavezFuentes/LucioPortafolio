@@ -31,19 +31,19 @@ import { FormattedMessage } from 'react-intl';
 
 import IntlMessage from 'helper/IntlMessages';
 
-/*const socialConejitoProject = require('assets/img/projects/Social-Conejito2.jpg');
-const ravenousProject = require('assets/img/projects/ravenous.jpg') ;
-const wanderlust = require('assets/img/projects/wanderlust.jpg') ;
-const teaCozy = require('assets/img/projects/teaCozy.jpg')
-const WorkNFlowScreenshot = require('assets/img/projects/WorkNFlow.jpg')
-const codigoAventura = require('assets/img/projects/codigoAventura_compressed.jpg')*/
+const socialConejitoProject = require('assets/img/projects/Social-Conejito2.jpg');
+const ravenousProject = require('assets/img/projects/ravenous.jpg');
+const wanderlust = require('assets/img/projects/wanderlust.jpg');
+const teaCozy = require('assets/img/projects/teaCozy.jpg');
+const WorkNFlowScreenshot = require('assets/img/projects/WorkNFlow.jpg');
+const codigoAventura = require('assets/img/projects/codigoAventura_compressed.jpg');
 
-const socialConejitoProject = 'Social-Conejito2.jpg';
+/*const socialConejitoProject = 'Social-Conejito2.jpg';
 const ravenousProject = 'ravenous.jpg';
 const wanderlust = 'wanderlust.jpg';
 const codigoAventura = 'codigoAventura_compressed.jpg';
 const teaCozy = 'teaCozy.jpg';
-const WorkNFlowScreenshot = 'WorkNFlow.jpg';
+const WorkNFlowScreenshot = 'WorkNFlow.jpg';*/
 
 const projectsById = {
 
