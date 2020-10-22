@@ -5,7 +5,14 @@
   ],
   "plugins": [
     
-    "@babel/plugin-proposal-class-properties"
-
+    "@babel/plugin-proposal-class-properties",
+    //Adding the react-intl plugin here (and other babel plugins) is neccesary to run it with jest tests in rewired-react-app env.
+    ["react-intl",
+      {
+        "idInterpolationPattern": "[sha512:contenthash:base64:6]",
+        "extractFromFormatMessageCall": true,
+        "ast": true
+      }
+]
   ]
 }
