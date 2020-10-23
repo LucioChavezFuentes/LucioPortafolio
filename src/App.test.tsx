@@ -56,7 +56,7 @@ describe('app', () => {
 
   test('changes to projects page onClick All Projects button', () => {
     //Isn't supposed to DOM be unmounted aterEach test and render another tree on next?
-    const {getByText, getByLabelText, } = renderTree()
+    const {getByText, getByLabelText, } = render(tree)
     expect(getByText('Lucio Chávez')).toBeTruthy()
   
     const leftClick = {button: 0}
