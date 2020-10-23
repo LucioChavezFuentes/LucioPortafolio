@@ -369,7 +369,7 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
             </DialogTitle>
            
             <DialogContent dividers >
-                    <GridContainer spacing={low} justify="center" alignItmes='center'>
+                    <GridContainer spacing={low} justify="center" alignItems='center'>
 
                         <GridItem xs={fullWidth} sm={fullWidth} md={halfWidth} >
                             <TextField
@@ -385,11 +385,11 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                                 className={classes.inputText}
                                 classes={{root: classes.inputText}}
                                 error={errors.name ? true : false}
-                                helperText={<p style={{margin:'0'}}>{errors.name || intl.formatMessage({
+                                helperText={<span style={{margin:'0'}}>{errors.name || intl.formatMessage({
                                     defaultMessage: "*Required",
                                     description: "required-field-email",
                                     id: "required-field-email",
-                                  })}</p>}
+                                  })}</span>}
                                 value={name}
                                 onChange={handleChange}
                                 disabled={loading}
@@ -410,11 +410,11 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                                 variant="outlined"
                                 classes={{root: classes.inputText}}
                                 error={errors.email ? true : false}
-                                helperText={<p style={{margin:'0'}}>{errors.email || intl.formatMessage({
+                                helperText={<span style={{margin:'0'}}>{errors.email || intl.formatMessage({
                                     defaultMessage: "*Required",
                                     description: "required-field-email",
                                     id: "required-field-email",
-                                  })}</p>}
+                                  })}</span>}
                                 value={email}
                                 onChange={handleChange}
                                 disabled={loading}
@@ -435,12 +435,12 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                                 }
                                 variant="outlined"
                                 classes={{root: classes.inputText}}
-                                helperText={<p style={{margin:'0'}}>
+                                helperText={<span style={{margin:'0'}}>
                                     <IntlMessage 
                                         defaultMessage='Optional' 
                                         id='optional-word' description='optional-word' 
                                     />
-                                    </p>}
+                                    </span>}
                                 value={subject}
                                 onChange={handleChange}
                                 disabled={loading}
@@ -462,11 +462,11 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                                 }
                                 classes={{root: classes.inputText}}
                                 error={errors.message ? true : false}
-                                helperText={<p style={{margin:'0'}}>{errors.message || intl.formatMessage({
+                                helperText={<span style={{margin:'0'}}>{errors.message || intl.formatMessage({
                                     defaultMessage: "*Required",
                                     description: "required-field-email",
                                     id: "required-field-email",
-                                  })}</p>}
+                                  })}</span>}
                                 value={message}
                                 onChange={handleChange}
                                 disabled={loading}
@@ -482,7 +482,7 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                 
                 <DialogContentText className={classes.subtitleText}>
                     
-                        <p>
+                        
                             { isMobile ? intl.formatMessage({
                                     defaultMessage: 'Or contact me',
                                     description: "contact-me-email",
@@ -490,8 +490,8 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                                   }) :  <IntlMessage 
                                   defaultMessage='Or you could send me an email through' 
                                   id='legend-email' description='legend-email' />
-                            } 
-                            <a 
+                            }
+                            <a style={{marginLeft: '5px'}}
                                 href="mailto:luciobertinchavez@gmail.com"
                             >
                                 { isMobile ? <IntlMessage 
@@ -499,7 +499,7 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                                                 id='here-word' description='here-word' /> :  'luciobertinchavez@gmail.com' 
                                                  }
                             </a>
-                        </p>
+                        
                     
                 </DialogContentText>
 

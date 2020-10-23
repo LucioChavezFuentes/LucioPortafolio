@@ -205,7 +205,7 @@ CustomDropdown.propTypes = {
     "rose"
   ]),
   buttonText: PropTypes.node,
-  buttonIcon: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  buttonIcon: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.element, PropTypes.elementType]),
   dropdownList: PropTypes.array,
   buttonProps: PropTypes.object,
   dropup: PropTypes.bool,

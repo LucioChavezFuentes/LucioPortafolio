@@ -229,7 +229,7 @@ function ProfilePage(props: any) {
               </GridItem>
               
 
-              <GridItem justify='center' xs={fullWidth} sm={halfWidth} md={halfWidth}>
+              <GridItem xs={fullWidth} sm={halfWidth} md={halfWidth}>
               <div className='gridItemDescription'>
                 <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription paperIcons'>
                   <FrontEndIcons />

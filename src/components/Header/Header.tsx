@@ -169,10 +169,11 @@ Header.propTypes = {
     "transparent",
     "white",
     "rose",
-    "dark"
+    "dark",
+    "primaryHeader"
   ]),
-  rightLinks: PropTypes.node,
-  leftLinks: PropTypes.node,
+  rightLinks: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+  leftLinks: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
   brand: PropTypes.string,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
@@ -194,7 +195,8 @@ Header.propTypes = {
       "transparent",
       "white",
       "rose",
-      "dark"
+      "dark",
+      "primaryHeader"
     ]).isRequired
   })
 };
