@@ -18,7 +18,7 @@ const useStyles = makeStyles(styles);
 
 interface Props {
   justify?: string;
-  
+  alignItems: string;
 }
 
 const GridContainer:React.FC<any> = (props: any) => {
