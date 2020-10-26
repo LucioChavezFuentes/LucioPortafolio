@@ -11,54 +11,34 @@ import themes from './themes/constants';
 import {MuiThemeProvider} from '@material-ui/core/styles';
 
 //React Testing Library
-import { render, fireEvent, cleanup} from '@testing-library/react'
+import { render, fireEvent, waitFor} from '@testing-library/react';
 
 //Remember: even if you call render() again on consecutive tests the state of the component(s) will be different if previous test modified it
-const tree = (
-  <Provider store={store}>
-    <MuiThemeProvider theme={themes.THEME_OBJECT}>
-      <App />
-    </MuiThemeProvider>
-  </Provider>
-)
+const AllTheProviders = ({ children }) => {
+  return (
+    <Provider store={store}>
+      <MuiThemeProvider theme={themes.THEME_OBJECT}>
+        {children}
+      </MuiThemeProvider>
+    </Provider>
+  )
+}
 
-/*let n = 0
-let i = 0
-
-afterEach(() => {
-  n = i + 1
-  i++
-  cleanup(tree)
-  
-  console.log(n)
-} )*/
-
-/*function renderTree() {
-  const utils = render(tree)
-  //const counterButton = utils.getByText(/^count/i)
-  return {...utils,}
-}*/
-
-/*beforeEach(() => {
-  renderTree()
-})*/
-
-/*beforeEach(cleanup)
-
-afterAll(cleanup)*/
+const customRender = (ui, options?) =>
+  render(ui, { wrapper: AllTheProviders, ...options })
 
 describe('app', () => {
 
-  //TODO: Why render() returns an empty <body> on next test when I delete this test? WHY?? even if the first test is empty the next tests will render properly
-  test('just make it work', () => {
+  //FIXED-TODO: Why render() returns an empty <body> on next test when I delete this test? WHY?? even if the first test is empty the next tests will render properly
+  //FIX: install jest-environment-jsdom-sixteen, modify scripts to "test": "react-app-rewired test --env=jest-environment-jsdom-sixteen" 
+  //     and use async helpers like "waitFor" for redux-persist async render (I think, I require further investigation about redux-persist render)
 
-  })
-
-  test('changes to projects page onClick All Projects button', () => {
+  test('changes to projects page onClick All Projects button', async () => {
     //Isn't supposed to DOM be unmounted aterEach test and render another tree on next?
-    const {getByText, getByLabelText, } = render(tree)
-    expect(getByText('Lucio Chávez')).toBeTruthy()
-  
+    const {getByText } = customRender(<App />);
+
+    await waitFor(() => expect(getByText('Lucio Chávez')).toBeTruthy())
+    
     const leftClick = {button: 0}
     const allProjectsButton = getByText('All Projects');
   
@@ -68,7 +48,7 @@ describe('app', () => {
   });
   
   test('stays in profile page onClick email icon', () => {
-    const {getByText, getByRole, debug } = render(tree)
+    const {getByText, getByRole } = customRender(<App />);
     expect(getByText("All Lucio's Projects")).toBeTruthy()
   
     const leftClick = {button: 0}
