@@ -41,6 +41,7 @@ interface RegularButtonProps {
   type?: 'submit' | 'button' | 'reset';
   isThemeDark?: boolean;
   rel?: string
+  dispatch?: any;
 }
 
 const makeComponentStyles = makeStyles(buttonStyle);
@@ -60,6 +61,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     customStyle,
     color,
     isThemeDark,
+    dispatch,
     ...rest
   } = props;
 
