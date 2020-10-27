@@ -34,7 +34,7 @@ describe('app', () => {
   //     and use async helpers like "waitFor" for redux-persist async render (I think, I require further investigation about redux-persist render)
 
   test('changes to projects page onClick All Projects button', async () => {
-    //Isn't supposed to DOM be unmounted aterEach test and render another tree on next?
+    //TODO: Fix this issue: Isn't supposed to DOM be unmounted aterEach test and render another tree on next?
     const {getByText } = customRender(<App />);
 
     await waitFor(() => expect(getByText('Lucio Chávez')).toBeTruthy())
@@ -48,7 +48,9 @@ describe('app', () => {
   });
   
   test('stays in profile page onClick email icon', () => {
+    //TODO: Fix this issue: Isn't supposed to DOM be unmounted aterEach test and render another tree on next?
     const {getByText, getByRole } = customRender(<App />);
+
     expect(getByText("All Lucio's Projects")).toBeTruthy()
   
     const leftClick = {button: 0}
