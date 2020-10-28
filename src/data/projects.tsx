@@ -26,7 +26,8 @@ import WorkNFlowLink from 'components/ProjectButtonLinks/WorkNFlowLink';
 //Buttons
 import AdvCoSourceCodeLink from "components/CustomButtons/AdvCoSourceCodeLink";
 
-// Use the react-intl's FormattedMessage instead of a helper in order to compile without explicit ids and make the lang scripts work
+//TODO: Find a way to use the costum IntlMessage component with formatjs' babel inserting id plugins without errors.
+// Use the react-intl's FormattedMessage instead of a helper in order to compile without explicit ids and make the lang scripts work..for now
 import { FormattedMessage } from 'react-intl';
 
 import IntlMessage from 'helper/IntlMessages';
