@@ -1,12 +1,12 @@
 import React from 'react'
 import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 // @material-ui/core components
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 //Animations
-import {AnimatePresence,  AnimateSharedLayout} from 'framer-motion'
+import {AnimatePresence } from 'framer-motion'
 
 //Redux
 import { connect } from 'react-redux';
@@ -183,7 +183,11 @@ const useStyles = makeStyles((theme) => ({
     '.MuiFormHelperText-root' : {
       '& p': {
       color: (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps),
-      }
+      },
+
+      '& span': {
+        color: (props) => getDarkOrLightTheme(theme, 'text-secondary', props as StyleProps),
+      },
     },
 
     '.MuiDialogContent-dividers': {
@@ -214,8 +218,7 @@ const useStyles = makeStyles((theme) => ({
     '.MuiListSubheader-root': {
       color : (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps)
     },
-    
-  }
+  },
 })
 )
 
@@ -238,7 +241,7 @@ function App(props : AppProps) {
       <PersistGate loading={null} persistor={persistor}>
         <CssBaseline>
           <IntlProvider locale={AppLocale[locale].lenguage} defaultLocale="en" messages={AppLocale[locale].messages as any } >
-          <AnimateSharedLayout type="crossfade">
+          
           <Router history={hist}>
             <Header
               color="transparent"
@@ -253,18 +256,17 @@ function App(props : AppProps) {
             <Parallax small isThemeDark={isThemeDark} />
             <AnimatePresence>
               <Switch>
-                <Route path="/" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
-                <Route path="/projects" exact component={mobileDevice ? MobileProjects : Projects  } />
-                <Route path="/projects/email" exact component={mobileDevice ? MobileProjects : Projects  } />
-                <Route path="/projects/:project" exact component={mobileDevice ? MobileProjects : Projects} />
-                <Route path="/projects/menu/email" exact component={mobileDevice ? MobileProjects : Projects} />
-                <Route path="/projects/menu" exact component={mobileDevice ? MobileProjects : Projects} />
-                <Route path="/:path" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
-                <Route path="/menu/email" exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
+                <Route path={["/", "/menu/email", "/menu", "/email"]} exact render={(props) => <ProfilePage {...props} isThemeDark={isThemeDark} />}  />
+                <Route 
+                  path={["/projects", "/projects/:project", "/projects/menu", "/projects/email", "/projects/menu/email"]} 
+                  exact 
+                  component={mobileDevice ? MobileProjects : Projects} />
+                <Redirect to="/" />
+                
               </Switch>
             </AnimatePresence>
           </Router>
-          </AnimateSharedLayout>
+          
           </IntlProvider>
         </CssBaseline>
       </PersistGate>
