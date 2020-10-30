@@ -1,6 +1,9 @@
 import '@testing-library/jest-dom/extend-expect'
 import React from 'react';
 import App from './App';
+import { createBrowserHistory } from "history";
+//Router
+import {Router} from 'react-router-dom';
 
 //Redux
 import { Provider } from 'react-redux';
@@ -11,22 +14,57 @@ import themes from './themes/constants';
 import {MuiThemeProvider} from '@material-ui/core/styles';
 
 //React Testing Library
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor, screen, act } from '@testing-library/react';
+
+import matchMediaPolyfill from 'mq-polyfill'
+
+
+beforeAll(() => {
+  matchMediaPolyfill(window)
+  window.resizeTo = function resizeTo(width, height) {
+    Object.assign(this, {
+      innerWidth: width,
+      innerHeight: height,
+      outerWidth: width,
+      outerHeight: height,
+    }).dispatchEvent(new this.Event('resize'))
+  }
+})
+
 
 
 //Remember: even if you call render() again on consecutive tests the state of the component(s) will be different if previous test modified it
-const AllTheProviders = ({ children }) => {
-  return (
-    <Provider store={store}>
-      <MuiThemeProvider theme={themes.THEME_OBJECT}>
-        {children}
-      </MuiThemeProvider>
-    </Provider>
-  )
+const resizeWindow = (x = 1024 , y = 768) => {
+  // @ts-ignore
+  window.innerWidth = x;
+  // @ts-ignore
+  window.innerHeight = y;
+  window.dispatchEvent(new Event('resize'));
 }
 
-const customRender = (ui, options?) =>
-  render(ui, { wrapper: AllTheProviders, ...options })
+const customRender = (ui, {route = '/' , innerWidth = 1024, ...rest} = {}) => {
+
+  const hist = createBrowserHistory({initialEntries: route });
+
+  const AllTheProviders = ({ children }) => {
+  
+    return (
+      <Provider store={store}>
+        <MuiThemeProvider theme={themes.THEME_OBJECT}>
+          <Router history={hist}>
+            {children}
+          </Router>
+        </MuiThemeProvider>
+      </Provider>
+    )
+  }
+  
+  return {...render( ui, { wrapper: AllTheProviders, ...rest }), hist} 
+
+}
+
+
+  
 
 /*How should I write my tests?
 
@@ -53,18 +91,24 @@ describe('all components mount and dismount accordingly on routing change', () =
   //     and use async helpers like "waitFor" for redux-persist async render (I think, I require further investigation about redux-persist render)
 
   //TODO: Fix this issue: Isn't supposed to DOM be unmounted aterEach test and render another tree on next?
+
+  const LUCIO_CHAVEZ_TEXT = "Lucio Chávez";
+  const ALL_PROJECTS_BUTTON = "All Projects";
+  const ALL_LUCIOS_PROJECTS_TEXT = "All Lucio's Projects";
+
+  const ALL_PROJECTS_TEXT_MOBILE  = "Click or Tap on images to see project details."
   
-  test('app mounts landing page correctly', async () => {
+  test('WEB: components in web mount and dismount accordingly on routing change', async () => {
     const {getByText, getByRole, queryByText } = customRender(<App />);
     //The render is async (maybe for redux-persist) so me must wait to get the first element
     await waitFor(() => {
-      expect(getByText('Lucio Chávez')).toBeTruthy()
+      expect(getByText(LUCIO_CHAVEZ_TEXT)).toBeTruthy()
     })
 
     const leftClick = {button: 0}
 
     //These elements shoulbe always avaialable independently of routing location in app's version 1.1.2
-    const allProjectsButton = getByText('All Projects');
+    const allProjectsButton = getByText(ALL_PROJECTS_BUTTON);
     const emailIconButton = getByRole('button', {name: '!Send an email to Lucio¡'});
 
     //Check if profile page component is still mounted after clicking emailIconButton and emailDialog component is mounted and dismounted on close
@@ -80,8 +124,8 @@ describe('all components mount and dismount accordingly on routing change', () =
 
     //Check if projects component is mounted on click "all projects" button and Profile Page is dismounted
     fireEvent.click(allProjectsButton, leftClick);
-    expect(queryByText("All Lucio's Projects")).toBeInTheDocument();
-    expect(queryByText("Lucio Chavez")).not.toBeInTheDocument();
+    expect(queryByText(ALL_LUCIOS_PROJECTS_TEXT)).toBeInTheDocument();
+    expect(queryByText("Lucio Chávez")).not.toBeInTheDocument();
 
     //Projects Page stays the same on click email Icon, email Dialog is mounted
     expect(queryByText("All Lucio's Projects")).toBeInTheDocument();
@@ -102,6 +146,68 @@ describe('all components mount and dismount accordingly on routing change', () =
     expect(getByText('Lucio Chávez')).toBeTruthy()
 
   }, 30000);
+
+  test('Redirect to Landing Page on unvalid route', async () => {
+
+    const { queryByText, getByText, hist } = customRender(<App />);
+
+    const leftClick = {button: 0}
+    const allProjectsButton = getByText(ALL_PROJECTS_BUTTON);
+    fireEvent.click(allProjectsButton, leftClick);
+
+    expect(queryByText("All Lucio's Projects")).toBeInTheDocument();
+    
+    //is the same history made before AllProviders component
+    hist.push('/something-that-does-not-match');
+
+    //history.pushState({}, 'Redirect', '/something-that-does-not-match')
+
+    //await waitFor(() => {
+      expect(queryByText(LUCIO_CHAVEZ_TEXT)).toBeInTheDocument();
+    //})
+  });
+
+  test('MOBILE: components in mobile mount and dismount accordingly on routing change', async () => {
+
+    customRender(<App />);
+    
+    //The render is async (maybe for redux-persist) so me must wait to get the first element
+    act(() => {
+      window.resizeTo(375, 667);
+    })
+    
+
+    /*act(() => {
+      window.innerWidth = 360;
+      window.innerHeight = 640;
+    })
+    fireEvent(window, new Event('resize'))*/
+    
+    expect(screen.getByText(LUCIO_CHAVEZ_TEXT)).toBeTruthy()
+
+    const leftClick = {button: 0}
+
+    /*const menueIcon = getByRole('button', {name: "menu"});
+    fireEvent.click(menueIcon, leftClick);*/
+
+    //const aboutLucioButton = screen.getByRole('button', {});
+
+
+    //await waitFor(() => {
+      const menuIcon = screen.getByTestId("open-drawer");
+    //})
+    
+    fireEvent.click(menuIcon, leftClick);
+
+    //await waitFor(() => {
+    expect(screen.queryByText("Lucio's GitHub")).toBeInTheDocument();
+    //})
+    //screen.debug()
+
+  })
+
+
+});
 
   /*test('Check if profile page component is still mounted after clicking emailIconButton and emailDialog component is mounted', () => {
     const {getByText, getByRole, queryByText } = customRender(<App />);
@@ -161,6 +267,4 @@ describe('all components mount and dismount accordingly on routing change', () =
     const aboutLucioButton = getByRole('button', {name: "About Lucio"});
     fireEvent.click(aboutLucioButton, leftClick);
     expect(queryByText('Lucio Chávez')).toBeInTheDocument();
-  });
-*/
-})
+  });*/
