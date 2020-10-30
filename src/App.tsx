@@ -55,7 +55,6 @@ interface AppProps {
 if(/^\?fbclid=/.test(window.location.search))
      window.location.replace(window.location.href.replace(/\?fbclid.+/, ""));
 
-const hist = createBrowserHistory();
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -242,7 +241,7 @@ function App(props : AppProps) {
         <CssBaseline>
           <IntlProvider locale={AppLocale[locale].lenguage} defaultLocale="en" messages={AppLocale[locale].messages as any } >
           
-          <Router history={hist}>
+          
             <Header
               color="transparent"
               leftLinks={{ThemeSwitch , LenguageList}}
@@ -265,7 +264,7 @@ function App(props : AppProps) {
                 
               </Switch>
             </AnimatePresence>
-          </Router>
+          
           
           </IntlProvider>
         </CssBaseline>
