@@ -32,6 +32,9 @@ const headerLinksStyle = (theme:Theme) => {
   
     listSubheader: {
       color: textPrimary,
+      fontWeight: 600,
+      margin: '10px 0 0',
+      paddingTop: '10px',
   
     },
     listItem: {

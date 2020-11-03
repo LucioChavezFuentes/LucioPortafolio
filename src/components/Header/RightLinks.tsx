@@ -69,15 +69,15 @@ function HeaderLinks(props: any) {
           <AboutLucioLink />
         </ListItem>
 
-        <ListItem className={classes.subList}>
-          <ListSubheader id="Social-Media" className={classes.listSubheader}>
+        
+          <ListItem id="Social-Media" className={classes.listSubheader}>
             {intl.formatMessage({
               defaultMessage: 'Social Media',
               description: 'social-media-title',
               id: "social-media-title",
             })}
 
-          </ListSubheader>
+          </ListItem>
 
           <ListItem className={classes.listItem}>
             <Button
@@ -100,7 +100,7 @@ function HeaderLinks(props: any) {
           <ListItem className={classes.listItem}>
             <EmailDialog className={classes.dropdownButtonLink} isMobile />
           </ListItem>
-        </ListItem>
+        
       </List>
 
     </>
