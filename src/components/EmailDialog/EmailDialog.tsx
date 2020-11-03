@@ -300,17 +300,7 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
 
     return (
         <>
-        <Tooltip
-          id="instagram-facebook"
-          title={intl.formatMessage({
-            defaultMessage: "!Send an email to Lucio¡",
-            description: 'email-tooltip',
-            id: "email-tooltip",
-          })
-    }
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: props.tooltipClassName}}
-        >
+        
         { props.isMobile ? (
         <Button
             className={props.className}
@@ -328,15 +318,26 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
           </Button>
         
         ) : (
-        <IconButton
-            
-            onClick={handleOpen}
-            className={props.className}
+        <Tooltip
+          id="instagram-facebook"
+          title={intl.formatMessage({
+            defaultMessage: "!Send an email to Lucio¡",
+            description: 'email-tooltip',
+            id: "email-tooltip",
+          })}
+          placement={window.innerWidth > 959 ? "top" : "left"}
+          classes={{ tooltip: props.tooltipClassName}}
         >
-            <MailOutlineIcon />
-          </IconButton>
-          )}
+            <IconButton
+                
+                onClick={handleOpen}
+                className={props.className}
+            >
+                <MailOutlineIcon />
+            </IconButton>
         </Tooltip>
+          )}
+        
 
         <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={isMobile} scroll='body' TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
             
