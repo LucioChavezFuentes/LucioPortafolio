@@ -180,6 +180,8 @@ const headerLinksStyle = (theme:Theme) => {
       textTransform: 'unset',
       margin: '0',
       fontSize: '14px',
+      width: '90%',
+      justifyContent: 'flex-start',
       //color: theme.palette.text.secondary
     },
   
