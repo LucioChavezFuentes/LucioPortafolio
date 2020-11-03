@@ -9,10 +9,10 @@ interface Props{
     sizeInPixels?: string
 }
 
-function MexicoFlag(props: Props) {
+function MexicoFlag({sizeInPixels, ...rest}: Props) {
 
     return (
-        <SvgIcon {...props} viewBox="0 0 980 560" style={{fontSize: props.sizeInPixels}} component={MexFlag} />
+        <SvgIcon {...rest} viewBox="0 0 980 560" style={{fontSize: sizeInPixels}} component={MexFlag} />
     )
 }
 

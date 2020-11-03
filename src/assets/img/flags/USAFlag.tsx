@@ -9,10 +9,10 @@ interface Props{
     sizeInPixels?: string
 }
 
-const USAFlag: React.FC<Props> = (props) => {
+const USAFlag: React.FC<Props> = ({sizeInPixels, ...rest}) => {
 
     return (
-        <SvgIcon {...props} viewBox="0 0 1235 650" style={{fontSize: props.sizeInPixels, color: 'white'}} component={usaFlag} />
+        <SvgIcon {...rest} viewBox="0 0 1235 650" style={{fontSize: sizeInPixels, color: 'white'}} component={usaFlag} />
     )
 }
 
