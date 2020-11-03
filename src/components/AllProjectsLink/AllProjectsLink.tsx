@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) =>
 
     createStyles({
         navLink: {
+            width: '100%',
             color: "inherit",
             position: "relative",
             padding: "0.9375rem",
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) =>
                 background: "rgba(200, 200, 200, 0.2)"
             },
             [theme.breakpoints.down("sm")]: {
-                //width: "calc(100% - 30px)",
+                width: "90%",
                 //marginLeft: "15px",
                 marginBottom: "8px",
                 marginTop: "8px",
