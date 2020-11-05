@@ -11,7 +11,6 @@ import StyleProps from 'types/StyleProps';
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const headerLinksStyle = (theme:Theme) => {
-  const textPrimary = theme.palette.text.primary;
 
   return createStyles({
     list: {
@@ -31,7 +30,7 @@ const headerLinksStyle = (theme:Theme) => {
     },
   
     listSubheader: {
-      color: textPrimary,
+      color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
       fontWeight: 600,
       margin: '10px 0 0',
       paddingTop: '10px',
