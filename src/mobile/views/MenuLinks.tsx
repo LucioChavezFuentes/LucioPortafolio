@@ -10,7 +10,6 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 
 // core components
 import Button from "components/CustomButtons/Button";
-import EmailDialog from "components/EmailDialog/EmailDialog";
 import MobileEmailDialog from 'mobile/components/MobileEmailDialog';
 import { injectIntl } from 'react-intl';
 import AllProjectsLink from 'components/AllProjectsLink/AllProjectsLink';

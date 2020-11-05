@@ -6,14 +6,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 
 // @material-ui/icons
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 // core components
-import Button from "components/CustomButtons/Button";
 import EmailDialog from "components/EmailDialog/EmailDialog";
 import { injectIntl } from 'react-intl';
 import AllProjectsLink from 'components/AllProjectsLink/AllProjectsLink';
