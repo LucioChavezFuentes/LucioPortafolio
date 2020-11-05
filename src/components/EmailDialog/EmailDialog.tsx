@@ -17,8 +17,6 @@ import Tooltip from "@material-ui/core/Tooltip";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
 import Typography from '@material-ui/core/Typography';
@@ -226,8 +224,6 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
     const [loading, setLoading] = useState(false);
     const [openFeedback, setOpenFeedback] = useState(false);
     const [APIError, setAPIError] = useState(null);
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const classes = useStyles({isThemeDark: props.isThemeDark});
 
     useEffect(() => {
@@ -242,20 +238,24 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
 
     }, [location])
 
-    const handleOpen = () => {
+    const handleOpen = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        //The useEffect hook should handle if dialog should open or not according to history's location
         if(matchPath('/', {path: location.pathname, exact: true})) {
             history.push(`/email`)
         } else {
             history.push(`${location.pathname}/email`)
         }
         
-        setOpen(true);
       }
 
-    const handleClose = () => {
+    const handleClose = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        //The useEffect hook should handle if dialog should open or not according to history's location
         const route = location.pathname.replace('/email', '')
         history.push(route || '/')
-        setOpen(false);
         setErrors({});
     }
 
@@ -301,23 +301,6 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
     return (
         <>
         
-        { props.isMobile ? (
-        <Button
-            className={props.className}
-            color="transparent"
-            onClick={handleOpen}
-            startIcon={<MailOutlineIcon />}
-          >
-              {intl.formatMessage({
-                        defaultMessage: "!Send an email to Lucio¡",
-                        description: 'email-tooltip',
-                        id: "email-tooltip",
-                      })
-                }
-            
-          </Button>
-        
-        ) : (
         <Tooltip
           id="instagram-facebook"
           title={intl.formatMessage({
@@ -336,10 +319,8 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                 <MailOutlineIcon />
             </IconButton>
         </Tooltip>
-          )}
         
-
-        <Dialog open={open} onClose={handleClose} fullWidth maxWidth='md' fullScreen={isMobile} scroll='body' TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
+        <Dialog open={open} fullWidth maxWidth='md' scroll='body' TransitionComponent={Transition} PaperProps={{classes: {root: classes.dialog}}}>
             
             <DialogTitle disableTypography id="customized-dialog-title">
 
@@ -484,21 +465,13 @@ const EmailDialog:React.FC<Props> = (props : Props) => {
                 <DialogContentText className={classes.subtitleText}>
                     
                         
-                            { isMobile ? intl.formatMessage({
-                                    defaultMessage: 'Or contact me',
-                                    description: "contact-me-email",
-                                    id: "contact-me-email",
-                                  }) :  <IntlMessage 
+                              <IntlMessage 
                                   defaultMessage='Or you could send me an email through' 
                                   id='legend-email' description='legend-email' />
-                            }
                             <a style={{marginLeft: '5px'}}
                                 href="mailto:luciobertinchavez@gmail.com"
                             >
-                                { isMobile ? <IntlMessage 
-                                                defaultMessage='here' 
-                                                id='here-word' description='here-word' /> :  'luciobertinchavez@gmail.com' 
-                                                 }
+                                { 'luciobertinchavez@gmail.com' }
                             </a>
                         
                     
