@@ -1,7 +1,7 @@
 import React from "react";
 
 //React Router
-import {useLocation, useHistory, matchPath} from 'react-router-dom';
+import {useLocation, useHistory } from 'react-router-dom';
 
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -20,6 +20,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
+import MenuLinks from 'mobile/views/MenuLinks';
 import RightLinks from "./RightLinks";
 import styles from "assets/jss/material-kit-react/components/headerStyle";
 
@@ -44,9 +45,10 @@ export default function Header(props : any) {
   });
 
   React.useEffect(() => {
-    //The mobile drawer will show if the route is '/menu'
+    //The mobile drawer will show if '/menu' is in the route
     const routes = location.pathname.split('/')
-    if(matchPath('menu', {path: routes[routes.length - 1], exact: true})) {
+
+     if(routes.includes('menu')) {
       setMobileOpen(true);
       
     } else {
@@ -54,18 +56,18 @@ export default function Header(props : any) {
     }
   }, [location])
 
-  const handleDrawerToggle = () => {
+  const handleDrawerToggle = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
     const currentLocation = location.pathname === '/' ? '' : location.pathname
     const locationWithOutMenu = location.pathname.replace('/menu', '')
-    //TODO: Fix double re-render on setMobileOpen
-    setMobileOpen((prevMobileOpen) => {
-      if(prevMobileOpen) {
-        history.push(`${locationWithOutMenu}`)
-      } else {
-        history.push(`${currentLocation}/menu`)
-      }
-      return !mobileOpen
-    } );
+    
+    if(mobileOpen) {
+      history.push(`${locationWithOutMenu}`)
+    } else {
+      history.push(`${currentLocation}/menu`)
+    }
   };
   
   const headerColorChange = () => {
@@ -105,7 +107,7 @@ export default function Header(props : any) {
           {leftLinks !== undefined ? (
             <div className={classes.flex}> 
               <leftLinks.ThemeSwitch />
-              <Hidden smDown implementation="css">
+              <Hidden smDown implementation="js">
                 <div className={classes.flex}>
                    <leftLinks.LenguageList /> 
                 </div>
@@ -115,7 +117,7 @@ export default function Header(props : any) {
             brandComponent
           )}
         </div>
-        <Hidden smDown implementation="css"> 
+        <Hidden smDown implementation="js"> 
           <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} isMobile={false} />
         </Hidden>
         <Hidden mdUp>
@@ -147,7 +149,7 @@ export default function Header(props : any) {
             </div>
             <leftLinks.ThemeSwitch />
             <leftLinks.LenguageList dropdownClass={classes.dropdownLenguage}/>
-            <RightLinks onClickProject={onClickProject} projectsSectionRef={projectsSectionRef} handleDrawerToggle={handleDrawerToggle} isMobile={true} />
+            <MenuLinks handleDrawerToggle={handleDrawerToggle} />
           </div>
         </Drawer>
       </Hidden>
