@@ -38,8 +38,6 @@ function HeaderLinks(props: any) {
   const { isThemeDark, intl } = props
   const classes = useStyles({ isThemeDark });
 
-  const { handleDrawerToggle, isMobile } = props;
-
   /*const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
 
     const key = event.currentTarget.getAttribute('data-key')
@@ -56,55 +54,7 @@ function HeaderLinks(props: any) {
     }
   }*/
 
-  return (isMobile ? (
-    <>
-      <List
-        className={classes.list}
-      >
-        <ListItem className={classes.listItem}>
-          <AllProjectsLink />
-        </ListItem>
-
-        <ListItem className={classes.listItem}>
-          <AboutLucioLink />
-        </ListItem>
-
-        
-          <ListItem id="Social-Media" className={classes.listSubheader}>
-            {intl.formatMessage({
-              defaultMessage: 'Social Media',
-              description: 'social-media-title',
-              id: "social-media-title",
-            })}
-
-          </ListItem>
-
-          <ListItem className={classes.listItem}>
-            <Button
-              onClick={handleDrawerToggle}
-              className={classes.dropdownButtonLink}
-              href="https://github.com/LucioChavezFuentes"
-              target="_blank"
-              color="transparent"
-              startIcon={<GitHubIcon />}
-            >
-              { /*fab and fa-twitter appear to be global classNames*/}
-              {intl.formatMessage({
-                defaultMessage: "Lucio's GitHub",
-                description: 'github-tooltip',
-                id: "github-tooltip",
-              })}
-
-            </Button>
-          </ListItem>
-          <ListItem className={classes.listItem}>
-            <EmailDialog className={classes.dropdownButtonLink} isMobile />
-          </ListItem>
-        
-      </List>
-
-    </>
-  ) : (
+  return (
       <>
         <List className={classes.list}>
 
@@ -152,7 +102,6 @@ function HeaderLinks(props: any) {
 
       </>
     )
-  );
 }
 
 const mapStateToProps = (state: RootState) => ({
