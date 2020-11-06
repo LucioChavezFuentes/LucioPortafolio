@@ -20,7 +20,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
-import MenuLinks from 'mobile/views/MenuLinks';
+import MenuLinks from 'mobile/views/MenuLinks/MenuLinks';
 import RightLinks from "./RightLinks";
 import styles from "assets/jss/material-kit-react/components/headerStyle";
 
@@ -149,7 +149,7 @@ export default function Header(props : any) {
             </div>
             <leftLinks.ThemeSwitch />
             <leftLinks.LenguageList dropdownClass={classes.dropdownLenguage}/>
-            <MenuLinks handleDrawerToggle={handleDrawerToggle} />
+            <MenuLinks />
           </div>
         </Drawer>
       </Hidden>

@@ -28,7 +28,6 @@ const MenuLinks = (props: any) => {
   const { isThemeDark, intl } = props
   const classes = useStyles({ isThemeDark });
 
-  const { handleDrawerToggle } = props;
   return (
     <>
       <List
@@ -54,9 +53,9 @@ const MenuLinks = (props: any) => {
 
           <ListItem className={classes.listItem}>
             <Button
-              onClick={handleDrawerToggle}
               className={classes.dropdownButtonLink}
               href="https://github.com/LucioChavezFuentes"
+              rel="noopener noreferrer"
               target="_blank"
               color="transparent"
               startIcon={<GitHubIcon />}
