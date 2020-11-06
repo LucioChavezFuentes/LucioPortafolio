@@ -82,6 +82,7 @@ function HeaderLinks(props: any) {
             >
               <IconButton
                 href="https://github.com/LucioChavezFuentes"
+                rel="noopener noreferrer"
                 target="_blank"
                 className={classes.navLink}
               >
