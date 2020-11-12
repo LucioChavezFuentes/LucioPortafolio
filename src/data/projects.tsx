@@ -32,12 +32,21 @@ import { FormattedMessage } from 'react-intl';
 
 import IntlMessage from 'helper/IntlMessages';
 
-const socialConejitoProject = require('assets/img/projects/Social-Conejito2.jpg');
-const ravenousProject = require('assets/img/projects/ravenous.jpg');
-const wanderlust = require('assets/img/projects/wanderlust.jpg');
-const teaCozy = require('assets/img/projects/teaCozy.jpg');
-const WorkNFlowScreenshot = require('assets/img/projects/WorkNFlow.jpg');
-const codigoAventura = require('assets/img/projects/codigoAventura_compressed.jpg');
+//thumbnails
+import socialConejitoThumb from 'assets/img/projects/thumbs/Social-Conejito2-min.jpg';
+import ravenousThumb from 'assets/img/projects/thumbs/ravenous-min.jpg';
+import codigoAventuraThumb from 'assets/img/projects/thumbs/codigoAventura_compressed-min.jpg';
+import teaCozyThumb from 'assets/img/projects/thumbs/teaCozy-min.jpg';
+import wanderlustThumb from 'assets/img/projects/thumbs/wanderlust-min.jpg';
+import WorkNFlowSThumb from 'assets/img/projects/thumbs/WorkNFlow-min.jpg';
+
+const socialConejitoProject = require('assets/img/projects/compressed/Social-Conejito2-min.jpg');
+const ravenousProject = require('assets/img/projects/compressed/ravenous-min.jpg');
+const wanderlust = require('assets/img/projects/compressed/wanderlust-min.jpg');
+const teaCozy = require('assets/img/projects/compressed/teaCozy-min.jpg');
+const WorkNFlowScreenshot = require('assets/img/projects/compressed/WorkNFlow-min.jpg');
+const codigoAventura = require('assets/img/projects/compressed/codigoAventura-min.jpg');
+
 
 /*const socialConejitoProject = 'Social-Conejito2.jpg';
 const ravenousProject = 'ravenous.jpg';
@@ -51,6 +60,7 @@ const projectsById = {
   workNFlow: {
     img: {
       src: WorkNFlowScreenshot,
+      thumb: WorkNFlowSThumb,
       alt: 'Work-N-Flow',
     },
     title: 'Work & Flow',
@@ -70,6 +80,7 @@ const projectsById = {
   socialConejito: {
     img: {
       src: socialConejitoProject,
+      thumb: socialConejitoThumb,
       alt: 'The Social Conejito',
     },
     title: 'The Social Conejito',
@@ -88,6 +99,7 @@ const projectsById = {
   ravenous: {
     img: {
       src: ravenousProject,
+      thumb: ravenousThumb,
       alt: 'Ravenous'
     },
     title: 'Ravenous',
@@ -108,6 +120,7 @@ const projectsById = {
   wanderlust: {
     img: {
       src: wanderlust,
+      thumb: wanderlustThumb,
       alt: 'Wanderlust',
     },
     title: 'Wanderlust',
@@ -126,6 +139,7 @@ const projectsById = {
   adventureCode: {
     img: {
       src: codigoAventura,
+      thumb: codigoAventuraThumb,
       alt: 'Adventure Code'
     },
     title: <IntlMessage
@@ -149,6 +163,7 @@ const projectsById = {
   teaCozy: {
     img: {
       src: teaCozy,
+      thumb: teaCozyThumb,
       alt: 'Tea Cozy',
     },
     title: 'Tea Cozy',
