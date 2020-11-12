@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 //import ProjectSelected from 'mobile/views/ProjectSelected'
 import Button from "components/CustomButtons/Button";
 import ProjectSelectedDialog from 'mobile/views/ProjectSelectedDialog';
+import Image from 'components/Image/Image';
 //Custom MUI Components
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
@@ -104,9 +105,13 @@ const styles = (theme: Theme) => createStyles({
 		}*/
 	},
 
-	projectImage: {
+	/*projectImage: {
 		width: '100%',
-		height: 'auto',
+		//height: 'auto',
+		position: 'absolute',
+  	top: 0,
+  	left: 0,
+  	height: '100%',
 		//transition: 'all 500ms ease 200ms',
 		//display: 'block',
 		borderRadius: '10px',
@@ -114,8 +119,26 @@ const styles = (theme: Theme) => createStyles({
 		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
 		border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
 		textAlign: 'center',
-    fontSize: '20px',
+		fontSize: '20px',
 	},
+
+	projectThumb: {
+		width: '100%',
+		//height: 'auto',
+		position: 'absolute',
+  	top: 0,
+  	left: 0,
+  	height: '100%',
+		//transition: 'all 500ms ease 200ms',
+		//display: 'block',
+		borderRadius: '10px',
+		transform: 'scale(1.1)',
+		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
+		//border: (props) => `solid 5px ${getDarkOrLightTheme(theme, 'primary-dark', props as StyleProps)}`,
+		textAlign: 'center',
+		fontSize: '20px',
+		filter: 'blur(10px)',
+	},*/
     
     cardOpenLink: {
 		position: 'absolute',
@@ -225,12 +248,7 @@ const Projects : React.FC<any> = ({match} : any) => {
 										//The flickering could be caused by setting scale too high but not entirely sure. Further researching about scale is required.
 										whileTap={{scale: 1.05, transition: { scale: {velocity: 700, stiffness: 1000 }}}}
 									>
-										<img
-											className={classes.projectImage}
-											src={img.src}
-											alt={img.alt}
-											loading='eager'
-										/>
+										<Image src={img.src} thumb={img.thumb} alt={img.alt} isThemeDark={isThemeDark} />
 										
 										<Button component={Link} to={`/projects/${id}`} className={classes.cardOpenLink} />
 									</motion.div>
