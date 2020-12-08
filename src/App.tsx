@@ -1,6 +1,5 @@
 import React from 'react'
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 // @material-ui/core components
 import useMediaQuery from '@material-ui/core/useMediaQuery';
