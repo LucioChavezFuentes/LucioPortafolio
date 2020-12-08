@@ -21,7 +21,7 @@ import { connect } from 'react-redux';
 //types
 import { RootState } from 'redux/rootReducer';
 
-import styles from "assets/jss/material-kit-react/components/headerLinksStyle";
+import styles from "./menuLinksStyle";
 const useStyles = makeStyles(styles);
 
 const MenuLinks = (props: any) => {

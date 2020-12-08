@@ -70,10 +70,6 @@ const styles = (theme: Theme) => createStyles({
       },
   },
 
-  dialogContent: {
-      marginBottom: '20px',
-  },
-
   sendButtonContainer : {
       position: 'relative',
 

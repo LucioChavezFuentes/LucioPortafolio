@@ -8,7 +8,6 @@ import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 //Types
 import StyleProps from 'types/StyleProps';
 
-import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const menuLinksStyle = (theme:Theme) => {
 
@@ -64,8 +63,7 @@ const menuLinksStyle = (theme:Theme) => {
       justifyContent: 'flex-start',
       //color: theme.palette.text.secondary
     },
-  
-    ...tooltip,
+
   })
 } ;
 
