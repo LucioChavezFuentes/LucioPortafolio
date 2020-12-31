@@ -96,8 +96,14 @@ describe('all components mount and dismount accordingly on routing change', () =
   const ALL_PROJECTS_BUTTON = "All Projects";
   const ALL_LUCIOS_PROJECTS_TEXT = "All Lucio's Projects";
 
-  const ALL_PROJECTS_TEXT_MOBILE  = "Click or Tap on images to see project details."
-  
+  const ALL_PROJECTS_TEXT_MOBILE  = "Click or Tap on images to see project details.";
+  const LANGUAGE = 'Language';
+  const SOCIAL_MEDIA_TITLE = 'Social Media';
+  const LUCIO_GITHUB_TEXT = "Lucio's GitHub";
+  const EMAIL_BUTTON_TEXT = "!Send an email to Lucio¡";
+  const SEND_EMAIL_TITLE_TEXT = "Send me a message from here."
+  const SIMPLE_FAST = '!Simple and Fast¡';
+
   test('WEB: components in web mount and dismount accordingly on routing change', async () => {
     const {getByText, getByRole, queryByText } = customRender(<App />);
     //The render is async (maybe for redux-persist) so me must wait to get the first element
@@ -167,14 +173,17 @@ describe('all components mount and dismount accordingly on routing change', () =
     //})
   });
 
-  test('MOBILE: components in mobile mount and dismount accordingly on routing change', async () => {
+  test('MOBILE: components in mobile mount and dismount accordingly on routing change', () => {
 
-    customRender(<App />);
-    
-    //The render is async (maybe for redux-persist) so me must wait to get the first element
     act(() => {
       window.resizeTo(375, 667);
     })
+    
+    //looks like render must be executed on each test function
+    customRender(<App />);
+    
+    //The render is async (maybe for redux-persist) so me must wait to get the first element
+    
     
 
     /*act(() => {
@@ -183,26 +192,23 @@ describe('all components mount and dismount accordingly on routing change', () =
     })
     fireEvent(window, new Event('resize'))*/
     
-    expect(screen.getByText(LUCIO_CHAVEZ_TEXT)).toBeTruthy()
+    expect(screen.queryByText(SOCIAL_MEDIA_TITLE)).not.toBeInTheDocument();
 
     const leftClick = {button: 0}
 
-    /*const menueIcon = getByRole('button', {name: "menu"});
-    fireEvent.click(menueIcon, leftClick);*/
-
-    //const aboutLucioButton = screen.getByRole('button', {});
-
-
-    //await waitFor(() => {
-      const menuIcon = screen.getByTestId("open-drawer");
-    //})
-    
+    const menuIcon = screen.getByRole('button', {name: "open drawer"});
     fireEvent.click(menuIcon, leftClick);
 
-    //await waitFor(() => {
-    expect(screen.queryByText("Lucio's GitHub")).toBeInTheDocument();
-    //})
-    //screen.debug()
+    expect(screen.queryByText(SOCIAL_MEDIA_TITLE)).toBeInTheDocument();
+
+    //Make sure the email Dialog is not open.
+    expect(screen.queryByText(SIMPLE_FAST)).not.toBeInTheDocument();
+
+    const emailButton = screen.getByRole('button', {name: EMAIL_BUTTON_TEXT});
+    fireEvent.click(emailButton, leftClick);
+
+    expect(screen.queryByText(SIMPLE_FAST)).toBeInTheDocument();
+
 
   })
 
