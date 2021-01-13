@@ -113,15 +113,6 @@ const styles = (theme: Theme) => createStyles({
 		},
 	},
 
-	projectImage: {
-		width: '100%',
-		height: 'auto',
-		transition: 'all 500ms ease 200ms',
-		display: 'block',
-		borderRadius: '15px',
-		color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
-	},
-
 	projectDetails: {
 		display: 'flex',
 		flexFlow: 'column',
@@ -295,7 +286,6 @@ const Projects = (props) => {
 										
 										<ImageMotion
 											variants={hoverImage}
-											className={classes.projectImage}
 											thumb={img.thumb}
 											src={img.src}
 											alt={img.alt}

@@ -41,7 +41,7 @@ const useStyles = makeStyles(styles)
 
 const Image = (props) => {
 
-  const { isThemeDark, src, thumb, alt, motion, variants, className } = props;
+  const { isThemeDark, src, thumb, alt, motion, variants } = props;
 
   const [isLoaded, setLoaded] = React.useState(false);
 
