@@ -1,9 +1,5 @@
 import { container, title } from "assets/jss/material-kit-react.js";
 
-import imagesStyle from "assets/jss/material-kit-react/imagesStyles";
-
-import projectOne from "assets/img/projects/Social-Conejito2.jpg"
-
 import { createStyles, Theme } from '@material-ui/core/styles';
 
 //Helpers
@@ -16,23 +12,7 @@ const profilePageStyle = (theme : Theme) => {
 
   return createStyles({
     container,
-  
-    subContainer: {
-      paddingTop: "10px",
-      backgroundColor: "#e3e3e3",
-      "@media (min-width: 576px)": {
-        maxWidth: "560px"
-      },
-      "@media (min-width: 768px)": {
-        maxWidth: "720px"
-      },
-      "@media (min-width: 992px)": {
-        maxWidth: "960px"
-      },
-      "@media (min-width: 1200px)": {
-        maxWidth: "1140px"
-      }
-    },
+
     profile: {
       textAlign: "center",
       "& img": {
@@ -65,15 +45,6 @@ const profilePageStyle = (theme : Theme) => {
         width: '100%',
       },
   
-      '& .philosophyContainer': {
-        position: 'relative',
-        display: 'flex',
-        top: '10px',
-        backgroundColor: 'bisque',
-  
-        
-      },
-  
       '& .miniTitle': {
         textAlign: "center",
         fontSize: "1.1rem",
@@ -100,11 +71,6 @@ const profilePageStyle = (theme : Theme) => {
         fontWeight: 'bold',
       },
   
-      '& .gridContainerDescription' : {
-        backgroundColor: theme.palette.secondary.light[500],
-        borderRadius: "20px"
-      },
-  
       '& .gridItemDescription': {
         backgroundColor: lightPrimaryColor,
         borderRadius: "20px",
@@ -127,10 +93,6 @@ const profilePageStyle = (theme : Theme) => {
 
       },
 
-      '& .paperIcons': {
-        //minWidth: '100%',
-      },
-
       '& .paperDescriptionText': {
         '& div': {
           height: '100%', 
@@ -150,7 +112,6 @@ const profilePageStyle = (theme : Theme) => {
       fontSize: '19px',
       margin: '10px',
     },
-    ...imagesStyle,
 
     main: {
       background: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
@@ -175,34 +136,13 @@ const profilePageStyle = (theme : Theme) => {
       color: (props) => getDarkOrLightTheme(theme, 'text', props as StyleProps),
       fontSize: "30px",
     },
-    socials: {
-      marginTop: "0",
-      width: "100%",
-      transform: "none",
-      left: "0",
-      top: "0",
-      height: "100%",
-      lineHeight: "41px",
-      fontSize: "20px",
-      color: "#999"
-    },
+
     navWrapper: {
       margin: "10px auto 0px auto",
       textAlign: "center",
       overflow: "hidden",
       [theme.breakpoints.down("xs")]: {
         margin: "0 auto"
-      }
-    },
-  
-    projectContainer: {
-      backgroundImage: `url(${projectOne})`,
-      height: "520px",
-      backgroundSize: "contain",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      [theme.breakpoints.down("xs")]: {
-        height: "220px",
       }
     },
   
@@ -227,10 +167,6 @@ const profilePageStyle = (theme : Theme) => {
       "& .latestProjectsTitle": {
         fontWeight: "bold",
       },
-    },
-  
-    startIcon: {
-      marginLeft: '0px'
     },
   
     projectIframe: {
