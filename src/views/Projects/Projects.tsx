@@ -19,6 +19,8 @@ import { arrayOfProjects} from 'data/projects';
 //Helpers
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 import IntlMessage from 'helper/IntlMessages';
+//Components 
+import ImageMotion from 'components/ImageMotion/ImageMotion';
 //Types
 import StyleProps from "types/StyleProps";
 import { RootState } from 'redux/rootReducer';
@@ -290,12 +292,14 @@ const Projects = (props) => {
 										whileHover='hover'
 										key={id}
 									>
-										<motion.img
+										
+										<ImageMotion
 											variants={hoverImage}
 											className={classes.projectImage}
+											thumb={img.thumb}
 											src={img.src}
 											alt={img.alt}
-											loading='eager'
+											motion={motion}
 										/>
 
 										<motion.div className={classes.projectDetails}>
