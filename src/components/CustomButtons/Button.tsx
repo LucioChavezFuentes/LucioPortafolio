@@ -1,6 +1,6 @@
 import React from "react";
 
-// nodejs library that concatenates classes
+// nodejs library that concatenates myClasses
 import classNames from "classnames";
 
 //Redux
@@ -42,6 +42,7 @@ interface RegularButtonProps {
   isThemeDark?: boolean;
   rel?: string
   dispatch?: any;
+  active?: boolean; 
 }
 
 const makeComponentStyles = makeStyles(buttonStyle);
@@ -62,6 +63,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     color,
     isThemeDark,
     dispatch,
+    active,
     ...rest
   } = props;
 
@@ -86,7 +88,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     transparent: "transparent",
   } ;
 
-  const classes = makeComponentStyles({isThemeDark});
+  const myClasses = makeComponentStyles({isThemeDark});
 
   const setMainColor = (color : any) => {
     let mainColor : 'primary' | 'secondary' | "inherit" | "default";
@@ -109,16 +111,17 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
   }
 
   const btnClasses = classNames({
-    [classes.button]: customStyle,
-    [classes[size!]]: size,
-    [classes[setCustomColor(color)!]]: setCustomColor(color),
-    [classes.round]: round,
-    [classes.fullWidth]: fullWidth,
-    [classes.disabled]: disabled,
-    [classes.simple]: simple,
-    [classes.block]: block,
-    [classes.link]: link,
-    [classes.justIcon]: justIcon,
+    [myClasses.button]: customStyle,
+    [myClasses[size!]]: size,
+    [myClasses[setCustomColor(color)!]]: setCustomColor(color),
+    [myClasses.round]: round,
+    [myClasses.fullWidth]: fullWidth,
+    [myClasses.disabled]: disabled,
+    [myClasses.simple]: simple,
+    [myClasses.block]: block,
+    [myClasses.link]: link,
+    [myClasses.justIcon]: justIcon,
+    [myClasses.active]: active,
     [className!]: className
   });
 

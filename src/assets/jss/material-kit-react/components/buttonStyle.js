@@ -326,6 +326,11 @@ const buttonStyle = (theme) => createStyles({
       }
     }
   },
+
+  active: {
+    color: "#FFFFFF !important",
+    background: (props) => getDarkOrLightTheme(theme, 'primary-light', props),
+  },
 });
 
 export default buttonStyle;
