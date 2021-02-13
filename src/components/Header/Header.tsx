@@ -24,6 +24,9 @@ import MenuLinks from 'mobile/views/MenuLinks/MenuLinks';
 import RightLinks from "./RightLinks";
 import styles from "assets/jss/material-kit-react/components/headerStyle";
 
+//
+import WithDarkThemeSwitch from 'helper/WithDarkThemeSwitch';
+
 const useStyles = makeStyles(styles);
 //TODO: Create a type interface for Header Props
 export default function Header(props : any) {
@@ -147,7 +150,7 @@ export default function Header(props : any) {
                   <ChevronRightIcon />
                 </IconButton> 
             </div>
-            <leftLinks.ThemeSwitch />
+            <WithDarkThemeSwitch Component={leftLinks.ThemeSwitch} />
             <leftLinks.LenguageList dropdownClass={classes.dropdownLenguage}/>
             <MenuLinks />
           </div>
