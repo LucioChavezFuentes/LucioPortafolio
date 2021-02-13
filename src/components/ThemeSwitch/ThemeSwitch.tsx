@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {setDarkTheme, setLightTheme} from 'redux/slices/uiSlice';
 
 //Material UI Imports
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 
 //Material UI Icons
@@ -24,30 +24,33 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         marginLeft: '15px',
     },
-    sunIcon: {
-      color: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
-    }
 }))
 
 const mapDispatch = {setDarkTheme, setLightTheme };
 
-const BaseThemeSwitch = withStyles(({palette}) => ({
-    switchBase: {
-      color: palette.background.paper,
-      '&$checked': {
-        color: palette.dark.background.default,
+const BaseThemeSwitch = withStyles((theme) => {
+
+  return ({
+  
+      switchBase: {
+        color: theme.palette.background.paper,
+        '&$checked': {
+          color: theme.palette.dark.background.default,
+        },
+        '&$checked + $track': {
+          backgroundColor: theme.palette.background.paper,
+        },
       },
-      '&$checked + $track': {
-        backgroundColor: palette.background.paper,
-      },
-    },
-    checked: {},
-    track: {},
-  }))(Switch);
+      checked: {},
+      track: {},
+    })
+
+})(Switch);
+
 
 function ThemeSwitch(props) {
     
-    const {setDarkTheme, setLightTheme, isThemeDark} = props;
+    const {setDarkTheme, setLightTheme, isThemeDark, darkStyles} = props;
     const classes = useStyles({isThemeDark});
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,9 +62,13 @@ function ThemeSwitch(props) {
 
     return (
         <div className={classes.switchContainer}>
-          <Brightness5Icon />
+          <Brightness5Icon classes={{
+            root: darkStyles || ''
+          }}  />
           <BaseThemeSwitch onChange={handleChange} checked={isThemeDark}  />
-          <Brightness3Icon/>
+          <Brightness3Icon classes={{
+            root: darkStyles || ''
+          }}/>
         </div>
     )
 }
