@@ -14,7 +14,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
+import CustomDrawer from 'components/CustomDrawer/CustomDrawer'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // @material-ui/icons
@@ -131,7 +131,7 @@ export default function Header(props : any) {
         </Hidden>
       </Toolbar>
       <Hidden mdUp implementation="js">
-        <Drawer
+        <CustomDrawer
           variant="temporary"
           anchor={"right"}
           open={mobileOpen}
@@ -151,7 +151,7 @@ export default function Header(props : any) {
             <leftLinks.LenguageList dropdownClass={classes.dropdownLenguage}/>
             <MenuLinks />
           </div>
-        </Drawer>
+        </CustomDrawer>
       </Hidden>
     </AppBar>
   );
