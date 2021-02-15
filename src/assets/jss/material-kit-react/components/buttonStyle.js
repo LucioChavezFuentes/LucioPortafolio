@@ -329,8 +329,12 @@ const buttonStyle = (theme) => createStyles({
 
   active: {
     color: "#FFFFFF !important",
-    background: (props) => getDarkOrLightTheme(theme, 'primary-light', props),
+    backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary-dark', props),
   },
+
+  darkTheme: {
+    color: (props) => getDarkOrLightTheme(theme, 'icon', props),
+  }
 });
 
 export default buttonStyle;
