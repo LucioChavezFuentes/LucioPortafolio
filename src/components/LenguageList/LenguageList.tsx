@@ -36,7 +36,7 @@ const useStyles = makeStyles({
 })
 
 function LenguageList(props) {
-  const {changeLenguage, dropdownClass, intl} = props;
+  const {changeLenguage, dropdownClass, intl, withDarkTheme} = props;
   const classes = useStyles()
 	const {locale} = useSelector((state : RootState) => state.ui)
   
@@ -49,6 +49,7 @@ function LenguageList(props) {
               description: 'language-title',
               id: "language-title",
             })}
+            withDarkTheme={withDarkTheme}
             buttonIcon={AppLocale[locale].icon}
             buttonProps={{
                 className: classes.lenguageNavLink
