@@ -43,6 +43,7 @@ interface RegularButtonProps {
   rel?: string
   dispatch?: any;
   active?: boolean; 
+  withDarkTheme?: boolean;
 }
 
 const makeComponentStyles = makeStyles(buttonStyle);
@@ -64,8 +65,18 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     isThemeDark,
     dispatch,
     active,
+    withDarkTheme,
+    classes = {},
     ...rest
   } = props;
+  
+  const myClasses = makeComponentStyles({isThemeDark});
+  const {label, ...restClasses} = classes;
+
+  const classesWithDarkTheme = {
+    label: withDarkTheme ? `${myClasses.darkTheme}  ${label}` : label,
+    ...restClasses,
+  }
 
   const mainColorProperties = {
     inherit: "inherit",
@@ -88,7 +99,6 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
     transparent: "transparent",
   } ;
 
-  const myClasses = makeComponentStyles({isThemeDark});
 
   const setMainColor = (color : any) => {
     let mainColor : 'primary' | 'secondary' | "inherit" | "default";
@@ -127,7 +137,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, RegularButtonProps>((p
 
   
   return ( 
-    <Button {...rest} color={setMainColor(color)} ref={ref} className={ btnClasses }>
+    <Button {...rest} color={setMainColor(color)} ref={ref} className={ btnClasses } classes={classesWithDarkTheme} >
       {children}
     </Button>
   )
