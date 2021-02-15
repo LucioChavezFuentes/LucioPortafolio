@@ -1,12 +1,16 @@
 import React from 'react'
 import Button from "components/CustomButtons/Button";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // @material-ui/core components
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
 //helper
 import IntlMessage from 'helper/IntlMessages';
+
+interface Props {
+    withDarkTheme?: boolean;
+}
 
 const useStyles = makeStyles((theme) =>
 
@@ -24,7 +28,8 @@ const useStyles = makeStyles((theme) =>
             textDecoration: "none",
             margin: "0px",
             display: "inline-flex",
-            "&:hover,&:focus": {
+            transition: 'background 1s',
+            "&:hover": {
                 color: "inherit",
                 background: "rgba(200, 200, 200, 0.2)"
             },
@@ -43,11 +48,21 @@ const useStyles = makeStyles((theme) =>
 
     }))
 
-const AllProjectsLink = () => {
+const AllProjectsLink : React.FC<Props> = ({withDarkTheme} : Props) => {
+    
     const classes = useStyles();
 
+    const location = useLocation();
+    const isAllPropjectsRoute = location.pathname === '/projects' || location.pathname === '/projects/menu';
+
     return (
-        <Button className={classes.navLink} to='/projects' startIcon={<Apps />} component={Link}>
+        <Button 
+            className={classes.navLink} 
+            to='/projects' 
+            startIcon={<Apps />} 
+            component={Link}
+            active={isAllPropjectsRoute} 
+            withDarkTheme={withDarkTheme}>
             <IntlMessage
                 defaultMessage='All Projects'
                 id='all-projects' description='all-projects'
