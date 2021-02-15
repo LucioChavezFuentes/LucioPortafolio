@@ -1,12 +1,16 @@
 import React from 'react'
 import Button from "components/CustomButtons/Button";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // @material-ui/core components
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import FaceIcon from '@material-ui/icons/Face';
 //helper
 import IntlMessage from 'helper/IntlMessages';
+
+interface Props {
+    withDarkTheme?: boolean;
+}
 
 const useStyles = makeStyles((theme) =>
 
@@ -24,7 +28,8 @@ const useStyles = makeStyles((theme) =>
             textDecoration: "none",
             margin: "0px",
             display: "inline-flex",
-            "&:hover,&:focus": {
+            transition: 'background 1s',
+            "&:hover": {
                 color: "inherit",
                 background: "rgba(200, 200, 200, 0.2)"
             },
@@ -43,12 +48,15 @@ const useStyles = makeStyles((theme) =>
 
     }))
 
-const AboutLucioLink = () => {
+const AboutLucioLink : React.FC<Props> = ({withDarkTheme} : Props) => {
+
+    const location = useLocation();
 
 	const classes = useStyles();
+    const isAboutLucioRoute = location.pathname === '/' || location.pathname === '/menu'
 
 	return (
-		<Button className={classes.navLink} to='/' startIcon={<FaceIcon />} component={Link}>
+		<Button className={classes.navLink} to='/' startIcon={<FaceIcon />} component={Link} active={ isAboutLucioRoute} withDarkTheme={withDarkTheme}>
             <IntlMessage
                 defaultMessage='About Lucio'
                 id='about-lucio' description='about-lucio'
