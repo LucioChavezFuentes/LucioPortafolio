@@ -103,15 +103,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
     },
 
-    '.MuiDrawer-paper': {
-      backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
-      '& .MuiSvgIcon-root': {
-        color: (props) => getDarkOrLightTheme(theme, 'icon',  props as StyleProps),
-      },
-      '& .MuiButton-label': {
-        color: (props) => getDarkOrLightTheme(theme, 'icon',  props as StyleProps),
-      }
-    },
 
     '.MuiButton-containedPrimary': {
       backgroundColor: (props) => getDarkOrLightTheme(theme, 'primary', props as StyleProps),
