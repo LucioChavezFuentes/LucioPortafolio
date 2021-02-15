@@ -60,7 +60,8 @@ const useStyles = makeStyles(styles);
     rtlActive,
     noLiPadding,
     isThemeDark,
-    buttonIconClass
+    buttonIconClass,
+    withDarkTheme,
   } = props;
   const classes = useStyles({isThemeDark});
   
@@ -107,6 +108,7 @@ const useStyles = makeStyles(styles);
           aria-haspopup="true"
           {...buttonProps}
           onClick={handleClick}
+          withDarkTheme={withDarkTheme}
         >
           {icon}
           {buttonText !== undefined ? buttonText : null}
