@@ -146,12 +146,12 @@ export default function Header(props : any) {
           
           <div className={classes.appResponsive}>
               <div style={{float: 'right'}} >
-                <IconButton onClick={handleDrawerToggle}>
+                <IconButton onClick={handleDrawerToggle} classes={{root: classes.chevronIcon }}>
                   <ChevronRightIcon />
                 </IconButton> 
             </div>
             <WithDarkThemeSwitch Component={leftLinks.ThemeSwitch} />
-            <leftLinks.LenguageList dropdownClass={classes.dropdownLenguage}/>
+            <leftLinks.LenguageList dropdownClass={classes.dropdownLenguage} withDarkTheme={true} />
             <MenuLinks />
           </div>
         </CustomDrawer>
