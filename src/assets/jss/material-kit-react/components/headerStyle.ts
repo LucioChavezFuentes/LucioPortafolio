@@ -164,6 +164,10 @@ const headerStyle = (theme : Theme) => createStyles({
   dropdownLenguage: {
     boxShadow: ({isThemeDark} : any) => isThemeDark ?  "1px 2px 50px 100px rgba(0, 0, 0, 0.6)" : "1px 2px 50px 10px rgba(0, 0, 0, 0.26)",
   },
+
+  chevronIcon : {
+    color: (props : StyleProps) => getDarkOrLightTheme(theme, 'icon', props)
+  }
 });
 
 export default headerStyle;
