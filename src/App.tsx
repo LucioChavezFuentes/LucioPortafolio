@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Route, Switch, Redirect } from "react-router-dom";
 
@@ -12,9 +13,6 @@ import { connect } from 'react-redux';
 //Redux Persist
 import { PersistGate } from 'redux-persist/integration/react'
 import {persistor} from 'redux/store';
-
-//import "assets/scss/material-kit-react.scss?v=1.8.0";
-import 'typeface-roboto';
 
 import ProfilePage from "views/ProfilePage/ProfilePage";
 import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
@@ -37,6 +35,10 @@ import {IntlProvider} from 'react-intl';
 // Just provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 import useWindowSize from "helper/useWindowSize";
+
+//NProgress
+import Nprogress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 //types
 import {RootState} from 'redux/rootReducer';
@@ -225,10 +227,15 @@ function App(props : AppProps) {
     , [isThemeDark]);*/
 
     //TODO:Find a better way to handle the route '/menu/email' for mobile
-
+    Nprogress.start();
     return (
       <PersistGate loading={null} persistor={persistor}>
-        <CssBaseline>
+        {(bootstrap) => {
+
+          if(bootstrap) {
+            Nprogress.done();
+            return (
+              <CssBaseline>
           <IntlProvider locale={AppLocale[locale].lenguage} defaultLocale="en" messages={AppLocale[locale].messages as any } >
           
           
@@ -258,6 +265,18 @@ function App(props : AppProps) {
           
           </IntlProvider>
         </CssBaseline>
+          )
+          } else {
+
+            return (
+              <div></div>
+            )
+            
+          }
+          
+          
+        }}
+        
       </PersistGate>
     )
 }
