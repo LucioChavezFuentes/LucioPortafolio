@@ -5,6 +5,14 @@ export const LIGHT_THEME = 'lightTheme';
 export const DARK_THEME = 'darkTheme';
 
 export const THEME_OBJECT = createMuiTheme({
+
+  //Uncomment typography if you want to extend Font Families, the material ui root: "Roboto", "Helvetica", "Arial", sans-serif;" is Good Enough.
+  /*typography: {
+    fontFamily: [
+      'Roboto',
+      'serif',
+    ].join(','),
+  },*/
   palette: {
     primary: {
       main: '#43a047',
