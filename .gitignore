@@ -28,6 +28,8 @@ debug.log
 /dist
 # compiled css
 *.css
+# except the fonts
+!fonts.css
 
 #firebase 
 .firebase
