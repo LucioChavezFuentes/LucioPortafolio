@@ -7,16 +7,12 @@ import {connect} from 'react-redux';
 import {setDarkTheme, setLightTheme} from 'redux/slices/uiSlice';
 
 //Material UI Imports
-import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 
 //Material UI Icons
 import Brightness5Icon from '@material-ui/icons/Brightness5';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
-
-//Helpers
-import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
-import StyleProps from 'types/StyleProps';
 
 const useStyles = makeStyles((theme) => ({
     switchContainer: {
