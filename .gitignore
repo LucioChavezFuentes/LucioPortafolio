@@ -30,6 +30,7 @@ debug.log
 *.css
 # except the fonts
 !fonts.css
+!google-api-fonts.css
 
 #firebase 
 .firebase
