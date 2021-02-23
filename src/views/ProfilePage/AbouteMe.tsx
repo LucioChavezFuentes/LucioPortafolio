@@ -72,7 +72,7 @@ const AbouteMe : React.FC<Props> = ({
             <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
               <p>
                 {intl.formatMessage({
-                  defaultMessage: "I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.",
+                  defaultMessage: "I believe in always keep learning new things, code with the best-known practices, and looking forward to those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.",
                   description: 'philosophy',
                   id: "philosophy",
                 })}
@@ -98,7 +98,7 @@ const AbouteMe : React.FC<Props> = ({
             <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
               <p className='hobbiesDescription'>
                 {intl.formatMessage({
-                  defaultMessage: "Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books for my professional growth. My last two favorite are: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.",
+                  defaultMessage: "Usually, I found myself playing video games, watching YouTube cartoons, and reading non-fiction books for my professional growth. My last two favorites are Code Complete by Steve McConnell and Essentialism: The Disciplined Pursuit of Less by Greg McKeown.",
                   description: 'hobbies',
                   id: "hobbies",
                 })}
