@@ -98,7 +98,7 @@ const AbouteMe : React.FC<Props> = ({
             <CustomPaper elevation={MEDIUM_ELEVATION} className='paperDescription'>
               <p className='hobbiesDescription'>
                 {intl.formatMessage({
-                  defaultMessage: "Usually, I found myself playing video games, watching YouTube cartoons, and reading non-fiction books for my professional growth. My last two favorites are Code Complete by Steve McConnell and Essentialism: The Disciplined Pursuit of Less by Greg McKeown.",
+                  defaultMessage: "Usually, I found myself playing video games, watching YouTube cartoons, and reading non-fiction books for my professional growth. My last three favorites are 'Code Complete' by Steve McConnell, 'Software Composition' by Eric Elliot and 'Essentialism: The Disciplined Pursuit of Less' by Greg McKeown.",
                   description: 'hobbies',
                   id: "hobbies",
                 })}
