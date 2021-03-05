@@ -44,6 +44,7 @@ interface RegularButtonProps {
   dispatch?: any;
   active?: boolean; 
   withDarkTheme?: boolean;
+  style?: any
 }
 
 const makeComponentStyles = makeStyles(buttonStyle);
