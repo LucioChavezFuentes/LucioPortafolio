@@ -9,6 +9,9 @@ import AppProviders from './AppProviders';
 
 //TODO: is urls really working? is Webfont working at all?
 const webFontConfig = {
+  google: {
+    families: ['Roboto', 'Roboto Slab']
+  },
   custom: {
       families: ['Roboto', 'Roboto Slab'],
       urls: ['/fonts/fonts.css'],
