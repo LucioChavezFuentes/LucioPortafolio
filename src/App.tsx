@@ -215,6 +215,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App(props : AppProps) {
 
+  const [loadedFonts, setLoadedFonts] = React.useState(false)
   //const {locale} = useSelector(state => state.ui.lenguage )
   const theme = useTheme();
   const mobileDevice = useMediaQuery(theme.breakpoints.down('md'));
@@ -222,6 +223,13 @@ function App(props : AppProps) {
   const {isMobile} = useWindowSize();
   const {isThemeDark, locale} = props;
   useStyles({isThemeDark})
+
+  React.useEffect(() => {
+    //@ts-ignore
+    document.fonts.ready.then(() => {
+      setLoadedFonts(true)
+    })
+  }, [])
     /*const theme = React.useMemo(
       () => isThemeDark ? themes.darkTheme : themes.lightTheme
     , [isThemeDark]);*/
@@ -232,7 +240,7 @@ function App(props : AppProps) {
       <PersistGate loading={null} persistor={persistor}>
         {(bootstrap) => {
 
-          if(bootstrap) {
+          if(bootstrap && loadedFonts) {
             Nprogress.done();
             return (
               <CssBaseline>
