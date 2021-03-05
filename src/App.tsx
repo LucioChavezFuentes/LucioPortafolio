@@ -40,6 +40,8 @@ import useWindowSize from "helper/useWindowSize";
 import Nprogress from 'nprogress';
 import 'nprogress/nprogress.css';
 
+import WebFont from 'webfontloader';
+
 //types
 import {RootState} from 'redux/rootReducer';
 import StyleProps from 'types/StyleProps';
@@ -215,6 +217,10 @@ const useStyles = makeStyles((theme) => ({
 
 function App(props : AppProps) {
 
+  
+  
+  
+
   const [loadedFonts, setLoadedFonts] = React.useState(false)
   //const {locale} = useSelector(state => state.ui.lenguage )
   const theme = useTheme();
@@ -224,12 +230,24 @@ function App(props : AppProps) {
   const {isThemeDark, locale} = props;
   useStyles({isThemeDark})
 
-  React.useEffect(() => {
+  function handleLoadedFonts() {
+    setLoadedFonts(true)
+  }
+
+  const webFontConfig = {
+    custom: {
+        families: ['Roboto', 'Roboto Slab'],
+        urls: ['/fonts/fonts.css'],
+        },
+    active: handleLoadedFonts
+  };
+
+  /*React.useEffect(() => {
     //@ts-ignore
     document.fonts.ready.then(() => {
       setLoadedFonts(true)
     })
-  }, [])
+  }, [])*/
     /*const theme = React.useMemo(
       () => isThemeDark ? themes.darkTheme : themes.lightTheme
     , [isThemeDark]);*/
@@ -239,7 +257,7 @@ function App(props : AppProps) {
     return (
       <PersistGate loading={null} persistor={persistor}>
         {(bootstrap) => {
-
+          WebFont.load(webFontConfig);
           if(bootstrap && loadedFonts) {
             Nprogress.done();
             return (

@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from './App';
-import WebFont from 'webfontloader';
 
 
 //Providers
 import AppProviders from './AppProviders';
 
 //TODO: is urls really working? is Webfont working at all?
-const webFontConfig = {
+/*const webFontConfig = {
   google: {
     families: ['Roboto', 'Roboto Slab']
   },
@@ -18,7 +17,7 @@ const webFontConfig = {
       },
 };
 
-WebFont.load(webFontConfig);
+WebFont.load(webFontConfig);*/
 
 
 ReactDOM.render(
