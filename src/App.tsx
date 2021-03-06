@@ -230,8 +230,12 @@ function App(props : AppProps) {
   const {isThemeDark, locale} = props;
   useStyles({isThemeDark})
 
-  function handleLoadedFonts() {
-    setLoadedFonts(true)
+  function handleLoadedFonts(fontFamily) {
+    //sessionStorage.fonts = true;
+    if(fontFamily === 'Roboto') {
+      setLoadedFonts(true)
+    }
+    
   }
 
   const webFontConfig = {
@@ -239,7 +243,8 @@ function App(props : AppProps) {
         families: ['Roboto', 'Roboto Slab'],
         urls: ['/fonts/fonts.css'],
         },
-    active: handleLoadedFonts
+    //active: handleLoadedFonts,
+    fontactive: handleLoadedFonts
   };
 
   /*React.useEffect(() => {
