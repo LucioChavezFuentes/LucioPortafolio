@@ -232,8 +232,8 @@ function App(props : AppProps) {
 
   //This code my be useless and take more time to load the page  but it will be kept for
   //a recordatory that "webfontloader" exists, if you want to "manage" the fonts loading programatically use that library.
-  //But for a more optimized and balanced approach I recommend self host the fonts, non encoded fonts will be nicely sufficient.
-  //Why non encoded work same (or even better?) than encoded? Browser support?
+  //But for a more optimized and balanced approach I recommend self host the fonts.
+  //Encoded fonts load faster, webfontloader combined with "preload" at index.html in line 22 seems to be a good combination. But not perfect
   const fontsLoaded : any[] =  [];
   const fontsToLoad = 2;
   function handleLoadedFonts(fontFamily : string) {
