@@ -230,12 +230,18 @@ function App(props : AppProps) {
   const {isThemeDark, locale} = props;
   useStyles({isThemeDark})
 
-  function handleLoadedFonts(fontFamily) {
+  //This code my be useless and take more time to load the page  but it will be kept for
+  //a recordatory that "webfontloader" exists, if you want to "manage" the fonts loading programatically use that library.
+  //But for a more optimized and balanced approach I recommend self host the fonts, non encoded fonts will be nicely sufficient.
+  //Why non encoded work same (or even better?) than encoded? Browser support?
+  const fontsLoaded : any[] =  [];
+  const fontsToLoad = 2;
+  function handleLoadedFonts(fontFamily : string) {
     //sessionStorage.fonts = true;
-    if(fontFamily === 'Roboto') {
+    fontsLoaded.push(fontFamily);
+    if(fontsLoaded.length >= fontsToLoad) {
       setLoadedFonts(true)
     }
-    
   }
 
   const webFontConfig = {
