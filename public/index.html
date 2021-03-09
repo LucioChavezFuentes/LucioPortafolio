@@ -19,13 +19,29 @@
       href="%PUBLIC_URL%/apple-icon.png"
     />
     <!-- You can see the commented webfontloader implementation in App.tsx, but for now this simple two links 
-      with encoded base64 fonts are the best implementation-->
-    <link rel="preload" href="./fonts/fonts.css" as="style">
+      with encoded base64 fonts or preloading woff and use nonecoded fonts are the best implementation
+    <link rel="preload" href="./fonts/fonts.css" as="style" type="text/css" >
     <link
       rel="stylesheet"
       type="text/css"
       href="./fonts/fonts.css"
     />
+-->
+    <!-- Preload woks very good on newer versions of font like .woff2 -->
+      <link rel="preload" href="./nonencodedFonts/roboto-v20-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="./nonencodedFonts/roboto-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="./nonencodedFonts/roboto-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="./nonencodedFonts/roboto-v20-latin-300.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="./nonencodedFonts/roboto-slab-v13-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="./nonencodedFonts/roboto-slab-v13-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+      
+    <!--If you want to preload .woff2 do not use encoded base64 stylesheet -->
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="./nonencodedFonts/fonts.css"
+      />
+     
     <!-- 
     <link rel="preload" href="./fonts/roboto-v20-latin-regular-webfont.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="./fonts/roboto-v20-latin-500-webfont.ttf" as="font" type="font/ttf" crossorigin>

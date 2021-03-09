@@ -40,7 +40,7 @@ import useWindowSize from "helper/useWindowSize";
 import Nprogress from 'nprogress';
 import 'nprogress/nprogress.css';
 
-import WebFont from 'webfontloader';
+//import WebFont from 'webfontloader';
 
 //types
 import {RootState} from 'redux/rootReducer';

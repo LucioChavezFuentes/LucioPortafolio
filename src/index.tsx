@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from './App';
-import WebFont from 'webfontloader';
+//import WebFont from 'webfontloader';
 
 //Providers
 import AppProviders from './AppProviders';
