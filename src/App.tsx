@@ -221,7 +221,7 @@ function App(props : AppProps) {
   
   
 
-  const [loadedFonts, setLoadedFonts] = React.useState(false)
+  //const [loadedFonts, setLoadedFonts] = React.useState(false)
   //const {locale} = useSelector(state => state.ui.lenguage )
   const theme = useTheme();
   const mobileDevice = useMediaQuery(theme.breakpoints.down('md'));
@@ -234,7 +234,7 @@ function App(props : AppProps) {
   //a recordatory that "webfontloader" exists, if you want to "manage" the fonts loading programatically use that library.
   //But for a more optimized and balanced approach I recommend self host the fonts.
   //Encoded fonts load faster, webfontloader combined with "preload" at index.html in line 22 seems to be a good combination. But not perfect
-  const fontsLoaded : any[] =  [];
+  /*const fontsLoaded : any[] =  [];
   const fontsToLoad = 2;
   function handleLoadedFonts(fontFamily : string) {
     //sessionStorage.fonts = true;
@@ -251,7 +251,7 @@ function App(props : AppProps) {
         },
     //active: handleLoadedFonts,
     fontactive: handleLoadedFonts
-  };
+  };*/
 
   /*React.useEffect(() => {
     //@ts-ignore
@@ -268,8 +268,8 @@ function App(props : AppProps) {
     return (
       <PersistGate loading={null} persistor={persistor}>
         {(bootstrap) => {
-          WebFont.load(webFontConfig);
-          if(bootstrap && loadedFonts) {
+          //WebFont.load(webFontConfig);
+          if(bootstrap) {
             Nprogress.done();
             return (
               <CssBaseline>

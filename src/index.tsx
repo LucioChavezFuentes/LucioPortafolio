@@ -1,24 +1,41 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from './App';
-
+import WebFont from 'webfontloader';
 
 //Providers
 import AppProviders from './AppProviders';
 
 //TODO: is urls really working? is Webfont working at all?
-/*const webFontConfig = {
-  google: {
-    families: ['Roboto', 'Roboto Slab']
-  },
+
+/*const fontsLoaded : any[] =  [];
+const fontsToLoad = 2;
+
+const app = (fontFamily : string) => {
+
+  fontsLoaded.push(fontFamily);
+    if(fontsLoaded.length >= fontsToLoad) {
+      ReactDOM.render(
+        <AppProviders>
+          <App />
+        </AppProviders>,
+        document.getElementById("root")
+      );
+    }
+  
+}
+
+const webFontConfig = {
   custom: {
       families: ['Roboto', 'Roboto Slab'],
       urls: ['/fonts/fonts.css'],
       },
+  //active: handleLoadedFonts,
+  fontactive: app
 };
 
-WebFont.load(webFontConfig);*/
-
+WebFont.load(webFontConfig);
+*/
 
 ReactDOM.render(
   <AppProviders>
@@ -27,14 +44,9 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-/*const app = () => {
-  ReactDOM.render(
-    <AppProviders>
-      <App />
-    </AppProviders>,
-    document.getElementById("root")
-  );
-}
+
+
+/*
 
 
 const webFontConfig = {
