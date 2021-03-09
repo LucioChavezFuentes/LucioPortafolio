@@ -19,7 +19,8 @@
       href="%PUBLIC_URL%/apple-icon.png"
     />
     <!-- You can see the commented webfontloader implementation in App.tsx, but for now this simple two links 
-      with encoded base64 fonts or preloading woff and use nonecoded fonts are the best implementation
+      with encoded base64 fonts or preloading woff and use nonecoded fonts are the best implementations
+      For now I will stick to preloading woff2 and its easier to implement
     <link rel="preload" href="./fonts/fonts.css" as="style" type="text/css" >
     <link
       rel="stylesheet"
@@ -27,7 +28,8 @@
       href="./fonts/fonts.css"
     />
 -->
-    <!-- Preload woks very good on newer versions of font like .woff2 -->
+    <!-- Preload woks very good on newer versions of font like .woff2 For now I think this the best implementation in chromium based browsers
+    Just be careful not to preload too many fonts or other elements -->
       <link rel="preload" href="./nonencodedFonts/roboto-v20-latin-500.woff2" as="font" type="font/woff2" crossorigin>
       <link rel="preload" href="./nonencodedFonts/roboto-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
       <link rel="preload" href="./nonencodedFonts/roboto-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
