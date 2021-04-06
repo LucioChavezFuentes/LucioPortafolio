@@ -8,17 +8,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import {useSelector} from 'react-redux';
 
 //types
-import StyleProps from 'types/StyleProps';
 import {RootState} from 'redux/rootReducer';
 
 //Helpers
-// Just provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
-import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
+import setTheme from 'helper/setTheme';
 
 const useStyles = makeStyles((theme) => ({
     
     root: {
-        backgroundColor: (props) => getDarkOrLightTheme(theme, 'paper', props as StyleProps),
+        backgroundColor: setTheme('paper', theme),
     },
     })
 )

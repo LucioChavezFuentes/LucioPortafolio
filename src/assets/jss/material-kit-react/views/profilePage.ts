@@ -6,6 +6,8 @@ import { createStyles, Theme } from '@material-ui/core/styles';
 import getDarkOrLightTheme from 'helper/getDarkOrLightTheme';
 import StyleProps from "types/StyleProps";
 
+import setTheme from 'helper/setTheme';
+
 const profilePageStyle = (theme : Theme) => {
 
   const lightPrimaryColor = undefined //theme.palette.primary.light;
@@ -114,7 +116,7 @@ const profilePageStyle = (theme : Theme) => {
     },
 
     main: {
-      background: (props) => getDarkOrLightTheme(theme, 'background', props as StyleProps),
+      background: setTheme('background', theme),
       position: "relative",
       zIndex: 3,
     },

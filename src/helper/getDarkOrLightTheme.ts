@@ -21,7 +21,7 @@ type Type =
     'header'
 
 //const defaultType : Type = 'text' as Type
-
+// Just provide the MUI's theme object as the first argument and the apropiate type element where the theme should be apply to.
 const getDarkOrLightTheme = ({palette}: Theme, type : Type, {isThemeDark} : StyleProps ) => {
 
     // If you want to add more types modify type 'Type' above
