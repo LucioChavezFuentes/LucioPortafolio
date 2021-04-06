@@ -26,6 +26,8 @@ import localForage from "localforage"
 
 import rootReducer from './rootReducer';
 
+//only accept callback will be executed on each hot loading.
+//more info: https://github.com/gaearon/react-hot-loader/issues/413
 if (process.env.NODE_ENV === 'development' && module.hot) {
     module.hot.accept('./rootReducer', () => {
       const newRootReducer = require('./rootReducer').default
