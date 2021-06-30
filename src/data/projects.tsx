@@ -14,6 +14,7 @@ import Ravenous from "assets/img/customIcons/Ravenous";
 import TeaCozy from "assets/img/customIcons/TeaCozy";
 import WanderlustIcon from 'assets/img/customIcons/WanderlustIcon';
 import WorkNFlow from "assets/img/customIcons/WorkNFlow";
+import BBBic from "assets/img/customIcons/BBBic";
 
 //Components
 import SocialConejitoLink from 'components/ProjectButtonLinks/SocialConejitoLink';
@@ -22,6 +23,7 @@ import CodigoAventuraLink from 'components/ProjectButtonLinks/CodigoAventuraLink
 import TeaCozyLink from 'components/ProjectButtonLinks/TeaCozyLink';
 import WanderlustLink from 'components/ProjectButtonLinks/WanderlustLink';
 import WorkNFlowLink from 'components/ProjectButtonLinks/WorkNFlowLink';
+import BBBicLink from 'components/ProjectButtonLinks/BBBicLink';
 
 //Buttons
 import AdvCoSourceCodeLink from "components/CustomButtons/AdvCoSourceCodeLink";
@@ -56,6 +58,28 @@ const teaCozy = 'teaCozy.jpg';
 const WorkNFlowScreenshot = 'WorkNFlow.jpg';*/
 
 const projectsById = {
+
+  bbbic: {
+    img: {
+      src: "https://res.cloudinary.com/ddxlzqfid/image/upload/v1624640694/bbbic/public/BBBic_uazrns.jpg",
+      thumb: "https://res.cloudinary.com/ddxlzqfid/image/upload/c_thumb,w_200,g_face/v1624640694/bbbic/public/BBBic_uazrns.jpg",
+      alt: 'B&B Bicentenario'
+    },
+
+    title: "B&B Bicentenario",
+    description: <FormattedMessage
+    defaultMessage="B&B Bicentenario is a real state website. This project also includes its own CMS."
+    description='bbbic-description'
+     />,
+     ButtonLink: <BBBicLink
+     label={<FormattedMessage
+       defaultMessage='Visit B&B Bicentenario'
+       description="The visit label for B&B Bic's link button"
+        />} />,
+    logo: BBBic,
+    id: 'bbbic',
+    
+  },
 
   workNFlow: {
     img: {
@@ -182,7 +206,7 @@ const projectsById = {
   }
 }
 
-export const projectIds = ['socialConejito', 'workNFlow', 'ravenous', 'adventureCode', 'wanderlust', 'teaCozy'];
+export const projectIds = ['bbbic', 'socialConejito', 'workNFlow', 'ravenous', 'adventureCode', 'wanderlust', 'teaCozy'];
 
 export const arrayOfProjects = projectIds.map(id => projectsById[id])
 
