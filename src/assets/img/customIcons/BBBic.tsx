@@ -4,7 +4,7 @@ import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon';
 
 //Adventure Code
-import {ReactComponent as BBBicLinkSVG } from '../projectIcons/image2vector.svg';
+import {ReactComponent as BBBicLinkSVG } from '../projectIcons/bbbic.svg';
 
 interface Props{
     fontSizePixels?: string
