@@ -7,10 +7,6 @@
     "defaultMessage": "Web Developer",
     "description": "occupation"
   },
-  "OAmJPR": {
-    "defaultMessage": "B&B Bicentenario is a real state website. This project also includes its own CMS",
-    "description": "bbbic-description"
-  },
   "app-page-button": {
     "defaultMessage": "App's Page",
     "description": "app-page-button"
@@ -86,6 +82,10 @@
   "philosophy": {
     "defaultMessage": "I believe in always keep learning new things, code with the best-known practices, and looking forward to those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.",
     "description": "philosophy"
+  },
+  "qQWPxB": {
+    "defaultMessage": "B&B Bicentenario is a real state website. This project also includes its own CMS.",
+    "description": "bbbic-description"
   },
   "ravenous-description": {
     "defaultMessage": "Ravenous searches for restaurants in a city or country with a given type of food.",
