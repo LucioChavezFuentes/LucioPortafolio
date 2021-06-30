@@ -1,99 +1,19 @@
 {
-  "email-tooltip": {
-    "defaultMessage": "!Send an email to Lucio¡",
-    "description": "email-tooltip"
-  },
-  "legend-1-email": {
-    "defaultMessage": "Send me a message from here.",
-    "description": "legend-1-email"
-  },
-  "legend-2-email": {
-    "defaultMessage": "!Simple and Fast¡",
-    "description": "legend-2-email"
-  },
-  "name-email": {
-    "defaultMessage": "Name",
-    "description": "name-email"
-  },
-  "required-field-email": {
-    "defaultMessage": "*Required",
-    "description": "required-field-email"
-  },
-  "emailField-email": {
-    "defaultMessage": "Email",
-    "description": "emailField-email"
-  },
-  "subject-email": {
-    "defaultMessage": "Subject",
-    "description": "subject-email"
-  },
-  "message-email": {
-    "defaultMessage": "Message",
-    "description": "message-email"
-  },
-  "contact-me-email": {
-    "defaultMessage": "Or contact me",
-    "description": "contact-me-email"
-  },
-  "social-media-title": {
-    "defaultMessage": "Social Media",
-    "description": "social-media-title"
-  },
-  "github-tooltip": {
-    "defaultMessage": "Lucio's GitHub",
-    "description": "github-tooltip"
-  },
-  "language-title": {
-    "defaultMessage": "Language",
-    "description": "language-title"
-  },
-  "sPe6XA": {
-    "defaultMessage": "Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes.",
-    "description": "work-n-flow-description"
-  },
   "EwIX2U": {
     "defaultMessage": "Visit Work & Flow",
     "description": "The visit label for Work & Flow's link button"
-  },
-  "title-about-me": {
-    "defaultMessage": "About Me",
-    "description": "title-about-me"
-  },
-  "title-philosophy": {
-    "defaultMessage": "Philosophy",
-    "description": "title-philosophy"
-  },
-  "philosophy": {
-    "defaultMessage": "I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.",
-    "description": "philosophy"
-  },
-  "title-hobbies": {
-    "defaultMessage": "Hobbies and Lecture",
-    "description": "title-hobbies"
-  },
-  "hobbies": {
-    "defaultMessage": "Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books for my professional growth. My last two favorite are: Code Complete of Steve McConell and Essentialism: The Disciplined Pursuit of Less of Greg McKeown.",
-    "description": "hobbies"
   },
   "NOaj/S": {
     "defaultMessage": "Web Developer",
     "description": "occupation"
   },
-  "occupation-description": {
-    "defaultMessage": "I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development.",
-    "description": "occupation-description"
+  "OAmJPR": {
+    "defaultMessage": "B&B Bicentenario is a real state website. This project also includes its own CMS",
+    "description": "bbbic-description"
   },
-  "skills": {
-    "defaultMessage": "The scope of my skills cover front-end technologies such as:",
-    "description": "skills"
-  },
-  "word-and": {
-    "defaultMessage": "and",
-    "description": "word-and"
-  },
-  "testing-skills-description": {
-    "defaultMessage": "I also write unit and/or integration tests with:",
-    "description": "testing-skills-description"
+  "app-page-button": {
+    "defaultMessage": "App's Page",
+    "description": "app-page-button"
   },
   "back-end-skills-description-partOne": {
     "defaultMessage": "And I have some experience in:",
@@ -103,36 +23,116 @@
     "defaultMessage": "for back-end and model solutions.",
     "description": "back-end-skills-description-partTwo"
   },
-  "latest-projects-title": {
-    "defaultMessage": "Latest Projects",
-    "description": "latest-projects-title"
-  },
-  "the-social-conejito-description": {
-    "defaultMessage": "The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment.",
-    "description": "the-social-conejito-description"
+  "code-button": {
+    "defaultMessage": "Source Code",
+    "description": "code-button"
   },
   "code-word": {
     "defaultMessage": "Code",
     "description": "code-word"
   },
-  "code-button": {
-    "defaultMessage": "Source Code",
-    "description": "code-button"
+  "contact-me-email": {
+    "defaultMessage": "Or contact me",
+    "description": "contact-me-email"
   },
-  "app-page-button": {
-    "defaultMessage": "App's Page",
-    "description": "app-page-button"
+  "email-tooltip": {
+    "defaultMessage": "!Send an email to Lucio¡",
+    "description": "email-tooltip"
   },
-  "adventure-code-title": {
-    "defaultMessage": "Adventure Code",
-    "description": "adventure-code-title"
+  "emailField-email": {
+    "defaultMessage": "Email",
+    "description": "emailField-email"
   },
-  "adventure-code-description": {
-    "defaultMessage": "Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output.",
-    "description": "adventure-code-description"
+  "github-tooltip": {
+    "defaultMessage": "Lucio's GitHub",
+    "description": "github-tooltip"
+  },
+  "hobbies": {
+    "defaultMessage": "Usually, I found myself playing video games, watching YouTube cartoons, and reading non-fiction books for my professional growth. My last three favorites are 'Code Complete' by Steve McConnell, 'Software Composition' by Eric Elliot and 'Essentialism: The Disciplined Pursuit of Less' by Greg McKeown.",
+    "description": "hobbies"
+  },
+  "k7a7JJ": {
+    "defaultMessage": "Visit B&B Bicentenario",
+    "description": "The visit label for B&B Bic's link button"
+  },
+  "language-title": {
+    "defaultMessage": "Language",
+    "description": "language-title"
+  },
+  "latest-projects-title": {
+    "defaultMessage": "Latest Projects",
+    "description": "latest-projects-title"
+  },
+  "legend-1-email": {
+    "defaultMessage": "Send me a message from here.",
+    "description": "legend-1-email"
+  },
+  "legend-2-email": {
+    "defaultMessage": "!Simple and Fast¡",
+    "description": "legend-2-email"
+  },
+  "message-email": {
+    "defaultMessage": "Message",
+    "description": "message-email"
+  },
+  "name-email": {
+    "defaultMessage": "Name",
+    "description": "name-email"
+  },
+  "occupation-description": {
+    "defaultMessage": "I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development.",
+    "description": "occupation-description"
+  },
+  "philosophy": {
+    "defaultMessage": "I believe in always keep learning new things, code with the best-known practices, and looking forward to those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future.",
+    "description": "philosophy"
   },
   "ravenous-description": {
     "defaultMessage": "Ravenous searches for restaurants in a city or country with a given type of food.",
     "description": "ravenous-description"
+  },
+  "required-field-email": {
+    "defaultMessage": "*Required",
+    "description": "required-field-email"
+  },
+  "sPe6XA": {
+    "defaultMessage": "Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes.",
+    "description": "work-n-flow-description"
+  },
+  "skills": {
+    "defaultMessage": "The scope of my skills cover front-end technologies such as:",
+    "description": "skills"
+  },
+  "social-media-title": {
+    "defaultMessage": "Social Media",
+    "description": "social-media-title"
+  },
+  "subject-email": {
+    "defaultMessage": "Subject",
+    "description": "subject-email"
+  },
+  "testing-skills-description": {
+    "defaultMessage": "I also write unit and/or integration tests with:",
+    "description": "testing-skills-description"
+  },
+  "the-social-conejito-description": {
+    "defaultMessage": "The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment.",
+    "description": "the-social-conejito-description"
+  },
+  "title-about-me": {
+    "defaultMessage": "About Me",
+    "description": "title-about-me"
+  },
+  "title-hobbies": {
+    "defaultMessage": "Hobbies and Lecture",
+    "description": "title-hobbies"
+  },
+  "title-philosophy": {
+    "defaultMessage": "Philosophy",
+    "description": "title-philosophy"
+  },
+  "word-and": {
+    "defaultMessage": "and",
+    "description": "word-and"
   }
 }

@@ -1,116 +1,8 @@
 {
-  "email-tooltip": [
-    {
-      "type": 0,
-      "value": "!Send an email to Lucio¡"
-    }
-  ],
-  "legend-1-email": [
-    {
-      "type": 0,
-      "value": "Send me a message from here."
-    }
-  ],
-  "legend-2-email": [
-    {
-      "type": 0,
-      "value": "!Simple and Fast¡"
-    }
-  ],
-  "name-email": [
-    {
-      "type": 0,
-      "value": "Name"
-    }
-  ],
-  "required-field-email": [
-    {
-      "type": 0,
-      "value": "*Required"
-    }
-  ],
-  "emailField-email": [
-    {
-      "type": 0,
-      "value": "Email"
-    }
-  ],
-  "subject-email": [
-    {
-      "type": 0,
-      "value": "Subject"
-    }
-  ],
-  "message-email": [
-    {
-      "type": 0,
-      "value": "Message"
-    }
-  ],
-  "contact-me-email": [
-    {
-      "type": 0,
-      "value": "Or contact me"
-    }
-  ],
-  "social-media-title": [
-    {
-      "type": 0,
-      "value": "Social Media"
-    }
-  ],
-  "github-tooltip": [
-    {
-      "type": 0,
-      "value": "Lucio's GitHub"
-    }
-  ],
-  "language-title": [
-    {
-      "type": 0,
-      "value": "Language"
-    }
-  ],
-  "sPe6XA": [
-    {
-      "type": 0,
-      "value": "Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes."
-    }
-  ],
   "EwIX2U": [
     {
       "type": 0,
       "value": "Visit Work & Flow"
-    }
-  ],
-  "title-about-me": [
-    {
-      "type": 0,
-      "value": "About Me"
-    }
-  ],
-  "title-philosophy": [
-    {
-      "type": 0,
-      "value": "Philosophy"
-    }
-  ],
-  "philosophy": [
-    {
-      "type": 0,
-      "value": "I believe in always keep learning new things, code with the best known practices and looking forward for those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future."
-    }
-  ],
-  "title-hobbies": [
-    {
-      "type": 0,
-      "value": "Hobbies and Lecture"
-    }
-  ],
-  "hobbies": [
-    {
-      "type": 0,
-      "value": "Usually, I found myself playing video games, watching YouTube cartoons and reading non-fiction books for my professional growth. My last three favorites are 'Code Complete' by Steve McConnell, 'Software Composition' by Eric Elliot and 'Essentialism: The Disciplined Pursuit of Less' by Greg McKeown."
     }
   ],
   "NOaj/S": [
@@ -119,28 +11,16 @@
       "value": "Web Developer"
     }
   ],
-  "occupation-description": [
+  "OAmJPR": [
     {
       "type": 0,
-      "value": "I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development."
+      "value": "B&B Bicentenario is a real state website. This project also includes its own CMS"
     }
   ],
-  "skills": [
+  "app-page-button": [
     {
       "type": 0,
-      "value": "The scope of my skills cover front-end technologies such as:"
-    }
-  ],
-  "word-and": [
-    {
-      "type": 0,
-      "value": "and"
-    }
-  ],
-  "testing-skills-description": [
-    {
-      "type": 0,
-      "value": "I also write unit and/or integration tests with:"
+      "value": "App's Page"
     }
   ],
   "back-end-skills-description-partOne": [
@@ -155,16 +35,10 @@
       "value": "for back-end and model solutions."
     }
   ],
-  "latest-projects-title": [
+  "code-button": [
     {
       "type": 0,
-      "value": "Latest Projects"
-    }
-  ],
-  "the-social-conejito-description": [
-    {
-      "type": 0,
-      "value": "The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment."
+      "value": "Source Code"
     }
   ],
   "code-word": [
@@ -173,34 +47,160 @@
       "value": "Code"
     }
   ],
-  "code-button": [
+  "contact-me-email": [
     {
       "type": 0,
-      "value": "Source Code"
+      "value": "Or contact me"
     }
   ],
-  "app-page-button": [
+  "email-tooltip": [
     {
       "type": 0,
-      "value": "App's Page"
+      "value": "!Send an email to Lucio¡"
     }
   ],
-  "adventure-code-title": [
+  "emailField-email": [
     {
       "type": 0,
-      "value": "Adventure Code"
+      "value": "Email"
     }
   ],
-  "adventure-code-description": [
+  "github-tooltip": [
     {
       "type": 0,
-      "value": "Adventure Code is an online Code Editor where everyone, who register, can write code and evaluate the output."
+      "value": "Lucio's GitHub"
+    }
+  ],
+  "hobbies": [
+    {
+      "type": 0,
+      "value": "Usually, I found myself playing video games, watching YouTube cartoons, and reading non-fiction books for my professional growth. My last three favorites are 'Code Complete' by Steve McConnell, 'Software Composition' by Eric Elliot and 'Essentialism: The Disciplined Pursuit of Less' by Greg McKeown."
+    }
+  ],
+  "k7a7JJ": [
+    {
+      "type": 0,
+      "value": "Visit B&B Bicentenario"
+    }
+  ],
+  "language-title": [
+    {
+      "type": 0,
+      "value": "Language"
+    }
+  ],
+  "latest-projects-title": [
+    {
+      "type": 0,
+      "value": "Latest Projects"
+    }
+  ],
+  "legend-1-email": [
+    {
+      "type": 0,
+      "value": "Send me a message from here."
+    }
+  ],
+  "legend-2-email": [
+    {
+      "type": 0,
+      "value": "!Simple and Fast¡"
+    }
+  ],
+  "message-email": [
+    {
+      "type": 0,
+      "value": "Message"
+    }
+  ],
+  "name-email": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
+  "occupation-description": [
+    {
+      "type": 0,
+      "value": "I am a web developer specialized in front end, with knowledge in back end, who is constantly learning the best practices of software development."
+    }
+  ],
+  "philosophy": [
+    {
+      "type": 0,
+      "value": "I believe in always keep learning new things, code with the best-known practices, and looking forward to those yet to discover. I also trust in making good and honest work from the beginning in order to avoid extra effort and costs in the future."
     }
   ],
   "ravenous-description": [
     {
       "type": 0,
       "value": "Ravenous searches for restaurants in a city or country with a given type of food."
+    }
+  ],
+  "required-field-email": [
+    {
+      "type": 0,
+      "value": "*Required"
+    }
+  ],
+  "sPe6XA": [
+    {
+      "type": 0,
+      "value": "Work & Flow is a personal task register which tracks how much time the user spends working, resting, and which tasks complete in workload intervals of 25 minutes."
+    }
+  ],
+  "skills": [
+    {
+      "type": 0,
+      "value": "The scope of my skills cover front-end technologies such as:"
+    }
+  ],
+  "social-media-title": [
+    {
+      "type": 0,
+      "value": "Social Media"
+    }
+  ],
+  "subject-email": [
+    {
+      "type": 0,
+      "value": "Subject"
+    }
+  ],
+  "testing-skills-description": [
+    {
+      "type": 0,
+      "value": "I also write unit and/or integration tests with:"
+    }
+  ],
+  "the-social-conejito-description": [
+    {
+      "type": 0,
+      "value": "The Social Conejito is a social network composed of short messages named 'Squeals or Screams' for user expression where everyone can see, like and comment."
+    }
+  ],
+  "title-about-me": [
+    {
+      "type": 0,
+      "value": "About Me"
+    }
+  ],
+  "title-hobbies": [
+    {
+      "type": 0,
+      "value": "Hobbies and Lecture"
+    }
+  ],
+  "title-philosophy": [
+    {
+      "type": 0,
+      "value": "Philosophy"
+    }
+  ],
+  "word-and": [
+    {
+      "type": 0,
+      "value": "and"
     }
   ]
 }
