@@ -11,7 +11,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 // Custom Icons
 import Conejito from "assets/img/customIcons/Conejito";
 import WorkNFlow from "assets/img/customIcons/WorkNFlow";
-import Ravenous from "assets/img/customIcons/Ravenous";
+import BBBic from "assets/img/customIcons/BBBic";
 
 //Redux
 import { connect } from 'react-redux';
@@ -386,6 +386,50 @@ function ProfilePage(props: any) {
                   tabs={[
 
                     {
+                      tabButton: "B&B Bicentenario",
+                      tabIcon: BBBic,
+                      tabContent: (
+                        <GridContainer justify="center">
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                            <iframe title='BBBic' className={classes.projectIframe} src="https://elastic-montalcini-1b05f7.netlify.app/"></iframe>
+                          </GridItem>
+
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+                            <div className={classes.projectDescription}>
+                            <FormattedMessage
+                              defaultMessage="B&B Bicentenario is a real state website. This project also includes its own CMS."
+                              description='bbbic-description'
+                              />
+                            </div>
+                          </GridItem>
+
+                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
+
+                            <div className={classes.projectsButtonsContainer}>
+
+                              <Button
+                                href="https://elastic-montalcini-1b05f7.netlify.app/" 
+                                target='_blank'
+                                rel="noopener noreferrer"
+                                className='appPageButton' 
+                                color="primary" 
+                                variant='contained' 
+                                startIcon={<BBBic />}
+                              >
+                                {intl.formatMessage({
+                                  defaultMessage: "App's Page",
+                                  description: 'app-page-button',
+                                  id: "app-page-button",
+                                })}
+                              </Button>
+                            </div>
+
+                          </GridItem>
+                        </GridContainer>
+                        )
+                      },
+
+                    {
                       tabButton: 'Work & Flow',
                       tabIcon: WorkNFlow,
                       tabContent: (
@@ -498,73 +542,7 @@ function ProfilePage(props: any) {
                       )
                     },
                     
-                    {
-                      tabButton: "Ravenous",
-                      tabIcon: Ravenous,
-                      tabContent: (
-                        <GridContainer justify="center">
-                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                            <iframe title='Ravenous' className={classes.projectIframe} src="https://ravenous-8b12b.firebaseapp.com/"></iframe>
-                          </GridItem>
-
-                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-                            <div className={classes.projectDescription}>
-                              <p>
-                                {intl.formatMessage({
-                                  defaultMessage: "Ravenous searches for restaurants in a city or country with a given type of food.",
-                                  description: 'ravenous-description',
-                                  id: "ravenous-description",
-                                })}
-                              </p>
-                            </div>
-                          </GridItem>
-
-                          <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
-
-                            <div className={classes.projectsButtonsContainer}>
-                              <Button
-                                href='https://github.com/LucioChavezFuentes/Ravenous'
-                                target='_blank'
-                                rel="noopener noreferrer"
-                                className='gitHubButton'
-                                classes={{startIcon: 'startIcon'}}
-                                color='github' 
-                                startIcon={<GitHubIcon />}
-                              >
-                              {isMobile ? 
-                                intl.formatMessage({
-                                  defaultMessage: 'Code',
-                                  description: 'code-word',
-                                  id: "code-word",
-                                }) : 
-                                intl.formatMessage({
-                                  defaultMessage: 'Source Code',
-                                  description: 'code-button',
-                                  id: "code-button",
-                                })}
-                              </Button>
-
-                              <Button
-                                href="https://ravenous-8b12b.firebaseapp.com/" 
-                                target='_blank'
-                                rel="noopener noreferrer"
-                                className='appPageButton' 
-                                color="primary" 
-                                variant='contained' 
-                                startIcon={<Ravenous />}
-                              >
-                                {intl.formatMessage({
-                                  defaultMessage: "App's Page",
-                                  description: 'app-page-button',
-                                  id: "app-page-button",
-                                })}
-                              </Button>
-                            </div>
-
-                          </GridItem>
-                        </GridContainer>
-                        )
-                      }
+                    
                     ]}
                   />
                 </GridItem>
