@@ -1,4 +1,8 @@
 {
+  "8ysug5": {
+    "defaultMessage": "B&B Bicentenario is a real state website. This project is in its final stage of development and also includes its own CMS.",
+    "description": "bbbic-description"
+  },
   "EwIX2U": {
     "defaultMessage": "Visit Work & Flow",
     "description": "The visit label for Work & Flow's link button"
@@ -86,10 +90,6 @@
   "qQWPxB": {
     "defaultMessage": "B&B Bicentenario is a real state website. This project also includes its own CMS.",
     "description": "bbbic-description"
-  },
-  "ravenous-description": {
-    "defaultMessage": "Ravenous searches for restaurants in a city or country with a given type of food.",
-    "description": "ravenous-description"
   },
   "required-field-email": {
     "defaultMessage": "*Required",

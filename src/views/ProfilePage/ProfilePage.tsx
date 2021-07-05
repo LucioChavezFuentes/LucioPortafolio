@@ -397,7 +397,7 @@ function ProfilePage(props: any) {
                           <GridItem xs={fullWidth} sm={fullWidth} md={fullWidth}>
                             <div className={classes.projectDescription}>
                             <FormattedMessage
-                              defaultMessage="B&B Bicentenario is a real state website. This project also includes its own CMS."
+                              defaultMessage="B&B Bicentenario is a real state website. This project is in its final stage of development and also includes its own CMS."
                               description='bbbic-description'
                               />
                             </div>
