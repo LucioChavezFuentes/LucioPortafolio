@@ -68,7 +68,7 @@ const projectsById = {
 
     title: "B&B Bicentenario",
     description: <FormattedMessage
-    defaultMessage="B&B Bicentenario is a real state website. This project is in its final stage of development and also includes its own CMS."
+    defaultMessage="B&B Bicentenario is a real estate website. This project is in its final stage of development and also includes its own CMS."
     description='bbbic-description'
      />,
      ButtonLink: <BBBicLink
