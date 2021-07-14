@@ -26,7 +26,7 @@ import WorkNFlowLink from 'components/ProjectButtonLinks/WorkNFlowLink';
 import BBBicLink from 'components/ProjectButtonLinks/BBBicLink';
 
 //Buttons
-import AdvCoSourceCodeLink from "components/CustomButtons/AdvCoSourceCodeLink";
+import GitHubButton from 'components/CustomButtons/GitHubButton';
 
 //TODO: Find a way to use the costum IntlMessage component with formatjs' babel inserting id plugins without errors.
 // Use the react-intl's FormattedMessage instead of a helper in order to compile without explicit ids and make the lang scripts work..for now
@@ -118,6 +118,7 @@ const projectsById = {
         description="The visit label for social conejito's link button"
         id='visit-label-conejito-button' />} />,
     logo: Conejito,
+    ButtonCode: <GitHubButton href='https://github.com/LucioChavezFuentes/TheSocialConejitoComplete' />,
     id: 'socialConejito',
   },
   ravenous: {
@@ -180,7 +181,7 @@ const projectsById = {
       description="The visit label for adventure code's link button"
       id='visit-label-adventure-code-button'
     />} />,
-    ButtonCode: AdvCoSourceCodeLink,
+    ButtonCode: <GitHubButton  href='https://github.com/LucioChavezFuentes/codigoAventura' />,
     logo: AdventureCode,
     id: 'adventureCode',
   },
