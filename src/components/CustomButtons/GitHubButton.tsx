@@ -1,24 +1,15 @@
 import React from 'react'
 import Button from "@material-ui/core/Button";
 
+//React Intl 
+import {FormattedMessage} from 'react-intl';
 
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 import GitHubIcon from '@material-ui/icons/GitHub';
+import { ExtendedButtonProps } from '@material-ui/core';
 
-interface ButtonProps {
 
-  children?: React.ReactNode;
-        color?: "primary" | "secondary";
-        disabled?: boolean;
-        disableElevation?: boolean;
-        disableFocusRipple?: boolean;
-        endIcon?: React.ReactNode;
-        fullWidth?: boolean;
-        href?: string;
-        size?: 'small' | 'medium' | 'large';
-        variant?: 'text' | 'outlined' | 'contained';
-}
 
 const GitHubButtonBase = withStyles({
 
@@ -42,11 +33,17 @@ const GitHubButtonBase = withStyles({
   }
 })(Button);
 
-function GitHubButton({children, ...rest} : ButtonProps ) : JSX.Element {
+
+const GitHubButton = ({children, href, ...rest} : ExtendedButtonProps ) : JSX.Element => {
 
   return (
-    <GitHubButtonBase startIcon={<GitHubIcon />}  {...rest} >
-      {children}
+    <GitHubButtonBase startIcon={<GitHubIcon />} href={href} target="_blank" rel="noopener noreferrer"  {...rest} >
+      {
+      children || <FormattedMessage 
+																defaultMessage= 'Source Code'
+																description= 'code-button'
+																id= "code-button" />
+                                }
     </GitHubButtonBase>
   )
 }

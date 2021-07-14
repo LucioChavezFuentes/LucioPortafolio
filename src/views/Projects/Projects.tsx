@@ -8,8 +8,6 @@ import GridItem from "components/Grid/GridItem";
 
 //Redux
 import { useSelector } from 'react-redux';
-//React Intl 
-import {FormattedMessage} from 'react-intl';
 
 // @material-ui/core components
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -307,14 +305,7 @@ const Projects = (props) => {
 											<div className={classes.webSiteLink} style={{flex: '1'}}>
 												{ButtonLink}
 												<div className='sourceCodeLink' >
-													{ButtonCode ? 
-														<ButtonCode>
-															<FormattedMessage 
-																defaultMessage= 'Source Code'
-																description= 'code-button'
-																id= "code-button" />
-															</ButtonCode> : (
-
+													{ButtonCode || (
 																<div></div>
 															) }
 												</div>
